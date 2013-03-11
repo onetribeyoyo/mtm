@@ -1,0 +1,45 @@
+ruleset {
+    description "customized from ruleset/basic.xml"
+
+    AssertWithinFinallyBlock
+    AssignmentInConditional
+    BigDecimalInstantiation
+    BitwiseOperatorInConditional
+    BooleanGetBoolean
+    BrokenNullCheck
+    BrokenOddnessCheck
+    ClassForName
+    ComparisonOfTwoConstants
+    ComparisonWithSelf
+    ConstantAssertExpression
+    ConstantIfExpression
+    ConstantTernaryExpression
+    DeadCode
+    DoubleNegative
+    DuplicateCaseStatement
+    DuplicateMapKey
+    DuplicateSetValue
+    EmptyCatchBlock
+    EmptyElseBlock
+    EmptyFinallyBlock
+    EmptyForStatement
+    EmptyIfStatement
+    EmptyInstanceInitializer
+    EmptyMethod
+    EmptyStaticInitializer
+    EmptySwitchStatement
+    EmptySynchronizedStatement
+    EmptyTryBlock
+    EmptyWhileStatement
+    EqualsAndHashCode
+    EqualsOverloaded
+    ExplicitGarbageCollection
+    ForLoopShouldBeWhileLoop
+    HardCodedWindowsFileSeparator
+    HardCodedWindowsRootDirectory
+    IntegerGetInteger
+    RandomDoubleCoercedToZero
+    RemoveAllOnSelf
+    ReturnFromFinallyBlock
+    ThrowExceptionFromFinallyBlock
+}

@@ -1,0 +1,78 @@
+/*~ card grid layout --------------------------------------------------------------------------- */
+
+.grid {
+   display: table;
+   /* width: 100%; */
+}
+.grid-row {
+   display: table-row;
+}
+.grid-column-head {
+   display: table-cell;
+   text-align: center;
+   vertical-align: top;
+}
+.grid-row-head {
+   display: table-cell;
+   text-align: right;
+   vertical-align: top;
+}
+.grid-cell {
+   display: table-cell;
+   vertical-align: top;
+}
+.grid-blank {
+   display: table-cell;
+   min-width: 2em;
+   text-align: center;
+   vertical-align: middle;
+}
+.grid-placeholder {
+   display: table-cell;
+   width: 9em;
+   height: 3em;
+}
+
+/*~ card grid decorations ---------------------------------------------------------------------- */
+
+.grid {
+}
+
+.grid-placeholder {
+   background-color: khaki;
+}
+.grid-cell, .grid-column-head, .grid-column-head {
+}
+.grid-column-head {
+   border: 3px double lightgray;
+   min-width: 9em;
+}
+.grid-blank + .grid-column-head { /* the first column heading */
+}
+
+.grid-row-head {
+   padding: 1em 0.25em;
+}
+.grid-cell {
+   border: 3px double lightgray;
+}
+.grid-row-head + .grid-cell { /* the first cell in a row */
+}
+
+.grid-blank {
+}
+
+/*~ card grid text ----------------------------------------------------------------------------- */
+
+.grid {
+   color: black;
+}
+.grid-column-head {
+   font-weight: bold;
+   text-align: center;
+}
+.grid-row-head {
+   font-weight: bold;
+   text-align: right;
+   white-space: nowrap;
+}

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+PORT=8090
+
+if [ "$1" ] ; then
+    FILE=$1
+    if [ -f $FILE ] ; then
+        grails -Dserver.port=$PORT -Duser.timezone=UTC run-app -Dmtm.bootstrap.filename=$FILE
+    else
+        echo "file not found: $FILE"
+    fi
+else
+    grails -Dserver.port=$PORT -Duser.timezone=UTC run-app
+fi

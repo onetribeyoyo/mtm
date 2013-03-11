@@ -1,0 +1,47 @@
+ruleset {
+    description "customized from rulesets/unnecessary.xml"
+
+    AddEmptyString
+    ConsecutiveLiteralAppends
+    ConsecutiveStringConcatenation
+    UnnecessaryBigDecimalInstantiation
+    UnnecessaryBigIntegerInstantiation
+    UnnecessaryBooleanExpression
+    UnnecessaryBooleanInstantiation
+    UnnecessaryCallForLastElement
+    UnnecessaryCallToSubstring
+    UnnecessaryCatchBlock
+    UnnecessaryCollectCall
+    UnnecessaryCollectionCall
+    UnnecessaryConstructor
+    UnnecessaryDefInFieldDeclaration
+    UnnecessaryDefInMethodDeclaration
+    UnnecessaryDefInVariableDeclaration
+    UnnecessaryDotClass
+    UnnecessaryDoubleInstantiation
+    UnnecessaryElseStatement
+    UnnecessaryFinalOnPrivateMethod
+    UnnecessaryFloatInstantiation
+    UnnecessaryGString
+    UnnecessaryGetter
+    UnnecessaryIfStatement
+    UnnecessaryInstanceOfCheck
+    UnnecessaryInstantiationToGetClass
+    UnnecessaryIntegerInstantiation
+    UnnecessaryLongInstantiation
+    UnnecessaryModOne
+    UnnecessaryNullCheck
+    UnnecessaryNullCheckBeforeInstanceOf
+    UnnecessaryObjectReferences
+    UnnecessaryOverridingMethod
+    UnnecessaryPackageReference
+    UnnecessaryParenthesesForMethodCallWithClosure
+    UnnecessaryPublicModifier
+    UnnecessaryReturnKeyword
+    UnnecessarySelfAssignment
+    UnnecessarySemicolon
+    UnnecessaryStringInstantiation
+    UnnecessarySubstring
+    UnnecessaryTernaryExpression
+    UnnecessaryTransientModifier
+}

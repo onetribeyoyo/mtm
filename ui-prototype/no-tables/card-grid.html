@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+  <title></title>
+
+  <link rel="stylesheet" type="text/css" media="screen" href="css/card-grid.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/misc.css">
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+  <script type="text/javascript" >
+    $(function() {
+        $(".card-grid-cell").sortable({
+            connectWith: ".card-grid-cell",
+            //cursor: "move",
+            placeholder: "card-grid-placeholder"
+        });
+        $(".card-grid").disableSelection();
+    });
+  </script>
+</head>
+
+<body>
+
+<div class="card-grid">
+  <ul class="card-grid-row">
+    <li class="card-grid-blank"></li>
+    <li class="card-grid-column-head">column a</li>
+    <li class="card-grid-column-head">column b</li>
+    <li class="card-grid-column-head">column c</li>
+  </ul>
+  <ul class="card-grid-row">
+    <li class="card-grid-row-head odd">
+      row 1
+      <a href="#" class="y row-toggle nowrap hidden" rid="${release.id}"><img src="images/arrow_expand.gif" /></a>
+      <a href="#" class="y row-toggle nowrap" rid="${release.id}"><img src="images/arrow_collapse.gif" /></a>
+    </li>
+    <li class="card-grid-cell odd">
+      <div class="card"> <div>1: summary</div> <div>details</div> </div>
+      <div class="card"> <div>2: summary</div> <div>details</div> </div>
+      &nbsp;
+    </li>
+    <li class="card-grid-cell odd">
+      <div class="card"> <div>3: summary</div> <div>details</div> </div>
+      &nbsp;
+    </li>
+    <li class="card-grid-cell odd">
+      <div class="card"> <div>4: summary</div> <div>details</div> </div>
+      <div class="card"> <div>5: summary</div> <div>details</div> </div>
+      <div class="card"> <div>6: summary</div> <div>details</div> </div>
+      &nbsp;
+    </li>
+  </ul>
+  <ul class="card-grid-row">
+    <li class="card-grid-row-head even">
+      row 2
+      <a href="#" class="y row-toggle nowrap hidden" rid="${release.id}"><img src="images/arrow_expand.gif" /></a>
+      <a href="#" class="y row-toggle nowrap" rid="${release.id}"><img src="images/arrow_collapse.gif" /></a>
+    </li>
+    <li class="card-grid-cell even">
+      <div class="card"> <div>7: summary</div> <div>details</div> </div>
+      <div class="card"> <div>8: summary</div> <div>details</div> </div>
+      <div class="card"> <div>9: summary</div> <div>details</div> </div>
+      &nbsp;
+    </li>
+    <li class="card-grid-cell even">
+      <div class="card"> <div>10: summary</div> <div>details</div> </div>
+      &nbsp;
+    </li>
+    <li class="card-grid-cell even">
+      <div class="card"> <div>11: summary</div> <div>details</div> </div>
+      <div class="card"> <div>12: summary</div> <div>details</div> </div>
+      &nbsp;
+    </li>
+  </ul>
+  <ul class="card-grid-row">
+    <li class="card-grid-row-head odd">
+      row 3
+      <a href="#" class="y row-toggle nowrap hidden" rid="${release.id}"><img src="images/arrow_expand.gif" /></a>
+      <a href="#" class="y row-toggle nowrap" rid="${release.id}"><img src="images/arrow_collapse.gif" /></a>
+    </li>
+    <li class="card-grid-cell odd">
+      <div class="card"> <div>13: summary</div> <div>details</div> </div>
+      &nbsp;
+    </li>
+    <li class="card-grid-cell odd">
+      <div class="card"> <div>14: summary</div> <div>details</div> </div>
+      <div class="card"> <div>15: summary</div> <div>details</div> </div>
+      <div class="card"> <div>16: summary</div> <div>details</div> </div>
+      &nbsp;
+    </li>
+    <li class="card-grid-cell odd">
+      <div class="card"> <div>17: summary</div> <div>details</div> </div>
+      <div class="card"> <div>18: summary</div> <div>details</div> </div>
+      &nbsp;
+    </li>
+  </ul>
+</div> <!-- card-grid -->
+
+</body>
+
+</html>

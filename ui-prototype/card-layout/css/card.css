@@ -1,0 +1,47 @@
+/*~ cards -------------------------------------------------------------------------------------- */
+
+.card {
+   background: wheat;
+   border: 1px solid #777;
+   border-radius: 3px;
+   margin: .5em 0;
+   max-width: 30em;
+   min-width: 12em;
+}
+.card .summary {
+   cursor: move;
+   margin: .25em;
+}
+.card .detail {
+   background: white;
+   border: 1px solid #777;
+   font-size: .8em;
+   line-height: 1.5em;
+   margin: .5em;
+   min-height: 100px;
+   padding: .25em .5em;
+}
+.card .footer {
+   padding: 0 .5em .25em .5em;
+}
+
+
+/*~ status ------------------------------------------------------------------------------------- */
+
+.status {
+   padding: 0 0 0 2em;
+   border: 1px solid #777;
+   border-radius: 25px;
+   -moz-border-radius: 25px; /* Firefox 3.6 and earlier */
+   word-spacing: 0;
+}
+.status-group {
+   padding: .5em;
+   word-spacing: -.5em;
+}
+.undefined      { background: Gainsboro; }
+.on-deck        { background: Wheat; }
+.in-progress    { background: GoldenRod; }
+.ready-to-test  { background: #0099cc; }
+.done           { background: OliveDrab; }
+.blocked        { background-image: url('../images/icons/stop.png'); background-position: 2px center ; background-repeat: no-repeat; }

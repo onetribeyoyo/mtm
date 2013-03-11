@@ -1,0 +1,27 @@
+/*~  forms ------------------------------------------------------------------------------------- */
+
+form dl {
+   border: black;
+   padding: 0.5em;
+}
+form dt {
+   float: left;
+   font-weight: bold;
+   min-width: 7em;
+   padding: 0.3em 0.5em 0.3em 0em;
+   /* text-align: right; */
+}
+form dd {
+   padding: 0.3em 0.0em 0.3em 0.0em;
+}
+
+fieldset {
+   border: none;
+/*
+   background: #eeeeee;
+   border: 1px solid #777;
+   border-radius: 15px;
+   margin: 0.25em;
+   padding: 1em;
+*/
+}

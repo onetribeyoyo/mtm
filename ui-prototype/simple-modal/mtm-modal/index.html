@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> SimpleModal OSX Style Dialog </title>
+  <meta name='author' content='Eric Martin' />
+  <meta name='copyright' content='2012 - Eric Martin' />
+
+  <!-- Page styles -->
+  <link type='text/css' href='css/demo.css' rel='stylesheet' media='screen' />
+
+  <!-- OSX Style CSS files -->
+  <link type='text/css' href='css/modal.css' rel='stylesheet' media='screen' />
+
+  <!-- JS files are loaded at the bottom of the page -->
+</head>
+
+<body>
+
+<div id='container'>
+  <div id='logo'>
+    <h1><span>MTM</span> Modal</h1>
+    <span class='title'>Modal Dialogs for the Magic Task Machine</span>
+  </div>
+  <div id='content'>
+    <div id='mtm-modal'>
+      <input type='button' name='mtm-modal' value='Demo' class='mtm-modal demo'/>
+    </div>
+
+    <!-- modal content -->
+    <div id="mtm-modal-content">
+      <div id="mtm-modal-title">Modal Dialog</div>
+      <div class="close"><a href="#" class="simplemodal-close">x</a></div>
+      <div id="mtm-modal-data">
+        <h2>h2</h2>
+        <p>paragraph.</p>
+        <p>another paragraph..</p>
+        <p><button class="simplemodal-close">Close</button> <span>(or press ESC or click the overlay)</span></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Load JavaScript files -->
+<script type='text/javascript' src='js/jquery.js'></script>
+<script type='text/javascript' src='js/jquery.simplemodal.js'></script>
+<script type='text/javascript' src='js/modal.js'></script>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+/*~  misc. ------------------------------------------------------------------------------------- */
+
+.left   { text-align: left; }
+.right  { text-align: right; }
+.center { text-align: center; }
+
+.hidden { display: none; }
+
+.nowrap { white-space: nowrap; }
+
+.float       { float: both; }
+.float-left  { float: left; }
+.float-right { float: right; }
+.clear       { clear: both; }
+
+.heavy-padding { padding: 1em; }
+.light-padding { padding: .25em; }
+
+.heavy-margin { margin: 1em; }
+.light-margin { margin: .25em; }
+
+.odd  { background: #edf3fe; }
+.even { background: white; }

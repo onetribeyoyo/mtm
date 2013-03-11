@@ -1,0 +1,66 @@
+"feature","release","name","progress"
+"Pattern Languages","r?","domain model",0.5
+"Pattern Languages","r?","requirements management",
+"Pattern Languages","r?","communication patterns",
+"Pattern Languages","r?","user feedback mechanisms",
+"Pattern Languages","r?","prioritization games",
+"Pattern Languages","r?","release cadence",0.5
+"Pattern Languages","r?","issue tracking",
+"Pattern Languages","r?","refactoring guidelines",
+"Pattern Languages","r?","quality measures",
+"Pattern Languages","r?","construction patterns",0.5
+"Pattern Languages","r?","tools and environments",0.5
+"Scope","§ 1. Up front discuss....","Problem statement",0.5
+"Scope","§ 1. Up front discuss....","Vision of solution",0.5
+"Scope","§ 1. Up front discuss....","Requirements & scope",0.5
+"Scope","§ 1. Up front discuss....","Business and technical priorities",0.5
+"Scope","§ 1. Up front discuss....","Interoperability/integration requirements",0.5
+"Scope","§ 1. Up front discuss....","Quality(/qualitative) measures and priorities",
+"Scope","§ 1. Up front discuss....","Final acceptance criteria",
+"Schedule","§ 1. Up front discuss....","Calendar constraints and delivery dates",0.5
+"Schedule","§ 1. Up front discuss....","Budget constraints",0.5
+"Schedule","§ 1. Up front discuss....","Initial estimate",0.5
+"Schedule","§ 1. Up front discuss....","Initial release plan",0.5
+"Team","§ 1. Up front discuss....","Staffing",0.5
+"Team","§ 1. Up front discuss....","Space planning",0.5
+"Schedule","§ 1. Up front discuss....","Intangible expectations (knowledge sharing, mentoring, ....)",
+"Tools","§ 1. Up front discuss....","Tool constraints",0.5
+"Team","§ 2. Early on team agrees on....","everything from § 1.",
+"Team","§ 2. Early on team agrees on....","team and roles",0.5
+"Team","§ 2. Early on team agrees on....","other contributors",
+"Team","§ 2. Early on team agrees on....","accountability (RACI model?)",0.5
+"Methods","§ 2. Early on team agrees on....","methods for release and iteration approach",0.5
+"Methods","§ 2. Early on team agrees on....","methods for estimation and release planning",0.5
+"Methods","§ 2. Early on team agrees on....","methods for iteration/task planning",0.5
+"Methods","§ 2. Early on team agrees on....","methods for requirements management",0.5
+"Methods","§ 2. Early on team agrees on....","methods for deployment planning",0.5
+"Methods","§ 2. Early on team agrees on....","methods for user feedback planning",
+"Methods","§ 2. Early on team agrees on....","methods for tracking progress",
+"Methods","§ 2. Early on team agrees on....","methods for risk management",0.5
+"Methods","§ 2. Early on team agrees on....","methods for configuration and build management",0.5
+"Methods","§ 2. Early on team agrees on....","methods for bug tracking",
+"Tools","§ 2. Early on team agrees on....","tool selection: run-time tools",0.5
+"Tools","§ 2. Early on team agrees on....","tool selection: development tools",0.5
+"Tools","§ 2. Early on team agrees on....","tool selection: collaboration/communication tools",
+"Tools","§ 2. Early on team agrees on....","tool selection: requirements management tools",
+"Tools","§ 2. Early on team agrees on....","tool selection: bug tracking tools",
+"Solution","§ 3. Architecture POC","formulate and implement application patterns",0.5
+"Solution","§ 3. Architecture POC","formulate and implement coding/naming conventions",
+"Solution","§ 3. Architecture POC","formulate and implement code and design reviews expectations",
+"Solution","§ 3. Architecture POC","formulate and implement security framework",
+"Solution","§ 3. Architecture POC","formulate and implement usability/HCI guidelines",
+"Solution","§ 3. Architecture POC","interoperability/integration guidelines",0.5
+"Testing","§ 3. Architecture POC","testing expectations for managing test data sets",
+"Testing","§ 3. Architecture POC","testing expectations for  unit tests",
+"Testing","§ 3. Architecture POC","testing expectations for integration tests",
+"Testing","§ 3. Architecture POC","testing expectations for functional (black box) tests",
+"Testing","§ 3. Architecture POC","testing expectations for regression tests",
+"Tools","§ 3. Architecture POC","environments: development workstations, servers",0.5
+"Tools","§ 3. Architecture POC","environments: testing servers",0.5
+"Tools","§ 3. Architecture POC","environments: user session servers",
+"Tools","§ 3. Architecture POC","environments: pre-production servers",
+"Tools","§ 3. Architecture POC","environments: production servers",
+"Tools","§ 3. Architecture POC","build automation and dependency resolution",0.5
+"Tools","§ 3. Architecture POC","test harnesses (including containers, DBs, ....)",0.5
+"Tools","§ 3. Architecture POC","server infrastructure (db, build, app, ....)",0.5
+"Solution","§ 3. Architecture POC","start a deployment checklist so it's not a surprise at the end",

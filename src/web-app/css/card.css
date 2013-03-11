@@ -1,0 +1,118 @@
+/*~ cards -------------------------------------------------------------------------------------- */
+
+.card, .selected-card {
+   background: wheat;
+   border-radius: 5px;
+   cursor: move;
+   margin: 0.25em;
+   /* float: left; */
+}
+.card {
+   border: 1px solid #777;
+}
+.selected-card {
+   background-image: url("/mtm/images/card-texture.png");
+   border: 1px solid #999;
+   -webkit-box-shadow: 0 0 5px #000;
+   -moz-box-shadow: 0 0 5px #000;
+   box-shadow: 0 0 5px #000;
+}
+
+.card {
+   min-height: 2em;
+   padding: .25em .25em 0.15em .5em;
+   overflow: hidden;
+   width: 16em;
+}
+.card .detail {
+   background: white;
+   border: 1px solid #777;
+   font-size: .8em;
+   line-height: 1.5em;
+   margin: .5em;
+   min-height: 100px;
+   padding: .25em .5em;
+}
+
+.card .footer {
+   padding: 0 .5em .25em .5em;
+}
+
+.card .card-actions {
+   background-color: rgba(128, 128, 128, 0.75);
+   border-radius: 4px;
+   height: 16px;
+   margin-left: 12em;
+   padding: 3px;
+   position: absolute;
+}
+
+.card-estimate {
+   display: block;
+   float: right;
+   position: relative; top: 0; right: 0;
+}
+
+
+/*~ stories ------------------------------------------------------------------------------------ */
+
+.card .story, .card .story-abbrev {
+   margin: 0.25em;
+}
+.card .story {
+}
+.card .story-abbrev {
+}
+
+
+.card .story .summary {
+   min-height: 3em;
+}
+.card .story .vector {
+   margin-top: 0.25em;
+}
+.card .story .vector .tag {
+   float: left;
+   /* min-width: 4em; */
+
+   margin-right: 0.15em;
+
+   border-radius: 2px;
+   border: 1px solid #999;
+
+   color: #333;
+   font-size: 0.7em;
+   font-weight: bold;
+   padding: 0 0.5em;
+   text-align: center;
+}
+
+
+/*~ status ------------------------------------------------------------------------------------- */
+
+.with-questions {
+   background-repeat: no-repeat;
+   background-image: url("/mtm/images/question-mark.png");
+   background-position: right bottom;
+}
+
+.status {
+   padding: 0 0 0 2em;
+   border: 1px solid #777;
+   border-radius: 25px;
+   -moz-border-radius: 25px; /* Firefox 3.6 and earlier */
+   word-spacing: 0;
+}
+.status-group {
+   padding: .5em;
+   word-spacing: -.5em;
+}
+
+/*~ default status colours --------------------------------------------------------------------- */
+
+.undefined      { background: Snow; }
+.on-deck        { background: #eedfcc; /* AntiqueWhite2 */ }   /* wheat */
+.in-progress    { background: #cdbe70; /* LightGoldenrod3 */ } /* GoldenRod */
+.ready-to-test  { background: Aquamarine; }
+.done           { background: #c1ffc1; /* DarkSeaGreen1 */ }   /* LightGreen */
+.blocked        { background-image: url('../images/icons/stop.png'); background-position: 2px center ; background-repeat: no-repeat; }

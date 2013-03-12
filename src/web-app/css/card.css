@@ -71,6 +71,18 @@
 .card .story .vector {
    margin-top: 0.25em;
 }
+.card .story .assignedTo {
+   float: right;
+   min-width: 2.5em;
+
+   border-radius: 2px;
+   border: 1px solid #999;
+
+   color: #333;
+   font-weight: bold;
+   padding: 0.5em 0.5em;
+   text-align: center;
+}
 .card .story .vector .tag {
    float: left;
    /* min-width: 4em; */

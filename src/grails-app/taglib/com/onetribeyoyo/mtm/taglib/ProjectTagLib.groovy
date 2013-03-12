@@ -94,7 +94,7 @@ class ProjectTagLib {
             // a cell for cards where (x == null)
             out << "    <li class='grid-cell ${rowStyle}' xAxisId='${xAxis.id}' xId='' yAxisId='${yAxis.id}' yId='${y.id}'>\n"
             storymap[null][y].each { story ->
-                out << g.render(template: '/project/card', model: [story:story, layoutStyle: layoutStyle, complete: complete])
+                out << g.render(template: '/project/card', model: [story:story, layoutStyle: layoutStyle, complete: complete, xAxis: xAxis, yAxis: yAxis])
             }
             out << "    </li>\n"
 
@@ -102,7 +102,7 @@ class ProjectTagLib {
             xAxis?.elements.each { x ->
                 out << "    <li class='grid-cell ${rowStyle}' xAxisId='${xAxis.id}' xId='${x.id}' yAxisId='${yAxis.id}' yId='${y.id}'>\n"
                 storymap[x][y].each { story ->
-                    out << g.render(template: '/project/card', model: [story:story, layoutStyle: layoutStyle, complete: complete])
+                    out << g.render(template: '/project/card', model: [story:story, layoutStyle: layoutStyle, complete: complete, xAxis: xAxis, yAxis: yAxis])
                 }
                 out << "    </li>\n"
             }

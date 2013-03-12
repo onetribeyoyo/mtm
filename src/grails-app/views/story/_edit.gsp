@@ -2,11 +2,13 @@
 <g:if test="${flash.error}"><div class="error">${flash.error}</div></g:if>
 
 <g:hasErrors bean="${story}">
-  <ul class="errors">
-    <g:eachError bean="${story}" var="error">
-      <li><g:message error="${error}" /></li>
-    </g:eachError>
-  </ul>
+  <div class="error">
+    <ul class="errors">
+      <g:eachError bean="${story}" var="error">
+        <li><g:message error="${error}" /></li>
+      </g:eachError>
+    </ul>
+  </div>
 </g:hasErrors>
 
 <g:set var="updateDiv" value="story-${story.id}" />

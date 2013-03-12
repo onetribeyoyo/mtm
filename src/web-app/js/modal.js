@@ -17,8 +17,12 @@ function openMtmModal(dialogId) {
     });
 };
 
-function closeMtmModal(dialogId) {
+function closeMtmModal() {
     $.modal.close();
+};
+
+function refreshMtmModal(dialogId) {
+    // TODO: how to I make the dialog resize?
 };
 
 var modalContainer;

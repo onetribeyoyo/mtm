@@ -20,7 +20,6 @@ class ElementController {
         element.validate()
 
         if (element.hasErrors()) {
-            flash.error = "Please provide all required values."
             render status: "400", template: "create", model: [element: element]
         }
         else {
@@ -55,7 +54,6 @@ class ElementController {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'element.label', default: 'Element'), element.id])}"
                 render flash.message
             } else {
-                flash.error = "Please provide all required values."
                 render status: "400", template: "edit", model: [element: element]
             }
         }

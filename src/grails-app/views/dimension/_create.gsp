@@ -2,14 +2,17 @@
 <g:if test="${flash.error}"><div class="error">${flash.error}</div></g:if>
 
 <g:hasErrors bean="${dimension}">
-  <ul class="errors">
-    <g:eachError bean="${dimension}" var="error">
-      <li><g:message error="${error}" /></li>
-    </g:eachError>
-  </ul>
+  <div class="error">
+    <ul class="errors">
+      <g:eachError bean="${dimension}" var="error">
+        <li><g:message error="${error}" /></li>
+      </g:eachError>
+    </ul>
+  </div>
 </g:hasErrors>
 
-<g:form name="create-story" action="save">
+<%-- TODO: should be formRemote --%>
+<g:form name="create-dimension" action="save">
 
   <fieldset>
     <g:render contextPath="/dimension" template="properties" />

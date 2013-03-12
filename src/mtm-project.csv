@@ -1,66 +1,45 @@
-"feature","release","sortOrder","estimate","progress","summary","detail","status"
+"feature","release","summary","detail","status"
 
-"doc","r0.1",,,,"BLOG: Responsible Design: agile's missing link",,"in progress"
-"doc","r0.2",,,,"BLOG: Story Mapping: the glue between iterations and reality",,"in progress"
-"doc","r0.2",,,,"DOC: story mapping tutorial",,"on deck"
-"doc","r0.3",,,,"BLOG: Story based estimating the easy way",,"in progress"
-"doc","r0.3",,,,"DOC: estimation tutorial",,"on deck"
-"doc","r0.3",,,,"DOC: life of a story",,"on deck"
-"doc","r0.4",,,,"BLOG: Estimating with accurracy and precision",,"in progress"
+"card-grid","r0.1","drag-n-drop card-grid grid",,"done"
+"card-grid","r0.1","ability to support arbitrary dimensions",,"done"
+"card-grid","r0.1","pre-formatted dimensions: release, feature, status, strategy, assigned to",,"done"
+"card-grid","r0.1","project story map view by any two dimension",,"done"
+"card-grid","r0.1","story sort order by x/y dimensions",,"ready to test"
 
-"card-grid","r0.1","15","1","0.0","drag-n-drop card-grid grid by feature and release",,"done"
-"card-grid","r0.1","16","1","0.0","project story map view by feature and release",,"done"
-"card-grid","r0.1","17","1","0.0","implement story sort order by feature/release",,"done"
-"card-grid","r0.2","25","1","0.0","create/edit/delete story",,"in progress"
-"card-grid","r0.2","26","1","0.0","create/edit feature",,"on deck"
-"card-grid","r0.2","27","1","0.0","create/edit release",,"on deck"
-"card-grid","r0.2","29","1","0.0","delete feature and move stories to “default” feature",,""
-"card-grid","r0.2","30","1","0.0","delete release and move stories to “next” release",,""
-"card-grid",,"8","1","0.0","dependency view",,""
+"import/export","r0.1","export story list (to csv file)",,"ready to test"
+"import/export","r0.1","import story list (from csv file)",,"done"
+"import/export","r0.1","bootstrap loads a csv file into a project",,"done"
 
-"import/export","r0.1","12","1","0.0","export story list (to csv file)",,"done"
-"import/export","r0.1","13","1","0.0","import story list (from csv file)",,"done"
-"import/export","r0.1","14","1","0.0","bootstrap loads a csv file into a project",,"done"
-"import/export","r0.2","23","1","0.0","refactor extract to let user choose export columns",,""
 
-"project config","r0.1","18","1","0.0","feature sort order",,"done"
-"project config","r0.1","19","1","0.0","release sort order",,"done"
-"project config","r0.1","20","1","0.0","status sort order",,"done"
-"project config","r0.2","28","1","0.0","create/edit project",,"in progress"
-"project config","r0.3","36","1","0.0","delete project",,""
+"card-grid","r0.2","create/edit/delete story",,"in progress"
 
-"estimation","r0.3","33","1","0.0","heuristic estimation",,""
-"estimation","r0.3","34","1","0.0","extend CRUD to include estimation params",,""
-"estimation","r0.3","35","1","0.0","aggregate estimate for each release, feature, and project",,""
-"estimation",,"3","1","0.0","project risks",,""
-"estimation",,"4","1","0.0","project assumptions",,""
-"estimation",,"5","1","0.0","project questions",,""
+,"r0.2","refactor stories so they have a storyId that is unique per project",,"on deck"
+,"r0.2","import into project:2 is modifying project:1",,"on deck"
+,"r0.2","ability to merge two dimensions (perhaps because they were misspelled)",,"on deck"
 
-"status","r0.1","15","1","0.0","drag-n-drop grid by status and release",,"done"
-"status",,"9","1","0.0","""accept"" function",,""
-"status",,"10","1","0.0","annotate overdue stories",,""
-"status",,"11","1","0.0","timeline view",,""
+"import/export","r0.2","everytime a project is saved it is exported to a file?",,"on deck"
 
-"misc","r0.2","24","1","0.0","everytime a project is saved it is exported to a file?",,"on deck"
-"misc",,"6","1","0.0","compare with trello.com",,""
-"misc",,"7","1","0.0","security",,""
-"misc",,,,,"add remote synchronization of views (comitd?)",,""
-"misc",,,,,"switch from SQL to noSQL (mongo?)",,""
+"project config","r0.2","create/edit/delete dimensions and elements",,"in progress"
+"project config","r0.2","create/edit/delete project",,"in progress"
+"project config","r0.2","edit dimension/element colours",,"on deck"
 
-"bug","r0.2","21","1","0.0","refactor stories so they have a storyId that is unique per project",,"on deck"
-"bug",,"2","1","0.0","import into project:2 is modifying project:1",,"on deck"
+"estimation","r0.3","heuristic estimation",,
+"estimation","r0.3","extend CRUD to include estimation params",,
+"estimation","r0.3","aggregate estimate for each release, dimension, and project",,
+"estimation","r0.3","display total 'cost' of each grid-cell,update when cards are dragged around",,
 
-"dimensions",,,,,"add ability to support arbitrary dimensions",,""
-"dimensions",,,,,"add list of pre-formatted dimensions: release, feature group, sub-system, application, actor/user/persona, market focus (competative, inovative, refreshing, ...)",,""
-"dimensions",,,,,"auto-split stories into releases based on estimate and capacity",,""
-"dimensions",,,,,"choose which dimensions to map on the card grid",,""
-"dimensions",,,,,"ability to merge two dimensions (perhaps because they were misspelled)",,""
-"dimensions",,,,,"show unmapped dimension+value on story cards",,""
+"estimation",,"project risks",,
+"estimation",,"project assumptions",,
+"estimation",,"project questions",,
+"estimation",,"auto-split stories into releases based on estimate and capacity",,
 
-"card-grid","r0.1","","","","display total 'cost' of each grid-cell,update when cards are dragged around",,"on deck"
-"card-grid","r0.1","","","","ability to choose x-dimension, y-dimension, and z-dimension",,"on deck"
+,,"""accept"" function",,
+,,"annotate overdue stories",,
+,,"timeline view",,
+,,"dependency view",,
 
-"",,"","","","security and access control (both for features and data)",,""
-"",,"","","","ability to accept a story",,""
-"",,"","","","ability to assign a card",,""
-"",,"","","","maintain card assignments as a list of ownership along with status transition history",,""
+,,"security and access control (both for features and data)",,
+,,"add remote synchronization of views (live events?)",,
+,,"change log",,
+
+,,"switch from SQL to noSQL (mongo?)",,"in progress"

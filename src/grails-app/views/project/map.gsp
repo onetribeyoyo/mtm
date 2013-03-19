@@ -13,7 +13,9 @@
 <h1>${project.name}</h1>
 
 <project:tabs project="${project}" selectedTab="${selectedTab ?: xAxis?.name}" />
-<g:render template="storyActions" />
+<div>
+  <g:render template="storyActions" />
+</div>
 
 <project:cardGrid project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
 

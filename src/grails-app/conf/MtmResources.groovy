@@ -18,7 +18,7 @@ modules = {
         resource url: "js/mtm.js"
         resource url: "css/mtm.css", attrs: [media: "screen,projection,print"]
 
-        resource url: "css/buttons.css.gsp", attrs: [media: "screen,projection,print"]
+        resource url: "css/buttons.css", attrs: [media: "screen,projection,print"]
         resource url: "css/card.css", attrs: [media: "screen,projection,print"]
         resource url: "css/forms.css", attrs: [media: "screen,projection,print"]
         resource url: "css/print.css", attrs: [media: "print"]

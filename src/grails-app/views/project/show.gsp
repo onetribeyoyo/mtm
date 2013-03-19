@@ -13,10 +13,9 @@
 
 <h1> ${project.name} </h1>
 <project:tabs project="${project}" selectedTab="config___" />
-<g:render template="storyActions" />
-
-<div class="clear buttonset">
-  <mtm:dialogLink controller="dimension" action="create" id="${project.id}" title="New Dimension">New Dimension</mtm:dialogLink>
+<div>
+  <g:render template="storyActions" />
+  <mtm:dialogLink controller="dimension" action="create" id="${project.id}" title="New Dimension"><button>New Dimension</button></mtm:dialogLink>
 </div>
 
 <g:each var="dimension" in="${project.dimensions}">

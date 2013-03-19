@@ -12,7 +12,9 @@
 
 <h1> ${project.name} </h1>
 <project:tabs project="${project}" selectedTab="stories" />
-<g:render template="storyActions" />
+<div>
+  <g:render template="storyActions" />
+</div>
 
 <div class="storylist">
   <table>

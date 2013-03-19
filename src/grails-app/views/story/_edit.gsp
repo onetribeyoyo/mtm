@@ -25,9 +25,9 @@
     <g:render template="properties" />
   </fieldset>
 
-  <div class="buttonset">
-    <g:submitButton name="edit" class="update" value="Update" />
-    <mtm:closeDialogLink>Cancel</mtm:closeDialogLink>
+  <div>
+    <button type="submit" id="edit" value="Update">Update</button>
+    <mtm:closeDialogButton>Cancel</button></mtm:closeDialogButton>
   </div>
 
 </g:formRemote>

@@ -23,8 +23,8 @@
   </fieldset>
 
   <div class="buttonset">
-    <g:submitButton name="create" class="save" value="Create" />
-    <mtm:closeDialogLink>Cancel</mtm:closeDialogLink>
+    <button id="create">Create</button>
+    <mtm:closeDialogButton>Cancel</mtm:closeDialogButton>
   </div>
 
 </g:formRemote>

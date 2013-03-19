@@ -12,8 +12,8 @@ instructions
     <input name="id" type="hidden" value="${id}" />
   </fieldset>
   <div class="buttonset">
-    <g:submitButton name="import" class="save" value="Import" />
-    <mtm:closeDialogLink>Cancel</mtm:closeDialogLink>
+    <button id="import">Import</button>
+    <mtm:closeDialogButton>Cancel</mtm:closeDialogButton>
   </div>
 
 </g:form>

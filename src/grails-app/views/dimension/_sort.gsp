@@ -26,13 +26,13 @@
             <mtm:dialogLink controller="element" action="confirmDelete" id="${element.id}" title="Delete ${element}"><img src="${fam.icon(name: 'delete')}" /></mtm:dialogLink>
           </div>
           <%-- TODO: how many stories? --%>
-          ## ${element.value}
+          ${element.value}
         </div>
       </g:each>
     </div>
   </div>
   <p class="hint narrow">Drag these up/down to adjust the order.</p>
   <div class="buttonset">
-    <mtm:dialogLink controller="element" action="create" id="${dimension.id}" title="New ${dimension}">New ${dimension}</mtm:dialogLink>
+    <mtm:dialogLink controller="element" action="create" id="${dimension.id}" title="New ${dimension}"><button>New <em>"${dimension}"</em></button></mtm:dialogLink>
   </div>
 </div>

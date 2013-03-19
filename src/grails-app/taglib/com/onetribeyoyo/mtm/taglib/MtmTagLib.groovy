@@ -38,6 +38,18 @@ class MtmTagLib {
     }
 
     /**
+     *  Renders a button that closes the dialog
+     */
+    def closeDialogButton = { attrs, body ->
+        def dialogContentId = attrs.dialogContentId ?: "mtm-modal-content"
+        def onClick = "closeMtmModal('${dialogContentId}');"
+        out << "<a class=\"close-dialog\" onClick=\"${onClick}\">"
+        out << "<button type='button'>"
+        out << body()
+        out << "</button>"
+        out << "</a>"
+    }
+    /**
      *  Renders a link that closes the dialog
      */
     def closeDialogLink = { attrs, body ->

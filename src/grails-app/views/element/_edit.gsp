@@ -25,8 +25,8 @@
   </fieldset>
 
   <div class="buttonset">
-    <g:submitButton name="edit" class="update" value="Update" />
-    <mtm:closeDialogLink>Cancel</mtm:closeDialogLink>
+    <button id="edit">Update</button>
+    <mtm:closeDialogButton>Cancel</mtm:closeDialogButton>
   </div>
 
 </g:formRemote>

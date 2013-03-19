@@ -25,8 +25,8 @@
   </fieldset>
 
   <div class="buttonset">
-    <g:submitButton name="delete" class="delete" value="Delete" />
-    <mtm:closeDialogLink>Cancel</mtm:closeDialogLink>
+    <button class="delete-button" id="delete">Delete</button>
+    <mtm:closeDialogButton>Cancel</mtm:closeDialogButton>
   </div>
 
 </g:formRemote>

@@ -4,5 +4,5 @@
 </div>
 
 <div class="buttonset">
-  <mtm:closeDialogLink>OK</mtm:closeDialogLink>
+  <mtm:closeDialogButton>OK</mtm:closeDialogButton>
 </div>

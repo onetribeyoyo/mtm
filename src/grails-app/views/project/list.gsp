@@ -16,7 +16,7 @@
       <tr>
         <g:sortableColumn property="name" title="Project Name" />
         <th>Stories</th>
-        <th width="100%">Dimensions</th>
+        <th width="100%">Story Maps</th>
       </tr>
     </thead>
     <tbody>
@@ -33,12 +33,9 @@
           <td class="nowrap">
             <g:each var="dimension" in="${project.dimensions}">
               <g:if test="${dimension != release}">
-                <g:link action="map" id="${project.id}" params="[x: dimension.name, y:'release']">${dimension}</g:link>
+                <g:link action="map" id="${project.id}" params="[x: dimension.name, y:'release']">${dimension}&bull;release</g:link>
+                &emsp;
               </g:if>
-              <g:else>
-                ${dimension}
-              </g:else>
-              (${dimension.elements.size()} elements),
             </g:each>
           </td>
         </tr>

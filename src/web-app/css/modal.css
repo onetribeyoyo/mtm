@@ -70,3 +70,7 @@
 #mtm-container span {
    color: #777;
 }
+
+#mtm-modal-data {
+   background-color: white;
+}

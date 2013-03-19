@@ -42,6 +42,7 @@ th, td {
    top: 0.5em;
    left: 220px;
    width: 35em;
+   z-index: 100;
 }
 
 #error, #message {

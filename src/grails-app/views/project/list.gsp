@@ -15,22 +15,31 @@
     <thead>
       <tr>
         <g:sortableColumn property="name" title="Project Name" />
-        <th>&nbsp;</th>
-        <th width="100%">&nbsp;</th>
+        <th>Stories</th>
+        <th width="100%">Dimensions</th>
       </tr>
     </thead>
     <tbody>
       <g:each var="project" in="${projectInstanceList}" status="i">
+        <g:set var="release" value="${project.dimensionFor('release')}" />
         <g:set var="offsetIndex" value="${i + (params.offset ?: 0)}" />
         <tr class="${(((Math.ceil(((offsetIndex as int)+1)/3) as int) % 2) == 0) ? 'even' : 'odd'}">
-          <th class="nowrap">${fieldValue(bean: project, field: "name")}</th>
+
+          <th class="nowrap"> <g:link action="show" id="${project.id}">${fieldValue(bean: project, field: "name")}</g:link> </th>
 
           <g:set var="storyCount" value="${project.stories?.size() ?: 0}" />
-          <td class="nowrap"><g:link action="show" id="${project.id}">${storyCount} ${(storyCount == 1) ? 'story' : 'stories'}</g:link>,</td>
+          <td class="nowrap">${storyCount} ${(storyCount == 1) ? 'story' : 'stories'}</td>
 
           <td class="nowrap">
-            ${project.dimensions.size()} dimensions:
-            <g:each var="dimension" in="${project.dimensions}">${dimension}, </g:each>
+            <g:each var="dimension" in="${project.dimensions}">
+              <g:if test="${dimension != release}">
+                <g:link action="map" id="${project.id}" params="[x: dimension.name, y:'release']">${dimension}</g:link>
+              </g:if>
+              <g:else>
+                ${dimension}
+              </g:else>
+              (${dimension.elements.size()} elements),
+            </g:each>
           </td>
         </tr>
       </g:each>
@@ -41,8 +50,8 @@
   </div>
 </div>
 
-<div class="buttonset">
-  <mtm:dialogLink controller="project" action="create" title="New Project">New Project</mtm:dialogLink>
+<div>
+  <g:render template="/project/projectActions" />
 </div>
 
 </body>

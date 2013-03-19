@@ -21,7 +21,7 @@
       <div class="summary">${story.id}: ${story.summary}</div>
       <div class="vector">
         <g:each var="dimension" in="${story.project.dimensions}">
-          <g:if test="${!(dimension.name in [xAxis.name, yAxis.name, 'assigned to', 'status'])}">
+          <g:if test="${!(dimension.name in [xAxis?.name, yAxis?.name, 'assigned to', 'status'])}">
             <g:set var="point" value="${story.valueFor(dimension)}" />
               <g:if test="${point}">
                 <div class="tag ${point.element?.colour ?: point.element?.dimension.colour ?: 'wheat'}">${point.element}</div>

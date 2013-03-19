@@ -48,11 +48,15 @@ class ProjectService {
         layoutStyle: LayoutStyle.FLOW
     ]
 
-    void configureDefaults(Project project) {
-        log.debug "configureDefaults(${project})"
-
+    void configureBasis(Project project) {
+        log.debug "configureBasis(${project})"
         configureDimensionAndElements(project, RELEASE_DIMENSION_DATA)
         configureDimensionAndElements(project, STATUS_DIMENSION_DATA)
+    }
+
+    void configureDefaults(Project project) {
+        log.debug "configureDefaults(${project})"
+        configureBasis(project)
         configureDimensionAndElements(project, ASSIGNED_TO_DIMENSION_DATA)
         configureDimensionAndElements(project, FEATURE_DIMENSION_DATA)
         configureDimensionAndElements(project, STRATEGY_DIMENSION_DATA)
@@ -60,10 +64,18 @@ class ProjectService {
 
     Dimension configureDimensionAndElements(Project project, Map params) {
         Dimension dimension = configureDimension(project, params)
-        configureElements(dimension, params.elements, true)
+        configureElements(dimension, params.elements)
         return dimension
     }
 
+    /**
+     *  Adds a dimension to the project or updates an existing dimension with params.name.
+     *  Properties are set from
+     *    params.name        (required)
+     *    params.colour      (defaults to null)
+     *    params.layoutStyle
+     *    params.basis       (defaults to false)
+     */
     Dimension configureDimension(Project project, Map params) {
         log.trace "configureDimension(${project}, ${params})"
         Dimension dimension = project.dimensionFor(params.name)
@@ -77,27 +89,24 @@ class ProjectService {
         return dimension
     }
 
-    Dimension configureElements(Dimension dimension, Map<String,String> elementData, boolean createMissingElements) {
-        log.trace "configureElements(${dimension}, ${elementData}, ${createMissingElements})"
-        configureElements(dimension, elementData.keySet() as List, createMissingElements)
-        dimension.elements.each { p ->
-            p.colour = elementData[p.value]
+    Dimension configureElements(Dimension dimension, Map<String,String> elementData) {
+        log.trace "configureElements(${dimension}, ${elementData})"
+        configureElements(dimension, elementData.keySet() as List)
+        dimension.elements.each { point ->
+            point.colour = elementData[point.value]
         }
         return dimension
     }
 
-    void configureElements(Dimension dimension, List<String> elements, boolean createMissingElements) {
-        log.trace "configureElements(${dimension}, ${elements}, ${createMissingElements})"
-        createMissingElements = createMissingElements || !dimension.elements
+    void configureElements(Dimension dimension, List<String> elements) {
+        log.trace "configureElements(${dimension}, ${elements})"
         elements.eachWithIndex { value, order ->
-            Element p = dimension.elementFor(value)
-            if (createMissingElements) {
-                p = new Element(value: value)
-                dimension.addToElements(p)
+            Element point = dimension.elementFor(value)
+            if (!point) {
+                point = new Element(value: value)
+                dimension.addToElements(point)
             }
-            if (p) {
-                p.order = order
-            }
+            point.order = order
         }
     }
 

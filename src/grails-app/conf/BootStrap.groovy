@@ -107,28 +107,57 @@ class BootStrap {
         1.times {
             loadBootstrapProject("project ${it}")
         }
+
+        13.times {
+            def p = new Project(name: "Project ${it}")
+            if (it % 3) {
+                projectService.configureBasis(p)
+            } else {
+                projectService.configureDefaults(p)
+            }
+            p.save(flush:true, failOnError:true)
+        }
     }
 
     void loadBootstrapProject(String projectName) {
 
         String filename = ConfigurationHolder.config.mtm.bootstrap.filename
-        def project = new Project(name: "${projectName} for ${filename}")
-        project.save(flush:true, failOnError:true)
-
-        projectService.configureDefaults(project)
-        project.save(flush:true, failOnError:true)
-
         if (filename) {
             if (new File(filename).exists()) {
+                def project = new Project(name: "${projectName} for ${filename}")
+                project.save(flush:true, failOnError:true)
+
+                //projectService.configureDefaults(project)
+                //project.save(flush:true, failOnError:true)
+
                 log.info "loading stories from mtm.bootstrap.filename: '${filename}'..."
                 importService.importStories(project, filename)
                 project.save(flush:true, failOnError:true)
+
+                def release = project.dimensionFor("release")
+                if (release) {
+                    release.basis = true
+                    release.save(flush:true, failOnError:true)
+                } else {
+                    projectService.configureDimensionAndElements(project, projectService.RELEASE_DIMENSION_DATA)
+                }
+
+                def status = project.dimensionFor("status")
+                if (status) {
+                    status.basis = true
+                    status.save(flush:true, failOnError:true)
+                } else {
+                    projectService.configureDimensionAndElements(project, projectService.STATUS_DIMENSION_DATA)
+                }
+
+                def basis = project.dimensions.findAll { dimension -> dimension.basis }
+                if (basis.size() < 2) {
+                    log.error "Incomplete basis for ${project}."
+                }
             } else {
                 log.error "Cannot find mtm.bootstrap.filename: '${filename}'."
             }
         }
-
-        project.save(flush:true, failOnError:true)
     }
 
 }

@@ -27,14 +27,14 @@ class ProjectController {
         [projectInstanceList: Project.list(params), projectInstanceTotal: Project.count()]
     }
 
-    def map(Long id, Long x, Long y) {
+    def map(Long id, String x, String y) {
         Project project = Project.get(id)
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
             redirect action: "list"
         } else {
-            Dimension xAxis = Dimension.get(x)
-            Dimension yAxis = Dimension.get(y)
+            Dimension xAxis = project.dimensionFor(x)
+            Dimension yAxis = project.dimensionFor(y)
             if (!xAxis || ! yAxis) {
                 flash.error = "Cannot map unknown dimensions."
                 redirect action: "show", params: params
@@ -64,7 +64,7 @@ class ProjectController {
 
     def save = {
         def projectInstance = new Project(params)
-        projectService.configureDefaults(projectInstance)
+        projectService.configureBasis(projectInstance)
         if (projectInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'project.label', default: 'Project'), projectInstance.id])}"
             redirect(action: "show", id: projectInstance.id)

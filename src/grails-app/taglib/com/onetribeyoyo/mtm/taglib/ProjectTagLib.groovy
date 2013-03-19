@@ -21,7 +21,7 @@ class ProjectTagLib {
                     controller: "project", action: "map", id: project?.id,
                     x: dimension,
                     y: release,
-                    label: "${dimension.name.capitalize()} Map"
+                    label: "<em>&ldquo;${dimension.name.capitalize()}&rdquo;</em> Map"
                 ]
             }
         }
@@ -37,7 +37,7 @@ class ProjectTagLib {
             } else {
                 out << "<li>"
                 out << g.link(controller: params.controller, action: params.action, id: params.id,
-                              params: [selectedTab: key, x: params.x?.id, y: params.y?.id],
+                              params: [selectedTab: key, x: params.x?.name, y: params.y?.name],
                               params.label)
                 out << "</li>\n"
             }

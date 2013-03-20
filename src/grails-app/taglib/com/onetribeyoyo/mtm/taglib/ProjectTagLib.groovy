@@ -8,6 +8,8 @@ class ProjectTagLib {
 
     static namespace = "project"
 
+    def storymapService
+
     def tabs = { attrs, body ->
         Project project = attrs.project
         String selectedTab = attrs.selectedTab
@@ -55,7 +57,7 @@ class ProjectTagLib {
         assert yAxis
         assert yAxis.project == project
 
-        def storymap = project.storymapFor(xAxis, yAxis)
+        def storymap = storymapService.storymapFor(project, xAxis, yAxis)
 
         // the default layout is linear (stories stacked one on top of the other) but either dimension can
         // request a flow layout.

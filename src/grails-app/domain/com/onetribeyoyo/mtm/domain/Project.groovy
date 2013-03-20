@@ -26,32 +26,6 @@ class Project {
         return lastStatus
     }
 
-    def storymapFor(Dimension xAxis, Dimension yAxis) {
-        if (!xAxis && !yAxis) {
-            return [:]
-        }
-        // first initialize a map that can be used to look up lists of stories by x and y points...
-        def storymap = [:]
-        storymap[null] = [:]
-        storymap[null][null] = []
-        xAxis?.elements?.each { x ->
-            storymap[x] = [:]
-            storymap[x][null] = []
-            yAxis?.elements?.each { y ->
-                storymap[x][y] = []
-                storymap[null][y] = []
-            }
-        }
-        // then walk through all the stories and place them in the approriate bucket...
-        stories.each { story ->
-            def x = story.valueFor(xAxis)?.element
-            def y = story.valueFor(yAxis)?.element
-            storymap[x][y] << story
-        }
-        return storymap
-    }
-
-
     List<OrderedElement> orderedStoriesFor(Dimension dimension) {
         if (!dimension) {
             return []

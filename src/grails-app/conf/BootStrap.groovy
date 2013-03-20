@@ -41,7 +41,6 @@ class BootStrap {
         if (SiteConfig.count() == 0) {
             initCoreData()
             initSecurity()
-            initDevUsers()
             log.info "...database initialized."
         }
 
@@ -58,7 +57,6 @@ class BootStrap {
         if (SiteConfig.count() == 0) {
             initCoreData()
             initSecurity()
-            initDevUsers()
             log.info "...database initialized."
         }
 

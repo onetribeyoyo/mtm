@@ -24,13 +24,17 @@ environments {
         }
     }
     production {
+        //dataSource {
+        //    dbCreate = "update"
+        //    pooled = true
+        //    driverClassName = "com.mysql.jdbc.Driver"
+        //    url = "jdbc:mysql://localhost:3306/mtm"
+        //    username = "mtm"
+        //    password = "moretimetothink"
+        //}
         dataSource {
             dbCreate = "update"
-            pooled = true
-            driverClassName = "com.mysql.jdbc.Driver"
-            url = "jdbc:mysql://localhost:3306/mtm"
-            username = "mtm"
-            password = "moretimetothink"
+            url = "jdbc:h2:file:~/h2db/mtm-prod"
         }
     }
 }

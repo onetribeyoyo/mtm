@@ -53,6 +53,27 @@ class ProjectController {
     }
 
 
+    //~ dimensions ---------------------------------------------------------------------------------
+
+    def addAssignedToDimension(Long id) {
+        def project = Project.get(id)
+        projectService.configureDimensionAndElements(project, projectService.ASSIGNED_TO_DIMENSION_DATA)
+        render view: "show", model: [ project: project ]
+    }
+
+    def addFeatureDimension(Long id) {
+        def project = Project.get(id)
+        projectService.configureDimensionAndElements(project, projectService.FEATURE_DIMENSION_DATA)
+        render view: "show", model: [ project: project ]
+    }
+
+    def addStrategyDimension(Long id) {
+        def project = Project.get(id)
+        projectService.configureDimensionAndElements(project, projectService.STRATEGY_DIMENSION_DATA)
+        render view: "show", model: [ project: project ]
+    }
+
+
     //~ project crud -------------------------------------------------------------------------------
 
     def create = {

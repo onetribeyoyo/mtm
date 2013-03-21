@@ -134,23 +134,18 @@ class BootStrap {
 
                 def release = project.dimensionFor("release")
                 if (release) {
-                    release.basis = true
                     release.save(flush:true, failOnError:true)
                 } else {
-                    projectService.configureDimensionAndElements(project, projectService.RELEASE_DIMENSION_DATA)
+                    release = projectService.configureDimensionAndElements(project, projectService.RELEASE_DIMENSION_DATA)
                 }
+                project.primary = release
+                project.save(flush:true, failOnError:true)
 
                 def status = project.dimensionFor("status")
                 if (status) {
-                    status.basis = true
                     status.save(flush:true, failOnError:true)
                 } else {
                     projectService.configureDimensionAndElements(project, projectService.STATUS_DIMENSION_DATA)
-                }
-
-                def basis = project.dimensions.findAll { dimension -> dimension.basis }
-                if (basis.size() < 2) {
-                    log.error "Incomplete basis for ${project}."
                 }
             } else {
                 log.error "Cannot find mtm.bootstrap.filename: '${filename}'."

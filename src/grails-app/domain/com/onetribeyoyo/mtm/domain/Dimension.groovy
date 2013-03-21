@@ -11,7 +11,6 @@ class Dimension implements Comparable {
     String name
     String description
     String colour = ""
-    Boolean basis = false
     LayoutStyle layoutStyle = LayoutStyle.FLOW
 
     SortedSet elements
@@ -23,7 +22,6 @@ class Dimension implements Comparable {
         name nullable: false, blank: false, maxSize: 255, validator: validateNameUniqueWithinProject
         description nullable: true, blank: true, maxSize: 4095
         colour nullable: true, blank: true, maxSize: 63
-        basis nullable: true
         //layoutStyle inList: LayoutStyle.values()
     }
 
@@ -40,6 +38,10 @@ class Dimension implements Comparable {
 
     Element elementFor(String value) {
         elements.find { p -> (p.value?.toLowerCase() == value?.toLowerCase()) }
+    }
+
+    Boolean isPrimary() {
+        this.project.primary == this
     }
 
     int compareTo(that) {

@@ -6,6 +6,8 @@ class Project {
 
     SortedSet dimensions
 
+    Dimension primary // used to configure default storymaps.
+
     static hasMany = [
         stories : Story,
         dimensions: Dimension,
@@ -14,6 +16,7 @@ class Project {
 
     static constraints = {
         name unique: true, nullable:false, blank:false, maxSize:255
+        primary nullable: true // but only to make it easier to construct projects!
     }
 
     Dimension dimensionFor(String name) {

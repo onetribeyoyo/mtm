@@ -54,6 +54,9 @@ class DimensionController {
             }
             dimension.properties = params
             if (!dimension.hasErrors() && dimension.save(flush: true)) {
+                if (params.primary) {
+                    dimension.project.primary = dimension
+                }
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'dimension.label', default: 'Dimension'), dimension.id])}"
                 render flash.message
             } else {
@@ -65,10 +68,10 @@ class DimensionController {
 
     def confirmDelete = {
         def dimension = Dimension.read(params.id)
-        if (dimension.basis) {
-            render template: "cantDeleteTheBasis", model:[dimension: dimension]
+        if (dimension.isPrimary()) {
+            render status: "400", template: "cantDeletePrimaryDimension", model:[dimension: dimension]
         } else if (dimension.project.dimensions.size() <= 2) {
-            render template: "cantDelete", model:[dimension: dimension]
+            render status: "400", template: "cantDelete", model:[dimension: dimension]
         } else {
             render template: "confirmDelete", model:[dimension: dimension]
         }
@@ -80,8 +83,8 @@ class DimensionController {
             render status: "404", template: "confirmDelete", model: [dimension: dimension]
 
         } else {
-            if (dimension.basis) {
-                render status: "400", template: "cantDeleteTheBasis", model: [dimension: dimension]
+            if (dimension.isPrimary()) {
+                render status: "400", template: "cantDeletePrimaryDimension", model: [dimension: dimension]
             } else if (dimension.project.dimensions.size() <= 2) {
                 render status: "400", template: "cantDelete", model: [dimension: dimension]
             } else {

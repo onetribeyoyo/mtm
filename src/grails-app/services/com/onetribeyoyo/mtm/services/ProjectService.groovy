@@ -13,14 +13,12 @@ class ProjectService {
 
     static final Map RELEASE_DIMENSION_DATA = [
         name: "release",
-        basis: true,
         elements: ["r0.1", "r0.2", "r0.3"],
         colour: null, // no colour means the odd/even stripping will be used
         layoutStyle: LayoutStyle.LINEAR
     ]
     static final Map STATUS_DIMENSION_DATA = [
         name: "status",
-        basis: true,
         elements: ["on deck":       "Gainsboro",
                    "in progress":   "LightGoldenrod3",
                    "ready to test": "PaleTurquoise",
@@ -48,9 +46,14 @@ class ProjectService {
         layoutStyle: LayoutStyle.FLOW
     ]
 
+
     void configureBasis(Project project) {
         log.debug "configureBasis(${project})"
-        configureDimensionAndElements(project, RELEASE_DIMENSION_DATA)
+
+        Dimension primary = configureDimensionAndElements(project, RELEASE_DIMENSION_DATA)
+        //primary.save()
+        //project.primary = primary
+
         configureDimensionAndElements(project, STATUS_DIMENSION_DATA)
     }
 
@@ -74,7 +77,6 @@ class ProjectService {
      *    params.name        (required)
      *    params.colour      (defaults to null)
      *    params.layoutStyle
-     *    params.basis       (defaults to false)
      */
     Dimension configureDimension(Project project, Map params) {
         log.trace "configureDimension(${project}, ${params})"
@@ -84,7 +86,6 @@ class ProjectService {
             project.addToDimensions(dimension)
         }
         dimension.colour = params.colour
-        dimension.basis = params.basis ?: false
         if (params.layoutStyle) dimension.layoutStyle = params.layoutStyle
         return dimension
     }

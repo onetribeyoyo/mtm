@@ -2,15 +2,16 @@
   <div>
     <div class="card-actions float-right">
       <mtm:dialogLink controller="dimension" action="edit" id="${dimension.id}" title="Edit ${dimension}"><img src="${fam.icon(name: 'page_edit')}" /></mtm:dialogLink>
-      <g:if test="${!dimension.basis}">
+      <g:if test="${!dimension.isPrimary()}">
         <mtm:dialogLink controller="dimension" action="confirmDelete" id="${dimension.id}" title="Delete ${dimension}"><img src="${fam.icon(name: 'delete')}" /></mtm:dialogLink>
       </g:if>
     </div>
     <h2>${dimension}</h2>
   </div>
-  <g:if test="${dimension.basis}">
+  <g:if test="${dimension.isPrimary()}">
     <p class="narrow hint">
-      This is one of the fundamental dimension (the basis) for the project.  As such, it cannot be deleted or renamed.
+      This is the primary dimension for the project  (the one all the default story maps use for the Y axis.)  As such,
+      it cannot be deleted.
     </p>
   </g:if>
   <p class="narrow">

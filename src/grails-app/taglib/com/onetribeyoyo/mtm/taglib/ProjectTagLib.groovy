@@ -16,14 +16,13 @@ class ProjectTagLib {
 
         def tabDefs = [:]
 
-        Dimension release = project.dimensionFor("release")
         project.dimensions.each { dimension ->
-            if ((dimension != release) && dimension.elements) {
+            if (!dimension.isPrimary() && dimension.elements) {
                 tabDefs."${dimension.name}" = [
                     controller: "project", action: "map", id: project?.id,
                     x: dimension,
-                    y: release,
-                    label: "${dimension.name.capitalize()} by Release"
+                    y: project.primary,
+                    label: "${dimension.name.capitalize()} by ${dimension.project.primary?.name.capitalize()}"
                 ]
             }
         }

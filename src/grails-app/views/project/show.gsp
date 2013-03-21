@@ -30,6 +30,14 @@
   <g:render template="addDimension" model="[dimensionName:'feature', dimensionData: ProjectService.FEATURE_DIMENSION_DATA, action:'addFeatureDimension']" />
 </g:if>
 
+<g:if test="${!project.dimensionFor('release')}">
+  <g:render template="addDimension" model="[dimensionName:'release', dimensionData: ProjectService.RELEASE_DIMENSION_DATA, action:'addReleaseDimension']" />
+</g:if>
+
+<g:if test="${!project.dimensionFor('status')}">
+  <g:render template="addDimension" model="[dimensionName:'status', dimensionData: ProjectService.STATUS_DIMENSION_DATA, action:'addStatusDimension']" />
+</g:if>
+
 <g:if test="${!project.dimensionFor('strategy')}">
   <g:render template="addDimension" model="[dimensionName:'strategy', dimensionData: ProjectService.STRATEGY_DIMENSION_DATA, action:'addStrategyDimension']" />
 </g:if>

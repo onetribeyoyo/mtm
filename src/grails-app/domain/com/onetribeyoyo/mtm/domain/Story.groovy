@@ -8,6 +8,7 @@ class Story {
 
     String summary
     String detail
+    Long estimate = 0
 
     SortedSet vector
     static hasMany = [

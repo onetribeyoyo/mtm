@@ -89,8 +89,8 @@
 
    margin-right: 0.15em;
 
-   border-radius: 2px;
-   border: 1px solid #999;
+   border-radius: 5px;
+   border: 1px outset #999;
 
    color: #333;
    font-size: 0.7em;
@@ -98,7 +98,15 @@
    padding: 0 0.5em;
    text-align: center;
 }
-
+.card .story .card-estimate {
+   background-color: LightGray;
+   color: FireBrick;
+   border-radius: 5px;
+   border: 1px inset LightGray;
+   padding: 0 0.5em;
+   min-width: 1.5em;
+   text-align: center;
+}
 
 /*~ status ------------------------------------------------------------------------------------- */
 

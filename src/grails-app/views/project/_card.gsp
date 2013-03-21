@@ -5,14 +5,13 @@
 <div id="${story.id}" class="card ${layoutStyle} ${story.blocked ? 'blocked' : ''} ${story.valueFor('status')?.element?.colour}">
 
   <div id="story-abbrev-${id}" class="story-abbrev ${abbrevStyle}">
-    <%-- <div class="card-estimate">4</div> --%>
     <g:render template="/project/cardActions" />
     <span class="name">${story.id}</span>
   </div>
 
   <div id="story-${story.id}" class="story ${detailStyle}">
     <div class="summary">
-      <%-- <div class="card-estimate">4</div> --%>
+      <g:if test="${story.estimate}"><div class="card-estimate">${story.estimate}</div></g:if>
 
       <g:set var="assignedTo" value="${story.valueFor('assigned to')?.element}" />
       <g:if test="${assignedTo}"> <div class="assignedTo ${assignedTo.colour ?: assignedTo.dimension.colour ?: ''}">${assignedTo}</div> </g:if>

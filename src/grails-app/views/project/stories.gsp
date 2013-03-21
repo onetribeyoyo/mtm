@@ -1,4 +1,4 @@
-<%@ page import="com.onetribeyoyo.mtm.Project" %>
+<%@ page import="com.onetribeyoyo.mtm.domain.Project" %>
 <html>
 
 <head>

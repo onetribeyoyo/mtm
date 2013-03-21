@@ -94,7 +94,7 @@ class ProjectTagLib {
 
             // a cell for cards where (x == null)
             out << "    <li class='grid-cell ${rowStyle}' xAxisId='${xAxis.id}' xId='' yAxisId='${yAxis.id}' yId='${y.id}'>\n"
-            storymap[null][y].each { story ->
+            storymap[null].columns[y].each { story ->
                 out << g.render(template: '/project/card', model: [story:story, layoutStyle: layoutStyle, complete: complete, xAxis: xAxis, yAxis: yAxis])
             }
             out << "    </li>\n"
@@ -102,7 +102,7 @@ class ProjectTagLib {
             // a cell for element on the x axis
             xAxis?.elements.each { x ->
                 out << "    <li class='grid-cell ${rowStyle}' xAxisId='${xAxis.id}' xId='${x.id}' yAxisId='${yAxis.id}' yId='${y.id}'>\n"
-                storymap[x][y].each { story ->
+                storymap[x].columns[y].each { story ->
                     out << g.render(template: '/project/card', model: [story:story, layoutStyle: layoutStyle, complete: complete, xAxis: xAxis, yAxis: yAxis])
                 }
                 out << "    </li>\n"
@@ -121,7 +121,7 @@ class ProjectTagLib {
 
         // a cell for cards where both (x == null) and  (y == null)
         out << "    <li class='grid-cell ${rowStyle}' xAxisId='${xAxis.id}' xId='' yAxisId='${yAxis.id}' yId=''>\n"
-        storymap[null][null].each { story ->
+        storymap[null].columns[null].each { story ->
             out << g.render(template: '/project/card', model: [story:story, layoutStyle: layoutStyle])
         }
         out << "    </li>\n"
@@ -129,7 +129,7 @@ class ProjectTagLib {
         // a cell for element on the x axis
         xAxis?.elements.each { x ->
             out << "    <li class='grid-cell ${rowStyle}' xAxisId='${xAxis.id}' xId='${x.id}' yAxisId='${yAxis.id}' yId=''>\n"
-            storymap[x][null].each { story ->
+            storymap[x].columns[null].each { story ->
                 out << g.render(template: '/project/card', model: [story:story, layoutStyle: layoutStyle])
             }
             out << "    </li>\n"

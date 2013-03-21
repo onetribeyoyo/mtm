@@ -9,37 +9,69 @@ class StorymapService {
     /**
      *  Returns a map of maps of lists.  Example: the storymap xAxis=[1,2,3] and yAxis={a,b,c] looks like
      *    [
-     *        1: [a: [], b: [], c: [], null: []],
-     *        2: [a: [], b: [], c: [], null: []],
-     *        3: [a: [], b: [], c: [], null: []],
-     *        null: [a: [], b: [], c: [], null: []]
+     *        1: [columns: [a: [], b: [], c: [], null: []],
+     *            estimate: 0,
+     *            complete: false],
+     *        2: [columns: [a: [], b: [], c: [], null: []],
+     *            estimate: 0,
+     *            complete: false],
+     *        3: [columns: [a: [], b: [], c: [], null: []],
+     *            estimate: 0,
+     *            complete: false]
      *    ]
      *
-     *  where each [] list contains the projects stories at the intersection of x and y.
+     *  where
+     *    columns is a map of story lists at the intersection of x and y,
+     *    estimate is the total estimate of all the stories in the column lists,
+     *    and complete is true only if all the stories are "done".
      */
+    // TODO:
+    // TODO: got the x and y flipped!
+    // TODO:
     def storymapFor(Project project, Dimension xAxis, Dimension yAxis) {
         if (!xAxis && !yAxis) {
             return [:]
         }
-        // first create the map of map of lists...
+        // first initialize the story map structure...
         def storymap = [:]
-        storymap[null] = [:]
-        storymap[null][null] = []
         xAxis?.elements?.each { x ->
-            storymap[x] = [:]
-            storymap[x][null] = []
-            yAxis?.elements?.each { y ->
-                storymap[x][y] = []
-                storymap[null][y] = []
-            }
+            storymap[x] = rowMapFor(project, x, yAxis)
         }
+        storymap[null] = rowMapFor(project, null, yAxis)
+
         // then walk through all the stories and place them in the approriate list...
         project.stories.each { story ->
             def x = story.valueFor(xAxis)?.element
             def y = story.valueFor(yAxis)?.element
-            storymap[x][y] << story
+            storymap[x].columns[y] << story
+            if (story.estimate) {
+                storymap[x].estimate += story.estimate
+            }
         }
         return storymap
+    }
+
+    private def rowMapFor(Project project, Element row, Dimension columns) {
+        def map = [:]
+        def estimate = 0
+        def complete = true
+        map.columns = [:]
+        columns.elements.each { x ->
+            map.columns[x] = []
+        }
+        map.columns[null] = []
+
+        map.estimate = estimate
+        map.complete = (row?.complete() ? true : false)
+
+println ""
+println ""
+println row
+println map.complete
+println ""
+println ""
+
+        return map
     }
 
 }

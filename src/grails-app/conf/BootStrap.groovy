@@ -11,8 +11,8 @@ import org.springframework.core.io.ClassPathResource
 
 class BootStrap {
 
-    def projectService
     def importService
+    def projectService
 
     def initDev = {
         def start = System.currentTimeMillis()

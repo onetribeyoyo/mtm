@@ -67,6 +67,18 @@ class ProjectController {
         render view: "show", model: [ project: project ]
     }
 
+    def addReleaseDimension(Long id) {
+        def project = Project.get(id)
+        projectService.configureDimensionAndElements(project, projectService.RELEASE_DIMENSION_DATA)
+        render view: "show", model: [ project: project ]
+    }
+
+    def addStatusDimension(Long id) {
+        def project = Project.get(id)
+        projectService.configureDimensionAndElements(project, projectService.STATUS_DIMENSION_DATA)
+        render view: "show", model: [ project: project ]
+    }
+
     def addStrategyDimension(Long id) {
         def project = Project.get(id)
         projectService.configureDimensionAndElements(project, projectService.STRATEGY_DIMENSION_DATA)

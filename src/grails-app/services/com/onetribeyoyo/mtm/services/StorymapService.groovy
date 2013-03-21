@@ -7,7 +7,8 @@ class StorymapService {
     static transactional = true
 
     /**
-     *  Returns a map of maps of lists.  Example: the storymap xAxis=[1,2,3] and yAxis={a,b,c] looks like
+     *  Returns a map of maps of lists, one element for each row in the storymap.
+     *  For example: the storymap for xAxis=[1,2,3] and yAxis={a,b,c] looks like
      *    [
      *        1: [columns: [a: [], b: [], c: [], null: []],
      *            estimate: 0,
@@ -25,27 +26,24 @@ class StorymapService {
      *    estimate is the total estimate of all the stories in the column lists,
      *    and complete is true only if all the stories are "done".
      */
-    // TODO:
-    // TODO: got the x and y flipped!
-    // TODO:
     def storymapFor(Project project, Dimension xAxis, Dimension yAxis) {
         if (!xAxis && !yAxis) {
             return [:]
         }
         // first initialize the story map structure...
         def storymap = [:]
-        xAxis?.elements?.each { x ->
-            storymap[x] = rowMapFor(project, x, yAxis)
+        yAxis?.elements?.each { row ->
+            storymap[row] = rowMapFor(project, row, xAxis)
         }
-        storymap[null] = rowMapFor(project, null, yAxis)
+        storymap[null] = rowMapFor(project, null, xAxis)
 
         // then walk through all the stories and place them in the approriate list...
         project.stories.each { story ->
             def x = story.valueFor(xAxis)?.element
             def y = story.valueFor(yAxis)?.element
-            storymap[x].columns[y] << story
+            storymap[y].columns[x] << story
             if (story.estimate) {
-                storymap[x].estimate += story.estimate
+                storymap[y].estimate += story.estimate
             }
         }
         return storymap
@@ -63,13 +61,6 @@ class StorymapService {
 
         map.estimate = estimate
         map.complete = (row?.complete() ? true : false)
-
-println ""
-println ""
-println row
-println map.complete
-println ""
-println ""
 
         return map
     }

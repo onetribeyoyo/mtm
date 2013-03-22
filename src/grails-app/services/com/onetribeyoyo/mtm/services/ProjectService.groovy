@@ -51,8 +51,7 @@ class ProjectService {
         log.debug "configureBasis(${project})"
 
         Dimension primary = configureDimensionAndElements(project, RELEASE_DIMENSION_DATA)
-        //primary.save()
-        //project.primary = primary
+        project.primary = primary
 
         configureDimensionAndElements(project, STATUS_DIMENSION_DATA)
     }
@@ -121,6 +120,8 @@ class ProjectService {
 
         storyService.setVector(story, params)
         story.save(failOnError:true)
+
+        project.addToStories(story)
 
         return story
     }

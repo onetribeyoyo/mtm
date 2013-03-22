@@ -60,7 +60,7 @@ class ImportService {
                     storyService.slide(story, dimension, element)
                 }
 
-                // TODO: should we check all fields(columns) and create missing dimensions?
+                // TODO: should we check all fields(columns) and create missing dimensions?  (for now we just ignore the unknonw columns.)
 
                 if (story.validate()) {
                     project.save()
@@ -76,6 +76,8 @@ class ImportService {
         }
 
         log.info "  extractData(..) done."
+
+        project
     }
 
     private boolean empty(String[] tokens) {

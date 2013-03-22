@@ -9,41 +9,38 @@ class ProjectServiceISpec extends IntegrationSpec {
 
     def projectService
 
-    @Unroll("configureDefaultDimensions: dimension:'#dimensionName'.")
-    def "configureDefaultDimensions"() {
+    @Unroll("configureBasis: dimension:'#dimensionName'.")
+    def "configureBasis"() {
         when:
             Project project = Project.build()
-            projectService.configureDefaultDimensions(project)
+            projectService.configureBasis(project)
 
         then:
-            project.dimensions.size() == 4
+            project.dimensions.size() == 2
             Dimension dimension = project.dimensionFor(dimensionName)
-            dimension.basis == basis
+            (project.primary?.name == dimensionName) == primary
 
         where:
-            dimensionName | basis
-            "release"     | true
-            "status"      | true
-            "feature"     | false
-            "strategy"    | false
+            dimensionName | basis | primary
+            "release"     | true  | true
+            "status"      | true  | false
+            "feature"     | false | false
+            "strategy"    | false | false
     }
 
 
-    @Unroll("configureDefaultElements: dimension:'#dimensionName' elements are #elementNames.")
-    def "configureDefaultDimensions"() {
+    @Unroll("configureDefaults: dimension:'#dimensionName' elements are #elementNames.")
+    def "configureDefaults"() {
         when:
             Project project = Project.build()
-            projectService.configureDefaultDimensions(project)
-            projectService.configureDefaultElements(project)
+            projectService.configureDefaults(project)
 
         then:
-            project.dimensions.size() == 4
+            project.dimensions?.size() == 5
             Dimension dimension = project.dimensionFor(dimensionName)
             dimension.elements?.size() == elementNames.size()
-            println "${dimension}"
             elementNames.each { name ->
                 assert dimension.elementFor(name)
-                //println "    ${dimension.elementFor(name)}"
             }
 
         where:
@@ -52,6 +49,17 @@ class ProjectServiceISpec extends IntegrationSpec {
             "status"      | ["on deck", "in progress", "ready to test", "done"]
             "feature"     | ["feature 1", "feature 2", "feature 3"]
             "strategy"    | ["strengths", "weaknesses", "opportunities", "threats"]
+            "assigned to" | ["you", "me", "them", "everybody"]
+    }
+
+    def "createStory"() {
+        when:
+            Project project = Project.build()
+            //project.addToStories(projectService.createStory(project, [summary: "story 1"]))
+            projectService.createStory(project, [summary: "story 1"])
+
+        then:
+            project.stories?.size() == 1
     }
 
 }

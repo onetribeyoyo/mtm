@@ -7,6 +7,7 @@ import grails.plugin.spock.IntegrationSpec
 class ImportServiceISpec extends IntegrationSpec {
 
     def importService
+    def projectService
 
     def "extractData with missing header columns"() {
         when:
@@ -41,6 +42,11 @@ class ImportServiceISpec extends IntegrationSpec {
     def "extractData with no dimensions"() {
         when:
             Project project = Project.build()
+
+        then:
+            !project.stories
+
+        and:
             def lines = """id,summary
 ,story1
 ,story2
@@ -55,58 +61,48 @@ class ImportServiceISpec extends IntegrationSpec {
     def "extractData with new feature and release names"() {
         when:
             Project project = Project.build()
-            def lines = """id,summary,release,feature,progress
-,story1,,f1
-,story2,r1,
-,story3,r1,f1
+            projectService.configureBasis(project)
+
+        then:
+            !project.stories
+            project.dimensions?.size() == 2
+            project.dimensionFor("release").elements.size() == 3
+            project.dimensionFor("status").elements.size() == 4
+
+        and:
+            def lines = """id,summary,release,feature,status
+,story1,,f1,new status
+,story2,r99,,
+,story3,r100,f1,
 """
             importService.extractData(project, new StringReader(lines))
 
         then:
             project.stories?.size() == 3
             project.dimensions?.size() == 2
-    }
-
-    /*
-    def "extractData with existing feature and release names"() {
-        //project.addToFeatures(new Feature(name: "f1"))
-        //project.addToReleases(new Release(name: "r0"))
-        project.save(flush:true)
-
-        def lines = """id,summary,release,feature,progress
-,story1,,
-,story2,,
-,story3,r1,
-,story4,r1,f1
-"""
-        importService.extractData(project, new StringReader(lines))
-
-        assert project.stories?.size() == 4
-        assert project.features?.size() == 2
-        assert project.releases?.size() == 2
-    }
-
-    def "extractData update existing stories"() {
-        //project.addToFeatures(new Feature(name: "f1"))
-        //project.addToReleases(new Release(name: "r0"))
-
-        def lines = """id,summary,release,feature,progress
-,story1,,
-,story2,,
-,story3,r1,
-,story4,r1,f1
-"""
-        importService.extractData(project, new StringReader(lines))
+            project.dimensionFor("release").elements.size() == 5
+            project.dimensionFor("status").elements.size() == 5
     }
 
     def "extractData from empty file"() {
-        assert "Empty file." == shouldFail {
-            importService.extractData(project, new StringReader(""))
-        }
+        when:
+            Project project = Project.build()
+            projectService.configureBasis(project)
+
+        then:
+            try {
+                importService.extractData(project, new StringReader(""))
+                fail()
+            } catch (RuntimeException ex) {
+                assert ex.message == "Empty file."
+            }
     }
 
     def "extractData from non csv file"() {
-        def lines = """deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
+        when:
+            Project project = Project.build()
+            projectService.configureBasis(project)
+            def lines = """deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
 deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
 deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
 deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
@@ -115,24 +111,39 @@ deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
 deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
 deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
 """
-        assert "Invalid file format: File does not contain a proper header row.  It must at least contain columns for each of [summary]" == shouldFail {
-            importService.extractData(project, new StringReader(lines))
-        }
+        then:
+            try {
+                importService.extractData(project, new StringReader(lines))
+                fail()
+            } catch (RuntimeException ex) {
+                assert ex.message == "Invalid file format: File does not contain a proper header row.  It must at least contain columns for each of [summary]"
+            }
     }
 
     def "extractData from file with bad header"() {
-        def lines = """foo,bar,baz,stuff
+        when:
+            Project project = Project.build()
+            projectService.configureBasis(project)
+            def lines = """foo,bar,baz,stuff
 \"data\",\"data\",\"data\",\"data\"
 \"moreData\",\"moreData\",\"moreData\",\"moreData\"
 """
-        assert "Invalid file format: File does not contain a proper header row.  It must at least contain columns for each of [summary]" == shouldFail {
-            importService.extractData(project, new StringReader(lines))
-        }
+        then:
+            try {
+                importService.extractData(project, new StringReader(lines))
+                fail()
+            } catch (RuntimeException ex) {
+                assert ex.message == "Invalid file format: File does not contain a proper header row.  It must at least contain columns for each of [summary]"
+            }
     }
 
     def "extractData from file with only a header"() {
-        def lines = "id,summary"
-        importService.extractData(project, new StringReader(lines))
+        when:
+            Project project = Project.build()
+            projectService.configureBasis(project)
+            def lines = "id,summary"
+        then:
+            importService.extractData(project, new StringReader(lines))
    }
-    */
+
 }

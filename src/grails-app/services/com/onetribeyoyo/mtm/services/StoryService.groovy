@@ -42,11 +42,8 @@ class StoryService {
 
     void setVector(Story story, params) {
         story.project.dimensions.each { dimension ->
-            // TODO: is there an easier way to get a long (or null) from the params map?
-            String elementParam = params["dimension-${dimension.id}"]
-            Long elementId = elementParam ? elementParam.toLong() : null
-            Element element = elementId ? Element.get(elementId) : null
-            //println "value for ${dimension} is ${element} with id of ${elementId}"
+            String elementName = params[dimension.name]
+            Element element = dimension.elementFor(elementName)
             slide(story, dimension, element)
         }
     }

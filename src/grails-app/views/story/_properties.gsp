@@ -10,8 +10,8 @@
     <g:each var="dimension" in="${story.project.dimensions}">
       <span class="nowrap">
         <label for="${dimension.id}.id"><strong>${dimension.name.capitalize()}</strong></label>:
-        <g:select name="dimension-${dimension.id}" from="${dimension.elements}" optionKey="id"
-              value="${story.valueFor(dimension)?.element?.id}" class="many-to-one" noSelection="['': '???']" />
+        <g:select name="${dimension.name}" from="${dimension.elements}" optionKey="value"
+              value="${story.valueFor(dimension)?.element?.value}" class="many-to-one" noSelection="['': '???']" />
       </span>
     </g:each>
   </dd>

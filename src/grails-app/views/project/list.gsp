@@ -20,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <g:each var="project" in="${projectInstanceList}" status="i">
+      <g:each var="project" in="${projectList}" status="i">
         <g:set var="release" value="${project.dimensionFor('release')}" />
         <g:set var="offsetIndex" value="${i + (params.offset ?: 0)}" />
         <tr class="${(((Math.ceil(((offsetIndex as int)+1)/3) as int) % 2) == 0) ? 'even' : 'odd'}">
@@ -43,7 +43,7 @@
     </tbody>
   </table>
   <div class="pagination">
-    <g:paginate total="${projectInstanceTotal}" prev="&laquo;" next="&raquo;" />
+    <g:paginate total="${projectTotal}" prev="&laquo;" next="&raquo;" />
   </div>
 </div>
 

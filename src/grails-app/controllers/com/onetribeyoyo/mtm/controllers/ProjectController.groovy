@@ -24,7 +24,7 @@ class ProjectController {
 
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 20, 100)
-        [projectInstanceList: Project.list(params), projectInstanceTotal: Project.count()]
+        [projectList: Project.list(params), projectTotal: Project.count()]
     }
 
     def map(Long id, String x, String y) {
@@ -96,47 +96,48 @@ class ProjectController {
     }
 
     def save = {
-        def projectInstance = new Project(params)
-        projectService.configureBasis(projectInstance)
-        if (projectInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'project.label', default: 'Project'), projectInstance.id])}"
-            redirect(action: "show", id: projectInstance.id)
+        def project = new Project(name: params.name)
+        project.save(flush:true, failOnError:true)
+        projectService.configureBasis(project)
+        if (project.save(flush: true)) {
+            flash.message = "${message(code: 'default.created.message', args: [message(code: 'project.label', default: 'Project'), project.id])}"
+            redirect(action: "show", id: project.id)
         }
         else {
-            render(view: "create", model: [projectInstance: projectInstance])
+            render(view: "create", model: [project: project])
         }
     }
 
     def edit = {
-        def projectInstance = Project.get(params.id)
-        if (!projectInstance) {
+        def project = Project.get(params.id)
+        if (!project) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
             redirect(action: "list")
         }
         else {
-            return [projectInstance: projectInstance]
+            return [project: project]
         }
     }
 
     def update = {
-        def projectInstance = Project.get(params.id)
-        if (projectInstance) {
+        def project = Project.get(params.id)
+        if (project) {
             if (params.version) {
                 def version = params.version.toLong()
-                if (projectInstance.version > version) {
+                if (project.version > version) {
 
-                    projectInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'project.label', default: 'Project')] as Object[], "Another user has updated this Project while you were editing")
-                    render(view: "edit", model: [projectInstance: projectInstance])
+                    project.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'project.label', default: 'Project')] as Object[], "Another user has updated this Project while you were editing")
+                    render(view: "edit", model: [project: project])
                     return
                 }
             }
-            projectInstance.properties = params
-            if (!projectInstance.hasErrors() && projectInstance.save(flush: true)) {
-                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'project.label', default: 'Project'), projectInstance.id])}"
-                redirect(action: "show", id: projectInstance.id)
+            project.properties = params
+            if (!project.hasErrors() && project.save(flush: true)) {
+                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'project.label', default: 'Project'), project.id])}"
+                redirect(action: "show", id: project.id)
             }
             else {
-                render(view: "edit", model: [projectInstance: projectInstance])
+                render(view: "edit", model: [project: project])
             }
         }
         else {
@@ -146,10 +147,10 @@ class ProjectController {
     }
 
     def delete = {
-        def projectInstance = Project.get(params.id)
-        if (projectInstance) {
+        def project = Project.get(params.id)
+        if (project) {
             try {
-                projectInstance.delete(flush: true)
+                project.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
                 redirect(action: "list")
             }

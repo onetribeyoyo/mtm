@@ -27,7 +27,7 @@ class Element implements Comparable {
         def result = true
         Element.withNewSession {
             def existingElement = obj.dimension.elementFor(val)
-            if (existingElement != obj) {
+            if (existingElement && (existingElement != obj)) {
                 result = "com.onetribeyoyo.mtm.domain.Element.value.unique"
             }
         }

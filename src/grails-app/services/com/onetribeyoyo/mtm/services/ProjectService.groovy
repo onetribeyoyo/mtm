@@ -111,6 +111,20 @@ class ProjectService {
     }
 
 
+
+    Dimension createDimension(Project project, params = [:]) {
+        log.debug "createDimension(project: ${project}, params: ${params})"
+
+        def dimension = new Dimension(project: project)
+        dimension.name = params.name
+        dimension.description = params.description
+        dimension.save(failOnError:true)
+
+        project.addToDimensions(dimension)
+
+        return dimension
+    }
+
     Story createStory(Project project, params = [:]) {
         log.debug "createStory(project: ${project}, params: ${params})"
 

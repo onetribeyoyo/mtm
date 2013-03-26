@@ -9,24 +9,21 @@ class DimensionController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    def create = {
-        def project = Project.read(params.id)
+    def create =  {
+        def project = Project.get(params.id)
         def dimension = new Dimension(project: project)
         dimension.properties = params
-        render template: "create", model:[dimension: dimension]
+        render template: "create", model: [dimension: dimension]
     }
     def save = {
         def project = Project.read(params.project.id)
-        Dimension dimension = new Dimension(project: project)
-        dimension.properties = params
-        dimension.validate()
+        Dimension dimension = projectService.createDimension(project: project, params)
 
         if (dimension.hasErrors()) {
             flash.error = "Please provide all required values."
             render status: "400", template: "create", model: [dimension: dimension]
         }
         else {
-            dimension.save(failOnError: true)
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'dimension.label', default: 'Dimension'), dimension.id])}"
             redirect controller: "project", action: "show", id: dimension.project.id
         }

@@ -52,9 +52,28 @@ class ProjectServiceISpec extends IntegrationSpec {
             "assigned to" | ["you", "me", "them", "everybody"]
     }
 
+    def "createDimension"() {
+        when:
+            Project project = Project.build()
+            project.dimensions?.size() == 0
+            projectService.createDimension(project, [name: "5th"])
+
+        then:
+            project.dimensions?.size() == 1
+
+        and: "can't add a second one with the same name"
+            try {
+                projectService.createDimension(project, [name: "5th"])
+                fail()
+            } catch (Exception ex) {
+                // should fail with an error on the dimension
+            }
+    }
+
     def "createStory"() {
         when:
             Project project = Project.build()
+            project.stories?.size() == 0
             //project.addToStories(projectService.createStory(project, [summary: "story 1"]))
             projectService.createStory(project, [summary: "story 1"])
 

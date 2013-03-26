@@ -107,6 +107,7 @@ class BootStrap {
 
         13.times {
             def p = new Project(name: "Project ${it}")
+            p.save(flush:true, failOnError:true)
             if (it % 3) {
                 projectService.configureBasis(p)
             } else {

@@ -29,7 +29,7 @@ class Dimension implements Comparable {
         def result = true
         Dimension.withNewSession {
             def existingDimension = obj.project.dimensionFor(val)
-            if (existingDimension != obj) {
+            if (existingDimension && (existingDimension != obj)) {
                 result = "com.onetribeyoyo.mtm.domain.Dimension.name.unique"
             }
         }

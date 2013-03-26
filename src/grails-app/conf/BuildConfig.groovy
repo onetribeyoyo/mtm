@@ -75,7 +75,7 @@ grails.project.dependency.resolution = {
         compile ":csv:0.3.1"
         compile ":export:1.5"
         compile ":famfamfam:1.0.1"
-        compile ":joda-time:1.4"
+        //compile ":joda-time:1.4"
         compile ":remote-pagination:0.4.2"
 
         //~ testing ------------------------------------------------------------------

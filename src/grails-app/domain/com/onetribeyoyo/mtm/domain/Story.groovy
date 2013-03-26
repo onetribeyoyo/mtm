@@ -20,6 +20,7 @@ class Story {
     static constraints = {
         summary nullable: false, blank: false, maxSize: 255
         detail nullable: true, blank: true, maxSize: 4095
+        estimate nullable: true, min: 0 as Long
     }
 
     OrderedElement valueFor(String dimensionName) {

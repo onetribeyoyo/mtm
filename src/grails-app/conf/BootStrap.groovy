@@ -65,7 +65,6 @@ class BootStrap {
     }
 
     def init = { servletContext ->
-
         if (!envMapping[GrailsUtil.environment]) {
             return
         } else {

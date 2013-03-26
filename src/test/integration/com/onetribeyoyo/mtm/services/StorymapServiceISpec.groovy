@@ -74,7 +74,7 @@ class StorymapServiceISpec extends IntegrationSpec {
             projectService.configureDefaults(project)
             projectService.configureDimensionAndElements(project, X_AXIS_DATA)
             projectService.configureDimensionAndElements(project, Y_AXIS_DATA)
-            Story story1 = projectService.createStory(project, [summary: "story 1"])
+            Story story1 = projectService.createStory(project, [summary: "story 1", estimate: 42])
             Story story2 = projectService.createStory(project, [summary: "story 2"])
 
             Dimension xAxis = project.dimensionFor("xAxis")
@@ -97,6 +97,7 @@ class StorymapServiceISpec extends IntegrationSpec {
                         assert cell == []
                     }
                 }
+                assert rowData.estimate == (!row ? 42 : 0)
             }
     }
 

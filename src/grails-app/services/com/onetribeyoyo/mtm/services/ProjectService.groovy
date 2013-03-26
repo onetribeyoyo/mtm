@@ -115,7 +115,9 @@ class ProjectService {
         log.debug "createStory(project: ${project}, params: ${params})"
 
         def story = new Story(project: project)
-        story.properties = params
+        story.summary = params.summary
+        story.detail = params.detail
+        story.estimate = params.estimate
         story.save(failOnError:true)
 
         storyService.setVector(story, params)

@@ -36,6 +36,11 @@ class StorySpec extends Specification {
             "detail" | "valid"   | "some details"
             "detail" | "valid"   | testUtil.stringWithLength(4095)
             "detail" | "maxSize" | testUtil.stringWithLength(4096)
+
+            "estimate" | "valid" | null
+            "estimate" | "valid" | 0
+            "estimate" | "valid" | 1
+            "estimate" | "min"   | -1
     }
 
 }

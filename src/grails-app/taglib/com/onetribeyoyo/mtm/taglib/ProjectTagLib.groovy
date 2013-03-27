@@ -113,35 +113,36 @@ class ProjectTagLib {
         Project project = attrs.project
         String selectedTab = attrs.selectedTab
 
-        def tabDefs = [:]
+        out << "<ul class='tabrow'>\n"
 
+        def primary = project.primary
         project.dimensions.each { dimension ->
             if (!dimension.isPrimary() && dimension.elements) {
-                tabDefs."${dimension.name}" = [
-                    controller: "project", action: "map", id: project?.id,
-                    x: dimension,
-                    y: project.primary,
-                    label: "${dimension.name.capitalize()} by ${dimension.project.primary?.name.capitalize()}"
-                ]
+                def label = "${dimension.name.capitalize()} by ${primary?.name.capitalize()}"
+                if (selectedTab == dimension.name) {
+                    out << "<li class='selected'>${label}</li>"
+                } else {
+                    out << "<li>"
+                    out << g.link(controller: "project", action: "map", id: project.id, params: [x: dimension?.name, y: primary?.name], label)
+                    out << "</li>\n"
+                }
             }
         }
 
-        tabDefs.config___   = [ controller: "project", label: "Dimensions",     action: "show", id: project?.id ]
-        tabDefs.projects___ = [ controller: "project", label: "Switch Project", action: "list" ]
-        tabDefs.info___     = [ controller: "info",    label: "FAQ" ]
-
-        out << "<ul class='tabrow'>\n"
-        tabDefs.each { key, params ->
+        [
+            "config___":   [ controller: "project", label: "Dimensions",     action: "show", id: project?.id ],
+            "projects___": [ controller: "project", label: "Switch Project", action: "list" ],
+            "info___":     [ controller: "info",    label: "FAQ" ]
+        ].each { key, params ->
             if (selectedTab == key) {
                 out << "<li class='selected'>${params.label}</li>"
             } else {
                 out << "<li>"
-                out << g.link(controller: params.controller, action: params.action, id: params.id,
-                              params: [x: params.x?.name, y: params.y?.name],
-                              params.label)
+                out << g.link(controller: params.controller, action: params.action, id: params.id, params.label)
                 out << "</li>\n"
             }
         }
+
         out << "</ul>\n"
     }
 

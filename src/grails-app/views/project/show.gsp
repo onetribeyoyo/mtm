@@ -17,39 +17,53 @@
 <project:tabs project="${project}" selectedTab="config___" />
 
 <g:each var="dimension" in="${project.dimensions}">
-  <div id="dimension-${dimension.id}">
+  <div id="dimension-${dimension.id}" class="float-left">
     <g:render contextPath="/dimension" template="sort" model="[dimension:dimension]" />
   </div>
 </g:each>
 
-<g:if test="${!project.dimensionFor('assigned to')}">
-  <g:render template="addDimension" model="[dimensionName:'assigned to', dimensionData: ProjectService.ASSIGNED_TO_DIMENSION_DATA, action:'addAssignedToDimension']" />
-</g:if>
-
-<g:if test="${!project.dimensionFor('feature')}">
-  <g:render template="addDimension" model="[dimensionName:'feature', dimensionData: ProjectService.FEATURE_DIMENSION_DATA, action:'addFeatureDimension']" />
-</g:if>
-
-<g:if test="${!project.dimensionFor('release')}">
-  <g:render template="addDimension" model="[dimensionName:'release', dimensionData: ProjectService.RELEASE_DIMENSION_DATA, action:'addReleaseDimension']" />
-</g:if>
-
-<g:if test="${!project.dimensionFor('status')}">
-  <g:render template="addDimension" model="[dimensionName:'status', dimensionData: ProjectService.STATUS_DIMENSION_DATA, action:'addStatusDimension']" />
-</g:if>
-
-<g:if test="${!project.dimensionFor('strategy')}">
-  <g:render template="addDimension" model="[dimensionName:'strategy', dimensionData: ProjectService.STRATEGY_DIMENSION_DATA, action:'addStrategyDimension']" />
-</g:if>
-
-
 <div class="section float-left">
+  <h3>Additional Dimensions...</h3>
   <div>
-    <mtm:dialogLink controller="dimension" action="create" id="${project.id}" title="New Dimension"><button>Custom Dimension</button></mtm:dialogLink>
+    <g:if test="${!project.dimensionFor('assigned to')}">
+      <p class="narrow hint">For mapping ${ProjectService.ASSIGNED_TO_DIMENSION_DATA.elements.join(", ")}, ...</p>
+      <p><g:link action="addAssignedToDimension" id="${project.id}"><button>Add <em>assigned to</em> Dimension</button></g:link></p>
+      <hr />
+    </g:if>
   </div>
-  <p class="narrow hint">
-    Add and configure a dimension of your choice.
-  </p>
+  <div>
+    <g:if test="${!project.dimensionFor('feature')}">
+      <p class="narrow hint">For mapping ${ProjectService.FEATURE_DIMENSION_DATA.elements.join(", ")}, ...</p>
+      <p><g:link action="addFeatureDimension" id="${project.id}"><button>Add <em>feature</em> Dimension</button></g:link></p>
+      <hr />
+    </g:if>
+  </div>
+  <div>
+    <g:if test="${!project.dimensionFor('release')}">
+      <p class="narrow hint">For mapping ${ProjectService.RELEASE_DIMENSION_DATA.elements.join(", ")}, ...</p>
+      <p><g:link action="addReleaseDimension" id="${project.id}"><button>Add <em>release</em> Dimension</button></g:link></p>
+      <hr />
+    </g:if>
+  </div>
+  <div>
+    <g:if test="${!project.dimensionFor('status')}">
+      <p class="narrow hint">For mapping ${ProjectService.STATUS_DIMENSION_DATA.elements.collect { key, value -> key }.join(", ")}, ...</p>
+      <p><g:link action="addStatusDimension" id="${project.id}"><button>Add <em>status</em> Dimension</button></g:link></p>
+      <p class="narrow hint">...</p>
+      <hr />
+    </g:if>
+  </div>
+  <div>
+    <g:if test="${!project.dimensionFor('strategy')}">
+      <p class="narrow hint">For mapping ${ProjectService.STRATEGY_DIMENSION_DATA.elements.join(", ")}, ...</p>
+      <p><g:link action="addStrategyDimension" id="${project.id}"><button>Add <em>strategy</em> Dimension</button></g:link></p>
+      <hr />
+    </g:if>
+  </div>
+  <div>
+    <p class="narrow hint">Add and configure dimensions of your choice...</p>
+    <p><mtm:dialogLink controller="dimension" action="create" id="${project.id}" title="New Dimension"><button>Add A Custom Dimension</button></mtm:dialogLink></p>
+  </div>
 </div>
 
 </body>

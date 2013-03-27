@@ -35,6 +35,13 @@ th, td {
    z-index: 10;
 }
 
+hr {
+   background-color: orange;
+   border: none;
+   height: 1px;
+   margin-top: 1em;
+}
+
 /*~  messages ---------------------------------------------------------------------------------- */
 
 #messages { /* used to position page messages and errors. */

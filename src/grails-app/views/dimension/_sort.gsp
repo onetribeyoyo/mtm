@@ -1,22 +1,30 @@
-<div class="section float-left">
+<div class="section">
   <div>
     <div class="card-actions float-right">
       <mtm:dialogLink controller="dimension" action="edit" id="${dimension.id}" title="Edit ${dimension}"><img src="${fam.icon(name: 'page_edit')}" /></mtm:dialogLink>
-      <g:if test="${!dimension.isPrimary()}">
+      <g:if test="${!dimension.isPrimary() && (dimension.project.dimensions.size() != 2)}">
         <mtm:dialogLink controller="dimension" action="confirmDelete" id="${dimension.id}" title="Delete ${dimension}"><img src="${fam.icon(name: 'delete')}" /></mtm:dialogLink>
       </g:if>
     </div>
     <h2>${dimension}</h2>
   </div>
   <g:if test="${dimension.isPrimary()}">
+    <hr />
     <p class="narrow hint">
-      This is the primary dimension for the project  (the one all the default story maps use for the Y axis.)  As such,
-      it cannot be deleted.
+      This is the primary dimension for the project (the one uses as the Y axis on the default story maps.)  As such, it cannot be deleted.
     </p>
+  </g:if> <g:elseif test="${dimension.project.dimensions.size() == 2}">
+    <hr />
+    <p class="narrow hint">
+      There are only two dimensions, so neither can be deleted.
+    </p>
+  </g:elseif>
+  <g:if test="${dimension.description}">
+    <hr />
+    <p class="narrow hint">${dimension.description}</p>
   </g:if>
-  <p class="narrow">
-    ${dimension.description ?: "paragraph explaining what ${dimension.name} are used for..."}
-  </p>
+  <hr />
+  <p class="hint narrow">Drag these up/down to adjust the order.</p>
   <div class="grid">
     <div class="dimension-list" projectId="${dimension.project.id}" dimension="${dimension.name}">
       <g:each var="element" in="${dimension.elements}" status="rowNumber">
@@ -32,7 +40,7 @@
       </g:each>
     </div>
   </div>
-  <p class="hint narrow">Drag these up/down to adjust the order.</p>
+  <hr />
   <div class="buttonset">
     <mtm:dialogLink controller="element" action="create" id="${dimension.id}" title="New ${dimension}"><button>New <em>"${dimension}"</em></button></mtm:dialogLink>
   </div>

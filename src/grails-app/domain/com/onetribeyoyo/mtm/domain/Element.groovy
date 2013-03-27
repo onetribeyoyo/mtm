@@ -59,13 +59,13 @@ class Element implements Comparable {
         }
     }
 
-    boolean inProgress() {
+    boolean incomplete() {
         def lastStatus = this.dimension.project.lastStatus()
         onPoint(lastStatus)
     }
 
     boolean complete() {
-        !inProgress()
+        !incomplete()
     }
 
     int compareTo(that) {

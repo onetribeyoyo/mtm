@@ -18,7 +18,7 @@
     ${dimension.description ?: "paragraph explaining what ${dimension.name} are used for..."}
   </p>
   <div class="grid">
-    <div class="dimension-list" dimensionId="${dimension.id}">
+    <div class="dimension-list" projectId="${dimension.project.id}" dimension="${dimension.name}">
       <g:each var="element" in="${dimension.elements}" status="rowNumber">
         <g:set var="rowStyle" value="${((rowNumber % 2) == 0) ? 'odd' : 'even'}" />
         <div id="element-${element.id}" class="card ${rowStyle} ${element.colour ?: dimension.colour} light-margin heavy-padding">

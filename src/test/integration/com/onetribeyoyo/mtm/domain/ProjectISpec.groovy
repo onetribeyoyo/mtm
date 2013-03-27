@@ -9,7 +9,6 @@ class ProjectISpec extends IntegrationSpec {
     def "lastStatus"() {
         when:
             Project project = Project.build()
-            projectService.configureDimensionAndElements(project, projectService.STATUS_DIMENSION_DATA)
             projectService.configureDefaults(project)
 
         then:

@@ -61,6 +61,12 @@ class ProjectController {
         render view: "show", model: [ project: project ]
     }
 
+    def addBugDimension(Long id) {
+        def project = Project.get(id)
+        projectService.configureDimensionAndElements(project, projectService.BUG_DIMENSION_DATA)
+        render view: "show", model: [ project: project ]
+    }
+
     def addFeatureDimension(Long id) {
         def project = Project.get(id)
         projectService.configureDimensionAndElements(project, projectService.FEATURE_DIMENSION_DATA)

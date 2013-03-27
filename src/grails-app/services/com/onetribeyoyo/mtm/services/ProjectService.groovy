@@ -33,6 +33,12 @@ class ProjectService {
         colour: "goldenrod",
         layoutStyle: LayoutStyle.FLOW
     ]
+    static final Map BUG_DIMENSION_DATA = [
+        name: "bugs",
+        elements: ["fatal", "critical", "important", "low", "trivial"],
+        colour: "goldenrod",
+        layoutStyle: LayoutStyle.FLOW
+    ]
     static final Map FEATURE_DIMENSION_DATA = [
         name: "feature",
         elements: ["feature 1", "feature 2", "feature 3"],

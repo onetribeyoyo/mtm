@@ -47,12 +47,6 @@
    position: absolute;
 }
 
-.card-estimate {
-   display: block;
-   float: right;
-   position: relative; top: 0; right: 0;
-}
-
 
 /*~ stories ------------------------------------------------------------------------------------ */
 
@@ -109,6 +103,20 @@
 }
 
 /*~ status ------------------------------------------------------------------------------------- */
+
+.estimate {
+   display: block;
+   float: right;
+   position: relative; top: 0; right: 0;
+   background-color: LightGray;
+   color: FireBrick;
+   border-radius: 5px;
+   border: 1px inset LightGray;
+   padding: 0 0.5em;
+   min-width: 1.5em;
+   text-align: center;
+}
+
 
 .with-questions {
    background-repeat: no-repeat;

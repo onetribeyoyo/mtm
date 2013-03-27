@@ -11,7 +11,7 @@
 
   <div id="story-${story.id}" class="story ${detailStyle}">
     <div class="summary">
-      <g:if test="${story.estimate}"><div class="card-estimate">${story.estimate}</div></g:if>
+      <g:if test="${story.estimate}"><div class="estimate">${story.estimate}</div></g:if>
 
       <g:set var="assignedTo" value="${story.valueFor('assigned to')?.element}" />
       <g:if test="${assignedTo}"> <div class="assignedTo ${assignedTo.colour ?: assignedTo.dimension.colour ?: ''}">${assignedTo}</div> </g:if>

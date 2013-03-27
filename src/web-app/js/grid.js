@@ -41,13 +41,13 @@ $(function() {
             width: 550,
         });
 
-    $(".release-toggle")
+    $(".toggle-row")
         .each(function() {
             $(this)
                 .click(function() {
-                    var releaseId = $(this).attr("yId");
-                    $(".release-toggle-" + releaseId).toggle();
-                    $(".release-toggle-" + releaseId).parent().parent().find(".story, .story-abbrev").toggle();
+                    var rowId = $(this).attr("yId");
+                    $(".row-" + rowId).toggle();
+                    $(".row-" + rowId).parent().parent().find(".story, .story-abbrev").toggle();
                 })
                 .end()
         });

@@ -8,6 +8,28 @@ import spock.lang.Unroll
 class ProjectServiceISpec extends IntegrationSpec {
 
     def projectService
+    def storyService
+
+    def "configureDimensionAndElements"() {
+        given:
+            Project project = Project.build()
+            !project.dimensions
+        and:
+            def data = [ name: "yAxis", elements: ["a", "b", "c"] ]
+
+        when:
+            projectService.configureDimensionAndElements(project, data)
+        then:
+            project.dimensions.size() == 1
+            project.dimensions.iterator()[0].name == data.name
+            project.dimensions.iterator()[0].elements.size() == 3
+
+        when:
+            projectService.configureDimensionAndElements(project, data)
+        then: "configureDimensionAndElements is idempotent"
+            project.dimensions.size() == 1
+            project.dimensions.iterator()[0].elements.size() == 3
+    }
 
     @Unroll("configureBasis: dimension:'#dimensionName'.")
     def "configureBasis"() {
@@ -74,11 +96,41 @@ class ProjectServiceISpec extends IntegrationSpec {
         when:
             Project project = Project.build()
             project.stories?.size() == 0
-            //project.addToStories(projectService.createStory(project, [summary: "story 1"]))
             projectService.createStory(project, [summary: "story 1"])
 
         then:
             project.stories?.size() == 1
+    }
+
+    def "test updateStoryOrder"() {
+        given: "a project and a couple stories"
+            Project project = Project.build()
+            projectService.configureBasis(project)
+            def axis = project.dimensionFor("status")
+            def element = axis.elementFor("done")
+        and:
+            def story1 = projectService.createStory(project, [summary: "story 1"])
+            def story2 = projectService.createStory(project, [summary: "story 2"])
+            project.save(flush: true)
+            storyService.slide(story1, axis, element)
+            storyService.slide(story2, axis, element)
+            project.save(flush: true)
+
+        and: "the initial sort order is still the default..."
+            story1.valueFor(axis).order == 9999
+            story2.valueFor(axis).order == 9999
+
+        when:
+            projectService.updateStoryOrder(project, element, [story1.id, story2.id])
+        then:
+            story1.valueFor(axis).order == 0
+            story2.valueFor(axis).order == 1
+
+        when:
+            projectService.updateStoryOrder(project, element, [story2.id, story1.id])
+        then:
+            story1.valueFor(axis).order == 1
+            story2.valueFor(axis).order == 0
     }
 
 }

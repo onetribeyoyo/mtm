@@ -137,7 +137,7 @@ class ProjectService {
         def story = new Story(project: project)
         story.summary = params.summary
         story.detail = params.detail
-        story.estimate = params.estimate
+        story.estimate = params.estimate as Long
         story.save(failOnError:true)
 
         storyService.setVector(story, params)

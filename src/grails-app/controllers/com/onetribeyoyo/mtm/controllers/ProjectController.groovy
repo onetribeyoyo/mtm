@@ -100,9 +100,8 @@ class ProjectController {
             project: project
         ]
     }
-
-    def save = {
-        def project = new Project(name: params.name)
+    def save(String name, Long estimateUnits) {
+        def project = new Project(name: name, estimateUnits: estimateUnits)
         project.save(flush:true, failOnError:true)
         projectService.configureBasis(project)
         if (project.save(flush: true)) {
@@ -124,7 +123,6 @@ class ProjectController {
             return [project: project]
         }
     }
-
     def update = {
         def project = Project.get(params.id)
         if (project) {

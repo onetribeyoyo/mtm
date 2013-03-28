@@ -20,6 +20,9 @@
   <dd> <g:textArea name="detail" cols="50" rows="5" maxlength="4095" value="${story?.detail}" class="${hasErrors(bean: story, field: 'detail', 'error')}" /> </dd>
 
   <dt> <label for="estimate" class="required">Estimate</label> </dt>
-  <dd> <g:field name="estimate" type="text" value="${story?.estimate}" class="${hasErrors(bean: story, field: 'estimate', 'error')}" /> </dd>
+  <dd>
+    <g:field name="estimate" type="text" value="${story?.estimate}" class="${hasErrors(bean: story, field: 'estimate', 'error')}" />
+    ${story.project.estimateUnits}
+  </dd>
 
 </dl>

@@ -22,6 +22,8 @@
   </div>
 </g:each>
 
+<hr class="clear" />
+
 <div class="section float-left">
   <h3>Additional Dimensions...</h3>
   <div>

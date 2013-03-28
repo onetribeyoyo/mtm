@@ -3,9 +3,9 @@ package com.onetribeyoyo.mtm.domain
 class Project {
 
     String name
+    String estimateUnits = ""
 
     SortedSet dimensions
-
     Dimension primary // used to configure default storymaps.
 
     static hasMany = [
@@ -16,6 +16,7 @@ class Project {
 
     static constraints = {
         name unique: true, nullable:false, blank:false, maxSize:255
+        estimateUnits nullable: true, blank: true, maxSize:15
         primary nullable: true // but only to make it easier to construct projects!
     }
 

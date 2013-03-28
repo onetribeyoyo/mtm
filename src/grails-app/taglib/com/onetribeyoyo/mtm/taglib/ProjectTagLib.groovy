@@ -48,7 +48,12 @@ class ProjectTagLib {
             out << "    <li class='grid-row-head ${y.colour ?: yAxis?.colour} ${rowStyle}'>\n"
             out << "      ${y.value}\n"
             if (storymap[y].estimate) {
-                out << "      <div class='estimate'>${storymap[y].estimate}</div>\n"
+                out << "      <div class='estimate'>"
+                out << storymap[y].estimate
+                if (project.estimateUnits) {
+                    out << "&nbsp;${project.estimateUnits}"
+                }
+                out << "</div>\n"
             }
 
             def complete = y.complete()
@@ -83,7 +88,12 @@ class ProjectTagLib {
         def rowStyle = ((++lastRowNumber % 2) == 0) ? "odd" : "even\n"
         out << "    <li class='grid-row-head ${yAxis?.colour} ${rowStyle}'>???\n"
         if (storymap[null].estimate) {
-            out << "      <div class='estimate'>${storymap[null].estimate}</div>\n"
+            out << "      <div class='estimate'>"
+            out << storymap[null].estimate
+            if (project.estimateUnits) {
+                out << "&nbsp;${project.estimateUnits}"
+            }
+            out << "</div>\n"
         }
         out << "      <a href='#' class='y toggle-row row-null' yId='null'><img src='../../images/arrow_collapse.gif' /></a>\n"
         out << "      <a href='#' class='y toggle-row row-null hidden' yId='null'><img src='../../images/arrow_expand.gif' /></a>\n"

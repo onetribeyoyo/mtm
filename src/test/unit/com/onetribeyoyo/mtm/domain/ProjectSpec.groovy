@@ -35,6 +35,16 @@ class ProjectSpec extends Specification {
             "name" | "valid"    | "project-2"
             "name" | "valid"    | testUtil.stringWithLength(255)
             "name" | "maxSize"  | testUtil.stringWithLength(256)
+
+            "estimateUnits" | "valid"   | null
+            "estimateUnits" | "valid"   | ""
+            "estimateUnits" | "valid"   | "hours"
+            "estimateUnits" | "valid"   | "days"
+            "estimateUnits" | "valid"   | "months"
+            "estimateUnits" | "valid"   | "pts"
+            "estimateUnits" | "valid"   | "points"
+            "estimateUnits" | "valid"   | testUtil.stringWithLength(15)
+            "estimateUnits" | "maxSize" | testUtil.stringWithLength(16)
     }
 
 }

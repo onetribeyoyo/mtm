@@ -11,7 +11,7 @@
 
   <div id="story-${story.id}" class="story ${detailStyle}">
     <div class="summary">
-      <g:if test="${story.estimate}"><div class="estimate">${story.estimate}</div></g:if>
+      <g:if test="${story.estimate}"><div class="estimate">${story.estimate}<g:if test="${project.estimateUnits}">${project.estimateUnits[0].toLowerCase()}</g:if></div></g:if>
 
       <g:set var="assignedTo" value="${story.valueFor('assigned to')?.element}" />
       <g:if test="${assignedTo}"> <div class="assignedTo ${assignedTo.colour ?: assignedTo.dimension.colour ?: ''}">${assignedTo}</div> </g:if>
@@ -19,7 +19,7 @@
       <g:render template="/project/cardActions" />
       <div class="summary">${story.id}: ${story.summary}</div>
       <div class="vector">
-        <g:each var="dimension" in="${story.project.dimensions}">
+        <g:each var="dimension" in="${project.dimensions}">
           <g:if test="${!(dimension.name in [xAxis?.name, yAxis?.name, 'assigned to', 'status'])}">
             <g:set var="point" value="${story.valueFor(dimension)}" />
               <g:if test="${point}">

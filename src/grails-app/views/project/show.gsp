@@ -34,7 +34,7 @@
     </g:if>
   </div>
   <div>
-    <g:if test="${!project.dimensionFor('bug')}">
+    <g:if test="${!project.dimensionFor('bugs')}">
       <p class="narrow hint">For mapping ${ProjectService.BUG_DIMENSION_DATA.elements.join(", ")},&nbsp...</p>
       <p><g:link action="addBugDimension" id="${project.id}"><button>Add <em>bug</em> Dimension</button></g:link></p>
       <hr />

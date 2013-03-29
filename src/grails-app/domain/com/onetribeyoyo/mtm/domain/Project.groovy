@@ -6,18 +6,21 @@ class Project {
     String estimateUnits = ""
 
     SortedSet dimensions
-    Dimension primary // used to configure default storymaps.
+    Dimension primaryAxis        // used to configure default storymaps.
+    Dimension colourDimension    // used to determine card display colour
+    Dimension highlightDimension // used to determine card highlight content
 
     static hasMany = [
         stories : Story,
-        dimensions: Dimension,
-        permanentDimensions: Dimension
+        dimensions: Dimension
     ]
 
     static constraints = {
         name unique: true, nullable:false, blank:false, maxSize:255
         estimateUnits nullable: true, blank: true, maxSize:15
-        primary nullable: true // but only to make it easier to construct projects!
+        primaryAxis nullable: true // but only to make it easier to construct projects!
+        colourDimension nullable: true
+        highlightDimension nullable: true
     }
 
     Dimension dimensionFor(String name) {

@@ -15,7 +15,8 @@ class ProjectService {
         name: "release",
         elements: ["r0.1", "r0.2", "r0.3"],
         colour: null, // no colour means the odd/even stripping will be used
-        layoutStyle: LayoutStyle.LINEAR
+        layoutStyle: LayoutStyle.LINEAR,
+        primaryAxis: true
     ]
     static final Map STATUS_DIMENSION_DATA = [
         name: "status",
@@ -24,14 +25,16 @@ class ProjectService {
                    "ready to test": "PaleTurquoise",
                    "done":          "DarkSeaGreen1"],
         colour: null, // no colour means the odd/even stripping will be used
-        layoutStyle: LayoutStyle.LINEAR
+        layoutStyle: LayoutStyle.LINEAR,
+        colourDimension: true
     ]
 
     static final Map ASSIGNED_TO_DIMENSION_DATA = [
         name: "assigned to",
         elements: ["you", "me", "them", "everybody"],
         colour: "goldenrod",
-        layoutStyle: LayoutStyle.FLOW
+        layoutStyle: LayoutStyle.FLOW,
+        highlightDimension: true
     ]
     static final Map BUG_DIMENSION_DATA = [
         name: "bugs",
@@ -55,10 +58,7 @@ class ProjectService {
 
     void configureBasis(Project project) {
         log.debug "configureBasis(${project})"
-
-        Dimension primary = configureDimensionAndElements(project, RELEASE_DIMENSION_DATA)
-        project.primary = primary
-
+        configureDimensionAndElements(project, RELEASE_DIMENSION_DATA)
         configureDimensionAndElements(project, STATUS_DIMENSION_DATA)
     }
 
@@ -85,13 +85,23 @@ class ProjectService {
      */
     Dimension configureDimension(Project project, Map params) {
         log.trace "configureDimension(${project}, ${params})"
+
         Dimension dimension = project.dimensionFor(params.name)
         if (!dimension) {
             dimension = new Dimension(name: params.name)
             project.addToDimensions(dimension)
         }
+
         dimension.colour = params.colour
+
         if (params.layoutStyle) dimension.layoutStyle = params.layoutStyle
+
+        if (params.primaryAxis && !project.primaryAxis) project.primaryAxis = dimension
+
+        if (params.colourDimension && !project.colourDimension) project.colourDimension = dimension
+
+        if (params.highlightDimension && !project.highlightDimension) project.highlightDimension = dimension
+
         return dimension
     }
 

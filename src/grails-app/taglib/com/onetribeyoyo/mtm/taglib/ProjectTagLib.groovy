@@ -125,15 +125,15 @@ class ProjectTagLib {
 
         out << "<ul class='tabrow'>\n"
 
-        def primary = project.primary
+        def primaryAxis = project.primaryAxis
         project.dimensions.each { dimension ->
-            if (!dimension.isPrimary() && dimension.elements) {
-                def label = "${dimension.name.capitalize()} by ${primary?.name.capitalize()}"
+            if (!dimension.isPrimaryAxis() && dimension.elements) {
+                def label = "${dimension.name.capitalize()} by ${primaryAxis?.name.capitalize()}"
                 if (selectedTab == dimension.name) {
                     out << "<li class='selected'>${label}</li>"
                 } else {
                     out << "<li>"
-                    out << g.link(controller: "project", action: "map", id: project.id, params: [x: dimension?.name, y: primary?.name], label)
+                    out << g.link(controller: "project", action: "map", id: project.id, params: [x: dimension?.name, y: primaryAxis?.name], label)
                     out << "</li>\n"
                 }
             }

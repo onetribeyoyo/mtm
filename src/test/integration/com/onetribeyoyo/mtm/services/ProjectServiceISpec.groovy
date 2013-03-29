@@ -40,10 +40,10 @@ class ProjectServiceISpec extends IntegrationSpec {
         then:
             project.dimensions.size() == 2
             Dimension dimension = project.dimensionFor(dimensionName)
-            (project.primary?.name == dimensionName) == primary
+            (project.primaryAxis?.name == dimensionName) == primaryAxis
 
         where:
-            dimensionName | basis | primary
+            dimensionName | basis | primaryAxis
             "release"     | true  | true
             "status"      | true  | false
             "feature"     | false | false

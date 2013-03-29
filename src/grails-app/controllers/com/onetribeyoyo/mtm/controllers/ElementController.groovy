@@ -15,8 +15,7 @@ class ElementController {
     }
     def save = {
         def dimension = Dimension.read(params.dimension.id)
-        Element element = new Element(dimension: dimension)
-        element.properties = params
+        Element element = new Element(dimension: dimension, value: params.value, description: params.description)
         element.validate()
 
         if (element.hasErrors()) {
@@ -49,7 +48,8 @@ class ElementController {
                     return
                 }
             }
-            element.properties = params
+            element.value = params.value
+            element.description = params.description
             if (!element.hasErrors() && element.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'element.label', default: 'Element'), element.id])}"
                 render flash.message

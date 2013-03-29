@@ -1,6 +1,6 @@
 package com.onetribeyoyo.mtm.domain
 
-class Story {
+class Story implements Comparable {
 
     static belongsTo = [
         project: Project
@@ -28,9 +28,12 @@ class Story {
     }
 
     OrderedElement valueFor(Dimension dimension) {
-        valueFor(dimension.name)
+        dimension ? valueFor(dimension.name) : null
     }
 
+    int compareTo(that) {
+        (this.id <=> that.id)
+    }
     String toString() {
         id ? "${id}: ${summary}" : summary
     }

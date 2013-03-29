@@ -1,6 +1,7 @@
 package com.onetribeyoyo.mtm.controllers
 
 import grails.converters.JSON
+import grails.converters.XML
 
 import com.onetribeyoyo.mtm.domain.*
 
@@ -45,11 +46,35 @@ class ProjectController {
     }
 
     def show(Long id) {
-        [ project: Project.read(id) ]
+        Project project = Project.read(id)
+        if (!project) {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            redirect action: "list"
+        } else {
+            [ project: project ]
+        }
     }
 
     def json(Long id) {
-        render Project.read(id) as JSON
+        Project project = Project.read(id)
+        if (!project) {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            redirect action: "list"
+        } else {
+            JSON.use('deep')
+            render project as JSON
+        }
+    }
+
+    def xml(Long id) {
+        Project project = Project.read(id)
+        if (!project) {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            redirect action: "list"
+        } else {
+            XML.use('deep')
+            render project as XML
+        }
     }
 
 
@@ -57,38 +82,68 @@ class ProjectController {
 
     def addAssignedToDimension(Long id) {
         def project = Project.get(id)
-        projectService.configureDimensionAndElements(project, projectService.ASSIGNED_TO_DIMENSION_DATA)
-        render view: "show", model: [ project: project ]
+        if (!project) {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            redirect action: "list"
+        } else {
+            projectService.configureDimensionAndElements(project, projectService.ASSIGNED_TO_DIMENSION_DATA)
+            redirect action: "show", id: project.id
+        }
     }
 
     def addBugDimension(Long id) {
         def project = Project.get(id)
-        projectService.configureDimensionAndElements(project, projectService.BUG_DIMENSION_DATA)
-        render view: "show", model: [ project: project ]
+        if (!project) {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            redirect action: "list"
+        } else {
+            projectService.configureDimensionAndElements(project, projectService.BUG_DIMENSION_DATA)
+            redirect action: "show", id: project.id
+        }
     }
 
     def addFeatureDimension(Long id) {
         def project = Project.get(id)
-        projectService.configureDimensionAndElements(project, projectService.FEATURE_DIMENSION_DATA)
-        render view: "show", model: [ project: project ]
+        if (!project) {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            redirect action: "list"
+        } else {
+            projectService.configureDimensionAndElements(project, projectService.FEATURE_DIMENSION_DATA)
+            redirect action: "show", id: project.id
+        }
     }
 
     def addReleaseDimension(Long id) {
         def project = Project.get(id)
-        projectService.configureDimensionAndElements(project, projectService.RELEASE_DIMENSION_DATA)
-        render view: "show", model: [ project: project ]
+        if (!project) {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            redirect action: "list"
+        } else {
+            projectService.configureDimensionAndElements(project, projectService.RELEASE_DIMENSION_DATA)
+            redirect action: "show", id: project.id
+        }
     }
 
     def addStatusDimension(Long id) {
         def project = Project.get(id)
-        projectService.configureDimensionAndElements(project, projectService.STATUS_DIMENSION_DATA)
-        render view: "show", model: [ project: project ]
+        if (!project) {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            redirect action: "list"
+        } else {
+            projectService.configureDimensionAndElements(project, projectService.STATUS_DIMENSION_DATA)
+            redirect action: "show", id: project.id
+        }
     }
 
     def addStrategyDimension(Long id) {
         def project = Project.get(id)
-        projectService.configureDimensionAndElements(project, projectService.STRATEGY_DIMENSION_DATA)
-        render view: "show", model: [ project: project ]
+        if (!project) {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            redirect action: "list"
+        } else {
+            projectService.configureDimensionAndElements(project, projectService.STRATEGY_DIMENSION_DATA)
+            redirect action: "show", id: project.id
+        }
     }
 
 

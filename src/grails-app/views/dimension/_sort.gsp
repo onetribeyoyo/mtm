@@ -2,13 +2,13 @@
   <div>
     <div class="card-actions float-right">
       <mtm:dialogLink controller="dimension" action="edit" id="${dimension.id}" title="Edit ${dimension}"><img src="${fam.icon(name: 'page_edit')}" /></mtm:dialogLink>
-      <g:if test="${!dimension.isPrimary() && (dimension.project.dimensions.size() != 2)}">
+      <g:if test="${!dimension.isPrimaryAxis() && (dimension.project.dimensions.size() != 2)}">
         <mtm:dialogLink controller="dimension" action="confirmDelete" id="${dimension.id}" title="Delete ${dimension}"><img src="${fam.icon(name: 'delete')}" /></mtm:dialogLink>
       </g:if>
     </div>
     <h2>${dimension}</h2>
   </div>
-  <g:if test="${dimension.isPrimary()}">
+  <g:if test="${dimension.isPrimaryAxis()}">
     <hr />
     <p class="narrow hint">
       This is the primary dimension for the project (the one uses as the Y axis on the default story maps.)  As such, it cannot be deleted.

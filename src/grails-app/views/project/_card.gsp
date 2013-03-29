@@ -2,7 +2,7 @@
 <g:set var="abbrevStyle" value="${complete ? '' : 'hidden'}" />
 <g:set var="detailStyle" value="${complete ? 'hidden' : ''}" />
 
-<div id="${story.id}" class="card ${layoutStyle} ${story.blocked ? 'blocked' : ''} ${story.valueFor('status')?.element?.colour}">
+<div id="${story.id}" class="card ${layoutStyle} ${story.blocked ? 'blocked' : ''} ${story.valueFor(story.project.colourDimension)?.element?.colour}">
 
   <div id="story-abbrev-${id}" class="story-abbrev ${abbrevStyle}">
     <g:render template="/project/cardActions" />
@@ -11,19 +11,25 @@
 
   <div id="story-${story.id}" class="story ${detailStyle}">
     <div class="summary">
-      <g:if test="${story.estimate}"><div class="estimate">${story.estimate}<g:if test="${project.estimateUnits}">${project.estimateUnits[0].toLowerCase()}</g:if></div></g:if>
-
-      <g:set var="assignedTo" value="${story.valueFor('assigned to')?.element}" />
-      <g:if test="${assignedTo}"> <div class="assignedTo ${assignedTo.colour ?: assignedTo.dimension.colour ?: ''}">${assignedTo}</div> </g:if>
-
       <g:render template="/project/cardActions" />
+
+      <g:set var="highlight" value="${story.valueFor(story.project.highlightDimension)?.element}" />
+      <g:if test="${highlight}">
+        <span class="highlight float-right">${highlight}</span>
+      </g:if>
+
       <div class="summary">${story.id}: ${story.summary}</div>
+
+      <g:if test="${story.estimate}">
+        <span class="estimate float-right">${story.estimate}<g:if test="${story.project.estimateUnits}">${story.project.estimateUnits[0].toLowerCase()}</g:if></span>
+      </g:if>
+
       <div class="vector">
-        <g:each var="dimension" in="${project.dimensions}">
-          <g:if test="${!(dimension.name in [xAxis?.name, yAxis?.name, 'assigned to', 'status'])}">
+        <g:each var="dimension" in="${story.project.dimensions}">
+          <g:if test="${!(dimension in [xAxis, yAxis, story.project.colourDimension, story.project.highlightDimension])}">
             <g:set var="point" value="${story.valueFor(dimension)}" />
               <g:if test="${point}">
-                <div class="tag ${point.element?.colour ?: point.element?.dimension.colour ?: 'wheat'}">${point.element}</div>
+                <span class="tag">${point.element}</span>
             </g:if>
           </g:if>
         </g:each>

@@ -138,7 +138,7 @@ class BootStrap {
                 } else {
                     release = projectService.configureDimensionAndElements(project, projectService.RELEASE_DIMENSION_DATA)
                 }
-                project.primary = release
+                project.primaryAxis = release
                 project.save(flush:true, failOnError:true)
 
                 def status = project.dimensionFor("status")

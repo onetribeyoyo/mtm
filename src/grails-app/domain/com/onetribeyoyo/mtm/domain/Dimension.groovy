@@ -40,8 +40,8 @@ class Dimension implements Comparable {
         elements.find { p -> (p.value?.toLowerCase() == value?.toLowerCase()) }
     }
 
-    Boolean isPrimary() {
-        this.project.primary == this
+    Boolean isPrimaryAxis() {
+        this.project.primaryAxis == this
     }
 
     int compareTo(that) {

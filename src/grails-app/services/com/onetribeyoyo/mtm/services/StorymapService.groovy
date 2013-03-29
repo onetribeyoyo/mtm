@@ -55,9 +55,9 @@ class StorymapService {
         def complete = true
         map.columns = [:]
         columns.elements.each { x ->
-            map.columns[x] = []
+            map.columns[x] = new TreeSet()
         }
-        map.columns[null] = []
+        map.columns[null] = new TreeSet()
 
         map.estimate = estimate
         map.complete = (row?.complete() ? true : false)

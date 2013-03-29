@@ -67,7 +67,6 @@ class ExportController {
                         highlightDimension: (element.dimension.project.highlightDimension == dimension),
                     ]
                     data << elementData
-                    println elementData
                 }
             }
             List fields = [ "dimension", "value", "order", "colour", "description", "primaryAxis", "colourDimension", "highlightDimension" ]

@@ -63,31 +63,27 @@
    min-height: 3em;
 }
 .card .story .vector {
-   margin-top: 0.25em;
 }
-.card .story .assignedTo {
-   float: right;
+.card .story .highlight {
    min-width: 2.5em;
 
    border-radius: 2px;
    border: 1px solid #999;
 
-   color: #333;
+   background-color: #EEDD82;
+   font-size: 90%;
    font-weight: bold;
    padding: 0.5em 0.5em;
    text-align: center;
 }
 .card .story .vector .tag {
-   float: left;
-   /* min-width: 4em; */
-
-   margin-right: 0.15em;
+   white-space: nowrap;
 
    border-radius: 5px;
    border: 1px outset #999;
 
-   color: #333;
-   font-size: 0.7em;
+   background-color: AntiqueWhite;
+   font-size: 0.8em;
    font-weight: bold;
    padding: 0 0.5em;
    text-align: center;
@@ -104,10 +100,11 @@
 
 /*~ status ------------------------------------------------------------------------------------- */
 
+.strut {
+   height: 4em;
+   background-color: orange;
+}
 .estimate {
-   display: block;
-   float: right;
-   position: relative; top: 0; right: 0;
    background-color: LightGray;
    color: FireBrick;
    border-radius: 5px;

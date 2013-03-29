@@ -16,6 +16,11 @@
 <h1> ${project.name} </h1>
 <project:tabs project="${project}" selectedTab="config___" />
 
+<div>
+  <mtm:dialogLink controller="import" action="structureFile" id="${project.id}" title="Import Project Structure"><button>Import Project Structure</button></mtm:dialogLink>
+  <g:link controller="export" action="exportStructure" id="${project.id}" params="[format: 'csv', extension: 'csv']"><button>Export Project Structure</button></g:link>
+</div>
+
 <g:each var="dimension" in="${project.dimensions}">
   <div id="dimension-${dimension.id}" class="float-left">
     <g:render contextPath="/dimension" template="sort" model="[dimension:dimension]" />

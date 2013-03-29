@@ -41,7 +41,7 @@ class StorymapServiceISpec extends IntegrationSpec {
                 assert (row && yAxis.elements.contains(row)) || (row == null)
                 rowData.columns.each { x, cell ->
                     assert (x && xAxis.elements.contains(x)) || (x == null)
-                    assert cell == []
+                    assert !cell
                 }
             }
     }
@@ -63,7 +63,7 @@ class StorymapServiceISpec extends IntegrationSpec {
                 rowData.columns.keySet().size() == xAxis.elements.size() + 1
                 rowData.columns.each { x, cell ->
                     assert (x && xAxis.elements.contains(x)) || (x == null)
-                    assert cell == []
+                    assert !cell
                 }
             }
     }
@@ -94,7 +94,7 @@ class StorymapServiceISpec extends IntegrationSpec {
                         assert cell.contains(story1)
                         assert cell.contains(story2)
                     } else {
-                        assert cell == []
+                        assert !cell
                     }
                 }
                 assert rowData.estimate == (!row ? 42 : 0)

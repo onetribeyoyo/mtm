@@ -2,7 +2,7 @@ package com.onetribeyoyo.mtm.services
 
 import com.onetribeyoyo.mtm.domain.*
 
-class ImportService {
+class StoryImportService extends ImportService {
 
     boolean transactional = true
 
@@ -10,6 +10,11 @@ class ImportService {
 
     static final List<String> REQUIRED_FIELDS = [
         "summary",
+    ]
+
+    static final List<String> OPTIONAL_FIELDS = [
+        "detail",
+        "estimate",
     ]
 
     static final Integer SESSION_FLUSH_THRESHOLD = 1000
@@ -36,21 +41,31 @@ class ImportService {
 
             if (!indexMap) {
                 // must be the first line, so figure out which fields contain the data we care about...
-                indexMap = extractIndexMap(fields, project.dimensions)
+
+                def optionalFields = OPTIONAL_FIELDS
+                project.dimensions.each { dimension ->
+                    optionalFields << dimension.name
+                }
+                indexMap = extractIndexMap(fields, REQUIRED_FIELDS, optionalFields)
+
             } else if (!empty(fields)) { // skip blank lines
                 // must be a data line...
-                Long storyId = extractField(fields, indexMap.id) as Long
-                String storySummary = extractField(fields, indexMap.summary)
+                Long storyId = extractLong(fields, indexMap.id)
+                String storySummary = extractString(fields, indexMap.summary)
                 Story story = findOrCreateStory(project, storyId, storySummary)
 
-                String storyDetail = extractField(fields, indexMap.detail)
+                String storyDetail = extractString(fields, indexMap.detail)
                 if (storyDetail) {
                     story.detail = storyDetail
+                }
+                Long storyEstimate = extractLong(fields, indexMap.estimate)
+                if (storyEstimate != null) {
+                    story.estimate = storyEstimate
                 }
                 story.save()
 
                 project.dimensions.each { dimension ->
-                    String value = extractField(fields, indexMap[dimension.name])
+                    String value = extractString(fields, indexMap[dimension.name])
                     Element element = dimension.elementFor(value)
                     if (value && !element) { // create missing elements
                         element = new Element(dimension: dimension, value: value)
@@ -78,76 +93,6 @@ class ImportService {
         log.info "  extractData(..) done."
 
         project
-    }
-
-    private boolean empty(String[] tokens) {
-        boolean empty = true // start by assuming we've got nothing
-        def e = tokens.each { token -> token
-            if (token) {
-                empty = false
-            }
-        }
-        return empty
-    }
-
-    private def extractIndexMap(String[] fields, def dimensions) {
-
-        def allowedFields = []
-        REQUIRED_FIELDS.each { requiredField ->
-            allowedFields << requiredField
-        }
-        dimensions.each { dimension ->
-            allowedFields << dimension.name
-        }
-        def indexMap = [:]
-
-        fields.eachWithIndex { field, index ->
-            String fieldName = trim(field)
-            if (fieldName in allowedFields) {
-                indexMap[fieldName] = index
-            }
-        }
-
-        REQUIRED_FIELDS.each { field ->
-            if (!indexMap.keySet().contains(field)) {
-                throw new RuntimeException("Invalid file format: File does not contain a proper header row.  It must at least contain columns for each of ${REQUIRED_FIELDS}")
-            }
-        }
-
-        return indexMap
-    }
-
-    /** trims whitespace as well as pairs of leading and training quotes. */
-    private String trim(String value) {
-        if (!value) {
-            return value
-        } else {
-            String trimmedValue = value.trim()
-
-            if (trimmedValue.startsWith("\"") && trimmedValue.endsWith("\"")) {
-                trimmedValue = trimmedValue.substring(1, trimmedValue.length() - 1)
-            }
-            if (trimmedValue.startsWith("\'") && trimmedValue.endsWith("\'")) {
-                trimmedValue = trimmedValue.substring(1, trimmedValue.length() - 1)
-            }
-
-            trimmedValue = trimmedValue.trim()
-
-            return trimmedValue
-        }
-    }
-
-    private String extractField(fields, index) {
-        if ((index == null) || (index >= fields.size())) {
-            return null
-        } else {
-            String value = trim( fields[index] )
-            if (!value) {
-                return null
-            } else {
-                return value
-            }
-        }
     }
 
     private Story findOrCreateStory(Project project, Long id, String summary) {

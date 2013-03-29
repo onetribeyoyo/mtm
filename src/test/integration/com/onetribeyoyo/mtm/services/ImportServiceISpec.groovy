@@ -6,7 +6,7 @@ import grails.plugin.spock.IntegrationSpec
 
 class ImportServiceISpec extends IntegrationSpec {
 
-    def importService
+    def storyImportService
     def projectService
 
     def "extractData with missing header columns"() {
@@ -18,7 +18,7 @@ class ImportServiceISpec extends IntegrationSpec {
 """
         then:
             try {
-                importService.extractData(project, new StringReader(lines))
+                storyImportService.extractData(project, new StringReader(lines))
                 fail()
             } catch (Exception ex) {
                 assert ex.message == "Invalid file format: File does not contain a proper header row.  It must at least contain columns for each of [summary]"
@@ -32,7 +32,7 @@ class ImportServiceISpec extends IntegrationSpec {
 ,story1,,
 ,story2,,
 """
-            importService.extractData(project, new StringReader(lines))
+            storyImportService.extractData(project, new StringReader(lines))
 
         then:
             project.stories?.size() == 2
@@ -51,7 +51,7 @@ class ImportServiceISpec extends IntegrationSpec {
 ,story1
 ,story2
 """
-            importService.extractData(project, new StringReader(lines))
+            storyImportService.extractData(project, new StringReader(lines))
 
         then:
             project.stories?.size() == 2
@@ -75,7 +75,7 @@ class ImportServiceISpec extends IntegrationSpec {
 ,story2,r99,,
 ,story3,r100,f1,
 """
-            importService.extractData(project, new StringReader(lines))
+            storyImportService.extractData(project, new StringReader(lines))
 
         then:
             project.stories?.size() == 3
@@ -91,7 +91,7 @@ class ImportServiceISpec extends IntegrationSpec {
 
         then:
             try {
-                importService.extractData(project, new StringReader(""))
+                storyImportService.extractData(project, new StringReader(""))
                 fail()
             } catch (RuntimeException ex) {
                 assert ex.message == "Empty file."
@@ -113,7 +113,7 @@ deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
 """
         then:
             try {
-                importService.extractData(project, new StringReader(lines))
+                storyImportService.extractData(project, new StringReader(lines))
                 fail()
             } catch (RuntimeException ex) {
                 assert ex.message == "Invalid file format: File does not contain a proper header row.  It must at least contain columns for each of [summary]"
@@ -130,7 +130,7 @@ deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
 """
         then:
             try {
-                importService.extractData(project, new StringReader(lines))
+                storyImportService.extractData(project, new StringReader(lines))
                 fail()
             } catch (RuntimeException ex) {
                 assert ex.message == "Invalid file format: File does not contain a proper header row.  It must at least contain columns for each of [summary]"
@@ -143,7 +143,7 @@ deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
             projectService.configureBasis(project)
             def lines = "id,summary"
         then:
-            importService.extractData(project, new StringReader(lines))
+            storyImportService.extractData(project, new StringReader(lines))
    }
 
 }

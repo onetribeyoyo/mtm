@@ -11,7 +11,7 @@ import org.springframework.core.io.ClassPathResource
 
 class BootStrap {
 
-    def importService
+    def storyImportService
     def projectService
 
     def initDev = {
@@ -129,7 +129,7 @@ class BootStrap {
                 //project.save(flush:true, failOnError:true)
 
                 log.info "loading stories from mtm.bootstrap.filename: '${filename}'..."
-                importService.importStories(project, filename)
+                storyImportService.importStories(project, filename)
                 project.save(flush:true, failOnError:true)
 
                 def release = project.dimensionFor("release")

@@ -123,12 +123,12 @@ class ProjectTagLib {
         Project project = attrs.project
         String selectedTab = attrs.selectedTab
 
-        out << "<ul class='tabrow'>\n"
+        out << "<ul class='tabrow non-printing'>\n"
 
         def primaryAxis = project.primaryAxis
         project.dimensions.each { dimension ->
             if (!dimension.isPrimaryAxis() && dimension.elements) {
-                def label = "${dimension.name.capitalize()} by ${primaryAxis?.name.capitalize()}"
+                def label = "${dimension.name.capitalize()} by ${primaryAxis?.name?.capitalize()}"
                 if (selectedTab == dimension.name) {
                     out << "<li class='selected'>${label}</li>"
                 } else {

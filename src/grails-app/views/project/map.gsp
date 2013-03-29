@@ -13,7 +13,7 @@
 <h1>${project.name}</h1>
 
 <project:tabs project="${project}" selectedTab="${selectedTab ?: xAxis?.name}" />
-<div>
+<div class="non-printing">
   <g:render template="storyActions" />
 </div>
 

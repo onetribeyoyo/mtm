@@ -74,14 +74,7 @@ class ElementController {
                 render status: "400", template: "cantDelete", model: [element: element]
             } else {
                 try {
-                    // TODO: implement element.delete that cleans up all stories that use the element (should be in a service)
-                    element.dimension.project.orderedStoriesFor(element).each { orderedStory ->
-                        orderedStory.story.removeFromVector(orderedStory)
-                        orderedStory.delete()
-                    }
-                    element.dimension.removeFromElements(element)
-                    element.delete(flush: true)
-
+                    element.dimension.deleteElement(element)
                     flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'element.label', default: 'Element'), params.id])}"
                     render flash.message
                 }

@@ -33,6 +33,7 @@ class Project {
         return lastStatus
     }
 
+    // TODO: is this dead code?  If not, move it to projectService.
     List<OrderedElement> orderedStoriesFor(Dimension dimension) {
         if (!dimension) {
             return []
@@ -49,6 +50,7 @@ class Project {
         }
     }
 
+    // TODO: is this dead code?  If not, move it to projectService.
     List<OrderedElement> orderedStoriesFor(Element element) {
         if (!element) {
             return []

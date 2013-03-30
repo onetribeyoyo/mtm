@@ -34,38 +34,21 @@ class Element implements Comparable {
         return result
     }
 
-    /**
-     *  Returns true iff for all stories with a vector containing this element, the vector also contains
-     *  thatElement.
-     */
-    // TODO: got to be a better method name!
-    boolean onPoint(Element thatElement) {
-        def orderedStories = this.dimension.project.orderedStoriesFor(this)
-        if (!orderedStories) {
-            return false
-        } else {
-            //orderedStories.each { orderedElement ->
-            //    println "   . . .     ${orderedElement}"
-            //    println "   . . .         ${orderedElement.story}"
-            //    println "   . . .         ${orderedElement.element}"
-            //    println "   . . .         ${orderedElement.story.valueFor(thatElement.dimension)}"
-            //    println "   . . .         ${orderedElement.story.valueFor(thatElement.dimension)?.element}"
-            //}
-            def result = orderedStories.find { orderedElement -> (orderedElement.story.valueFor(thatElement.dimension)?.element != thatElement) }
-            //println "   . . .     thatElement: ${thatElement}"
-            //println "   . . . <-- ${result}"
-            //println ""
-            return result
+    boolean complete() {
+        // for all stories with vectors containing this element...
+        def stories = this.dimension.project.stories.findAll { story ->
+            (this in story.vector)
+        }
+
+        // return true iff they're vectors also contain the "last" status element.
+        def lastStatus = this.dimension.project.lastStatus()
+        boolean complete = stories.inject(true) { completeSoFar, story ->
+            completeSoFar && (lastStatus in story.vector)
         }
     }
 
     boolean incomplete() {
-        def lastStatus = this.dimension.project.lastStatus()
-        onPoint(lastStatus)
-    }
-
-    boolean complete() {
-        !incomplete()
+        !complete()
     }
 
     int compareTo(that) {

@@ -161,6 +161,9 @@ class ProjectService {
     void updateStoryOrder(Project project, Element element, List<Long> sortedIds) {
         log.debug "updateSortOrder(project:${project.id}, element:${element}, ${sortedIds})"
 
+        log.warn "TODO: implement updateSortOrder !!!!"
+        return
+
         List<OrderedElement> ordering = project.orderedStoriesFor(element)
 
         def sortMap = [:] // a map from story ID to sort order.

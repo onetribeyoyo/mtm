@@ -7,7 +7,7 @@ class OrderedElement implements Comparable {
     ]
 
     Element element
-    // TODO: needs two elements, one for x, one for 7!
+    // TODO: needs two elements, one for x, one for y!
 
     Long order = 9999 // elements start at the end of the list.
 

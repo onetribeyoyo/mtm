@@ -18,22 +18,13 @@ class StoryService {
         assert axis
         assert !to || (to.dimension == axis)
 
-        OrderedElement from = story.valueFor(axis)
+        Element from = story.valueFor(axis)
 
         String msg = "slide(..) story:${story.id}"
-        if (from?.element != to) {
-            msg << " from ${from?.element?.dimension}.${from}"
-            if (from) {
-                story.removeFromVector(from)
-                from.delete()
-            }
-            if (to) {
-                def oe = new OrderedElement(story: story, element: to).save()
-                if (from) {
-                    oe.order = from.order
-                }
-                story.addToVector(oe)
-            }
+        if (from != to) {
+            msg << " from ${from?.dimension}.${from}"
+            if (from) story.removeFromVector(from)
+            if (to)   story.addToVector(to)
             log.debug "${msg} to ${story.valueFor(axis)}"
         } else {
             log.debug "${msg}: no change"

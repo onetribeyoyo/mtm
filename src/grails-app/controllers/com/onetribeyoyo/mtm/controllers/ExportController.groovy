@@ -24,7 +24,7 @@ class ExportController {
                 storyData.summary = story.summary
                 storyData.detail = story.detail
                 project.dimensions.each { dimension ->
-                    storyData[dimension.name] = story.valueFor(dimension)?.element
+                    storyData[dimension.name] = story.valueFor(dimension)
                 }
                 data << storyData
             }
@@ -62,9 +62,9 @@ class ExportController {
                         order: element.order,
                         colour: element.colour,
                         description: element.description,
-                        primaryAxis: (element.dimension.project.primaryAxis == dimension),
-                        colourDimension: (element.dimension.project.colourDimension == dimension),
-                        highlightDimension: (element.dimension.project.highlightDimension == dimension),
+                        primaryAxis: (element.dimension.isPrimaryAxis()),
+                        colourDimension: (element.dimension.isColourDimension()),
+                        highlightDimension: (element.dimension.isHighlightDimension()),
                     ]
                     data << elementData
                 }

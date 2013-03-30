@@ -20,22 +20,22 @@ class StoryServiceISpec extends IntegrationSpec {
 
         then: "starting at point 'A'"
             def axis = project.dimensionFor(axisName)
-            def a = story.valueFor(axis)?.element
-            a?.element?.value == fromA
+            def a = story.valueFor(axis)
+            a?.value == fromA
         and: "slide to point 'B'"
             def b = axis.elementFor(toB)
             b.value == toB
             storyService.slide(story, axis, b)
-            story.valueFor(axis)?.element == b
+            story.valueFor(axis) == b
         and: "slide to point 'B'"
             def c = axis.elementFor(toC)
             c.value == toC
             storyService.slide(story, axis, c)
-            story.valueFor(axis)?.element == c
+            story.valueFor(axis) == c
         and: "finally, slide back to point 'A'"
             a?.value == fromA
             storyService.slide(story, axis, a)
-            story.valueFor(axis)?.element == a
+            story.valueFor(axis) == a
 
         where:
             axisName  | fromA  | toB       | toC
@@ -51,11 +51,11 @@ class StoryServiceISpec extends IntegrationSpec {
             Story story = projectService.createStory(project, [summary: "move story"])
 
             def xAxis = project.dimensionFor("status")
-            def xFrom = story.valueFor(xAxis)?.element
+            def xFrom = story.valueFor(xAxis)
             def xTo = xAxis.elementFor("done")
 
             def yAxis = project.dimensionFor("release")
-            def yFrom = story.valueFor(yAxis)?.element
+            def yFrom = story.valueFor(yAxis)
             def yTo = yAxis.elementFor("r0.1")
 
         then: "target dimensions and elements are not null"
@@ -68,8 +68,8 @@ class StoryServiceISpec extends IntegrationSpec {
             yFrom != yTo
         then: "the move does what we expect!"
             storyService.move(story, xAxis, xTo, yAxis, yTo)
-            story.valueFor(xAxis)?.element?.value == xTo.value
-            story.valueFor(yAxis)?.element?.value == yTo.value
+            story.valueFor(xAxis)?.value == xTo.value
+            story.valueFor(yAxis)?.value == yTo.value
     }
 
     def "setVector(..)"() {
@@ -84,13 +84,13 @@ class StoryServiceISpec extends IntegrationSpec {
 
 
         then:
-            !story.valueFor("release")?.element
-            !story.valueFor("status")?.element
+            !story.valueFor("release")
+            !story.valueFor("status")
         and:
             def params = [release: "r0.1", status: "done"]
             storyService.setVector(story, params)
-            story.valueFor(release).element.value == "r0.1"
-            story.valueFor(status).element.value == "done"
+            story.valueFor(release).value == "r0.1"
+            story.valueFor(status).value == "done"
     }
 
 }

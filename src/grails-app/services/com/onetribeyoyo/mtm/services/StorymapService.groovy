@@ -39,8 +39,8 @@ class StorymapService {
 
         // then walk through all the stories and place them in the approriate list...
         project.stories.each { story ->
-            def x = story.valueFor(xAxis)?.element
-            def y = story.valueFor(yAxis)?.element
+            def x = story.valueFor(xAxis)
+            def y = story.valueFor(yAxis)
             storymap[y].columns[x] << story
             if (story.estimate) {
                 storymap[y].estimate += story.estimate

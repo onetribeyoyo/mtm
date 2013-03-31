@@ -12,7 +12,8 @@ class Story implements Comparable {
 
     SortedSet vector
     static hasMany = [
-        vector : Element
+        vector : Element,
+        ordering : OrderedStory
     ]
 
     Boolean blocked = false
@@ -21,6 +22,10 @@ class Story implements Comparable {
         summary nullable: false, blank: false, maxSize: 255
         detail nullable: true, blank: true, maxSize: 4095
         estimate nullable: true, min: 0 as Long
+    }
+
+    OrderedStory orderingFor(Element x, Element y) {
+        ordering.find { os -> ((os.x == x) && (os.y == y)) || ((os.y == x) && (os.x == y)) }
     }
 
     Element valueFor(String dimensionName) {

@@ -41,7 +41,12 @@ class StorymapService {
         project.stories.each { story ->
             def x = story.valueFor(xAxis)
             def y = story.valueFor(yAxis)
-            storymap[y].columns[x] << story
+            def ordering = story.orderingFor(x, y)
+            if (!ordering) {
+                ordering = new OrderedStory(story:story, x:x, y:y)
+                story.addToOrdering(ordering)
+            }
+            storymap[y].columns[x] << ordering
             if (story.estimate) {
                 storymap[y].estimate += story.estimate
             }

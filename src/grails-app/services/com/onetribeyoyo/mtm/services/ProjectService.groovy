@@ -188,28 +188,17 @@ class ProjectService {
         dimension.delete()
     }
 
-    void updateStoryOrder(Project project, Element element, List<Long> sortedIds) {
-        log.debug "updateSortOrder(project:${project.id}, element:${element}, ${sortedIds})"
-
-        log.warn "TODO: implement updateSortOrder !!!!"
-        return
-
-        List<OrderedElement> ordering = null //project.orderedStoriesFor(element)
-
-        def sortMap = [:] // a map from story ID to sort order.
-        sortedIds.eachWithIndex { storyId, order -> sortMap[storyId] = order }
-
-        Long next = sortedIds.size() + 1
-
-        ordering?.each { order ->
-            Story story = order.story
-            Long newSortOrder = sortMap[story.id]
-            if (newSortOrder == null) {
-                newSortOrder = next++
+    void updateStoryOrder(Project project, Element x, Element y, List<Long> sortedIds) {
+        log.debug "updateSortOrder(project:${project.id}, x:${x}, y:${y}, ${sortedIds})"
+        sortedIds.eachWithIndex { id, order ->
+            Story story = Story.get(id)
+            OrderedStory ordering = story.orderingFor(x, y)
+            if (!ordering) {
+                ordering = new OrderedStory(story:story, x:x, y:y)
+                story.addToOrdering(ordering)
             }
-            log.debug "updateSortOrder(..)    story:${story.id} ${element.dimension}:${element} from ${order.order} to ${newSortOrder}"
-            order.order = newSortOrder
-            order.save(failOnError: true)
+            ordering.order = order
+            story.save()
         }
     }
 

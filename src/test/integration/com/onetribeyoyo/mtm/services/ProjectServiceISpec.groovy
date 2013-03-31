@@ -117,20 +117,20 @@ class ProjectServiceISpec extends IntegrationSpec {
             project.save(flush: true)
 
         and: "the initial sort order is still the default..."
-            story1.valueFor(axis).order == 9999
-            story2.valueFor(axis).order == 9999
+            !story1.orderingFor(element, null)
+            !story2.orderingFor(element, null)
 
         when:
-            projectService.updateStoryOrder(project, element, [story1.id, story2.id])
+            projectService.updateStoryOrder(project, element, null, [story1.id, story2.id])
         then:
-            story1.valueFor(axis).order == 0
-            story2.valueFor(axis).order == 1
+            story1.orderingFor(element, null).order == 0
+            story2.orderingFor(element, null).order == 1
 
         when:
-            projectService.updateStoryOrder(project, element, [story2.id, story1.id])
+            projectService.updateStoryOrder(project, element, null, [story2.id, story1.id])
         then:
-            story1.valueFor(axis).order == 1
-            story2.valueFor(axis).order == 0
+            story1.orderingFor(element, null).order == 1
+            story2.orderingFor(element, null).order == 0
     }
 
 }

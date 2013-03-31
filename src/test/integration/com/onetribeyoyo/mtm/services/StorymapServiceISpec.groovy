@@ -91,8 +91,10 @@ class StorymapServiceISpec extends IntegrationSpec {
                     assert (x && xAxis.elements.contains(x)) || (x == null)
                     if (!row && !x) {
                         assert cell.size() == 2
-                        assert cell.contains(story1)
-                        assert cell.contains(story2)
+                        assert cell.contains(story1.orderingFor(x, row))
+                        assert cell.contains(story1.orderingFor(row, x))
+                        assert cell.contains(story2.orderingFor(x, row))
+                        assert cell.contains(story2.orderingFor(row, x))
                     } else {
                         assert !cell
                     }

@@ -66,16 +66,16 @@ class ProjectTagLib {
 
             // a cell for cards where (x == null)
             out << "    <li class='grid-cell ${rowStyle}' xAxisId='${xAxis.id}' xId='' yAxisId='${yAxis.id}' yId='${y.id}'>\n"
-            storymap[y].columns[null].each { story ->
-                out << g.render(template: '/project/card', model: [story:story, layoutStyle: layoutStyle, complete: complete, xAxis: xAxis, yAxis: yAxis])
+            storymap[y].columns[null].each { orderedStory ->
+                out << g.render(template: '/project/card', model: [story:orderedStory.story, layoutStyle: layoutStyle, complete: complete, xAxis: xAxis, yAxis: yAxis])
             }
             out << "    </li>\n"
 
             // a cell for element on the x axis
             xAxis?.elements.each { x ->
                 out << "    <li class='grid-cell ${rowStyle}' xAxisId='${xAxis.id}' xId='${x.id}' yAxisId='${yAxis.id}' yId='${y.id}'>\n"
-                storymap[y].columns[x].each { story ->
-                    out << g.render(template: '/project/card', model: [story:story, layoutStyle: layoutStyle, complete: complete, xAxis: xAxis, yAxis: yAxis])
+                storymap[y].columns[x].each { orderedStory ->
+                    out << g.render(template: '/project/card', model: [story:orderedStory.story, layoutStyle: layoutStyle, complete: complete, xAxis: xAxis, yAxis: yAxis])
                 }
                 out << "    </li>\n"
             }
@@ -101,16 +101,16 @@ class ProjectTagLib {
 
         // a cell for cards where both (x == null) and  (y == null)
         out << "    <li class='grid-cell ${rowStyle}' xAxisId='${xAxis.id}' xId='' yAxisId='${yAxis.id}' yId=''>\n"
-        storymap[null].columns[null].each { story ->
-            out << g.render(template: '/project/card', model: [story:story, layoutStyle: layoutStyle])
+        storymap[null].columns[null].each { orderedStory ->
+            out << g.render(template: '/project/card', model: [story:orderedStory.story, layoutStyle: layoutStyle])
         }
         out << "    </li>\n"
 
         // a cell for element on the x axis
         xAxis?.elements.each { x ->
             out << "    <li class='grid-cell ${rowStyle}' xAxisId='${xAxis.id}' xId='${x.id}' yAxisId='${yAxis.id}' yId=''>\n"
-            storymap[null].columns[x].each { story ->
-                out << g.render(template: '/project/card', model: [story:story, layoutStyle: layoutStyle])
+            storymap[null].columns[x].each { orderedStory ->
+                out << g.render(template: '/project/card', model: [story:orderedStory.story, layoutStyle: layoutStyle])
             }
             out << "    </li>\n"
         }

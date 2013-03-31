@@ -99,18 +99,18 @@ class StoryController {
         Element x = Element.get(xId)
         Element y = Element.get(yId)
 
-        if (
+        if ( // TODO: are these conditions accurate?
             (xAxis.project == story.project) && (yAxis.project == story.project) // got to move only along dimensions that make sense for the story
             && (!x || (x.dimension == xAxis)) // movement must be along the x axis
             && (!y || (y.dimension == yAxis)) // movement must be along the y axis
         ) {
             storyService.move(story, xAxis, x, yAxis, y)
             List<Long> sortedIds = sortOrder.split(",").collect { idStr -> idStr as Long }
-            projectService.updateStoryOrder(story.project, x, sortedIds)
+            projectService.updateStoryOrder(story.project, x, y, sortedIds)
             render "moved"
         }
         else {
-            log.error "move(story:${storyId}, x:${xAxisId}:${xId}, y:${yAxisId}:${yId}, sort:${sortOrder}) illegal attempt to move a story into dimensions outside of the project!"
+            log.error "move(story:${storyId}, x:${xAxisId}:${xId}, y:${yAxisId}:${yId}, sort:${sortOrder}) attempt to move story into dimensions outside of project."
         }
     }
 

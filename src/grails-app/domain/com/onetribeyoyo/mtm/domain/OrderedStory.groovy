@@ -1,15 +1,15 @@
 package com.onetribeyoyo.mtm.domain
 
-class OrderedElement implements Comparable {
+class OrderedStory implements Comparable {
 
     static belongsTo = [
         story: Story
     ]
 
-    Element element
-    // TODO: needs two elements, one for x, one for y!
+    Element x
+    Element y
 
-    Long order = 9999 // elements start at the end of the list.
+    Long order = 9999 // "unsorted" stories start at the end of the list.
 
     static mapping = {
         order column:"order_" // "order" is an sql keyword!
@@ -17,16 +17,17 @@ class OrderedElement implements Comparable {
 
     static constraints = {
         story nullable: false
-        element nullable: false
+        x nullable: true
+        y nullable: true
         order nullable: false
     }
 
     int compareTo(that) {
-        (this.order <=> that.order) ?: (this.id <=> that.id)
+        (this.order <=> that.order) ?: (this.story.id <=> that.story.id)
     }
 
     String toString() {
-        "${element}:${order}"
+        "story[id:${story.id}].(${x},${y}):${order}"
     }
 
 }

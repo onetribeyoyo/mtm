@@ -51,8 +51,14 @@ class DimensionController {
             }
             dimension.properties = params
             if (!dimension.hasErrors() && dimension.save(flush: true)) {
-                if (params.primaryAxis) {
+                if (params.primary) {
                     dimension.project.primaryAxis = dimension
+                }
+                if (params.colour) {
+                    dimension.project.colourDimension = dimension
+                }
+                if (params.highlight) {
+                    dimension.project.highlightDimension = dimension
                 }
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'dimension.label', default: 'Dimension'), dimension.id])}"
                 render flash.message

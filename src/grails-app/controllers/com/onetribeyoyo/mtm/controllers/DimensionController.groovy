@@ -104,9 +104,8 @@ class DimensionController {
         }
     }
 
-    // TODO: rework this to take a project id and dimension name as args
     def updateElementOrder(Long projectId, String dimensionName, String sortOrder) {
-        log.debug "updateSortOrder(${projectId} ${dimensionName}, sortOrder:${sortOrder})"
+        log.debug "updateSortOrder(${projectId}, ${dimensionName}, sortOrder:${sortOrder})"
         Project project = Project.read(projectId)
         if (!project) {
             render status: 404, text: "unknown project ID:${projectId}"

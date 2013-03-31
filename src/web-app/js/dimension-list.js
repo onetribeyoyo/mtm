@@ -1,8 +1,8 @@
-function moveCallback(projectId, dimension, sortOrder) {
+function moveCallback(projectId, dimensionName, sortOrder) {
     jQuery.ajax({
         type: "POST",
         url: "/mtm/dimension/updateElementOrder/", // TODO: don't hardcode the url!
-        data: { "projectId" : projectId, "dimension": dimension, "sortOrder": sortOrder },
+        data: { "projectId" : projectId, "dimensionName": dimensionName, "sortOrder": sortOrder },
         success: function(data, textStatus) {},
         error:   function(XMLHttpRequest, textStatus, errorThrown) {}
     });
@@ -18,9 +18,9 @@ $(function() {
             stop: function(event, ui) {
                 var list = ui.item.closest(".dimension-list");
                 var projectId = list.attr("projectId");
-                var dimension = list.attr("dimension");
+                var dimensionName = list.attr("dimension");
                 var sortOrder = list.sortable("toArray").toString();
-                moveCallback(projectId, dimension, sortOrder);
+                moveCallback(projectId, dimensionName, sortOrder);
             }
         }).disableSelection();
 

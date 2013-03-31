@@ -40,17 +40,6 @@ class Dimension implements Comparable {
         elements.find { p -> (p.value?.toLowerCase() == value?.toLowerCase()) }
     }
 
-    def deleteElement(Element element) {
-        log.debug "deleteElement(${element})"
-
-        this.project.stories.each { story ->
-            if (element in story.vector) {
-                story.removeFromVector(element)
-            }
-        }
-        element.delete()
-    }
-
     Boolean isColourDimension() {
         this.project.colourDimension == this
     }

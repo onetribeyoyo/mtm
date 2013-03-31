@@ -72,7 +72,7 @@ class DimensionController {
         } else {
             render template: "confirmDelete", model:[dimension: dimension]
         }
-    }
+   }
     def delete = {
         def dimension = Dimension.get(params.id)
         if (!dimension) {
@@ -86,22 +86,7 @@ class DimensionController {
                 render status: 400, template: "cantDelete", model: [dimension: dimension]
             } else {
                 try {
-                    // TODO: implement dimension.delete that cleans up all elements and stories that use them (should be in a service)
-                    dimension.elements.each { element ->
-                        element.dimension.project.orderedStoriesFor(element).each { orderedStory ->
-                            orderedStory.story.removeFromVector(orderedStory)
-                            orderedStory.delete()
-                        }
-                        element.dimension.removeFromElements(element)
-                        element.delete()
-                    }
-                    dimension.project.orderedStoriesFor(dimension).each { orderedStory ->
-                        orderedStory.story.removeFromVector(orderedStory)
-                        orderedStory.delete()
-                    }
-                    dimension.project.removeFromDimensions(dimension)
-                    dimension.delete()
-
+                    projectService.deleteDimension(dimension.project, dimension)
                     flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'dimension.label', default: 'Dimension'), params.id])}"
                     render flash.message
                 }

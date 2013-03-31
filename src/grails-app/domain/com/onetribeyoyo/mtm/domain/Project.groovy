@@ -33,37 +33,37 @@ class Project {
         return lastStatus
     }
 
-    // TODO: is this dead code?  If not, move it to projectService.
-    List<OrderedElement> orderedStoriesFor(Dimension dimension) {
-        if (!dimension) {
-            return []
-        } else {
-            List<OrderedElement> list = OrderedElement.withCriteria {
-                story {
-                    eq("project", this)
-                }
-                element {
-                    eq("dimension", dimension)
-                }
-            }
-            return list
-        }
-    }
+//    // TODO: is this dead code?  If not, move it to projectService.
+//    List<OrderedElement> orderedStoriesFor(Dimension dimension) {
+//        if (!dimension) {
+//            return []
+//        } else {
+//            List<OrderedElement> list = OrderedElement.withCriteria {
+//                story {
+//                    eq("project", this)
+//                }
+//                element {
+//                    eq("dimension", dimension)
+//                }
+//            }
+//            return list
+//        }
+//    }
 
-    // TODO: is this dead code?  If not, move it to projectService.
-    List<OrderedElement> orderedStoriesFor(Element element) {
-        if (!element) {
-            return []
-        } else {
-            List<OrderedElement> list = OrderedElement.withCriteria {
-                story {
-                    eq("project", this)
-                }
-                eq("element", element)
-            }
-            return list
-        }
-    }
+//    // TODO: is this dead code?  If not, move it to projectService.
+//    List<OrderedElement> orderedStoriesFor(Element element) {
+//        if (!element) {
+//            return []
+//        } else {
+//            List<OrderedElement> list = OrderedElement.withCriteria {
+//                story {
+//                    eq("project", this)
+//                }
+//                eq("element", element)
+//            }
+//            return list
+//        }
+//    }
 
     String toString() {
         name ? name : "project[id:${id}]"

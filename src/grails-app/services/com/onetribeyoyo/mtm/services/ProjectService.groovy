@@ -7,6 +7,7 @@ class ProjectService {
 
     static transactional = true
 
+    def dimensionService
     def storyService
 
     // TODO: rework this so dimension data can be edited at runtime.
@@ -158,13 +159,42 @@ class ProjectService {
         return story
     }
 
+    void deleteDimension(Project project, Dimension dimension) {
+        log.debug "delete(${project}, ${dimension})"
+
+        if (project.dimensions?.size() <= 2) {
+            throw new RuntimeException("Project cannot have less than two dimensions.")
+        }
+
+        assert dimension.project == project
+
+        dimension.elements.collect { it }.each { element ->
+            dimensionService.deleteElement(dimension, element)
+            dimension.save(flush: true)
+        }
+
+        if (dimension.isPrimaryAxis()) {
+            project.primaryAxis = project.dimensions.find { otherDimension -> otherDimension != dimension }
+        }
+        if (dimension.isColourDimension()) {
+            project.colourDimension = null
+        }
+        if (dimension.isHighlightDimension()) {
+            project.highlightDimension = null
+        }
+
+        project.removeFromDimensions(dimension)
+        project.save()
+        dimension.delete()
+    }
+
     void updateStoryOrder(Project project, Element element, List<Long> sortedIds) {
         log.debug "updateSortOrder(project:${project.id}, element:${element}, ${sortedIds})"
 
         log.warn "TODO: implement updateSortOrder !!!!"
         return
 
-        List<OrderedElement> ordering = project.orderedStoriesFor(element)
+        List<OrderedElement> ordering = null //project.orderedStoriesFor(element)
 
         def sortMap = [:] // a map from story ID to sort order.
         sortedIds.eachWithIndex { storyId, order -> sortMap[storyId] = order }

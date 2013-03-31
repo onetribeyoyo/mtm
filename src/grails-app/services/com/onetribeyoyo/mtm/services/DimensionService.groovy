@@ -6,6 +6,20 @@ class DimensionService {
 
     static transactional = true
 
+    def deleteElement(Dimension dimension, Element element) {
+        log.debug "deleteElement(${dimension}, ${element})"
+
+        assert element.dimension == dimension
+
+        dimension.project.stories.each { story ->
+            if (element in story.vector) {
+                story.removeFromVector(element)
+            }
+        }
+        dimension.removeFromElements(element)
+        element.delete()
+    }
+
     def updateElementOrder(Dimension dimension, List<Long> sortedIds) {
         log.debug "updateSortOrder(${dimension}, ${sortedIds})"
 

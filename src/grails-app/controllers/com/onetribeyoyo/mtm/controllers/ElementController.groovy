@@ -74,7 +74,7 @@ class ElementController {
                 render status: "400", template: "cantDelete", model: [element: element]
             } else {
                 try {
-                    element.dimension.deleteElement(element)
+                    dimensionService.deleteElement(element.dimension, element)
                     flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'element.label', default: 'Element'), params.id])}"
                     render flash.message
                 }

@@ -10,7 +10,7 @@ class ExportController {
 
     def grailsApplication
 
-    def exportStories(Long id, String format ) {
+    def stories(Long id, String format ) {
         format = format ?: "csv"
 
         def project = Project.read(id)
@@ -23,18 +23,16 @@ class ExportController {
                 def storyData = [:]
                 storyData.summary = story.summary
                 storyData.detail = story.detail
+                storyData.estimate = story.estimate
                 project.dimensions.each { dimension ->
                     storyData[dimension.name] = story.valueFor(dimension)
                 }
                 data << storyData
             }
-            List fields = []
+            List fields = [ "summary", "detail", "estimate" ]
             project.dimensions.each { dimension ->
                 fields << dimension.name
             }
-            fields << "summary"
-            fields << "detail"
-            fields << "estimate"
             Map labels = [:]
             Map formatters = [:]
 
@@ -45,7 +43,41 @@ class ExportController {
         }
     }
 
-    def exportStructure(Long id, String format) {
+    def order(Long id, String format ) {
+        format = format ?: "csv"
+
+        def project = Project.read(id)
+        if (!project) {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            redirect controller: "project", action: "show", id: id
+        } else {
+            def data = []
+            project.stories.each { story ->
+                story.ordering.each { ordering ->
+                    if (ordering.order != null) {
+                        data << [
+                            story: ordering.story.summary,
+                            xAxis: ordering.x?.dimension,
+                            x: ordering.x,
+                            yAxis: ordering.y?.dimension,
+                            y: ordering.y,
+                            order: ordering.order
+                        ]
+                    }
+                }
+            }
+            List fields = ["story","xAxis","x","yAxis","y","order"]
+            Map labels = [:]
+            Map formatters = [:]
+
+            String filename = "project.${project.id}.ordering.${params.extension}"
+            response.setHeader("Content-disposition", "attachment; filename=${filename}")
+            response.contentType = grailsApplication.config.grails.mime.types[format]
+            exportService.export(format, response.outputStream, data, fields, labels, formatters, params)
+        }
+    }
+
+    def structure(Long id, String format) {
         format = params.format ?: "csv"
 
         def project = Project.read(id)

@@ -64,7 +64,7 @@ class StructureImportService extends ImportService {
 
                 String elementName = extractString(fields, indexMap.value)
                 Element element = dimension.elementFor(elementName) ?: new Element(value: elementName)
-                element.colour = extractLong(fields, indexMap.colour)
+                //element.colour = extractLong(fields, indexMap.colour)
                 element.description = extractLong(fields, indexMap.description)
                 element.order = extractLong(fields, indexMap.order)
 

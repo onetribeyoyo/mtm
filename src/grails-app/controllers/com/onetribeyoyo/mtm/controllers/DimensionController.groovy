@@ -54,12 +54,19 @@ class DimensionController {
                 if (params.primary) {
                     dimension.project.primaryAxis = dimension
                 }
+
                 if (params.colour) {
                     dimension.project.colourDimension = dimension
+                } else if (dimension.project.colourDimension == dimension) {
+                    dimension.project.colourDimension = null
                 }
+
                 if (params.highlight) {
                     dimension.project.highlightDimension = dimension
+                } else if (dimension.project.highlightDimension == dimension) {
+                    dimension.project.highlightDimension = null
                 }
+
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'dimension.label', default: 'Dimension'), dimension.id])}"
                 render flash.message
             } else {

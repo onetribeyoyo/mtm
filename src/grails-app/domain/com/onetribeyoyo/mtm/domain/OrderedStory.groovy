@@ -9,7 +9,7 @@ class OrderedStory implements Comparable {
     Element x
     Element y
 
-    Long order = 9999 // "unsorted" stories start at the end of the list.
+    Long order
 
     static mapping = {
         order column:"order_" // "order" is an sql keyword!
@@ -19,11 +19,11 @@ class OrderedStory implements Comparable {
         story nullable: false
         x nullable: true
         y nullable: true
-        order nullable: false
+        order nullable: true
     }
 
     int compareTo(that) {
-        (this.order <=> that.order) ?: (this.story.id <=> that.story.id)
+        (that == null) ? 1 : ((this.order <=> that.order) ?: (this.story.id <=> that.story.id))
     }
 
     String toString() {

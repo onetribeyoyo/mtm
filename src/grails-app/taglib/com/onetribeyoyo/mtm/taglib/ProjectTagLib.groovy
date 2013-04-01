@@ -47,7 +47,7 @@ class ProjectTagLib {
             // the row heading...
             out << "    <li class='grid-row-head ${y.colour ?: yAxis?.colour} ${rowStyle}'>\n"
             out << "      ${y.value}\n"
-            if (storymap[y].estimate) {
+            if (project.showEstimates && storymap[y].estimate) {
                 out << "      <div class='estimate'>"
                 out << storymap[y].estimate
                 if (project.estimateUnits) {
@@ -87,7 +87,7 @@ class ProjectTagLib {
         out << "  <ul class='grid-row'>\n"
         def rowStyle = ((++lastRowNumber % 2) == 0) ? "odd" : "even\n"
         out << "    <li class='grid-row-head ${yAxis?.colour} ${rowStyle}'>???\n"
-        if (storymap[null].estimate) {
+        if (project.showEstimates && storymap[null].estimate) {
             out << "      <div class='estimate'>"
             out << storymap[null].estimate
             if (project.estimateUnits) {
@@ -140,7 +140,7 @@ class ProjectTagLib {
         }
 
         [
-            "config___":   [ controller: "project", label: "Dimensions",     action: "show", id: project?.id ],
+            "config___":   [ controller: "project", label: "Project",        action: "show", id: project?.id ],
             "projects___": [ controller: "project", label: "Switch Project", action: "list" ],
             "info___":     [ controller: "info",    label: "FAQ" ]
         ].each { key, params ->

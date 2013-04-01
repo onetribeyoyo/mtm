@@ -5,7 +5,7 @@
 <div id="${story.id}" class="card ${layoutStyle} ${story.blocked ? 'blocked' : ''} ${story.valueFor(story.project.colourDimension)?.colour}">
 
   <div id="story-abbrev-${id}" class="story-abbrev ${abbrevStyle}">
-    <g:render template="/project/cardActions" />
+    <%-- <g:render template="/project/cardActions" /> --%>
     <span class="name">${story.id}</span>
   </div>
 
@@ -18,9 +18,9 @@
         <span class="highlight float-right">${highlight}</span>
       </g:if>
 
-      <div class="summary">${story.id}: ${story.summary}</div>
+      <div class="summary">${story.summary}</div>
 
-      <g:if test="${story.estimate}">
+      <g:if test="${story.project.showEstimates && story.estimate}">
         <span class="estimate float-right">${story.estimate}<g:if test="${story.project.estimateUnits}">${story.project.estimateUnits[0].toLowerCase()}</g:if></span>
       </g:if>
 

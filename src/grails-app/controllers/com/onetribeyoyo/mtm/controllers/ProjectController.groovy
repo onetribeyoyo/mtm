@@ -155,8 +155,8 @@ class ProjectController {
             project: project
         ]
     }
-    def save(String name, Long estimateUnits) {
-        def project = new Project(name: name, estimateUnits: estimateUnits)
+    def save(String name, Long estimateUnits, Boolean showEstimates) {
+        def project = new Project(name: name, estimateUnits: estimateUnits, showEstimates: showEstimates)
         project.save(flush:true, failOnError:true)
         projectService.configureBasis(project)
         if (project.save(flush: true)) {
@@ -169,39 +169,43 @@ class ProjectController {
     }
 
     def edit = {
-        def project = Project.get(params.id)
-        if (!project) {
-            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
-            redirect(action: "list")
-        }
-        else {
-            return [project: project]
-        }
+        def project = Project.read(params.id)
+        render template: "edit", model: [project: project]
     }
     def update = {
         def project = Project.get(params.id)
-        if (project) {
+        if (!project) {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            render status: 404, flash.error
+        } else {
             if (params.version) {
                 def version = params.version.toLong()
                 if (project.version > version) {
-
-                    project.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'project.label', default: 'Project')] as Object[], "Another user has updated this Project while you were editing")
-                    render(view: "edit", model: [project: project])
+                    project.errors.rejectValue("version", "default.optimistic.locking.failure",
+                                                 [message(code: 'project.label', default: 'Project')] as Object[],
+                                                 "Another user has updated this Project while you were editing")
+                    render status: 404, template: "edit", model: [project: project]
                     return
                 }
             }
             project.properties = params
+            if (params.primary) {
+                project.project.primaryAxis = project.dimensionFor(params.primary)
+            }
+            if (params.colour) {
+                project.project.colourDimension = project.dimensionFor(params.colour)
+            }
+            if (params.highlight) {
+                project.project.highlightDimension = project.dimensionFor(params.highlight)
+            }
+
             if (!project.hasErrors() && project.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'project.label', default: 'Project'), project.id])}"
-                redirect(action: "show", id: project.id)
+                render flash.message
+            } else {
+                flash.error = "Please provide all required values."
+                render status: 400, template: "edit", model: [project: project]
             }
-            else {
-                render(view: "edit", model: [project: project])
-            }
-        }
-        else {
-            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
-            redirect(action: "list")
         }
     }
 

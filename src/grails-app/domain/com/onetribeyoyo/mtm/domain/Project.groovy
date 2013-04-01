@@ -10,6 +10,8 @@ class Project {
     Dimension colourDimension    // used to determine card display colour
     Dimension highlightDimension // used to determine card highlight content
 
+    Boolean showEstimates = true
+
     static hasMany = [
         stories : Story,
         dimensions: Dimension
@@ -21,6 +23,7 @@ class Project {
         primaryAxis nullable: true // but only to make it easier to construct projects!
         colourDimension nullable: true
         highlightDimension nullable: true
+        showEstimates nullable: true
     }
 
     Dimension dimensionFor(String name) {

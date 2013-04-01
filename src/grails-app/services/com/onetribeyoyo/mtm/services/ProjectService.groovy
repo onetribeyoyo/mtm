@@ -16,17 +16,18 @@ class ProjectService {
         name: "release",
         elements: ["r0.1", "r0.2", "r0.3"],
         colour: null, // no colour means the odd/even stripping will be used
-        layoutStyle: LayoutStyle.LINEAR,
+        layoutStyle: LayoutStyle.FLOW,
         primaryAxis: true
     ]
     static final Map STATUS_DIMENSION_DATA = [
         name: "status",
         elements: ["on deck":       "Gainsboro",
+                   "blocked":       "Tomato",
                    "in progress":   "LightGoldenrod3",
                    "ready to test": "PaleTurquoise",
                    "done":          "DarkSeaGreen1"],
         colour: null, // no colour means the odd/even stripping will be used
-        layoutStyle: LayoutStyle.LINEAR,
+        layoutStyle: LayoutStyle.FLOW,
         colourDimension: true
     ]
 

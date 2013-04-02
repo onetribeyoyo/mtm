@@ -15,7 +15,6 @@
 
 <h1>
   ${project.name}
-  <mtm:dialogLink class="non-printing" action="edit" id="${project.id}" title="Edit ${project}"><img src="${fam.icon(name: 'page_edit')}" /></mtm:dialogLink>
 </h1>
 <project:tabs project="${project}" selectedTab="config___" />
 
@@ -29,6 +28,27 @@
   <g:link controller="export" action="order" id="${project.id}" params="[format: 'csv', extension: 'csv']"><button>Export Ordering</button></g:link>
 </div>
 
+
+<div id="project-${project.id}" class="section float-left">
+  <div>
+    <div class="card-actions float-right">
+      <mtm:dialogLink action="edit" id="${project.id}" title="Edit ${project}"><img src="${fam.icon(name: 'page_edit')}" /></mtm:dialogLink>
+    </div>
+    <h2>Project Data...</h2>
+  </div>
+  <hr />
+  <table>
+    <tr> <th> Project Name </th>   <td> ${project?.name} </td> </tr>
+    <tr> <th> Estimate Units </th> <td> ${project?.estimateUnits ?: "<span class='hint'>not specified</span>" } </td> </tr>
+    <tr> <th> Show Estimates </th> <td> ${project.showEstimates ? 'Yes' : 'No'} </td> </tr>
+    <tr> <th> Card Colour </th>    <td> ${project.colourDimension?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
+    <tr> <th> Highlight </th>      <td> ${project.highlightDimension?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
+    <tr> <th> Primary Axis </th>   <td> ${project.primaryAxis?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
+  </table>
+</div>
+
+<hr class="clear" />
+
 <g:each var="dimension" in="${project.dimensions}">
   <div id="dimension-${dimension.id}" class="float-left">
     <g:render contextPath="/dimension" template="sort" model="[dimension:dimension]" />
@@ -39,6 +59,7 @@
 
 <div class="section float-left">
   <h3>Additional Dimensions...</h3>
+  <hr />
   <p>
     <mtm:dialogLink controller="dimension" action="create" id="${project.id}" title="New Dimension"><button>Add A Custom Dimension</button></mtm:dialogLink>
   </p>

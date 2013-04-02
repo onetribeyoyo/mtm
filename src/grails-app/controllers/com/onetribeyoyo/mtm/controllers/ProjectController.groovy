@@ -168,15 +168,15 @@ class ProjectController {
         }
     }
 
-    def edit = {
-        def project = Project.read(params.id)
+    def edit(Long id) {
+        def project = Project.read(id)
         render template: "edit", model: [project: project]
     }
-    def update = {
-        def project = Project.get(params.id)
+    def update(Long id) {
+        def project = Project.get(id)
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
-            render status: 404, flash.error
+            render status: 404, text: flash.error
         } else {
             if (params.version) {
                 def version = params.version.toLong()
@@ -190,18 +190,18 @@ class ProjectController {
             }
             project.properties = params
             if (params.primary) {
-                project.project.primaryAxis = project.dimensionFor(params.primary)
+                project.primaryAxis = project.dimensionFor(params.primary)
             }
             if (params.colour) {
-                project.project.colourDimension = project.dimensionFor(params.colour)
+                project.colourDimension = project.dimensionFor(params.colour)
             }
             if (params.highlight) {
-                project.project.highlightDimension = project.dimensionFor(params.highlight)
+                project.highlightDimension = project.dimensionFor(params.highlight)
             }
 
             if (!project.hasErrors() && project.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'project.label', default: 'Project'), project.id])}"
-                render flash.message
+                render text: flash.message
             } else {
                 flash.error = "Please provide all required values."
                 render status: 400, template: "edit", model: [project: project]

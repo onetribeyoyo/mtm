@@ -26,14 +26,15 @@ class MtmTagLib {
         def title = attrs.title ?: "MTM Dialog"
 
         def remoteLinkAttrs = [
-            controller: attrs.controller ?: null,
             action: attrs.action,
-            id: attrs.id ?: null,
             asynchronous: "false",
             before: "\$('#${dialogTitleId}').html('${title}')",
             after: "openMtmModal('${dialogContentId}')",
             update: "mtm-modal-data"
         ]
+        if (attrs.controller) remoteLinkAttrs.controller = attrs.controller
+        if (attrs.id) remoteLinkAttrs.id = attrs.id
+
         out << g.remoteLink(remoteLinkAttrs, body)
     }
 

@@ -68,7 +68,7 @@ class ProjectServiceISpec extends IntegrationSpec {
         where:
             dimensionName | elementNames
             "release"     | ["r0.1", "r0.2", "r0.3"]
-            "status"      | ["on deck", "in progress", "ready to test", "done"]
+            "status"      | ["on deck", "blocked", "in progress", "ready to test", "done"]
             "feature"     | ["feature 1", "feature 2", "feature 3"]
             "strategy"    | ["strengths", "weaknesses", "opportunities", "threats"]
             "assigned to" | ["you", "me", "them", "everybody"]

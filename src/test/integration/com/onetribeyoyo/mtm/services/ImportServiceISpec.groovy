@@ -67,7 +67,7 @@ class ImportServiceISpec extends IntegrationSpec {
             !project.stories
             project.dimensions?.size() == 2
             project.dimensionFor("release").elements.size() == 3
-            project.dimensionFor("status").elements.size() == 4
+            project.dimensionFor("status").elements.size() == 5
 
         and:
             def lines = """id,summary,release,feature,status
@@ -81,7 +81,7 @@ class ImportServiceISpec extends IntegrationSpec {
             project.stories?.size() == 3
             project.dimensions?.size() == 2
             project.dimensionFor("release").elements.size() == 5
-            project.dimensionFor("status").elements.size() == 5
+            project.dimensionFor("status").elements.size() == 6
     }
 
     def "extractData from empty file"() {

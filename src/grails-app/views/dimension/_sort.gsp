@@ -6,7 +6,7 @@
         <mtm:dialogLink controller="dimension" action="confirmDelete" id="${dimension.id}" title="Delete ${dimension}"><img src="${fam.icon(name: 'delete')}" /></mtm:dialogLink>
       </g:if>
     </div>
-    <h2>${dimension}</h2>
+    <h2>${dimension.name.capitalize()} Dimension</h2>
   </div>
   <g:if test="${dimension.isPrimaryAxis()}">
     <hr />

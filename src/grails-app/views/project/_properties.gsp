@@ -1,5 +1,3 @@
-<g:hiddenField name="id" value="${project?.id}" />
-
 <dl>
 
   <dt> <label for="name" class="required">Name</label> </dt>
@@ -19,19 +17,19 @@
 
     <dt> <label for="colour">Card Colour</label> </dt>
     <dd>
-      <g:select name="colour" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.colourDimension.name}"noSelection="['': '']" />
+      <g:select name="colour" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.colourDimension?.name}" noSelection="['': '']" />
       <span class="hint">The <em>card colour</em> dimension is used to set background colours on the cards.</span>
     </dd>
 
     <dt> <label for="highlight">Highlight</label> </dt>
     <dd>
-      <g:select name="highlight" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.highlightDimension.name}"noSelection="['': '']" />
+      <g:select name="highlight" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.highlightDimension?.name}" noSelection="['': '']" />
       <span class="hint">The <em>card highlight</em> dimension is used to show detail in each card's upper right corner.</span>
     </dd>
 
     <dt> <label for="primary">Primary Axis</label> </dt>
     <dd>
-      <g:select name="primary" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.primaryAxis.name}"noSelection="['': '']" />
+      <g:select name="primary" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.primaryAxis?.name}" />
       <span class="hint">The project's <em>primary</em> dimension is used as the Y axis for all the default story maps.</span>
     </dd>
 

@@ -10,12 +10,13 @@ class ExportController {
 
     def grailsApplication
 
-    def stories(Long id, String format ) {
+    def stories(Long id, String format, String extension) {
         format = format ?: "csv"
+        extension = extension ?: "csv"
 
         def project = Project.read(id)
         if (!project) {
-            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), id])}"
             redirect controller: "project", action: "show", id: id
         } else {
             def data = []
@@ -36,19 +37,20 @@ class ExportController {
             Map labels = [:]
             Map formatters = [:]
 
-            String filename = (project.name.endsWith(params.extension)) ? project.name : "project.${project.id}.stories.${params.extension}"
+            String filename = "project.${project.id}.stories.${extension}"
             response.setHeader("Content-disposition", "attachment; filename=${filename}")
             response.contentType = grailsApplication.config.grails.mime.types[format]
             exportService.export(format, response.outputStream, data, fields, labels, formatters, params)
         }
     }
 
-    def order(Long id, String format ) {
+    def order(Long id, String format, String extension) {
         format = format ?: "csv"
+        extension = extension ?: "csv"
 
         def project = Project.read(id)
         if (!project) {
-            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), id])}"
             redirect controller: "project", action: "show", id: id
         } else {
             def data = []
@@ -70,19 +72,20 @@ class ExportController {
             Map labels = [:]
             Map formatters = [:]
 
-            String filename = "project.${project.id}.ordering.${params.extension}"
+            String filename = "project.${project.id}.ordering.${extension}"
             response.setHeader("Content-disposition", "attachment; filename=${filename}")
             response.contentType = grailsApplication.config.grails.mime.types[format]
             exportService.export(format, response.outputStream, data, fields, labels, formatters, params)
         }
     }
 
-    def structure(Long id, String format) {
-        format = params.format ?: "csv"
+    def structure(Long id, String format, String extension) {
+        format = format ?: "csv"
+        extension = extension ?: "csv"
 
         def project = Project.read(id)
         if (!project) {
-            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), id])}"
             redirect controller: "project", action: "show", id: id
         } else {
             def data = []
@@ -105,7 +108,7 @@ class ExportController {
             Map labels = [:]
             Map formatters = [:]
 
-            String filename = "project.${project.id}.structure.${params.extension}"
+            String filename = "project.${project.id}.structure.${extension}"
             response.setHeader("Content-disposition", "attachment; filename=${filename}")
             response.contentType = grailsApplication.config.grails.mime.types[format]
             exportService.export(format, response.outputStream, data, fields, labels, formatters, params)

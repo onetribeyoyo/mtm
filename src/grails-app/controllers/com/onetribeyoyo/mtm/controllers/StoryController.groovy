@@ -99,8 +99,8 @@ class StoryController {
         Element x = Element.get(xId)
         Element y = Element.get(yId)
 
-        if ( // TODO: are these conditions accurate?
-            (xAxis.project == story.project) && (yAxis.project == story.project) // got to move only along dimensions that make sense for the story
+        if (
+            ((xAxis.project == story.project) && (yAxis.project == story.project)) // don't allow movement outside of the project
             && (!x || (x.dimension == xAxis)) // movement must be along the x axis
             && (!y || (y.dimension == yAxis)) // movement must be along the y axis
         ) {

@@ -9,13 +9,7 @@ class ImportController {
     def structureImportService
 
     def storyFile = {
-        render template: "chooseStoryFile", model: [
-            id: params.id,
-            filename: params.filename,
-            defaultFeature: "misc",          // TODO: should be a constant
-            defaultRelease: "r?",            // TODO: should be a constant
-            defaultStrategy: "nice to have", // TODO: should be a constant
-        ]
+        render template: "chooseStoryFile", model: [ id: params.id, filename: params.filename ]
     }
 
     def importStories(Long id) {
@@ -62,13 +56,7 @@ class ImportController {
     }
 
     def structureFile = {
-        render template: "chooseStructureFile", model: [
-            id: params.id,
-            filename: params.filename,
-            defaultFeature: "misc",          // TODO: should be a constant
-            defaultRelease: "r?",            // TODO: should be a constant
-            defaultStrategy: "nice to have", // TODO: should be a constant
-        ]
+        render template: "chooseStructureFile", model: [ id: params.id, filename: params.filename ]
     }
 
     def importStructure(Long id) {
@@ -115,13 +103,7 @@ class ImportController {
     }
 
     def orderFile = {
-        render template: "chooseOrderFile", model: [
-            id: params.id,
-            filename: params.filename,
-            defaultFeature: "misc",          // TODO: should be a constant
-            defaultRelease: "r?",            // TODO: should be a constant
-            defaultStrategy: "nice to have", // TODO: should be a constant
-        ]
+        render template: "chooseOrderFile", model: [ id: params.id, filename: params.filename ]
     }
 
     def importOrder(Long id) {

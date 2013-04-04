@@ -189,14 +189,21 @@ class ProjectController {
                 }
             }
             project.properties = params
+
             if (params.primary) {
                 project.primaryAxis = project.dimensionFor(params.primary)
             }
+
             if (params.colour) {
                 project.colourDimension = project.dimensionFor(params.colour)
+            } else {
+                project.colourDimension = null
             }
+
             if (params.highlight) {
                 project.highlightDimension = project.dimensionFor(params.highlight)
+            } else {
+                project.highlightDimension = null
             }
 
             if (!project.hasErrors() && project.save(flush: true)) {

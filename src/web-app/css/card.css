@@ -22,7 +22,7 @@
    min-height: 2em;
    padding: .25em .25em 0.15em .5em;
    overflow: hidden;
-   width: 16em;
+   width: 12em;
 }
 .card .detail {
    background: white;
@@ -42,7 +42,7 @@
    background-color: rgba(128, 128, 128, 0.75);
    border-radius: 4px;
    height: 16px;
-   margin-left: 12em;
+   margin-left: 8em; /* should be 4em less than .card width */
    padding: 3px;
    position: absolute;
 }

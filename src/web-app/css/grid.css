@@ -47,7 +47,7 @@
 }
 .grid-column-head {
    border: 3px double lightgray;
-   min-width: 9em;
+   min-width: 5em;
 }
 .grid-blank + .grid-column-head { /* the first column heading */
 }

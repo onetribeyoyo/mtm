@@ -3,6 +3,8 @@ package com.onetribeyoyo.mtm.controllers
 import grails.converters.JSON
 import grails.converters.XML
 
+import groovy.json.JsonSlurper
+
 import com.onetribeyoyo.mtm.domain.*
 
 class ProjectController {
@@ -52,6 +54,121 @@ class ProjectController {
             redirect action: "list"
         } else {
             [ project: project ]
+        }
+    }
+
+
+    //~ json export/import -------------------------------------------------------------------------
+
+    def export(Long id) {
+        Project project = Project.read(id)
+        if (!project) {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
+            redirect action: "list"
+
+        } else {
+            def data = [
+                name: project.name,
+                estimateUnits: project.estimateUnits,
+                showEstimates: project.showEstimates,
+                colourDimension: project.colourDimension?.name,
+                highlightDimension: project.highlightDimension?.name,
+                primaryAxis: project.primaryAxis?.name,
+
+                dimensions: project.dimensions.collect { dimension ->
+                    [
+                        name: dimension.name,
+                        description: dimension.description,
+                        colour: dimension.colour,
+                        layoutStyle: dimension.layoutStyle?.toString(),
+                        elements: dimension.elements.collect { element ->
+                            [
+                                value: element.value,
+                                order: element.order,
+                                colour: element.colour,
+                                description: element.description,
+                            ]
+                        }
+                    ]
+                },
+                stories: project.stories.collect { story ->
+                    [
+                        summary: story.summary,
+                        detail: story.detail,
+                        estimate: story.estimate,
+                        vector: story.vector.collect { element ->
+                            [
+                                dimension: element.dimension.name,
+                                value: element.value,
+                            ]
+                        },
+                        ordering: story.ordering.collect { ordering ->
+                            [
+                                xAxis: ordering.x?.dimension?.name,
+                                x: ordering.x?.value,
+                                yAxis: ordering.y?.dimension?.name,
+                                y: ordering.y?.value,
+                                order: ordering.order,
+                            ]
+                        },
+                    ]
+                },
+            ]
+
+            String filename = "project.${project.id}.mtm"
+            response.setHeader("Content-disposition", "attachment; filename=${filename}")
+            response.contentType = grailsApplication.config.grails.mime.types.text
+            render data as JSON
+        }
+    }
+
+    def projectFile = {
+        render template: "chooseFile", model: [ filename: params.filename ]
+    }
+
+    def importProject(String projectName) {
+        if (!projectName?.trim()) {
+            flash.error = "Project name is required."
+            redirect action: "list", model: params
+
+        } else if (Project.countByName(projectName)) {
+            flash.error = "Already have a project named \"${projectName}\"."
+             redirect action: "list", model: params
+
+        } else if (!params.projectFile) {
+            flash.error = "Filename is required."
+            redirect action: "list", model: params
+
+        } else {
+            def multipartFile = request.getFile("projectFile")
+            if (!multipartFile || multipartFile.empty) {
+                flash.error = "Import file is empty."
+                redirect action: "list", model: params
+
+            } else {
+                try {
+                    String pathname = multipartFile.originalFilename
+                    def parts = [name: null, extension: null]
+                    pathname.find(/^([^.]*)$|^(.*?)\.?([^.]*)$/) { full, noExtension, name, extension ->
+                        parts.name = name ?: noExtension
+                        parts.extension = extension
+                    }
+                    def savedFile = File.createTempFile("tmp_import_file_${parts.name}.", ".${parts.extension ?: 'mtm'}")
+                    savedFile.deleteOnExit()
+                    pathname = savedFile.absolutePath
+
+                    multipartFile.transferTo(savedFile)
+                    def json = new JsonSlurper().parse(new FileReader(new File(pathname)))
+                    Project project = projectService.createFromJson(projectName, json)
+
+                    redirect controller: "project", action: "show", id: project.id
+                    //redirect action: "list"
+
+                } catch (RuntimeException ex) {
+                    flash.error = ex.message
+                    redirect action: "list", model: params
+                }
+            }
         }
     }
 

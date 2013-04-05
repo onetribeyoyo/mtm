@@ -48,7 +48,8 @@
 </div>
 
 <div>
-  <g:render template="/project/projectActions" />
+  <mtm:dialogLink action="create" title="New Project"><button>New Project</button></mtm:dialogLink>
+  <mtm:dialogLink action="projectFile" title="Import Project"><button>Import Project</button></mtm:dialogLink>
 </div>
 
 </body>

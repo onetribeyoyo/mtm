@@ -1,9 +1,9 @@
 <div class="section">
   <div>
     <div class="card-actions float-right">
-      <mtm:dialogLink controller="dimension" action="edit" id="${dimension.id}" title="Edit ${dimension}"><img src="${fam.icon(name: 'page_edit')}" /></mtm:dialogLink>
+      <mtm:dialogLink controller="dimension" action="edit" id="${dimension.id}" title="Edit ${dimension}"><img src="${fam.icon(name: 'page_edit')}" title="edit dimension" /></mtm:dialogLink>
       <g:if test="${!dimension.isPrimaryAxis() && (dimension.project.dimensions.size() != 2)}">
-        <mtm:dialogLink controller="dimension" action="confirmDelete" id="${dimension.id}" title="Delete ${dimension}"><img src="${fam.icon(name: 'delete')}" /></mtm:dialogLink>
+        <mtm:dialogLink controller="dimension" action="confirmDelete" id="${dimension.id}" title="Delete ${dimension}"><img src="${fam.icon(name: 'delete')}" title="delete dimension" /></mtm:dialogLink>
       </g:if>
     </div>
     <h2>${dimension.name.capitalize()} Dimension</h2>
@@ -31,8 +31,8 @@
         <g:set var="rowStyle" value="${((rowNumber % 2) == 0) ? 'odd' : 'even'}" />
         <div id="element-${element.id}" class="card ${rowStyle} ${element.colour ?: dimension.colour} light-margin heavy-padding">
           <div class="card-actions">
-            <mtm:dialogLink controller="element" action="edit" id="${element.id}" title="Edit ${element}"><img src="${fam.icon(name: 'page_edit')}" /></mtm:dialogLink>
-            <mtm:dialogLink controller="element" action="confirmDelete" id="${element.id}" title="Delete ${element}"><img src="${fam.icon(name: 'delete')}" /></mtm:dialogLink>
+            <mtm:dialogLink controller="element" action="edit" id="${element.id}" title="Edit ${element}"><img src="${fam.icon(name: 'page_edit')}" title="edit element" /></mtm:dialogLink>
+            <mtm:dialogLink controller="element" action="confirmDelete" id="${element.id}" title="Delete ${element}"><img src="${fam.icon(name: 'delete')}" title="delete element" /></mtm:dialogLink>
           </div>
           <%-- TODO: how many stories? --%>
           ${element.value}

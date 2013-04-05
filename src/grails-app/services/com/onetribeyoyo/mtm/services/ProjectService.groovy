@@ -203,4 +203,71 @@ class ProjectService {
         }
     }
 
+
+    Project createFromJson(String name, def jsonData) {
+        log.debug "createFromJson(\"${name}\", jsonData...)"
+        // create a new project...
+        Project project = new Project(name: name)
+        project.save(flush: true, failOnError: true)
+
+        project.estimateUnits = jsonData.estimateUnits
+        project.showEstimates = jsonData.showEstimates
+        project.save(flush: true, failOnError: true)
+
+        // create the dimensions...
+        jsonData.dimensions.each { dimensionData ->
+            Dimension dimension = new Dimension(
+                name: dimensionData.name,
+                description: dimensionData.description,
+                colour: dimensionData.colour,
+                //layoutStyle: dimensionData.layoutStyle?.toString()
+            )
+            log.debug "createFromJson(..)     adding dimension: \"${dimension}\""
+            project.addToDimensions(dimension)
+            project.save(flush: true, failOnError: true)
+
+            dimensionData.elements.each { elementData ->
+                Element element = new Element(
+                    value: elementData.value,
+                    order: elementData.order,
+                    colour: elementData.colour,
+                    description: elementData.description,
+                )
+                log.debug "createFromJson(..)         adding element: \"${element}\""
+                dimension.addToElements(element)
+                dimension.save(flush: true, failOnError: true)
+            }
+        }
+
+        project.colourDimension = project.dimensionFor(jsonData.colourDimension)
+        project.highlightDimension = project.dimensionFor(jsonData.highlightDimension)
+        project.primaryAxis = project.dimensionFor(jsonData.primaryAxis)
+        project.save(flush: true, failOnError: true)
+
+        // create the stories...
+        jsonData.stories.each { storyData ->
+            Story story = new Story(
+                summary: storyData.summary,
+                detail: storyData.detail,
+                estimate: storyData.estimate,
+            )
+            log.debug "createFromJson(..)     adding story: \"${story}\""
+            project.addToStories(story)
+            project.save(flush: true, failOnError: true)
+
+            storyData.vector.each { vectorData ->
+                Dimension axis = project.dimensionFor(vectorData.dimension)
+                Element position = axis.elementFor(vectorData.value)
+                storyService.slide(story, axis, position)
+            }
+            storyData.ordering.each { orderingData ->
+                // TODO: create OrderedStory s
+                //ordering = new OrderedStory(story:story, x:x, y:y)
+                //story.addToOrdering(ordering)
+            }
+        }
+
+        return project
+    }
+
 }

@@ -18,21 +18,11 @@
 </h1>
 <project:tabs project="${project}" selectedTab="config___" />
 
-<div>
-  <mtm:dialogLink controller="import" action="structureFile" id="${project.id}" title="Import Project Structure"><button>Import Structure</button></mtm:dialogLink>
-  <mtm:dialogLink controller="import" action="storyFile" id="${project.id}" title="Import Stories"><button>Import Stories</button></mtm:dialogLink>
-  <mtm:dialogLink controller="import" action="orderFile" id="${project.id}" title="Import Ordering"><button>Import Ordering</button></mtm:dialogLink>
-|
-  <g:link controller="export" action="structure" id="${project.id}" params="[format: 'csv', extension: 'csv']"><button>Export Structure</button></g:link>
-  <g:link controller="export" action="stories" id="${project.id}" params="[format: 'csv', extension: 'csv']"><button>Export Stories</button></g:link>
-  <g:link controller="export" action="order" id="${project.id}" params="[format: 'csv', extension: 'csv']"><button>Export Ordering</button></g:link>
-</div>
-
-
 <div id="project-${project.id}" class="section float-left">
   <div>
     <div class="card-actions float-right">
-      <mtm:dialogLink action="edit" id="${project.id}" title="Edit ${project}"><img src="${fam.icon(name: 'page_edit')}" /></mtm:dialogLink>
+      <g:link action="export" id="${project.id}"><img src="${fam.icon(name: 'disk')}" title="export project as json" /></g:link>
+      <mtm:dialogLink action="edit" id="${project.id}" title="Edit ${project}"><img src="${fam.icon(name: 'page_edit')}" title="edit project" /></mtm:dialogLink>
     </div>
     <h2>Project Data...</h2>
   </div>
@@ -45,6 +35,14 @@
     <tr> <th> Highlight </th>      <td> ${project.highlightDimension?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
     <tr> <th> Primary Axis </th>   <td> ${project.primaryAxis?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
   </table>
+  <hr />
+  <p class="narrow hint">
+    If you're one of those people who just has to edit story lists with a spreadsheet you can
+    <g:link controller="export" action="stories" id="${project.id}" params="[format: 'csv', extension: 'csv']">Export</g:link>
+    and
+    <mtm:dialogLink controller="import" action="storyFile" id="${project.id}" title="Import Stories">Import</mtm:dialogLink>
+    story lists in CSV format.
+  </p>
 </div>
 
 <hr class="clear" />

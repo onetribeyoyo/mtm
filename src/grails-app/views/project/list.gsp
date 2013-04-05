@@ -4,11 +4,17 @@
 <head>
   <meta name="layout" content="main" />
   <title>Project List</title>
+  <r:require module="tabs" />
 </head>
 
 <body>
 
 <h1> Project List </h1>
+<ul class="tabrow"> <%-- begin tabs --%>
+  <li class="selected"> Project List </li>
+  <li> <g:link controller="info">FAQ</g:link> </li>
+</ul> <%-- end tabs --%>
+
 
 <div class="section">
   <table class="" width="100%">

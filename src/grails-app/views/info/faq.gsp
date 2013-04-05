@@ -23,8 +23,8 @@
     and so on.</p>
   </div>
 
-  <p class="article">Stories and backlog items alone don't give the context for designing/implementing a complete
-  solution.  The story mapping process solves the problem of showing at a glance the context of the entire project.</p>
+  <p class="article">Stories and backlog items don't give the context for designing/implementing a complete solution.
+  The story mapping process solves the problem of showing at a glance the context of the entire project.</p>
 
   <p class="article">In addition to this context, story maps provide a glimpse into the "completeness" of the project.
   They let us see and share with sponsors what's done, where the problems are, and what's in need of further

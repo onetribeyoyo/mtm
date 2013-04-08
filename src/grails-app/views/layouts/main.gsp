@@ -34,6 +34,12 @@
 <body>
   <mtm:dialogDiv />
   <g:render contextPath="/layouts" template="messages"/>
+
+  <%-- show a warning banner when in prod mode! --%>
+  <g:if test="${grails.util.Environment.current == grails.util.Environment.PRODUCTION}">
+    <div class="non-printing" style="background-color: red;">&nbsp;</div>
+  </g:if>
+
   <g:layoutBody />
   <r:layoutResources />
 </body>

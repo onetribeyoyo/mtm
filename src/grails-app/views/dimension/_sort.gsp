@@ -1,6 +1,6 @@
 <div class="section">
   <div>
-    <div class="card-actions float-right">
+    <div class="card-actions float-right non-printing">
       <mtm:dialogLink controller="dimension" action="edit" id="${dimension.id}" title="Edit ${dimension}"><img src="${fam.icon(name: 'page_edit')}" title="edit dimension" /></mtm:dialogLink>
       <g:if test="${!dimension.isPrimaryAxis() && (dimension.project.dimensions.size() != 2)}">
         <mtm:dialogLink controller="dimension" action="confirmDelete" id="${dimension.id}" title="Delete ${dimension}"><img src="${fam.icon(name: 'delete')}" title="delete dimension" /></mtm:dialogLink>
@@ -30,7 +30,7 @@
       <g:each var="element" in="${dimension.elements}" status="rowNumber">
         <g:set var="rowStyle" value="${((rowNumber % 2) == 0) ? 'odd' : 'even'}" />
         <div id="element-${element.id}" class="card ${rowStyle} ${element.colour ?: dimension.colour} light-margin heavy-padding">
-          <div class="card-actions">
+          <div class="card-actions non-printing">
             <mtm:dialogLink controller="element" action="edit" id="${element.id}" title="Edit ${element}"><img src="${fam.icon(name: 'page_edit')}" title="edit element" /></mtm:dialogLink>
             <mtm:dialogLink controller="element" action="confirmDelete" id="${element.id}" title="Delete ${element}"><img src="${fam.icon(name: 'delete')}" title="delete element" /></mtm:dialogLink>
           </div>
@@ -40,8 +40,8 @@
       </g:each>
     </div>
   </div>
-  <hr />
-  <div class="buttonset">
+  <hr class="non-printing" />
+  <div class="buttonset non-printing">
     <mtm:dialogLink controller="element" action="create" id="${dimension.id}" title="New ${dimension}"><button>New <em>"${dimension}"</em></button></mtm:dialogLink>
   </div>
 </div>

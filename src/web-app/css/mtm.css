@@ -1,6 +1,7 @@
 /*~ mtm styles --------------------------------------------------------------------------------- */
 
 body, input, select, textarea {
+   background: white url("/mtm/images/page-background.png") repeat;
    color: #555;
    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
    font-size: 11px;
@@ -9,6 +10,9 @@ body, input, select, textarea {
 h1, h2, h3, h4 {
    margin: 0;
    padding: 0;
+}
+h1 {
+   color: #eeeeee;
 }
 
 .section {

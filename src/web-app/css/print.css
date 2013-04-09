@@ -1,7 +1,23 @@
 /*~ somethings are not printed... -------------------------------------------------------------- */
 
+body {
+   background: none;
+}
+
+h1 {
+   color: #555;
+}
+
 .non-printing {
    display: none;
+}
+
+.selected-card {
+   background-image: none;
+   border: 1px solid #999;
+   -webkit-box-shadow: 0 0 0px Maroon;
+   -moz-box-shadow: 0 0 0px Maroon;
+   box-shadow: 0 0 0px Maroon;
 }
 
 

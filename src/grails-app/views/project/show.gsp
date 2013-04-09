@@ -20,11 +20,11 @@
 
 <div id="project-${project.id}" class="section float-left">
   <div>
-    <div class="card-actions float-right">
+    <div class="card-actions float-right non-printing">
       <g:link action="export" id="${project.id}"><img src="${fam.icon(name: 'disk')}" title="export project as json" /></g:link>
       <mtm:dialogLink action="edit" id="${project.id}" title="Edit ${project}"><img src="${fam.icon(name: 'page_edit')}" title="edit project" /></mtm:dialogLink>
     </div>
-    <h2>Project Data...</h2>
+    <h2>Project Data</h2>
   </div>
   <hr />
   <table>
@@ -35,8 +35,8 @@
     <tr> <th> Highlight </th>      <td> ${project.highlightDimension?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
     <tr> <th> Primary Axis </th>   <td> ${project.primaryAxis?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
   </table>
-  <hr />
-  <p class="narrow hint">
+  <hr class="non-printing" />
+  <p class="narrow hint non-printing">
     If you're one of those people who just has to edit story lists with a spreadsheet you can
     <g:link controller="export" action="stories" id="${project.id}" params="[format: 'csv', extension: 'csv']">Export</g:link>
     and
@@ -53,9 +53,9 @@
   </div>
 </g:each>
 
-<hr class="clear" />
+<hr class="clear non-printing" />
 
-<div class="section float-left">
+<div class="section float-left non-printing">
   <h3>Additional Dimensions...</h3>
   <hr />
   <p>

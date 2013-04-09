@@ -25,3 +25,8 @@ fieldset {
    padding: 1em;
 */
 }
+
+input, select, textarea {
+   background-color: Snow;
+   background-image: none;
+}

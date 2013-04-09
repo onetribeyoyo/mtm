@@ -17,7 +17,7 @@
 
 
 <div class="section">
-  <table class="" width="100%">
+  <table>
     <thead>
       <tr>
         <g:sortableColumn property="name" title="Project Name" />
@@ -36,10 +36,10 @@
           <g:set var="storyCount" value="${project.stories?.size() ?: 0}" />
           <td class="nowrap">${storyCount} ${(storyCount == 1) ? 'story' : 'stories'}</td>
 
-          <td class="nowrap">
+          <td>
             <g:each var="dimension" in="${project.dimensions}">
               <g:if test="${dimension != release}">
-                <g:link action="map" id="${project.id}" params="[x: dimension.name, y:'release']">${dimension}&bull;release</g:link>
+                <g:link action="map" id="${project.id}" params="[x: dimension.name, y:'release']"><span class="nowrap">${dimension}&bull;release</span></g:link>
                 &emsp;
               </g:if>
             </g:each>

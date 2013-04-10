@@ -1,9 +1,8 @@
 import com.onetribeyoyo.mtm.domain.*
 
 import grails.util.GrailsUtil
-import groovy.util.slurpersupport.NodeChild
+import groovy.json.JsonSlurper
 
-import org.codehaus.groovy.grails.commons.ApplicationHolder
 import org.codehaus.groovy.grails.commons.ConfigurationHolder
 import org.codehaus.groovy.grails.commons.GrailsApplication
 
@@ -118,6 +117,18 @@ class BootStrap {
     }
 
     void loadBootstrapProject(String projectName) {
+        String filename = ConfigurationHolder.config.mtm.bootstrap.filename
+        if (filename) {
+            if (new File(filename).exists()) {
+                def json = new JsonSlurper().parse(new FileReader(new File(filename)))
+                Project project = projectService.createFromJson("Bootstrap Project", json)
+            } else {
+                log.error "Cannot find mtm.bootstrap.filename: '${filename}'."
+            }
+        }
+    }
+
+    void loadBootstrapStories(String projectName) {
 
         String filename = ConfigurationHolder.config.mtm.bootstrap.filename
         if (filename) {

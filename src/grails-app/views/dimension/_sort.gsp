@@ -29,7 +29,7 @@
     <div class="dimension-list" projectId="${dimension.project.id}" dimension="${dimension.name}">
       <g:each var="element" in="${dimension.elements}" status="rowNumber">
         <g:set var="rowStyle" value="${((rowNumber % 2) == 0) ? 'odd' : 'even'}" />
-        <div id="element-${element.id}" class="card ${rowStyle} ${element.colour ?: dimension.colour} light-margin heavy-padding">
+        <div id="element-${element.id}" style="width: 12em;" class="card ${rowStyle} ${element.colour ?: dimension.colour} light-margin heavy-padding">
           <div class="card-actions non-printing">
             <mtm:dialogLink controller="element" action="edit" id="${element.id}" title="Edit ${element}"><img src="${fam.icon(name: 'page_edit')}" title="edit element" /></mtm:dialogLink>
             <mtm:dialogLink controller="element" action="confirmDelete" id="${element.id}" title="Delete ${element}"><img src="${fam.icon(name: 'delete')}" title="delete element" /></mtm:dialogLink>

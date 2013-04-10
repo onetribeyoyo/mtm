@@ -1,0 +1,315 @@
+{
+  "name": "fff",
+  "estimateUnits": null,
+  "showEstimates": true,
+  "colourDimension": "status",
+  "highlightDimension": null,
+  "primaryAxis": "release",
+  "dimensions": 
+  [
+    {
+      "name": "feature",
+      "description": null,
+      "colour": "SteelBlue",
+      "layoutStyle": "FLOW",
+      "elements": 
+      [
+        {
+          "value": "xyzzy",
+          "order": 0,
+          "colour": null,
+          "description": null
+        },
+        {
+          "value": "pdq",
+          "order": 1,
+          "colour": null,
+          "description": null
+        },
+        {
+          "value": "misc.",
+          "order": 2,
+          "colour": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "release",
+      "description": null,
+      "colour": null,
+      "layoutStyle": "FLOW",
+      "elements": 
+      [
+        {
+          "value": "r0.1",
+          "order": 0,
+          "colour": null,
+          "description": null
+        },
+        {
+          "value": "r0.2",
+          "order": 1,
+          "colour": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "description": null,
+      "colour": null,
+      "layoutStyle": "FLOW",
+      "elements": 
+      [
+        {
+          "value": "on deck",
+          "order": 0,
+          "colour": "Gainsboro",
+          "description": null
+        },
+        {
+          "value": "blocked",
+          "order": 1,
+          "colour": "Tomato",
+          "description": null
+        },
+        {
+          "value": "in progress",
+          "order": 2,
+          "colour": "LightGoldenrod3",
+          "description": null
+        },
+        {
+          "value": "ready to test",
+          "order": 3,
+          "colour": "PaleTurquoise",
+          "description": null
+        },
+        {
+          "value": "done",
+          "order": 4,
+          "colour": "DarkSeaGreen1",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "stories": 
+  [
+    {
+      "summary": "story 3",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc."
+        },
+        {
+          "dimension": "status",
+          "value": "done"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "misc.",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "a story with a longer summary",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc."
+        },
+        {
+          "dimension": "status",
+          "value": "done"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "misc.",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "a story that includesSomeVeryLongWords and has a very long summary.",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc."
+        },
+        {
+          "dimension": "status",
+          "value": "done"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "misc.",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "story 6",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc."
+        },
+        {
+          "dimension": "status",
+          "value": "done"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "misc.",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "story 2",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "feature",
+          "value": "pdq"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "pdq",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "story 1",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    }
+  ]
+}

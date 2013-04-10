@@ -1,0 +1,33 @@
+"summary","detail","estimate","release","status"
+"project questions",,"0",,
+"bootstrap loads a csv file into a project",,"0","r0.1","done"
+"heuristic estimation",,"0","r0.3",
+"project risks",,"0",,
+"annotate overdue stories",,"0",,
+"drag-n-drop card-grid grid",,"0","r0.1","done"
+"project assumptions",,"0",,
+"extend CRUD to include estimation params",,"0","r0.3",
+"""accept"" function",,"0",,
+"security and access control (both for features and data)",,"0",,
+"export story list (to csv file)",,"0","r0.1","ready to test"
+"ability to support arbitrary dimensions",,"0","r0.1","done"
+"everytime a project is saved it is exported to a file?",,"0","r0.2","on deck"
+"switch from SQL to noSQL (mongo?)",,"0",,"in progress"
+"refactor stories so they have a storyId that is unique per project",,"0","r0.2","on deck"
+"display total 'cost' of each grid-cell,update when cards are dragged around",,"0","r0.3",
+"import into project:2 is modifying project:1",,"0","r0.2","on deck"
+"auto-split stories into releases based on estimate and capacity",,"0",,
+"project story map view by any two dimension",,"0","r0.1","done"
+"ability to merge two dimensions (perhaps because they were misspelled)",,"0","r0.2","on deck"
+"pre-formatted dimensions: release, feature, status, strategy, assigned to",,"0","r0.1","done"
+"change log",,"0",,
+"add remote synchronization of views (live events?)",,"0",,
+"create/edit/delete dimensions and elements",,"0","r0.2","done"
+"timeline view",,"0",,
+"create/edit/delete project",,"0","r0.2","in progress"
+"aggregate estimate for each release, dimension, and project",,"0","r0.3",
+"dependency view",,"0",,
+"create/edit/delete story",,"0","r0.2","in progress"
+"edit dimension/element colours",,"0","r0.2","on deck"
+"import story list (from csv file)",,"0","r0.1","done"
+"story sort order by x/y dimensions",,"0","r0.1","ready to test"

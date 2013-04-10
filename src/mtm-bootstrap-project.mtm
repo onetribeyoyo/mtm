@@ -1,0 +1,811 @@
+{
+  "name": "MTM",
+  "estimateUnits": null,
+  "showEstimates": null,
+  "colourDimension": "status",
+  "highlightDimension": null,
+  "primaryAxis": "release",
+  "dimensions": 
+  [
+    {
+      "name": "release",
+      "description": null,
+      "colour": null,
+      "layoutStyle": "FLOW",
+      "elements": 
+      [
+        {
+          "value": "r0.1",
+          "order": 0,
+          "colour": "",
+          "description": null
+        },
+        {
+          "value": "r0.2",
+          "order": 1,
+          "colour": "",
+          "description": null
+        },
+        {
+          "value": "r0.3",
+          "order": 2,
+          "colour": "",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "description": null,
+      "colour": null,
+      "layoutStyle": "FLOW",
+      "elements": 
+      [
+        {
+          "value": "on deck",
+          "order": 0,
+          "colour": "Gainsboro",
+          "description": null
+        },
+        {
+          "value": "blocked",
+          "order": 1,
+          "colour": "Tomato",
+          "description": null
+        },
+        {
+          "value": "in progress",
+          "order": 2,
+          "colour": "LightGoldenrod3",
+          "description": null
+        },
+        {
+          "value": "ready to test",
+          "order": 3,
+          "colour": "PaleTurquoise",
+          "description": null
+        },
+        {
+          "value": "done",
+          "order": 4,
+          "colour": "DarkSeaGreen1",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "stories": 
+  [
+    {
+      "summary": "story sort order by x/y dimensions",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "aggregate estimate for each release, dimension, and project",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "project assumptions",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "everytime a project is saved it is exported to a file?",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "bootstrap loads a csv file into a project",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "done"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "create/edit/delete story",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "create/edit/delete project",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "annotate overdue stories",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "pre-formatted dimensions: release, feature, status, strategy, assigned to",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "done"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "change log",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "add remote synchronization of views (live events?)",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "import story list (from csv file)",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "done"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "extend CRUD to include estimation params",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "display total 'cost' of each grid-cell,update when cards are dragged around",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "project story map view by any two dimension",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "done"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "edit dimension/element colours",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "heuristic estimation",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "switch from SQL to noSQL (mongo?)",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "project risks",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "\"accept\" function",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "export story list (to csv file)",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "drag-n-drop card-grid grid",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "done"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "create/edit/delete dimensions and elements",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "done"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "summary": "refactor stories so they have a storyId that is unique per project",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "dependency view",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "import into project:2 is modifying project:1",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "security and access control (both for features and data)",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "ability to support arbitrary dimensions",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "done"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "timeline view",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "project questions",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "auto-split stories into releases based on estimate and capacity",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "ability to merge two dimensions (perhaps because they were misspelled)",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    }
+  ]
+}

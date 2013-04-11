@@ -15,14 +15,6 @@ h1 {
    color: #eeeeee;
 }
 
-.section {
-   background: #eeeeee;
-   border: 1px solid #bbb;
-   border-radius: 1em;
-   margin: 0.25em;
-   padding: 1em;
-}
-
 table {
    border-collapse:collapse;
 }
@@ -32,6 +24,12 @@ th, td {
    text-align: left;
 }
 
+hr {
+   background-color: #aaaaaa;
+   border: none;
+   height: 1px;
+}
+
 #header {
    position: absolute;
    top: 0;
@@ -39,11 +37,15 @@ th, td {
    z-index: 10;
 }
 
-hr {
+.section {
+   background: #eeeeee;
+   border: 1px solid #bbb;
+   border-radius: 1em;
+   margin: 0.25em 0.25em 0.75em 0.25em;
+   padding: 1em;
+}
+.section hr {
    background-color: orange;
-   border: none;
-   height: 1px;
-   margin-top: 1em;
 }
 
 /*~  messages ---------------------------------------------------------------------------------- */

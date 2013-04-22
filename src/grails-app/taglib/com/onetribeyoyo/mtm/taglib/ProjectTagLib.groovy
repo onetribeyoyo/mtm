@@ -63,8 +63,8 @@ class ProjectTagLib {
             def collapseStyle = complete ? "hidden" : ""
             def expandStyle = complete ? "" : "hidden"
 
-            out << "      <a href='#' class='y toggle-row row-${y.id} ${collapseStyle}' yId='${y.id}'><img src='../../images/arrow_collapse.gif' /></a>\n"
-            out << "      <a href='#' class='y toggle-row row-${y.id} ${expandStyle}' yId='${y.id}'><img src='../../images/arrow_expand.gif' /></a>\n"
+            out << "      <a href='#' class='y toggle-row row-${y.id} ${collapseStyle}' yId='${y.id}'><img src='../../images/arrow_collapse.png' /></a>\n"
+            out << "      <a href='#' class='y toggle-row row-${y.id} ${expandStyle}' yId='${y.id}'><img src='../../images/arrow_expand.png' /></a>\n"
             out << "    </li>\n"
 
             // a cell for cards where (x == null)
@@ -98,8 +98,8 @@ class ProjectTagLib {
             }
             out << "</div>\n"
         }
-        out << "      <a href='#' class='y toggle-row row-null' yId='null'><img src='../../images/arrow_collapse.gif' /></a>\n"
-        out << "      <a href='#' class='y toggle-row row-null hidden' yId='null'><img src='../../images/arrow_expand.gif' /></a>\n"
+        out << "      <a href='#' class='y toggle-row row-null' yId='null'><img src='../../images/arrow_collapse.png' /></a>\n"
+        out << "      <a href='#' class='y toggle-row row-null hidden' yId='null'><img src='../../images/arrow_expand.png' /></a>\n"
         out << "    </li>\n"
 
         // a cell for cards where both (x == null) and  (y == null)

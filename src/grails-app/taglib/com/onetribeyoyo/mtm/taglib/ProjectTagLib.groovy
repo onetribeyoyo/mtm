@@ -167,7 +167,7 @@ class ProjectTagLib {
         project.dimensions.each { d1 ->
             project.dimensions.each { d2 ->
                 if (d1 != d2) {
-                    def label = "${d1.name.capitalize()} by ${d2.name.capitalize()}"
+                    def label = "${d2.name.capitalize()} by ${d1.name.capitalize()}"
                     if ((d1 in [xAxis, yAxis]) && (d2 in [xAxis, yAxis])) {
                         out << "  <li>${label.encodeAsHTML()}</li>"
                     } else {

@@ -49,6 +49,7 @@ class ElementController {
                 }
             }
             element.value = params.value
+            element.colour = params.colour
             element.description = params.description
             if (!element.hasErrors() && element.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'element.label', default: 'Element'), element.id])}"

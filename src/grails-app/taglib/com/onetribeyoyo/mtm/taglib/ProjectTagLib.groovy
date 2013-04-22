@@ -36,7 +36,7 @@ class ProjectTagLib {
         out << "</li>\n"
         out << "    <li class='grid-column-head ${xAxis?.colour}'>???</li>\n" // column for cards where (x == null)
         xAxis?.elements.each { x -> // one column for each element on the x axis
-            out << "    <li class='grid-column-head ${x.colour ?: xAxis?.colour}'>${x.value}</li>\n"
+            out << "    <li class='grid-column-head ${x.colour ?: xAxis?.colour}'>${x.value.encodeAsHTML()}</li>\n"
         }
         out << "  </ul>\n"
 
@@ -49,12 +49,12 @@ class ProjectTagLib {
 
             // the row heading...
             out << "    <li class='grid-row-head ${y.colour ?: yAxis?.colour} ${rowStyle}'>\n"
-            out << "      ${y.value}\n"
+            out << "      ${y.value.encodeAsHTML()}\n"
             if (project.showEstimates && storymap[y].estimate) {
                 out << "      <div class='estimate'>"
                 out << storymap[y].estimate
                 if (project.estimateUnits) {
-                    out << "&nbsp;${project.estimateUnits}"
+                    out << "&nbsp;${project.estimateUnits.encodeAsHTML()}"
                 }
                 out << "</div>\n"
             }
@@ -63,8 +63,8 @@ class ProjectTagLib {
             def collapseStyle = complete ? "hidden" : ""
             def expandStyle = complete ? "" : "hidden"
 
-            out << "      <a href='#' class='y toggle-row row-${y.id} ${collapseStyle}' yId='${y.id}'><img src='../../images/arrow_collapse.png' /></a>\n"
-            out << "      <a href='#' class='y toggle-row row-${y.id} ${expandStyle}' yId='${y.id}'><img src='../../images/arrow_expand.png' /></a>\n"
+            out << "      <a href='#' class='y toggle-row row-${y.id} ${collapseStyle} non-printing' yId='${y.id}'><img src='../../images/arrow_collapse.png' /></a>\n"
+            out << "      <a href='#' class='y toggle-row row-${y.id} ${expandStyle} non-printing' yId='${y.id}'><img src='../../images/arrow_expand.png' /></a>\n"
             out << "    </li>\n"
 
             // a cell for cards where (x == null)
@@ -94,7 +94,7 @@ class ProjectTagLib {
             out << "      <div class='estimate'>"
             out << storymap[null].estimate
             if (project.estimateUnits) {
-                out << "&nbsp;${project.estimateUnits}"
+                out << "&nbsp;${project.estimateUnits.encodeAsHTML()}"
             }
             out << "</div>\n"
         }
@@ -133,9 +133,9 @@ class ProjectTagLib {
             if (!dimension.isPrimaryAxis() && dimension.elements) {
                 def label = "${dimension.name.capitalize()} by ${primaryAxis?.name?.capitalize()}"
                 if (selectedTab == dimension.name) {
-                    out << "<li class='selected'>${label}</li>"
+                    out << "  <li class='selected'>${label.encodeAsHTML()}</li>"
                 } else {
-                    out << "<li>"
+                    out << "  <li>"
                     out << g.link(controller: "project", action: "map", id: project.id, params: [x: dimension?.name, y: primaryAxis?.name], label)
                     out << "</li>\n"
                 }
@@ -148,9 +148,9 @@ class ProjectTagLib {
             "info___":     [ controller: "info",    label: "FAQ" ]
         ].each { key, params ->
             if (selectedTab == key) {
-                out << "<li class='selected'>${params.label}</li>"
+                out << "  <li class='selected'>${params.label.encodeAsHTML()}</li>"
             } else {
-                out << "<li>"
+                out << "  <li>"
                 out << g.link(controller: params.controller, action: params.action, id: params.id, params.label)
                 out << "</li>\n"
             }

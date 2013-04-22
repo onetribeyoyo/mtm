@@ -5,228 +5,80 @@
   <meta name="layout" content="main" />
   <title>Story Mapping Process</title>
   <r:require module="tabs" />
-
-  <style type="text/css">
-     table { border: solid firebrick 1px; margin: 0pt; padding: 0pt; }
-     caption { font-weight: bold; background-color: #dddddd; }
-     th { text-align: right; vertical-align: bottom; font-weight: normal; min-width: 3em; }
-     td { text-align: left; vertical-align: top; min-width: 2em; }
-
-     ul { }
-     ol li { padding-bottom: 1em; }
-     ul li { padding-bottom: 0em; }
-
-     dt { font-weight: bold; }
-
-     .a { color: #555555; background-color: lightgreen; padding: 0 2em 0 0.5em; }
-     .b { color: #555555; background-color: lightblue; padding: 0 0.5em; }
-     .c { color: black; background-color: lightgray; }
-     .d { color: black; }
-
-     .e { border-left: solid gray 4px; }
-
-     .left { float: left; }
-     .right { float: right; }
-     .clear { clear: both; }
-  </style>
 </head>
 
 <body>
 
-<h1>The Story Mapping Process</h1>
-<g:render template="tabs" model="[selectedTab: 'storymap']" />
+<h1>Story Maps</h1>
+<g:render template="tabs" model="[selectedTab: 'storymaps']" />
 
-<div class="section left">
+<div class="section float-left">
 
-  <h2>1. Collect the "big" features &mdash; the goals of the system</h2>
+  <h2> Why Story Mapping? </h2>
 
-  <div class="heavy-padding">
-    <table>
-      <tr>
-        <td class="a e"> feature x </td>
-        <td class="a e"> feature y </td>
-        <td class="a e"> feature z </td>
-      </tr>
-    </table>
-    <p class="hint">goal = swim-lane = workflow = epic = user story</p>
+  <div class="light-padding float-right">
+    <p class="narrow hint light-padding float-right">Using story maps doesn't get us all the way there either.  To
+    truely capture the context it ussually takes some sort of drawing of the system.  Maybe a sketch of the domain
+    model; a diagram or two showing how the application will be required to interact with other parts of the ecosystem;
+    and so on.</p>
   </div>
 
-  <hr />
+  <p class="article">What I need is to see at a glance the context of the entire project and long lists of stories and
+  backlog items don't cut it.  Story maps (and the story mapping process) are one solution to this problem.</p>
 
-  <h2>2. Add "user" stories</h2>
+  <p class="article">In addition to showing the context, story maps provide a glimpse into the "completeness" of the
+  project.  They let us see and share with sponsors what's done, where the problems are, and what's in need of further
+  definition.</p>
 
-  <div class="heavy-padding">
-    <table>
-      <tr>
-        <th></th>
-        <td class="a e" colspan="3"> feature x </td>
-        <td class="a e" colspan="5"> feature y </td>
-        <td class="a e" colspan="4"> feature z </td>
-      </tr>
-      <tr>
-        <th> stories: </th>
-        <td class="e b"> x1... </td>
-        <td class="b"> x2... </td>
-        <td class="b"> x3... </td>
-        <td class="e b"> y1... </td>
-        <td class="b"> y2... </td>
-        <td class="b"> y3... </td>
-        <td class="b"> y4... </td>
-        <td class="b"> y5... </td>
-        <td class="e b"> z1... </td>
-        <td class="b"> z2... </td>
-        <td class="b"> z3... </td>
-        <td class="b"> z4... </td>
-      </tr>
-    </table>
-  </div>
+  <p class="article">And, perhaps most importantly, story maps help us look ahead.  When we're doing iteration planning
+  the maps help us see what's coming later so we can make judgement calls on what's best to tackle first &mdash; and we
+  can easily do this both from a user's perspective and from a technical complexity/risk perspective.</p>
 
-  <hr />
-
-  <h2>3. Order the cards as they will be used by end users</h2>
+  <p class="article">In other words, story maps simplify sticking to the S.M.A.R.T. principle...</p>
 
   <ul>
-    <li>consider who uses the feature,
-    <li>consider how often the feature is used,
-    <li>and consider how valuable the feature is
+    <li> <strong>S</strong>pecific,
+    <li> <strong>M</strong>eaningful,
+    <li> <strong>A</strong>greed to,
+    <li> <strong>R</strong>ealistic, and
+    <li> <strong>T</strong>ime phased.
   </ul>
 
-  <hr />
+  <h2> Multi-dimensional Mapping </h2>
 
-  <h2>4. Group by business priority</h2>
+  <p class="article">Many development teams use Kanban boards to track work-in-progress, work-on-deck, etc.  This is a
+  great approach and many tools are available that automate the low tech "post-its on the wall" technique.  With any
+  project the complexity soon passes the point of being able to see it all at a glance.  AND kanban boards are most
+  often used to
 
-  <ul>
-    <li> how critical to our business is it that someone actually use each feature?
-    <li> is the feature innovative?
-    <li> does it match something competing product?
-    <li> is it a refinement/freshening of existing features?
-  </ul>
+  </p>
 
-  <hr />
+  <p class="article">
+  ...
+  </p>
 
-  <h2>5. Note logical breaks in workflow(s)</h2>
+  <p class="article">
+  ...
+  </p>
 
-  <ul>
-    <li>These may indicate possibilities for refactoring goals>
-  </ul>
+  <h2> Accuracy and Precision </h2>
 
-  <hr />
+  <p class="article">The goal is for absolute accuracy with a moderate level of precision.  At some point the maps will
+  represent a summary of the features (both user and technical) of the system.  To this end, the maps need to be
+  validated with the team -- at least the most relevant rows.  The rest remains fluid until the project is close to
+  completion.</p>
 
-  <h2>6. Mark the first system span</h2>
+  <p class="article">So by <em>absolute accuracy</em> I mean accurate at a point in time.  There will always be questions
+  but when the entire team agrees to the map then the team is also aware of the questions.
 
-  <div class="heavy-padding">
-    <table>
-      <tr>
-        <th></th>
-        <td class="a e" colspan="3"> feature x </td>
-        <td class="a e" colspan="5"> feature y </td>
-        <td class="a e" colspan="4"> feature z </td>
-      </tr>
-      <tr>
-        <th> r0.1&rarr; </th>
-        <td class="e"> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-        <td class=""> &nbsp; </td>
+  <p class="article">The status reflects the state of the project.  Some stories are in progress, some are done, some
+  haven't been started.  Over time the maps show where construction is complete and where portions of the system have
+  been tested/accepted.</p>
 
-        <td class="e b"> y1... </td>
-        <td class="b"> y2... </td>
-        <td class=""> &nbsp; </td>
-        <td class="b"> y4... </td>
-        <td class=""> &nbsp; </td>
-
-        <td class="e b"> z1... </td>
-        <td class=""> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-      </tr>
-      <tr>
-        <th> unscheduled&rarr;</th>
-        <td class="e b"> x1... </td>
-        <td class="b"> x2... </td>
-        <td class="b"> x3... </td>
-
-        <td class="e"> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-        <td class="b"> y3... </td>
-        <td class=""> &nbsp; </td>
-        <td class="b"> y5... </td>
-
-        <td class=" e"> &nbsp; </td>
-        <td class="b"> z2... </td>
-        <td class="b"> z3... </td>
-        <td class="b"> z4... </td>
-      </tr>
-    </table>
-    <p>This is the smallest set of features necessary to be minimally useful in a business context.</p>
-  </div>
-
-  <hr />
-
-  <h2>7. Fill in build estimates </h2>
-
-  <ul>
-    <li>Ask yourself: does first release still make sense?
-  </ul>
-
-  <hr />
-
-  <h2>8. Slice into subsequent releases</h2>
-
-  <div class="heavy-padding">
-   <table>
-     <tr>
-       <th></th>
-        <td class="a e" colspan="3"> feature x </td>
-        <td class="a e" colspan="5"> feature y </td>
-        <td class="a e" colspan="4"> feature z </td>
-      </tr>
-      <tr>
-        <th> r0.1&rarr; </th>
-        <td class="e"> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-        <td class="e b"> y1... </td>
-        <td class="b"> y2... </td>
-        <td class=""> &nbsp; </td>
-        <td class="b"> y4... </td>
-        <td class=""> &nbsp; </td>
-        <td class="e b"> z1... </td>
-        <td class=""> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-      </tr>
-      <tr>
-        <th> r0.2&rarr; </th>
-        <td class="e b"> x1... </td>
-        <td class=""> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-        <td class="e"> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-        <td class="b"> y3... </td>
-        <td class=""> &nbsp; </td>
-        <td class="b"> y5... </td>
-        <td class=" e"> &nbsp; </td>
-        <td class="b"> z2... </td>
-        <td class=""> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-      </tr>
-      <tr>
-        <td> unscheduled&rarr; </td>
-        <td class="e"> &nbsp; </td>
-        <td class="b"> x2... </td>
-        <td class="b"> x3... </td>
-        <td class=" e"> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-        <td class=""> &nbsp; </td>
-        <td class=" e"> &nbsp; </td>
-        <td class="">  </td>
-        <td class="b"> z3... </td>
-        <td class="b"> z4... </td>
-      </tr>
-    </table>
-  </div>
+  <p class="article">Back to accuracy: The story maps will be accurate, but the precision (the detail) will be in the
+  stories and tasks in jira.  So as we are planning iterations we'll be guided by the high-er level priorities shown in
+  the story map and make sure we drive out the details in jira to represent the work we are doing to get everything
+  done.</p>
 
 </div>
 

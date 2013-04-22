@@ -9,9 +9,8 @@ class InfoController {
     }
 
     def estimation = { }
-
     def faq = { }
-
+    def process = { }
     def storymap = { }
 
 }

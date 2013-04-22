@@ -18,6 +18,8 @@
 </div>
 
 <project:cardGrid project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
+<hr class="clear non-printing" />
+<project:switchDimensions project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
 
 </body>
 

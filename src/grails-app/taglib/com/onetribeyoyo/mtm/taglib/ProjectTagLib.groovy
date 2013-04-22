@@ -156,4 +156,30 @@ class ProjectTagLib {
         out << "</ul>\n"
     }
 
+    def switchDimensions = { attrs, body ->
+        Project project = attrs.project
+        Dimension xAxis = attrs.xAxis
+        Dimension yAxis = attrs.yAxis
+
+        out << "<div class='section float-left non-printing'>\n"
+        out << "  <h2>...</h2>\n"
+        out << "  <ul>\n"
+        project.dimensions.each { d1 ->
+            project.dimensions.each { d2 ->
+                if (d1 != d2) {
+                    def label = "${d1.name.capitalize()} by ${d2.name.capitalize()}"
+                    if ((d1 in [xAxis, yAxis]) && (d2 in [xAxis, yAxis])) {
+                        out << "  <li>${label.encodeAsHTML()}</li>"
+                    } else {
+                        out << "  <li>"
+                        out << g.link(controller: "project", action: "map", id: project.id, params: [x: d1?.name, y: d2?.name], label)
+                        out << "</li>\n"
+                    }
+                }
+            }
+        }
+        out << "  </ul>\n"
+        out << "</div>\n"
+    }
+
 }

@@ -5,14 +5,14 @@
   "colourDimension": "status",
   "highlightDimension": null,
   "primaryAxis": "release",
-  "dimensions": 
+  "dimensions":
   [
     {
       "name": "feature",
       "description": null,
       "colour": "SteelBlue",
       "layoutStyle": "FLOW",
-      "elements": 
+      "elements":
       [
         {
           "value": "xyzzy",
@@ -39,7 +39,7 @@
       "description": null,
       "colour": null,
       "layoutStyle": "FLOW",
-      "elements": 
+      "elements":
       [
         {
           "value": "r0.1",
@@ -60,12 +60,12 @@
       "description": null,
       "colour": null,
       "layoutStyle": "FLOW",
-      "elements": 
+      "elements":
       [
         {
           "value": "on deck",
           "order": 0,
-          "colour": "Gainsboro",
+          "colour": "Wheat",
           "description": null
         },
         {
@@ -95,13 +95,13 @@
       ]
     }
   ],
-  "stories": 
+  "stories":
   [
     {
       "summary": "story 3",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -116,7 +116,7 @@
           "value": "done"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -138,7 +138,7 @@
       "summary": "a story with a longer summary",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -153,7 +153,7 @@
           "value": "done"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -175,7 +175,7 @@
       "summary": "a story that includesSomeVeryLongWords and has a very long summary.",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -190,7 +190,7 @@
           "value": "done"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -212,7 +212,7 @@
       "summary": "story 6",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -227,7 +227,7 @@
           "value": "done"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -249,7 +249,7 @@
       "summary": "story 2",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "feature",
@@ -260,7 +260,7 @@
           "value": "r0.2"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -282,7 +282,7 @@
       "summary": "story 1",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -293,7 +293,7 @@
           "value": "xyzzy"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,

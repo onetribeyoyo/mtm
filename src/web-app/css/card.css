@@ -1,7 +1,7 @@
 /*~ cards -------------------------------------------------------------------------------------- */
 
 .card, .selected-card {
-   background: wheat;
+   background: #ebebeb;
    border-radius: 5px;
    cursor: move;
    margin: 0.25em;

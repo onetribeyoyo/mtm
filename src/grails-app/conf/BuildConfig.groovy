@@ -44,9 +44,6 @@ grails.project.dependency.resolution = {
         // runtime 'mysql:mysql-connector-java:5.1.22'
 
         test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
-
-        // TODO: this is a work around for http://jira.grails.org/browse/GPCODECOVERAGE-50.  Remove it when the issue is fixed.
-        test 'net.sourceforge.cobertura:cobertura:1.9.4.1'
     }
 
     plugins {
@@ -76,18 +73,18 @@ grails.project.dependency.resolution = {
         compile ":export:1.5"
         compile ":famfamfam:1.0.1"
         //compile ":joda-time:1.4"
-        compile ":remote-pagination:0.4.2"
+        compile ":remote-pagination:0.4.3"
 
         //~ testing ------------------------------------------------------------------
         test(":spock:0.7") {
             exclude "spock-grails-support"
         }
-        compile ":build-test-data:2.0.4"
+        compile ":build-test-data:2.0.5"
 
         //~ code quality -------------------------------------------------------------
         compile ":codenarc:0.18.1"     // generate report with `grails codenarc`
         compile ":gmetrics:0.3.1"    // generate report with `grails gmetrics`
-        test ":code-coverage:1.2.5"  // generate report with `grails test-app -coverage`
+        test ":code-coverage:1.2.6"  // generate report with `grails test-app -coverage`
     }
 
 }

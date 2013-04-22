@@ -30,7 +30,9 @@ class ProjectTagLib {
 
         // the column headings...
         out << "  <ul class='grid-row'>\n"
-        out << "    <li class='grid-blank'></li>\n"
+        out << "    <li class='grid-blank'>"
+        out << g.link(action: "map", id: project.id, params: [x: yAxis?.name, y: xAxis?.name], "<img src='${fam.icon(name: 'arrow_refresh')}' title='flip axes' />")
+        out << "</li>\n"
         out << "    <li class='grid-column-head ${xAxis?.colour}'>???</li>\n" // column for cards where (x == null)
         xAxis?.elements.each { x -> // one column for each element on the x axis
             out << "    <li class='grid-column-head ${x.colour ?: xAxis?.colour}'>${x.value}</li>\n"
@@ -164,15 +166,15 @@ class ProjectTagLib {
         out << "<div class='section float-left non-printing'>\n"
         out << "  <h2>...</h2>\n"
         out << "  <ul>\n"
-        project.dimensions.each { d1 ->
-            project.dimensions.each { d2 ->
-                if (d1 != d2) {
-                    def label = "${d2.name.capitalize()} by ${d1.name.capitalize()}"
-                    if ((d1 in [xAxis, yAxis]) && (d2 in [xAxis, yAxis])) {
-                        out << "  <li>${label.encodeAsHTML()}</li>"
+        project.dimensions.each { y ->
+            project.dimensions.each { x ->
+                if (x != y) {
+                    def label = "${y.name.capitalize()} by ${x.name.capitalize()}"
+                    if ((x == xAxis) && (y == yAxis)) {
+                        out << "    <li>${label.encodeAsHTML()}</li>\n"
                     } else {
-                        out << "  <li>"
-                        out << g.link(controller: "project", action: "map", id: project.id, params: [x: d1?.name, y: d2?.name], label)
+                        out << "    <li>"
+                        out << g.link(controller: "project", action: "map", id: project.id, params: [x: x?.name, y: y?.name], label)
                         out << "</li>\n"
                     }
                 }

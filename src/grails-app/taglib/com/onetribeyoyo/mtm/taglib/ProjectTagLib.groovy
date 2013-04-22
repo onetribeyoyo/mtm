@@ -31,7 +31,8 @@ class ProjectTagLib {
         // the column headings...
         out << "  <ul class='grid-row'>\n"
         out << "    <li class='grid-blank'>"
-        out << g.link(action: "map", id: project.id, params: [x: yAxis?.name, y: xAxis?.name], "<img src='${fam.icon(name: 'arrow_refresh')}' title='flip axes' />")
+        out << g.link(action: "map", id: project.id, params: [x: yAxis?.name, y: xAxis?.name], class: "non-printing",
+                      "<img src='${fam.icon(name: 'arrow_refresh')}' title='flip axes' />")
         out << "</li>\n"
         out << "    <li class='grid-column-head ${xAxis?.colour}'>???</li>\n" // column for cards where (x == null)
         xAxis?.elements.each { x -> // one column for each element on the x axis

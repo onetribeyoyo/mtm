@@ -39,9 +39,18 @@
    padding: .5em;
    word-spacing: -.5em;
 }
+
+.on-deck        { background: #DCDCDC; } /* Gainsboro */
+.in-progress    { background: #CDBE70; } /* LightGoldenrod3 */
+.ready-to-test  { background: #AFEEEE; } /* PaleTurquoise */
+.done           { background: #C1FFC1; } /* DarkSeaGreen1 */
+
+/* darker colours look better as card summaries? */
 .undefined      { background: Gainsboro; }
 .on-deck        { background: Wheat; }
 .in-progress    { background: GoldenRod; }
 .ready-to-test  { background: #0099cc; }
 .done           { background: OliveDrab; }
+
+
 .blocked        { background-image: url('../images/icons/stop.png'); background-position: 2px center ; background-repeat: no-repeat; }

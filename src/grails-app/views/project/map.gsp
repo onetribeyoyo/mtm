@@ -22,7 +22,7 @@
 
 <hr class="clear non-printing" />
 
-<project:switchDimensions project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
+<project:maps project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
 
 </body>
 

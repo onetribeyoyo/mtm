@@ -45,6 +45,8 @@
   </p>
 </div>
 
+<project:maps project="${project}" />
+
 <hr class="clear" />
 
 <g:each var="dimension" in="${project.dimensions}">

@@ -159,18 +159,25 @@ class ProjectTagLib {
         out << "</ul>\n"
     }
 
-    def switchDimensions = { attrs, body ->
+    /**
+     *  Renders a div with links to all possiblt maps.
+     */
+    def maps = { attrs, body ->
         Project project = attrs.project
         Dimension xAxis = attrs.xAxis
         Dimension yAxis = attrs.yAxis
 
         out << "<div class='section float-left non-printing'>\n"
-        out << "  <h2>...</h2>\n"
+        out << "  <h2>All Maps</h2>\n"
+        out << "  <hr />\n"
         out << "  <ul>\n"
-        project.dimensions.each { y ->
-            project.dimensions.each { x ->
-                if (x != y) {
-                    def label = "${y.name.capitalize()} by ${x.name.capitalize()}"
+        // only list the pair of dimensions once: if x/y is listed, no need to list y/x
+        def done = []
+        project.dimensions.each { x ->
+            done << x
+            project.dimensions.each { y ->
+                if ((x != y) && !(y in done)) {
+                    def label = "${x.name.capitalize()} by ${y.name.capitalize()}"
                     if ((x == xAxis) && (y == yAxis)) {
                         out << "    <li>${label.encodeAsHTML()}</li>\n"
                     } else {
@@ -182,6 +189,9 @@ class ProjectTagLib {
             }
         }
         out << "  </ul>\n"
+        out << "  <hr />\n"
+        out << "  <p class='narrow hint'>Note: Pairs of dimensions are only listed once (if x/y is listed, no need to list y/x.)  You can always flip axes"
+        out << " <img src='${fam.icon(name: 'arrow_refresh')}' title='flip axes' /> on the map grid to find what you need.</p>\n"
         out << "</div>\n"
     }
 

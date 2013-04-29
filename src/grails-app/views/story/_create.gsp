@@ -11,18 +11,19 @@
   </div>
 </g:hasErrors>
 
-<%-- TODO: should be formRemote --%>
-<g:form name="create-story" action="save">
- <%-- onSuccess="closeMtmModal('mtm-modal-content')" --%>
- <%-- TODO: forcing the page to reload is too big a hammer.  onSuccess should simply refresh the card and if necessary move it to the new location. --%>
-
+<g:formRemote name="create-story" url="[action:'save']"
+      update="[success:updateDiv,failure:'mtm-modal-data']"
+      onSuccess="location.reload(true);"
+      onFailure="refreshMtmModal()"
+      asynchronous="false"
+      >
   <fieldset>
     <g:render template="properties" />
   </fieldset>
 
-  <div class="buttonset">
-    <button id="create">Create</button>
+  <div>
+    <button type="submit" id="create" value="Create">Create</button>
     <mtm:closeDialogButton>Cancel</mtm:closeDialogButton>
   </div>
 
-</g:form>
+</g:formRemote>

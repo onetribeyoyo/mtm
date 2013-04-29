@@ -27,7 +27,7 @@
 
   <div>
     <button type="submit" id="edit" value="Update">Update</button>
-    <mtm:closeDialogButton>Cancel</button></mtm:closeDialogButton>
+    <mtm:closeDialogButton>Cancel</mtm:closeDialogButton>
   </div>
 
 </g:formRemote>

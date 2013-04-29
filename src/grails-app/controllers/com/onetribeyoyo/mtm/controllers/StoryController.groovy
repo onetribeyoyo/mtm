@@ -22,13 +22,16 @@ class StoryController {
     }
     def save = {
         def project = Project.read(params.project.id)
-        Story story = projectService.createStory(project, params)
+        Story story = new Story(project: project, summary: params.summary, detail: params.detail, estimate: params.estimate as Long)
+        storyService.setVector(story, params)
+        story.validate()
 
         if (story.hasErrors()) {
-            flash.error = "Please provide all required values."
             render status: "400", template: "create", model: [story: story]
         }
         else {
+            project.addToStories(story)
+            story.save(failOnError: true)
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'story.label', default: 'Story'), story.id])}"
             redirect controller: "project", action: "show", id: story.project.id
         }

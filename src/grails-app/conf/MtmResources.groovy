@@ -1,5 +1,10 @@
 modules = {
 
+    "dropmenu" {
+        resource url: "js/dropmenu.js"
+        resource url: "css/dropmenu.css", attrs: [media: "screen,projection,print"]
+    }
+
     "modal" {
         dependsOn "jquery"
         resource url: "js/jquery.simplemodal.1.4.3.min.js"

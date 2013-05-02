@@ -1,0 +1,43 @@
+.dropdown {
+   position: relative;
+}
+div.submenu {
+   background: #fff;
+   position: absolute;
+   top: 15px;
+   left: -20px;
+   z-index: 10000;
+   display: none;
+   margin-left: 10px;
+   padding: 5px 0;
+   border-radius: 6px;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+.submenu li a {
+   color: #555555;
+   display: block;
+   padding: 6px 15px;
+   cursor: pointer;
+   text-decoration: none;
+}
+.submenu li a:hover {
+   background: orange;
+
+   color: red;
+   text-decoration: none;
+}
+a.menu {
+   cursor: pointer;
+   z-index: 110;
+   padding-right: 10px;
+   background-image: url("/mtm/images/menu-arrow.png");
+   background-position: right center;
+   background-repeat: no-repeat;
+}
+.submenu ul {
+   list-style: none;
+   margin: 0px;
+   padding: 0px;
+   font-size: 11px;
+   padding: 0;
+}

@@ -31,6 +31,7 @@ class ProjectTagLib {
         // the column headings...
         out << "  <ul class='grid-row'>\n"
         out << "    <li class='grid-blank'>"
+        out << mapMenu(attrs)
         out << g.link(action: "map", id: project.id, params: [x: yAxis?.name, y: xAxis?.name], class: "non-printing",
                       "<img src='${fam.icon(name: 'arrow_refresh')}' title='flip axes' />")
         out << "</li>\n"
@@ -122,18 +123,49 @@ class ProjectTagLib {
         out << "<div class='clear non-printing' id='callbackConsole'></div>"
     }
 
+    /**
+     *  Note: Pairs of dimensions are only listed once (if x/y is listed, no need to list y/x.)
+     *  You can always flip axes on the map grid to find what you need.
+     */
+    def mapMenu = { attrs, body ->
+        Project project = attrs.project
+        Dimension xAxis = attrs.xAxis
+        Dimension yAxis = attrs.yAxis
+
+        out << "  <div class='dropdown non-printing'>\n"
+        out << "    <a class='menu nowrap'>${xAxis.name.capitalize()} by ${yAxis.name.capitalize()}</a>\n"
+        out << "    <div class='submenu' style='display: none;'>\n"
+        out << "      <ul>\n"
+        // only list the pair of dimensions once: if x/y is listed, no need to list y/x
+        def done = []
+        project.dimensions.each { x ->
+            done << x
+            project.dimensions.each { y ->
+                if ((x != y) && !(y in done)) {
+                    out << "        <li class='nowrap'>"
+                    out << g.link(controller: "project", action: "map", id: project.id, params: [x: x?.name, y: y?.name], "${x.name.capitalize()} by ${y.name.capitalize()}")
+                    out << "</li>\n"
+                }
+            }
+        }
+        out << "      </ul>\n"
+        out << "    </div>\n"
+        out << "  </div>\n"
+    }
+
     def tabs = { attrs, body ->
         Project project = attrs.project
         String selectedTab = attrs.selectedTab
 
         out << "<ul class='tabrow non-printing'>\n"
 
+        /*
         def primaryAxis = project.primaryAxis
         project.dimensions.each { dimension ->
             if (!dimension.isPrimaryAxis() && dimension.elements) {
                 def label = "${dimension.name.capitalize()} by ${primaryAxis?.name?.capitalize()}"
                 if (selectedTab == dimension.name) {
-                    out << "  <li class='selected'>${label.encodeAsHTML()}</li>"
+                    out << "  <li class='selected'>${label.encodeAsHTML()}</li>\n"
                 } else {
                     out << "  <li>"
                     out << g.link(controller: "project", action: "map", id: project.id, params: [x: dimension?.name, y: primaryAxis?.name], label)
@@ -141,14 +173,15 @@ class ProjectTagLib {
                 }
             }
         }
-
+        */
         [
-            "config___":   [ controller: "project", label: "Project",        action: "show", id: project?.id ],
+            "map___":      [ controller: "project", label: "Story Map",      action: "map", id: project?.id ],
+            "config___":   [ controller: "project", label: "Project Config", action: "show", id: project?.id ],
             "projects___": [ controller: "project", label: "Switch Project", action: "list" ],
             "info___":     [ controller: "info",    label: "FAQ" ]
         ].each { key, params ->
             if (selectedTab == key) {
-                out << "  <li class='selected'>${params.label.encodeAsHTML()}</li>"
+                out << "  <li class='selected'>${params.label.encodeAsHTML()}</li>\n"
             } else {
                 out << "  <li>"
                 out << g.link(controller: params.controller, action: params.action, id: params.id, params.label)
@@ -160,7 +193,7 @@ class ProjectTagLib {
     }
 
     /**
-     *  Renders a div with links to all possiblt maps.
+     *  Renders a div with links to all possible maps.
      */
     def maps = { attrs, body ->
         Project project = attrs.project

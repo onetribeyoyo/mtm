@@ -36,12 +36,14 @@ class ProjectController {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
             redirect action: "list"
         } else {
-            Dimension xAxis = project.dimensionFor(x)
-            Dimension yAxis = project.dimensionFor(y)
+            Dimension xAxis = project.dimensionFor(x) ?: project.dimensionFor(session.x) ?: project.dimensions.find { dimension -> dimension != project.primaryAxis }
+            Dimension yAxis = project.dimensionFor(y) ?: project.dimensionFor(session.y) ?: project.primaryAxis
             if (!xAxis || ! yAxis) {
                 flash.error = "Cannot map unknown dimensions."
                 redirect action: "show", params: params
             } else {
+                session.x = xAxis.name
+                session.y = yAxis.name
                 [project: project, xAxis: xAxis, yAxis: yAxis]
             }
         }

@@ -6,6 +6,7 @@
   <title>Project Map</title>
   <r:require module="card-map" />
   <r:require module="tabs" />
+  <r:require module="dropmenu" />
 </head>
 
 <body>
@@ -20,9 +21,10 @@
 
 <project:cardGrid project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
 
+<%--
 <hr class="clear non-printing" />
-
 <project:maps project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
+--%>
 
 </body>
 

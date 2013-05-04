@@ -10,7 +10,7 @@
 <body>
 
 <h1>Estimation with the MTM</h1>
-<g:render template="tabs" model="[selectedTab: 'estimation']" />
+<info:tabs selectedTab="estimation" />
 
 ...?
 

@@ -34,7 +34,7 @@
 <body>
 
 <h1>The Story Mapping Process</h1>
-<g:render template="tabs" model="[selectedTab: 'process']" />
+<info:tabs selectedTab="process" />
 
 <div class="section left">
 

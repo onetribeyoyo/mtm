@@ -10,7 +10,7 @@
 <body>
 
 <h1>Story Maps</h1>
-<g:render template="tabs" model="[selectedTab: 'storymaps']" />
+<info:tabs selectedTab="storymaps" />
 
 <div class="section float-left">
 

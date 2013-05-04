@@ -10,7 +10,7 @@
 <body>
 
 <h1>MTM FAQ</h1>
-<g:render template="tabs" model="[selectedTab: 'faq']" />
+<info:tabs selectedTab="faq" />
 
 <div class="section float-left">
 

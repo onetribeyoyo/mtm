@@ -28,13 +28,14 @@ class ProjectTagLib {
 
         out << "<div class='grid section'>\n"
 
-        // the column headings...
         out << "  <ul class='grid-row'>\n"
+
+        // the dimension selector controls...
         out << "    <li class='grid-blank'>"
         out << mapMenu(attrs)
-        out << g.link(action: "map", id: project.id, params: [x: yAxis?.name, y: xAxis?.name], class: "non-printing",
-                      "<img src='${fam.icon(name: 'arrow_refresh')}' title='flip axes' />")
         out << "</li>\n"
+
+        // the column headings...
         out << "    <li class='grid-column-head ${xAxis?.colour}'>???</li>\n" // column for cards where (x == null)
         xAxis?.elements.each { x -> // one column for each element on the x axis
             out << "    <li class='grid-column-head ${x.colour ?: xAxis?.colour}'>${x.value.encodeAsHTML()}</li>\n"
@@ -133,23 +134,28 @@ class ProjectTagLib {
         Dimension yAxis = attrs.yAxis
 
         out << "  <div class='dropdown non-printing'>\n"
-        out << "    <a class='menu nowrap'>${xAxis.name.capitalize()} by ${yAxis.name.capitalize()}</a>\n"
-        out << "    <div class='submenu' style='display: none;'>\n"
-        out << "      <ul>\n"
-        // only list the pair of dimensions once: if x/y is listed, no need to list y/x
-        def done = []
-        project.dimensions.each { x ->
-            done << x
-            project.dimensions.each { y ->
-                if ((x != y) && !(y in done)) {
-                    out << "        <li class='nowrap'>"
-                    out << g.link(controller: "project", action: "map", id: project.id, params: [x: x?.name, y: y?.name], "${x.name.capitalize()} by ${y.name.capitalize()}")
-                    out << "</li>\n"
+        out << g.link(action: "map", id: project.id, params: [x: yAxis?.name, y: xAxis?.name], class: "non-printing",
+                      "<img src='${fam.icon(name: 'arrow_refresh')}' title='flip axes' />")
+
+        if (project.dimensions.size() > 2) {
+            out << "    <a class='menu nowrap'><img src='${fam.icon(name: 'cog')}' title='change axes' /></a>"
+            out << "    <div class='submenu' style='display: none;'>\n"
+            out << "      <ul>\n"
+            // only list the pair of dimensions once: if x/y is listed, no need to list y/x
+            def done = []
+            project.dimensions.each { x ->
+                done << x
+                project.dimensions.each { y ->
+                    if ((x != y) && !(y in done)) {
+                        out << "        <li class='nowrap'>"
+                        out << g.link(controller: "project", action: "map", id: project.id, params: [x: x?.name, y: y?.name], "${x.name.capitalize()} by ${y.name.capitalize()}")
+                        out << "</li>\n"
+                    }
                 }
             }
+            out << "      </ul>\n"
+            out << "    </div>\n"
         }
-        out << "      </ul>\n"
-        out << "    </div>\n"
         out << "  </div>\n"
     }
 
@@ -159,29 +165,14 @@ class ProjectTagLib {
 
         out << "<ul class='tabrow non-printing'>\n"
 
-        /*
-        def primaryAxis = project.primaryAxis
-        project.dimensions.each { dimension ->
-            if (!dimension.isPrimaryAxis() && dimension.elements) {
-                def label = "${dimension.name.capitalize()} by ${primaryAxis?.name?.capitalize()}"
-                if (selectedTab == dimension.name) {
-                    out << "  <li class='selected'>${label.encodeAsHTML()}</li>\n"
-                } else {
-                    out << "  <li>"
-                    out << g.link(controller: "project", action: "map", id: project.id, params: [x: dimension?.name, y: primaryAxis?.name], label)
-                    out << "</li>\n"
-                }
-            }
-        }
-        */
         [
             "map___":      [ controller: "project", label: "Story Map",      action: "map", id: project?.id ],
             "config___":   [ controller: "project", label: "Project Config", action: "show", id: project?.id ],
-            "projects___": [ controller: "project", label: "Switch Project", action: "list" ],
-            "info___":     [ controller: "info",    label: "FAQ" ]
+            "projects___": [ controller: "project", label: "<em>(other projects)</em>", action: "list" ],
+            "info___":     [ controller: "info",    label: "<em>FAQ</em>" ]
         ].each { key, params ->
             if (selectedTab == key) {
-                out << "  <li class='selected'>${params.label.encodeAsHTML()}</li>\n"
+                out << "  <li class='selected'><strong>${params.label}</strong></li>\n"
             } else {
                 out << "  <li>"
                 out << g.link(controller: params.controller, action: params.action, id: params.id, params.label)

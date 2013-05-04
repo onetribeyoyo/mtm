@@ -13,18 +13,13 @@
 
 <h1>${project.name}</h1>
 
-<project:tabs project="${project}" selectedTab="${selectedTab ?: xAxis?.name}" />
+<project:tabs project="${project}" selectedTab="map___" />
 
 <div class="non-printing">
   <g:render template="storyActions" />
 </div>
 
 <project:cardGrid project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
-
-<%--
-<hr class="clear non-printing" />
-<project:maps project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
---%>
 
 </body>
 

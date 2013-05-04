@@ -11,7 +11,7 @@
 
 <h1> Project List </h1>
 <ul class="tabrow"> <%-- begin tabs --%>
-  <li class="selected"> Project List </li>
+  <li class="selected"> <strong>Project List</strong> </li>
   <li> <g:link controller="info">FAQ</g:link> </li>
 </ul> <%-- end tabs --%>
 

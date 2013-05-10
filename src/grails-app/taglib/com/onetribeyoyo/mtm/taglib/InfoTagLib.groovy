@@ -13,7 +13,6 @@ class InfoTagLib {
 
         [
             "faq":        [ controller: "info",    action: "faq",        label: "FAQ" ],
-            "storymaps":  [ controller: "info",    action: "storymap",   label: "Story Maps" ],
             "process":    [ controller: "info",    action: "process",    label: "Mapping Process" ],
             "estimation": [ controller: "info",    action: "estimation", label: "Estimation" ],
             "projects":   [ controller: "project", action: "list",       label: "Projects" ],

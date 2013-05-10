@@ -20,6 +20,9 @@ function moveCallback(storyId, xAxisId, xId, yAxisId, yId, sortOrder) {
         success:function(data, textStatus){},
         error:function(XMLHttpRequest, textStatus, errorThrown){}
     });
+
+    // hide all the card actions...
+    $(".card-actions").css("visibility", "hidden");
 }
 
 $(function() {

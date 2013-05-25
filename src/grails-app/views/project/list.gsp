@@ -17,12 +17,12 @@
 
 
 <div class="section">
-  <table>
+  <table class="list">
     <thead>
       <tr>
         <g:sortableColumn property="name" title="Project Name" />
-        <th>Stories</th>
-        <th width="100%">Story Maps</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
       </tr>
     </thead>
     <tbody>
@@ -31,19 +31,18 @@
         <g:set var="offsetIndex" value="${i + (params.offset ?: 0)}" />
         <tr class="${(((Math.ceil(((offsetIndex as int)+1)/3) as int) % 2) == 0) ? 'even' : 'odd'}">
 
-          <th class="nowrap"> <g:link action="show" id="${project.id}">${fieldValue(bean: project, field: "name")}</g:link> </th>
+          <th class="nowrap"> ${fieldValue(bean: project, field: "name")} </th>
 
           <g:set var="storyCount" value="${project.stories?.size() ?: 0}" />
           <td class="nowrap">${storyCount} ${(storyCount == 1) ? 'story' : 'stories'}</td>
 
           <td>
-            <g:each var="dimension" in="${project.dimensions}">
-              <g:if test="${dimension != release}">
-                <g:link action="map" id="${project.id}" params="[x: dimension.name, y:'release']"><span class="nowrap">${dimension}&bull;release</span></g:link>
-                &emsp;
-              </g:if>
-            </g:each>
+            <span class="actions">
+              <g:link action="map" id="${project.id}"><img src="${fam.icon(name: 'map')}" title="map" /></g:link>
+              <g:link action="show" id="${project.id}"><img src="${fam.icon(name: 'cog')}" title="configure" /></g:link>
+            </span>
           </td>
+
         </tr>
       </g:each>
     </tbody>

@@ -135,7 +135,7 @@ class ProjectController {
 
         } else if (Project.countByName(projectName)) {
             flash.error = "Already have a project named \"${projectName}\"."
-             redirect action: "list", model: params
+            redirect action: "list", model: params
 
         } else if (!params.projectFile) {
             flash.error = "Filename is required."

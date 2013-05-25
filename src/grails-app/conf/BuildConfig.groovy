@@ -58,6 +58,7 @@ grails.project.dependency.resolution = {
 
         //~ user interface -----------------------------------------------------------
         runtime ":jquery:1.8.3"
+        //runtime ":jquery:1.9.1"
         compile ":jquery-ui:1.8.24"
         compile ":famfamfam:1.0.1"
 

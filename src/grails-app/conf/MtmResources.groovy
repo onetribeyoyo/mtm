@@ -7,7 +7,7 @@ modules = {
 
     "modal" {
         dependsOn "jquery"
-        resource url: "js/jquery.simplemodal.1.4.3.min.js"
+        resource url: "js/jquery.simplemodal.1.4.4.min.js"
         resource url: "js/modal.js"
         resource url: "css/modal.css", attrs: [media: "screen,projection,print"]
     }

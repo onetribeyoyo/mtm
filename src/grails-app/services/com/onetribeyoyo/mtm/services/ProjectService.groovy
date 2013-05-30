@@ -17,7 +17,7 @@ class ProjectService {
         elements: ["r0.1", "r0.2", "r0.3"],
         colour: null, // no colour means the odd/even stripping will be used
         layoutStyle: LayoutStyle.FLOW,
-        primaryAxis: true
+        primaryYAxis: true
     ]
     static final Map STATUS_DIMENSION_DATA = [
         name: "status",
@@ -28,7 +28,8 @@ class ProjectService {
                    "done":          "DarkSeaGreen1"],
         colour: null, // no colour means the odd/even stripping will be used
         layoutStyle: LayoutStyle.FLOW,
-        colourDimension: true
+        colourDimension: true,
+        primaryXAxis: true
     ]
 
     static final Map ASSIGNED_TO_DIMENSION_DATA = [
@@ -98,7 +99,8 @@ class ProjectService {
 
         if (params.layoutStyle) dimension.layoutStyle = params.layoutStyle
 
-        if (params.primaryAxis && !project.primaryAxis) project.primaryAxis = dimension
+        if (params.primaryXAxis && !project.primaryXAxis) project.primaryXAxis = dimension
+        if (params.primaryYAxis && !project.primaryYAxis) project.primaryYAxis = dimension
 
         if (params.colourDimension && !project.colourDimension) project.colourDimension = dimension
 
@@ -174,8 +176,11 @@ class ProjectService {
             dimension.save(flush: true)
         }
 
-        if (dimension.isPrimaryAxis()) {
-            project.primaryAxis = project.dimensions.find { otherDimension -> otherDimension != dimension }
+        if (dimension.isPrimaryXAxis()) {
+            project.primaryXAxis = project.dimensions.find { other -> (other != dimension) && !other.isPrimaryYAxis() }
+        }
+        if (dimension.isPrimaryYAxis()) {
+            project.primaryYAxis = project.dimensions.find { other -> (other != dimension) && !other.isPrimaryXAxis() }
         }
         if (dimension.isColourDimension()) {
             project.colourDimension = null
@@ -241,7 +246,10 @@ class ProjectService {
 
         project.colourDimension = project.dimensionFor(jsonData.colourDimension)
         project.highlightDimension = project.dimensionFor(jsonData.highlightDimension)
-        project.primaryAxis = project.dimensionFor(jsonData.primaryAxis)
+
+        project.primaryXAxis = project.dimensionFor(jsonData.primaryXAxis) ?: project.dimensions.find { dimension -> !dimension.isPrimaryYAxis() }
+        project.primaryYAxis = project.dimensionFor(jsonData.primaryYAxis) ?: project.dimensions.find { dimension -> !dimension.isPrimaryXAxis() }
+
         project.save(flush: true, failOnError: true)
 
         // create the stories...

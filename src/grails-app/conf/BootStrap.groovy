@@ -149,7 +149,7 @@ class BootStrap {
                 } else {
                     release = projectService.configureDimensionAndElements(project, projectService.RELEASE_DIMENSION_DATA)
                 }
-                project.primaryAxis = release
+                project.primaryYAxis = release // TODO: should we always set primaryYAxis?  or just when not included in import data?
                 project.save(flush:true, failOnError:true)
 
                 def status = project.dimensionFor("status")
@@ -158,6 +158,8 @@ class BootStrap {
                 } else {
                     projectService.configureDimensionAndElements(project, projectService.STATUS_DIMENSION_DATA)
                 }
+                project.primaryXAxis = status // TODO: should we always set primaryXAxis?  or just when not included in import data?
+                project.save(flush:true, failOnError:true)
             } else {
                 log.error "Cannot find mtm.bootstrap.filename: '${filename}'."
             }

@@ -36,8 +36,8 @@ class ProjectController {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
             redirect action: "list"
         } else {
-            Dimension xAxis = project.dimensionFor(x) ?: project.dimensionFor(session.x) ?: project.dimensions.find { dimension -> dimension != project.primaryAxis }
-            Dimension yAxis = project.dimensionFor(y) ?: project.dimensionFor(session.y) ?: project.primaryAxis
+            Dimension xAxis = project.dimensionFor(x) ?: project.dimensionFor(session.x) ?: project.primaryXAxis ?: project.dimensions.find { d -> d != project.primaryYAxis }
+            Dimension yAxis = project.dimensionFor(y) ?: project.dimensionFor(session.y) ?: project.primaryYAxis ?: project.dimensions.find { d -> d != project.primaryXAxis }
             if (!xAxis || ! yAxis) {
                 flash.error = "Cannot map unknown dimensions."
                 redirect action: "show", params: params
@@ -75,7 +75,8 @@ class ProjectController {
                 showEstimates: project.showEstimates,
                 colourDimension: project.colourDimension?.name,
                 highlightDimension: project.highlightDimension?.name,
-                primaryAxis: project.primaryAxis?.name,
+                primaryXAxis: project.primaryXAxis?.name,
+                primaryYAxis: project.primaryYAxis?.name,
 
                 dimensions: project.dimensions.collect { dimension ->
                     [
@@ -309,8 +310,12 @@ class ProjectController {
             }
             project.properties = params
 
-            if (params.primary) {
-                project.primaryAxis = project.dimensionFor(params.primary)
+            if (params.primaryX) {
+                project.primaryXAxis = project.dimensionFor(params.primaryX)
+            }
+
+            if (params.primaryY) {
+                project.primaryYAxis = project.dimensionFor(params.primaryY)
             }
 
             if (params.colour) {

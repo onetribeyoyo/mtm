@@ -97,14 +97,15 @@ class ExportController {
                         order: element.order,
                         colour: element.colour,
                         description: element.description,
-                        primaryAxis: (element.dimension.isPrimaryAxis()),
+                        primaryXAxis: (element.dimension.isPrimaryXAxis()),
+                        primaryYAxis: (element.dimension.isPrimaryYAxis()),
                         colourDimension: (element.dimension.isColourDimension()),
                         highlightDimension: (element.dimension.isHighlightDimension()),
                     ]
                     data << elementData
                 }
             }
-            List fields = [ "dimension", "value", "order", "colour", "description", "primaryAxis", "colourDimension", "highlightDimension" ]
+            List fields = [ "dimension", "value", "order", "colour", "description", "primaryXAxis", "primaryYAxis", "colourDimension", "highlightDimension" ]
             Map labels = [:]
             Map formatters = [:]
 

@@ -51,8 +51,11 @@ class DimensionController {
             }
             dimension.properties = params
             if (!dimension.hasErrors() && dimension.save(flush: true)) {
-                if (params.primary) {
-                    dimension.project.primaryAxis = dimension
+                if (params.primaryX) {
+                    dimension.project.primaryXAxis = dimension
+                }
+                if (params.primaryY) {
+                    dimension.project.primaryYAxis = dimension
                 }
 
                 if (params.colour) {
@@ -78,7 +81,9 @@ class DimensionController {
 
     def confirmDelete = {
         def dimension = Dimension.read(params.id)
-        if (dimension.isPrimaryAxis()) {
+        if (dimension.isPrimaryXAxis()) {
+            render status: 400, template: "cantDeletePrimaryDimension", model:[dimension: dimension]
+        } else if (dimension.isPrimaryYAxis()) {
             render status: 400, template: "cantDeletePrimaryDimension", model:[dimension: dimension]
         } else if (dimension.project.dimensions.size() <= 2) {
             render status: 400, template: "cantDelete", model:[dimension: dimension]
@@ -93,7 +98,9 @@ class DimensionController {
             render status: 404, template: "confirmDelete", model: [dimension: dimension]
 
         } else {
-            if (dimension.isPrimaryAxis()) {
+            if (dimension.isPrimaryXAxis()) {
+                render status: 400, template: "cantDeletePrimaryDimension", model: [dimension: dimension]
+            } else if (dimension.isPrimaryYAxis()) {
                 render status: 400, template: "cantDeletePrimaryDimension", model: [dimension: dimension]
             } else if (dimension.project.dimensions.size() <= 2) {
                 render status: 400, template: "cantDelete", model: [dimension: dimension]

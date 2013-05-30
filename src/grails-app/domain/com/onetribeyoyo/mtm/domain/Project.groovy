@@ -13,14 +13,16 @@ class Project {
         dimensions: Dimension
     ]
 
-    Dimension primaryAxis        // used to configure default storymaps.
+    Dimension primaryXAxis        // used to configure default storymaps.
+    Dimension primaryYAxis        // used to configure default storymaps.
     Dimension colourDimension    // used to determine card display colour
     Dimension highlightDimension // used to determine card highlight content
 
     static constraints = {
         name unique: true, nullable:false, blank:false, maxSize:255
         estimateUnits nullable: true, blank: true, maxSize:15
-        primaryAxis nullable: true // but only to make it easier to construct projects!
+        primaryXAxis nullable: true // but only to make it easier to construct projects!
+        primaryYAxis nullable: true // but only to make it easier to construct projects!
         colourDimension nullable: true
         highlightDimension nullable: true
         showEstimates nullable: true

@@ -33,7 +33,8 @@
     <tr> <th> Show Estimates </th> <td> ${project.showEstimates ? 'Yes' : 'No'} </td> </tr>
     <tr> <th> Card Colour </th>    <td> ${project.colourDimension?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
     <tr> <th> Highlight </th>      <td> ${project.highlightDimension?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
-    <tr> <th> Primary Axis </th>   <td> ${project.primaryAxis?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
+    <tr> <th> Primary X Axis </th>   <td> ${project.primaryXAxis?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
+    <tr> <th> Primary Y Axis </th>   <td> ${project.primaryYAxis?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
   </table>
   <hr class="non-printing" />
   <p class="narrow hint non-printing">

@@ -48,8 +48,12 @@ class Dimension implements Comparable {
         this.project.highlightDimension == this
     }
 
-    Boolean isPrimaryAxis() {
-        this.project.primaryAxis == this
+    Boolean isPrimaryXAxis() {
+        this.project.primaryXAxis == this
+    }
+
+    Boolean isPrimaryYAxis() {
+        this.project.primaryYAxis == this
     }
 
     int compareTo(that) {

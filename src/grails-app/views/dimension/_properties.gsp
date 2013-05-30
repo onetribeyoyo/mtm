@@ -20,13 +20,23 @@
     <span class="hint">The <em>card highlight</em> dimension is used to show detail in each card's upper right corner.</span>
   </dd>
 
-  <dt> <label for="primary">Primary</label> </dt>
+  <dt> <label for="primaryX">Primary X</label> </dt>
   <dd>
-    <g:if test="${dimension?.isPrimaryAxis()}">
-      <span class="hint">This is the project's <em>primary</em> dimension (the one used by the default story maps use for the Y axis.)</span>
+    <g:if test="${dimension?.isPrimaryXAxis()}">
+      <span class="hint">This is the project's <em>primary X</em> dimension (the one used by the default story maps use for the X axis.)</span>
     </g:if><g:else>
-      <g:checkBox name="primary" checked="${dimension?.isPrimaryAxis()}" value="true" class="${hasErrors(bean: dimension, field: 'primaryAxis', 'error')}" />
-      <span class="hint">The project's <em>primary</em> dimension is used as the Y axis for all the default story maps.</span>
+      <g:checkBox name="primaryX" checked="${dimension?.isPrimaryXAxis()}" value="true" class="${hasErrors(bean: dimension, field: 'primaryXAxis', 'error')}" />
+      <span class="hint">The project's <em>primary X</em> dimension is used as the default for story maps.</span>
+    </g:else>
+  </dd>
+
+  <dt> <label for="primaryY">Primary Y</label> </dt>
+  <dd>
+    <g:if test="${dimension?.isPrimaryYAxis()}">
+      <span class="hint">This is the project's <em>primary Y</em> dimension (the one used by the default story maps use for the Y axis.)</span>
+    </g:if><g:else>
+      <g:checkBox name="primaryY" checked="${dimension?.isPrimaryYAxis()}" value="true" class="${hasErrors(bean: dimension, field: 'primaryYAxis', 'error')}" />
+      <span class="hint">The project's <em>primary Y</em> dimension is used as the default for story maps.</span>
     </g:else>
   </dd>
 

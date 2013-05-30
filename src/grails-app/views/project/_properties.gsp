@@ -27,10 +27,16 @@
       <span class="hint">The <em>card highlight</em> dimension is used to show detail in each card's upper right corner.</span>
     </dd>
 
-    <dt> <label for="primary">Primary Axis</label> </dt>
+    <dt> <label for="primaryX">Primary X Axis</label> </dt>
     <dd>
-      <g:select name="primary" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.primaryAxis?.name}" />
-      <span class="hint">The project's <em>primary</em> dimension is used as the Y axis for all the default story maps.</span>
+      <g:select name="primaryX" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.primaryXAxis?.name}" />
+      <span class="hint">The project's <em>primary X</em> dimension is used as the default for story maps.</span>
+    </dd>
+
+    <dt> <label for="primaryY">Primary Y Axis</label> </dt>
+    <dd>
+      <g:select name="primaryY" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.primaryYAxis?.name}" />
+      <span class="hint">The project's <em>primary Y</em> dimension is used as the default for story maps.</span>
     </dd>
 
   </g:if>

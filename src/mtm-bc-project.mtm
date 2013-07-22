@@ -1,0 +1,4736 @@
+{
+  "name": "DealCurious",
+  "estimateUnits": null,
+  "showEstimates": true,
+  "colourDimension": "status",
+  "highlightDimension": null,
+  "primaryXAxis": null,
+  "primaryYAxis": null,
+  "dimensions": 
+  [
+    {
+      "name": "feature",
+      "description": null,
+      "colour": "SteelBlue",
+      "layoutStyle": "FLOW",
+      "elements": 
+      [
+        {
+          "value": "xyzzy",
+          "order": 0,
+          "colour": "",
+          "description": ""
+        },
+        {
+          "value": "supplemental xyzzy",
+          "order": 1,
+          "colour": "",
+          "description": ""
+        },
+        {
+          "value": "user tools",
+          "order": 2,
+          "colour": "",
+          "description": ""
+        },
+        {
+          "value": "payment processing",
+          "order": 3,
+          "colour": "",
+          "description": null
+        },
+        {
+          "value": "system integration",
+          "order": 4,
+          "colour": "",
+          "description": null
+        },
+        {
+          "value": "admin",
+          "order": 5,
+          "colour": "",
+          "description": null
+        },
+        {
+          "value": "misc...",
+          "order": 6,
+          "colour": "",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "release",
+      "description": null,
+      "colour": null,
+      "layoutStyle": "FLOW",
+      "elements": 
+      [
+        {
+          "value": "r0.1",
+          "order": 0,
+          "colour": "",
+          "description": null
+        },
+        {
+          "value": "r0.2",
+          "order": 1,
+          "colour": "",
+          "description": null
+        },
+        {
+          "value": "r0.3",
+          "order": 2,
+          "colour": "",
+          "description": null
+        },
+        {
+          "value": "r0.4",
+          "order": 3,
+          "colour": "",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "description": null,
+      "colour": null,
+      "layoutStyle": "FLOW",
+      "elements": 
+      [
+        {
+          "value": "on deck",
+          "order": 0,
+          "colour": "Gainsboro",
+          "description": null
+        },
+        {
+          "value": "blocked",
+          "order": 1,
+          "colour": "Tomato",
+          "description": null
+        },
+        {
+          "value": "in progress",
+          "order": 2,
+          "colour": "LightGoldenrod3",
+          "description": null
+        },
+        {
+          "value": "ready to test",
+          "order": 3,
+          "colour": "PaleTurquoise",
+          "description": null
+        },
+        {
+          "value": "done",
+          "order": 4,
+          "colour": "DarkSeaGreen1",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "stories": 
+  [
+    {
+      "summary": "xyzzy 54",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.4"
+        },
+        {
+          "dimension": "feature",
+          "value": "admin"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": 1
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "feature",
+          "y": "admin",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 18",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "blocked"
+        },
+        {
+          "dimension": "feature",
+          "value": "supplemental xyzzy"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "blocked",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 0
+        },
+        {
+          "xAxis": "feature",
+          "x": "supplemental xyzzy",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 0
+        },
+        {
+          "xAxis": "feature",
+          "x": "supplemental xyzzy",
+          "yAxis": "feature",
+          "y": "supplemental xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 50",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 31",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "system integration"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 18
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "feature",
+          "y": "system integration",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 1
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 53",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.4"
+        },
+        {
+          "dimension": "feature",
+          "value": "admin"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "feature",
+          "y": "admin",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 55",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.4"
+        },
+        {
+          "dimension": "feature",
+          "value": "admin"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "feature",
+          "y": "admin",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "summary": "coupon codes",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        },
+        {
+          "dimension": "feature",
+          "value": "payment processing"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "payment processing",
+          "yAxis": "feature",
+          "y": "payment processing",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "payment processing",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 56",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.4"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "admin"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": 3
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "feature",
+          "y": "admin",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "info pages",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "user tools"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 8
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "feature",
+          "y": "user tools",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 13",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 4
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 59",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.4"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 34",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "system integration"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "feature",
+          "y": "system integration",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 4
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 40",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "admin"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "feature",
+          "y": "admin",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 2
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 62",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.4"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 37",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "system integration"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "feature",
+          "y": "system integration",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 6
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 16
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 27",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 12
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 42",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 1
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 15",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": null,
+          "y": null,
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": null,
+          "y": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "summary": "invite advisors",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "user tools"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "feature",
+          "y": "user tools",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 11
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 26",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "admin"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "feature",
+          "y": "admin",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 2
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 3
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 43",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 4
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 51",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "feature",
+          "value": "user tools"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.4"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "feature",
+          "y": "user tools",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "balloon help",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "user tools"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "feature",
+          "y": "user tools",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 14
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "payment processing",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        },
+        {
+          "dimension": "feature",
+          "value": "payment processing"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "payment processing",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "payment processing",
+          "yAxis": "feature",
+          "y": "payment processing",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 14",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.4"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 44",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 7
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 2
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 29",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 2
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 17
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 61",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.4"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": 3
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 65",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": null,
+          "y": null,
+          "order": 1
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": null,
+          "y": null,
+          "order": 2
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 58",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.4"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 45",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 15
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 3
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "chat",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "user tools"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "feature",
+          "y": "user tools",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 10
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 63",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "feature",
+          "value": "admin"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": null,
+          "y": null,
+          "order": 0
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": null,
+          "y": null,
+          "order": 3
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "feature",
+          "y": "admin",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 5",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 2
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 4
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 28",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 1
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 13
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 9",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 60",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.4"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": 2
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 57",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.4"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "admin"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "feature",
+          "y": "admin",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 11",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 2
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 48",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "admin"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "feature",
+          "y": "admin",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 8",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 8
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 4",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 5
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 3
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 12",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 64",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": null,
+          "y": null,
+          "order": 1
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": null,
+          "y": null,
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 52",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "feature",
+          "value": "user tools"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.4"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "feature",
+          "y": "user tools",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": 1
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.4",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "user forgot password",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "feature",
+          "value": "user tools"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "feature",
+          "y": "user tools",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 23",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "system integration"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 1
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "feature",
+          "y": "system integration",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 3",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 2
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 7
+        }
+      ]
+    },
+    {
+      "summary": "shopping cart",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        },
+        {
+          "dimension": "feature",
+          "value": "payment processing"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "payment processing",
+          "yAxis": "feature",
+          "y": "payment processing",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "payment processing",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 1",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 0
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 35",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "system integration"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "feature",
+          "y": "system integration",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 6
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 7
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 17",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "feature",
+          "value": "supplemental xyzzy"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "supplemental xyzzy",
+          "yAxis": "feature",
+          "y": "supplemental xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "supplemental xyzzy",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 1
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 47",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "blocked"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        },
+        {
+          "dimension": "feature",
+          "value": "system integration"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 1
+        },
+        {
+          "xAxis": "status",
+          "x": "blocked",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 2
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "feature",
+          "y": "system integration",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 20",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "feature",
+          "value": "supplemental xyzzy"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": null,
+          "y": null,
+          "order": 0
+        },
+        {
+          "xAxis": "feature",
+          "x": "supplemental xyzzy",
+          "yAxis": null,
+          "y": null,
+          "order": 0
+        },
+        {
+          "xAxis": "feature",
+          "x": "supplemental xyzzy",
+          "yAxis": "feature",
+          "y": "supplemental xyzzy",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 24",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "admin"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "feature",
+          "y": "admin",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 15
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 2",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 9
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "summary": "user's status viewer",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "feature",
+          "value": "user tools"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "feature",
+          "y": "user tools",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 13
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 19",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "blocked"
+        },
+        {
+          "dimension": "feature",
+          "value": "supplemental xyzzy"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "supplemental xyzzy",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 1
+        },
+        {
+          "xAxis": "status",
+          "x": "blocked",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 1
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "supplemental xyzzy",
+          "yAxis": "feature",
+          "y": "supplemental xyzzy",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 38",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "admin"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "feature",
+          "y": "admin",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 19
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 22",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "feature",
+          "value": "user tools"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 0
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 0
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "feature",
+          "y": "user tools",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 49",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        },
+        {
+          "dimension": "feature",
+          "value": "misc..."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "feature",
+          "y": "misc...",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "user self edit",
+      "detail": "",
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "user tools"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "supplemental xyzzy",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 0
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 6
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "feature",
+          "y": "user tools",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "change my password",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "feature",
+          "value": "user tools"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 11
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "feature",
+          "y": "user tools",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "user tools",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 6",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 16
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 5
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 39",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "admin"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "feature",
+          "y": "admin",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 21
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 30",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "system integration"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 0
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 5
+        },
+        {
+          "xAxis": "feature",
+          "x": "payment processing",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "feature",
+          "y": "system integration",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "misc...",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 21",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "feature",
+          "value": "supplemental xyzzy"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": null,
+          "y": null,
+          "order": 1
+        },
+        {
+          "xAxis": "feature",
+          "x": "supplemental xyzzy",
+          "yAxis": null,
+          "y": null,
+          "order": 1
+        },
+        {
+          "xAxis": "feature",
+          "x": "supplemental xyzzy",
+          "yAxis": "feature",
+          "y": "supplemental xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 25",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.1"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "admin"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 1
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "feature",
+          "y": "admin",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": 4
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.1",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 32",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "system integration"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 17
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "feature",
+          "y": "system integration",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 16",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "feature",
+          "value": "supplemental xyzzy"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 1
+        },
+        {
+          "xAxis": "feature",
+          "x": "supplemental xyzzy",
+          "yAxis": "feature",
+          "y": "supplemental xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "supplemental xyzzy",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 41",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "admin"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 12
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "feature",
+          "y": "admin",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "admin",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 46",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "blocked"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        },
+        {
+          "dimension": "feature",
+          "value": "system integration"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "blocked",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 3
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "feature",
+          "y": "system integration",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 36",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "system integration"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 2
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "feature",
+          "y": "system integration",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 7",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 14
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 10",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "feature",
+          "value": "xyzzy"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": 1
+        },
+        {
+          "xAxis": "feature",
+          "x": "xyzzy",
+          "yAxis": "feature",
+          "y": "xyzzy",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "credit authorization time out",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "r0.3"
+        },
+        {
+          "dimension": "feature",
+          "value": "payment processing"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "payment processing",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "r0.3",
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "payment processing",
+          "yAxis": "feature",
+          "y": "payment processing",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "xyzzy 33",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "release",
+          "value": "r0.2"
+        },
+        {
+          "dimension": "status",
+          "value": "ready to test"
+        },
+        {
+          "dimension": "feature",
+          "value": "system integration"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 3
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": null,
+          "y": null,
+          "order": null
+        },
+        {
+          "xAxis": "feature",
+          "x": "system integration",
+          "yAxis": "feature",
+          "y": "system integration",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "done",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": 20
+        },
+        {
+          "xAxis": "status",
+          "x": "ready to test",
+          "yAxis": "release",
+          "y": "r0.2",
+          "order": null
+        }
+      ]
+    }
+  ]
+}

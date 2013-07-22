@@ -94,7 +94,8 @@ class StoryController {
     }
 
     def move(Long storyId, Long xAxisId, Long xId, Long yAxisId, Long yId, String sortOrder) {
-        log.debug "move(story:${storyId}, x:${xAxisId}:${xId}, y:${yAxisId}:${yId}, sort:${sortOrder})"
+        def messagePrefix = "move(story:${storyId}, x:${xAxisId}:${xId}, y:${yAxisId}:${yId}, sort:${sortOrder})"
+        log.debug messagePrefix
 
         Story story = Story.get(storyId);
         Dimension xAxis = Dimension.get(xAxisId)
@@ -102,18 +103,20 @@ class StoryController {
         Element x = Element.get(xId)
         Element y = Element.get(yId)
 
-        if (
-            ((xAxis.project == story.project) && (yAxis.project == story.project)) // don't allow movement outside of the project
-            && (!x || (x.dimension == xAxis)) // movement must be along the x axis
-            && (!y || (y.dimension == yAxis)) // movement must be along the y axis
-        ) {
+        if ((xAxis.project?.id != story.project?.id) || (yAxis.project?.id != story.project?.id)) {
+            log.error "${messagePrefix} attempt to move story into dimensions outside of project."
+
+        } else if (x && (x.dimension != xAxis)) {
+            log.error "${messagePrefix} movement must be along the x axis."
+
+        } else if (y && (y.dimension != yAxis)) {
+            log.error "${messagePrefix} movement must be along the y axis."
+
+        } else { // everything's ok...
             storyService.move(story, xAxis, x, yAxis, y)
             List<Long> sortedIds = sortOrder.split(",").collect { idStr -> idStr as Long }
             projectService.updateStoryOrder(story.project, x, y, sortedIds)
             render "moved"
-        }
-        else {
-            log.error "move(story:${storyId}, x:${xAxisId}:${xId}, y:${yAxisId}:${yId}, sort:${sortOrder}) attempt to move story into dimensions outside of project."
         }
     }
 

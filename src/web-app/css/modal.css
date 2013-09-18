@@ -1,25 +1,21 @@
 /*
- * based on SimpleModal OSX Style Modal Dialog http://www.ericmmartin.com/projects/simplemodal/
+ * based on SimpleModal http://www.ericmmartin.com/projects/simplemodal/
  * which is licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
  */
 
-#mtm-modal-content, #mtm-modal-data {
-   display: none;
+#simplemodal-dialog, #simplemodal-data {
+   display: none; /* initially hidden. */
 }
 
-/* Overlay */
-#mtm-overlay {
+#simplemodal-overlay {
    background-color: #000;
-   cursor: wait;
+    /* cursor: wait; */
 }
 
-/* Container */
-#mtm-container {
+#simplemodal-container {
    background-color: #eee;
    color: #000;
-   font:  16px/24px "Lucida Grande",Arial,sans-serif;
-   padding-bottom: 4px;
-   width: 670px;
+   padding-bottom: 0.25em;
    -moz-border-radius-bottomleft: 6px;
    -webkit-border-bottom-left-radius: 6px;
    -moz-border-radius-bottomright: 6px;
@@ -29,53 +25,51 @@
    -webkit-box-shadow: 0 0 64px #000;
    box-shadow: 0 0 64px #000;
 }
-#mtm-container a {
-   /* color: #ddd; */
+#simplemodal-container a {
 }
-#mtm-container #mtm-modal-title {
-   color: #000;
+#simplemodal-container #simplemodal-title {
    background-color: #ddd;
    border-bottom: 1px solid #ccc;
+   font-size: 1.50em;
    font-weight: bold;
-   padding: 6px 8px;
+   padding: 0.5em 0.6em;
    text-shadow: 0 1px 0 #f4f4f4;
 }
-#mtm-container .close {
+#simplemodal-container .close {
    display: none;
-   position: absolute;
-   right: 0;
-   top: 0;
+   position: absolute; top: 0; right: 0;
 }
-#mtm-container .close a {
-   display: block;
+#simplemodal-container .close a {
    color: #777;
+   display: block;
    font-weight: bold;
    padding: 6px 12px 0;
    text-decoration: none;
    text-shadow: 0 1px 0 #f4f4f4;
 }
-#mtm-container .close a: hover {
+#simplemodal-container .close a:hover {
    color: #000;
 }
-#mtm-container #mtm-modal-data {
+#simplemodal-container #simplemodal-data {
    background-color: #eee;
    -moz-border-radius-bottomleft: 6px;
    -webkit-border-bottom-left-radius: 6px;
    -moz-border-radius-bottomright: 6px;
    -webkit-border-bottom-right-radius: 6px;
    border-radius: 0 0 6px 6px;
-
-   padding: 6px 12px;
+   padding: 1em 2em;
 }
-#mtm-container h2 {
-   margin: 10px 0 6px;
+#simplemodal-container h2 {
+   margin: 0.75em 0 0.5em 0;
 }
-#mtm-container p {
-   margin-bottom: 10px;
+#simplemodal-container p {
+   margin-bottom: 0.75em;
 }
-#mtm-container span {
+#simplemodal-container span {
    color: #777;
 }
 
-#mtm-modal-data {
+.simplemodal-content {
+   min-height: 3em;
+   overflow-y: auto;
 }

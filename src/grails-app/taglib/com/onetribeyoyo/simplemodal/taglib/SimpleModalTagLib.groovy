@@ -125,7 +125,7 @@ class SimpleModalTagLib {
         }
         linkAttrs.params = confirmAttrs
 
-        out << dialog.link(linkAttrs, body)
+        out << simplemodal.link(linkAttrs, body)
     }
 
     /**

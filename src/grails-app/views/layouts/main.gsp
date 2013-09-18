@@ -32,7 +32,7 @@
 </head>
 
 <body>
-  <mtm:dialogDiv />
+  <simplemodal:div />
   <g:render contextPath="/layouts" template="messages"/>
 
   <%-- show a warning banner when in prod mode! --%>

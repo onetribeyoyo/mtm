@@ -22,7 +22,7 @@
   <div>
     <div class="card-actions float-right non-printing">
       <g:link action="export" id="${project.id}"><img src="${fam.icon(name: 'disk')}" title="export project as json" /></g:link>
-      <mtm:dialogLink action="edit" id="${project.id}" title="Edit ${project}"><img src="${fam.icon(name: 'page_edit')}" title="edit project" /></mtm:dialogLink>
+      <simplemodal:link action="edit" id="${project.id}" title="Edit ${project}"><img src="${fam.icon(name: 'page_edit')}" title="edit project" /></simplemodal:link>
     </div>
     <h2>Project Data</h2>
   </div>
@@ -41,7 +41,7 @@
     If you're one of those people who just has to edit story lists with a spreadsheet you can
     <g:link controller="export" action="stories" id="${project.id}" params="[format: 'csv', extension: 'csv']">Export</g:link>
     and
-    <mtm:dialogLink controller="import" action="storyFile" id="${project.id}" title="Import Stories">Import</mtm:dialogLink>
+    <simplemodal:link controller="import" action="storyFile" id="${project.id}" title="Import Stories">Import</simplemodal:link>
     story lists in CSV format.
   </p>
 </div>
@@ -62,7 +62,7 @@
   <h3>Additional Dimensions...</h3>
   <hr />
   <p>
-    <mtm:dialogLink controller="dimension" action="create" id="${project.id}" title="New Dimension"><button>Add A Custom Dimension</button></mtm:dialogLink>
+    <simplemodal:link controller="dimension" action="create" id="${project.id}" title="New Dimension"><button>Add A Custom Dimension</button></simplemodal:link>
   </p>
   <g:if test="${!project.dimensionFor('assigned to') || !project.dimensionFor('bugs') || !project.dimensionFor('feature') || !project.dimensionFor('release') || !project.dimensionFor('status') || !project.dimensionFor('strategy')}">
     <hr />

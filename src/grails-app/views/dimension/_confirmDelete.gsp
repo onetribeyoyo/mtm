@@ -26,7 +26,7 @@
 
   <div class="buttonset">
     <button class="delete-button" id="delete">Delete</button>
-    <mtm:closeDialogButton>Cancel</mtm:closeDialogButton>
+    <simplemodal:closeButton>Cancel</simplemodal:closeButton>
   </div>
 
 </g:formRemote>

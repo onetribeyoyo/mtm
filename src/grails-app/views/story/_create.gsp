@@ -23,7 +23,7 @@
 
   <div>
     <button type="submit" id="create" value="Create">Create</button>
-    <mtm:closeDialogButton>Cancel</mtm:closeDialogButton>
+    <simplemodal:closeButton>Cancel</simplemodal:closeButton>
   </div>
 
 </g:formRemote>

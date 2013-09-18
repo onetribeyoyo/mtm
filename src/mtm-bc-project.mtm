@@ -1,19 +1,19 @@
 {
-  "name": "DealCurious",
+  "name": "xyzzy",
   "estimateUnits": null,
   "showEstimates": true,
   "colourDimension": "status",
   "highlightDimension": null,
   "primaryXAxis": null,
   "primaryYAxis": null,
-  "dimensions": 
+  "dimensions":
   [
     {
       "name": "feature",
       "description": null,
       "colour": "SteelBlue",
       "layoutStyle": "FLOW",
-      "elements": 
+      "elements":
       [
         {
           "value": "xyzzy",
@@ -64,7 +64,7 @@
       "description": null,
       "colour": null,
       "layoutStyle": "FLOW",
-      "elements": 
+      "elements":
       [
         {
           "value": "r0.1",
@@ -97,7 +97,7 @@
       "description": null,
       "colour": null,
       "layoutStyle": "FLOW",
-      "elements": 
+      "elements":
       [
         {
           "value": "on deck",
@@ -132,13 +132,13 @@
       ]
     }
   ],
-  "stories": 
+  "stories":
   [
     {
       "summary": "xyzzy 54",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -153,7 +153,7 @@
           "value": "admin"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -196,7 +196,7 @@
       "summary": "xyzzy 18",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -211,7 +211,7 @@
           "value": "r0.3"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -254,7 +254,7 @@
       "summary": "xyzzy 50",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -269,7 +269,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -312,7 +312,7 @@
       "summary": "xyzzy 31",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -327,7 +327,7 @@
           "value": "system integration"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -377,7 +377,7 @@
       "summary": "xyzzy 53",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -392,7 +392,7 @@
           "value": "admin"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -435,7 +435,7 @@
       "summary": "xyzzy 55",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -450,7 +450,7 @@
           "value": "admin"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -493,7 +493,7 @@
       "summary": "coupon codes",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -508,7 +508,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -544,7 +544,7 @@
       "summary": "xyzzy 56",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -559,7 +559,7 @@
           "value": "admin"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -602,7 +602,7 @@
       "summary": "info pages",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -617,7 +617,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -660,7 +660,7 @@
       "summary": "xyzzy 13",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "feature",
@@ -675,7 +675,7 @@
           "value": "r0.3"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -718,7 +718,7 @@
       "summary": "xyzzy 59",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -733,7 +733,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -776,7 +776,7 @@
       "summary": "xyzzy 34",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -791,7 +791,7 @@
           "value": "system integration"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -841,7 +841,7 @@
       "summary": "xyzzy 40",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -856,7 +856,7 @@
           "value": "admin"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -906,7 +906,7 @@
       "summary": "xyzzy 62",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -921,7 +921,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -964,7 +964,7 @@
       "summary": "xyzzy 37",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -979,7 +979,7 @@
           "value": "system integration"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -1029,7 +1029,7 @@
       "summary": "xyzzy 27",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -1044,7 +1044,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -1094,7 +1094,7 @@
       "summary": "xyzzy 42",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -1109,7 +1109,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -1152,7 +1152,7 @@
       "summary": "xyzzy 15",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -1163,7 +1163,7 @@
           "value": "xyzzy"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -1199,7 +1199,7 @@
       "summary": "invite advisors",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -1214,7 +1214,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -1257,7 +1257,7 @@
       "summary": "xyzzy 26",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -1272,7 +1272,7 @@
           "value": "admin"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -1322,7 +1322,7 @@
       "summary": "xyzzy 43",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -1337,7 +1337,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -1387,7 +1387,7 @@
       "summary": "xyzzy 51",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "feature",
@@ -1398,7 +1398,7 @@
           "value": "r0.4"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -1434,7 +1434,7 @@
       "summary": "balloon help",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -1449,7 +1449,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -1492,7 +1492,7 @@
       "summary": "payment processing",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -1507,7 +1507,7 @@
           "value": "payment processing"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -1543,7 +1543,7 @@
       "summary": "xyzzy 14",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "feature",
@@ -1554,7 +1554,7 @@
           "value": "r0.4"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -1590,7 +1590,7 @@
       "summary": "xyzzy 44",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -1605,7 +1605,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -1655,7 +1655,7 @@
       "summary": "xyzzy 29",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -1670,7 +1670,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -1720,7 +1720,7 @@
       "summary": "xyzzy 61",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -1735,7 +1735,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -1778,7 +1778,7 @@
       "summary": "xyzzy 65",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -1789,7 +1789,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -1825,7 +1825,7 @@
       "summary": "xyzzy 58",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -1840,7 +1840,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -1883,7 +1883,7 @@
       "summary": "xyzzy 45",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -1898,7 +1898,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -1948,7 +1948,7 @@
       "summary": "chat",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -1963,7 +1963,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -2006,7 +2006,7 @@
       "summary": "xyzzy 63",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -2017,7 +2017,7 @@
           "value": "admin"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -2053,7 +2053,7 @@
       "summary": "xyzzy 5",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -2068,7 +2068,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -2118,7 +2118,7 @@
       "summary": "xyzzy 28",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -2133,7 +2133,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -2183,7 +2183,7 @@
       "summary": "xyzzy 9",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "feature",
@@ -2198,7 +2198,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -2241,7 +2241,7 @@
       "summary": "xyzzy 60",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -2256,7 +2256,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -2299,7 +2299,7 @@
       "summary": "xyzzy 57",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -2314,7 +2314,7 @@
           "value": "admin"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -2357,7 +2357,7 @@
       "summary": "xyzzy 11",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "feature",
@@ -2372,7 +2372,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -2415,7 +2415,7 @@
       "summary": "xyzzy 48",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -2430,7 +2430,7 @@
           "value": "admin"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -2473,7 +2473,7 @@
       "summary": "xyzzy 8",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "feature",
@@ -2488,7 +2488,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -2538,7 +2538,7 @@
       "summary": "xyzzy 4",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -2553,7 +2553,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -2603,7 +2603,7 @@
       "summary": "xyzzy 12",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "feature",
@@ -2618,7 +2618,7 @@
           "value": "r0.3"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -2661,7 +2661,7 @@
       "summary": "xyzzy 64",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -2672,7 +2672,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -2708,7 +2708,7 @@
       "summary": "xyzzy 52",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "feature",
@@ -2719,7 +2719,7 @@
           "value": "r0.4"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -2755,7 +2755,7 @@
       "summary": "user forgot password",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -2770,7 +2770,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -2813,7 +2813,7 @@
       "summary": "xyzzy 23",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -2828,7 +2828,7 @@
           "value": "system integration"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -2878,7 +2878,7 @@
       "summary": "xyzzy 3",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -2893,7 +2893,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -2943,7 +2943,7 @@
       "summary": "shopping cart",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -2958,7 +2958,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -2994,7 +2994,7 @@
       "summary": "xyzzy 1",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -3009,7 +3009,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -3059,7 +3059,7 @@
       "summary": "xyzzy 35",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -3074,7 +3074,7 @@
           "value": "system integration"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -3124,7 +3124,7 @@
       "summary": "xyzzy 17",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -3139,7 +3139,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -3189,7 +3189,7 @@
       "summary": "xyzzy 47",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -3204,7 +3204,7 @@
           "value": "system integration"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -3247,7 +3247,7 @@
       "summary": "xyzzy 20",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "feature",
@@ -3258,7 +3258,7 @@
           "value": "in progress"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -3294,7 +3294,7 @@
       "summary": "xyzzy 24",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -3309,7 +3309,7 @@
           "value": "admin"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -3359,7 +3359,7 @@
       "summary": "xyzzy 2",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -3374,7 +3374,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -3424,7 +3424,7 @@
       "summary": "user's status viewer",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -3439,7 +3439,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -3482,7 +3482,7 @@
       "summary": "xyzzy 19",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -3497,7 +3497,7 @@
           "value": "r0.3"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -3540,7 +3540,7 @@
       "summary": "xyzzy 38",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -3555,7 +3555,7 @@
           "value": "admin"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -3605,7 +3605,7 @@
       "summary": "xyzzy 22",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -3620,7 +3620,7 @@
           "value": "user tools"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -3663,7 +3663,7 @@
       "summary": "xyzzy 49",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -3678,7 +3678,7 @@
           "value": "misc..."
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -3721,7 +3721,7 @@
       "summary": "user self edit",
       "detail": "",
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -3736,7 +3736,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -3793,7 +3793,7 @@
       "summary": "change my password",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -3808,7 +3808,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -3851,7 +3851,7 @@
       "summary": "xyzzy 6",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -3866,7 +3866,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -3916,7 +3916,7 @@
       "summary": "xyzzy 39",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -3931,7 +3931,7 @@
           "value": "admin"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -3981,7 +3981,7 @@
       "summary": "xyzzy 30",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -3996,7 +3996,7 @@
           "value": "system integration"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -4060,7 +4060,7 @@
       "summary": "xyzzy 21",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "feature",
@@ -4071,7 +4071,7 @@
           "value": "in progress"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -4107,7 +4107,7 @@
       "summary": "xyzzy 25",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -4122,7 +4122,7 @@
           "value": "admin"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -4172,7 +4172,7 @@
       "summary": "xyzzy 32",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -4187,7 +4187,7 @@
           "value": "system integration"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -4237,7 +4237,7 @@
       "summary": "xyzzy 16",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -4252,7 +4252,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -4302,7 +4302,7 @@
       "summary": "xyzzy 41",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -4317,7 +4317,7 @@
           "value": "admin"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -4367,7 +4367,7 @@
       "summary": "xyzzy 46",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -4382,7 +4382,7 @@
           "value": "system integration"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "status",
@@ -4432,7 +4432,7 @@
       "summary": "xyzzy 36",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -4447,7 +4447,7 @@
           "value": "system integration"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -4497,7 +4497,7 @@
       "summary": "xyzzy 7",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "feature",
@@ -4512,7 +4512,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": null,
@@ -4562,7 +4562,7 @@
       "summary": "xyzzy 10",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "feature",
@@ -4577,7 +4577,7 @@
           "value": "ready to test"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -4620,7 +4620,7 @@
       "summary": "credit authorization time out",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "status",
@@ -4635,7 +4635,7 @@
           "value": "payment processing"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",
@@ -4671,7 +4671,7 @@
       "summary": "xyzzy 33",
       "detail": null,
       "estimate": 0,
-      "vector": 
+      "vector":
       [
         {
           "dimension": "release",
@@ -4686,7 +4686,7 @@
           "value": "system integration"
         }
       ],
-      "ordering": 
+      "ordering":
       [
         {
           "xAxis": "feature",

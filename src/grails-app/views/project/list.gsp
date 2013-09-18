@@ -53,8 +53,8 @@
 </div>
 
 <div>
-  <mtm:dialogLink action="create" title="New Project"><button>New Project</button></mtm:dialogLink>
-  <mtm:dialogLink action="projectFile" title="Import Project"><button>Import Project</button></mtm:dialogLink>
+  <simplemodal:link action="create" title="New Project"><button>New Project</button></simplemodal:link>
+  <simplemodal:link action="projectFile" title="Import Project"><button>Import Project</button></simplemodal:link>
 </div>
 
 </body>

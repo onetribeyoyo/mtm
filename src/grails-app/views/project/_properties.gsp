@@ -1,44 +1,57 @@
-<dl>
+<table width="100%">
 
-  <dt> <label for="name" class="required">Name</label> </dt>
-  <dd> <g:field name="name" type="text" value="${project?.name}" class="${hasErrors(bean: project, field: 'name', 'error')}" /> </dd>
+  <tr>
+    <th class="nowrap"> <label for="name" class="required">Name</label> </th>
+    <td valign="middle"> <g:field name="name" type="text" value="${project?.name}" class="${hasErrors(bean: project, field: 'name', 'error')}" /> </td>
+  </tr>
 
-  <dt> <label for="estimateUnits" class="required">Estimate Units</label> </dt>
-  <dd> <g:field name="estimateUnits" type="text" value="${project?.estimateUnits}" class="${hasErrors(bean: project, field: 'estimateUnits', 'error')}" /> </dd>
+  <tr>
+    <th class="nowrap"> <label for="estimateUnits" class="required">Estimate Units</label> </th>
+    <td valign="middle"> <g:field name="estimateUnits" type="text" value="${project?.estimateUnits}" class="${hasErrors(bean: project, field: 'estimateUnits', 'error')}" /> </td>
+  </tr>
 
-  <dt> <label for="colour">Show Estimates</label> </dt>
-  <dd>
-    <g:checkBox name="showEstimates" checked="${project.showEstimates}" value="true" class="${hasErrors(bean: project, field: 'showEstimates', 'error')}" />
-    <span class="hint">Display row totals and story estimates in storymaps.</span>
-    <br /><span class="hint">Uncheck this when you want to discuss the project without focusing on estimates!</span>
-  </dd>
+  <tr>
+    <th class="nowrap"> <label for="colour">Show Estimates</label> </th>
+    <td valign="middle">
+      <g:checkBox name="showEstimates" checked="${project.showEstimates}" value="true" class="${hasErrors(bean: project, field: 'showEstimates', 'error')}" />
+      <span class="hint">show story estimates and row totals on storymaps</span>
+    </td>
+  </tr>
 
   <g:if test="${project.dimensions}">
 
-    <dt> <label for="colour">Card Colour</label> </dt>
-    <dd>
-      <g:select name="colour" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.colourDimension?.name}" noSelection="['': '']" />
-      <span class="hint">The <em>card colour</em> dimension is used to set background colours on the cards.</span>
-    </dd>
+    <tr>
+      <th class="nowrap"> <label for="colour">Card Colour</label> </th>
+      <td valign="middle">
+        <g:select name="colour" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.colourDimension?.name}" noSelection="['': '']" />
+        <span class="hint">for background colours on the cards</span>
+      </td>
+    </tr>
 
-    <dt> <label for="highlight">Highlight</label> </dt>
-    <dd>
-      <g:select name="highlight" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.highlightDimension?.name}" noSelection="['': '']" />
-      <span class="hint">The <em>card highlight</em> dimension is used to show detail in each card's upper right corner.</span>
-    </dd>
+    <tr>
+      <th class="nowrap"> <label for="highlight">Highlight</label> </th>
+      <td valign="middle">
+        <g:select name="highlight" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.highlightDimension?.name}" noSelection="['': '']" />
+        <span class="hint">for upper right corner card detail</span>
+      </td>
+    </tr>
 
-    <dt> <label for="primaryX">Primary X Axis</label> </dt>
-    <dd>
-      <g:select name="primaryX" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.primaryXAxis?.name}" />
-      <span class="hint">The project's <em>primary X</em> dimension is used as the default for story maps.</span>
-    </dd>
+    <tr>
+      <th class="nowrap"> <label for="primaryX">Primary X Axis</label> </th>
+      <td valign="middle">
+        <g:select name="primaryX" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.primaryXAxis?.name}" />
+        <span class="hint">the default X for story maps</span>
+      </td>
+    </tr>
 
-    <dt> <label for="primaryY">Primary Y Axis</label> </dt>
-    <dd>
-      <g:select name="primaryY" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.primaryYAxis?.name}" />
-      <span class="hint">The project's <em>primary Y</em> dimension is used as the default for story maps.</span>
-    </dd>
+    <tr>
+      <th class="nowrap"> <label for="primaryY">Primary Y Axis</label> </th>
+      <td valign="middle">
+        <g:select name="primaryY" class="many-to-one" from="${project.dimensions}" optionKey="name" value="${project.primaryYAxis?.name}" />
+        <span class="hint">the default Y for story maps</span>
+      </td>
+    </tr>
 
   </g:if>
 
-</dl>
+</table>

@@ -14,10 +14,11 @@ class StoryController {
         [storyInstanceList: Story.list(params), storyInstanceTotal: Story.count()]
     }
 
-    def create = {
+    def create() {
         def project = Project.read(params.id)
         def story = new Story(project: project)
         story.properties = params
+        flash.error = null // got to clear flash so it doesn't show up!
         render template: "create", model:[story: story]
     }
     def save = {
@@ -27,13 +28,14 @@ class StoryController {
         story.validate()
 
         if (story.hasErrors()) {
+            flash.error = "Please provide all required values."
             render status: "400", template: "create", model: [story: story]
-        }
-        else {
+            flash.error = null // got to clear flash so it doesn't show up on page refresh!
+        } else {
             project.addToStories(story)
             story.save(failOnError: true)
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'story.label', default: 'Story'), story.id])}"
-            redirect controller: "project", action: "show", id: story.project.id
+            flash.message = "Created story: \"${story.summary}\"."
+            render text: flash.message
         }
     }
 

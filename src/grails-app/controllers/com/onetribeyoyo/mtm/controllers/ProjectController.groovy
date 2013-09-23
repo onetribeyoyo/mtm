@@ -285,6 +285,7 @@ class ProjectController {
         }
         else {
             render(view: "create", model: [project: project])
+            flash.error = null // got to clear flash so it doesn't show up later when the dialog is dismissed!
         }
     }
 
@@ -297,6 +298,7 @@ class ProjectController {
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
             render status: 404, text: flash.error
+            flash.error = null // got to clear flash so it doesn't show up later when the dialog is dismissed!
         } else {
             if (params.version) {
                 def version = params.version.toLong()
@@ -305,6 +307,7 @@ class ProjectController {
                                                  [message(code: 'project.label', default: 'Project')] as Object[],
                                                  "Another user has updated this Project while you were editing")
                     render status: 404, template: "edit", model: [project: project]
+                    flash.error = null // got to clear flash so it doesn't show up later when the dialog is dismissed!
                     return
                 }
             }
@@ -336,6 +339,7 @@ class ProjectController {
             } else {
                 flash.error = "Please provide all required values."
                 render status: 400, template: "edit", model: [project: project]
+                flash.error = null // got to clear flash so it doesn't show up later when the dialog is dismissed!
             }
         }
     }

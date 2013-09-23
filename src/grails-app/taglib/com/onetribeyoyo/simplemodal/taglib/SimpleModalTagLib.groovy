@@ -55,7 +55,8 @@ class SimpleModalTagLib {
     }
 
     /**
-     *  Displays a confirm dialog, that when accepted triggers a call to controller+action+id.
+     *  Displays a confirm dialog.  When controller or action are specified a button is included triggers a
+     *  call to controller+action+id.
      *
      *  The tag's body will be used as the dialog message.
      *
@@ -72,7 +73,7 @@ class SimpleModalTagLib {
      *    cancelLabel (optional)   -  defaults to "Cancel"
      *
      */
-    def confirmLink = { attrs, body ->
+    def confirm = { attrs, body ->
 
         def linkAttrs = [
             controller: "simpleModal",

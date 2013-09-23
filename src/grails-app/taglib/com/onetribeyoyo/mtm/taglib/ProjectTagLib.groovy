@@ -192,7 +192,7 @@ class ProjectTagLib {
         Dimension yAxis = attrs.yAxis
 
         out << "<div class='section float-left non-printing'>\n"
-        out << "  <h2>All Maps</h2>\n"
+        out << "  <h2><img src='${fam.icon(name: 'map')}' title='map' /> All Maps</h2>\n"
         out << "  <hr />\n"
         out << "  <ul>\n"
         // only list the pair of dimensions once: if x/y is listed, no need to list y/x

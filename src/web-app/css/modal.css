@@ -65,9 +65,6 @@
 #simplemodal-container p {
    margin-bottom: 0.75em;
 }
-#simplemodal-container span {
-   color: #777;
-}
 
 .simplemodal-content {
    min-height: 3em;

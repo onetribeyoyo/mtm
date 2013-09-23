@@ -1,7 +1,7 @@
 function moveCallback(projectId, dimensionName, sortOrder) {
     jQuery.ajax({
         type: "POST",
-        url: "/mtm/dimension/updateElementOrder/", // TODO: don't hardcode the url!
+        url: appContext + "/dimension/updateElementOrder/",
         data: { "projectId" : projectId, "dimensionName": dimensionName, "sortOrder": sortOrder },
         success: function(data, textStatus) {},
         error:   function(XMLHttpRequest, textStatus, errorThrown) {}

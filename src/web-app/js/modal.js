@@ -24,7 +24,7 @@ function closeSimpleModal() {
     $.modal.close();
 };
 
-function refreshSimpleModal(dialogId) {
+function refreshSimpleModal() {
     _resizeSimpleModalContent();
 };
 

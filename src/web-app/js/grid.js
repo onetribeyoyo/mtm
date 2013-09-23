@@ -10,7 +10,7 @@ function moveCallback(storyId, xAxisId, xId, yAxisId, yId, sortOrder) {
 
     jQuery.ajax({
         type:"POST",
-        url:"/mtm/story/move", // TODO: don't hardcode the url!
+        url: appContext + "/story/move",
         data:{
             "storyId": storyId,
             "xAxisId": xAxisId, "xId": xId,

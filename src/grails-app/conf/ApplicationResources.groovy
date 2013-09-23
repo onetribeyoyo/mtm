@@ -17,6 +17,8 @@ modules = {
     }
 
     "mtm" {
+        resource url: "js/application-vars.js.gsp"
+
         dependsOn "jquery"
         dependsOn "modal"
 

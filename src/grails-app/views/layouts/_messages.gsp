@@ -1,14 +1,29 @@
-<div id="messages">
+<div class="messages">
+
+  <g:if test="${flash.error || flash.errors || instance?.hasErrors()}">
+    <div class="error">
+      <a class="close" onClick="$('.error').close();">ï¿½</a>
+      <a class="close">Ã—</a>
+      ${flash.error}
+      <g:if test="${flash.errors}">
+        <ul>
+          <g:each var="error" in="${flash.errors}"><li>${error}</li></g:each>
+        </ul>
+      </g:if>
+      <g:if test="${instance?.hasErrors()}">
+        <ul>
+          <g:eachError bean="${instance}" var="error"><li><g:message error="${error}"/></li></g:eachError>
+        </ul>
+      </g:if>
+    </div>
+  </g:if>
+
   <g:if test="${flash.message}">
     <div class="message">
-      <a class="close" onClick="$('.message').close();">×</a>
+      <a class="close" onClick="$('.message').close();">ï¿½</a>
+      <a class="close">Ã—</a>
       ${flash.message}
     </div>
   </g:if>
-  <g:if test="${flash.error}">
-    <div class="error">
-      <a class="close" onClick="$('.error').close();">×</a>
-      ${flash.error}
-    </div>
-  </g:if>
+
 </div>

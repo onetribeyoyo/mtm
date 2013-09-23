@@ -4,11 +4,15 @@
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
+
+<g:render contextPath="/layouts" template="buildInfo" />
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <title><g:layoutTitle default="${grailsApplication.metadata['app.name']}" /></title>
+
   <link rel="shortcut icon"    href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
   <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
   <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}" sizes="114x114" >
@@ -25,6 +29,10 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Cache-Control" content="no-cache" />
 
+  <r:script disposition="head">
+    var URL_ROOT = '${request.contextPath}'
+  </r:script>
+
   <r:require module="mtm" />
 
   <g:layoutHead/>
@@ -32,15 +40,10 @@
 </head>
 
 <body>
-  <simplemodal:div />
-  <g:render contextPath="/layouts" template="messages"/>
-
-  <%-- show a warning banner when in prod mode! --%>
-  <g:if test="${grails.util.Environment.current == grails.util.Environment.PRODUCTION}">
-    <div class="warning-banner non-printing">&nbsp;</div>
-  </g:if>
-
+  <g:render contextPath="/layouts" template="banner" />
+  <g:render contextPath="/layouts" template="messages" />
   <g:layoutBody />
+  <simplemodal:div />
   <r:layoutResources />
 </body>
 

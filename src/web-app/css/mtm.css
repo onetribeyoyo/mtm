@@ -61,50 +61,64 @@ hr {
 }
 
 
-.warning-banner {
-   background-color: rgba(255, 55, 55, 0.5);
+.caution-banner, .warning-banner {
    position: fixed; top: 0px; left: 0px;
    height: 1em; width: 100%;
+}
+.caution-banner {
+   background-color: rgba(255, 255, 0, 0.5);
+}
+.warning-banner {
+   background-color: rgba(255, 55, 55, 0.5);
 }
 
 
 /*~  messages ---------------------------------------------------------------------------------- */
 
-#messages { /* used to position page messages and errors. */
-   position: absolute;
-   top: 0.5em;
-   left: 220px;
-   width: 35em;
-   z-index: 100;
+.error .close, .message .close {
+    position: relative; top: 0; left: 29.5em;
+}
+.error .close a, .message .close a {
+    color: #777;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    padding: 6px 12px 0;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #f4f4f4;
+}
+.error .close a:hover, .message .close a:hover {
+    color: #000;
 }
 
-#error, #message {
-   border-radius: 1em;
-}
-
-/* use the .error and .message classes to format the display. */
-
-.error, .message {
-   margin: 1em 8em;
-   padding: 1em 2em;
+div.error, div.message {
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 0.25em;
 }
 
 .message {
-   background: #f3f3ff;
-   border: 1px solid #b2d1ff;
-   color: #006dba;
-   -moz-box-shadow: 0 0 0.25em #b2d1ff;
-   -webkit-box-shadow: 0 0 0.25em #b2d1ff;
-   box-shadow: 0 0 0.25em #b2d1ff;
+    background: #f3f3ff;
+    border: 1px solid #b2d1ff;
+    color: #006dba;
 }
 
 .error {
-   background: #fff3f3;
-   border: 1px solid #ffaaaa;
-   color: #cc0000;
-   -moz-box-shadow: 0 0 0.25em #ff8888;
-   -webkit-box-shadow: 0 0 0.25em #ff8888;
-   box-shadow: 0 0 0.25em #ff8888;
+    background: #fff3f3;
+    border: 1px solid #ffaaaa;
+    color: #cc0000;
+}
+
+span.error {
+    background: none;
+    border: none;
+    color: #cc0000;
+}
+
+form td.error, form th.error {
+    background: none;
+    border: none;
+    color: #cc0000;
 }
 
 

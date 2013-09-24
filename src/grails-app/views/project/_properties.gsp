@@ -1,7 +1,7 @@
 <table width="100%">
 
   <tr>
-    <th class="nowrap"> <label for="name" class="required">Name</label> </th>
+    <th class="nowrap"> <label for="name" class="required">Project Name</label> </th>
     <td valign="middle"> <g:field name="name" type="text" value="${project?.name}" class="${hasErrors(bean: project, field: 'name', 'error')}" /> </td>
   </tr>
 

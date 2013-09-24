@@ -1,5 +1,4 @@
-instructions
-...?
+<p class="help"> instructions ...? </p>
 
 <hr />
 

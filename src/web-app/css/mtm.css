@@ -37,7 +37,7 @@ table.list tbody .actions {
 }
 
 hr {
-   background-color: #aaaaaa;
+   background-color: orange;
    border: none;
    height: 1px;
 }
@@ -188,7 +188,8 @@ th.desc a {
 p.article { width: 45em; }
 p.narrow { width: 22em; }
 
-.hint { font-size: 0.85em; color: #9B7716; }
+.help, .hint { color: #9B7716; }
+.hint { font-size: 0.85em; }
 
 .left   { text-align: left; }
 .right  { text-align: right; }

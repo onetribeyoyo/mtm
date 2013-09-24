@@ -1,7 +1,8 @@
 /*~ buttons ------------------------------------------------------------------------------------- */
 
 .buttonset {
-   border-top: 1px solid #84bbf3;
+   border-top: 1px solid orange;
+   margin-top: 0.5em;
    padding-top: 1em;
 }
 

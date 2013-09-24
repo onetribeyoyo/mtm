@@ -277,15 +277,22 @@ class ProjectController {
     }
     def save(String name, Long estimateUnits, Boolean showEstimates) {
         def project = new Project(name: name, estimateUnits: estimateUnits, showEstimates: showEstimates)
-        project.save(flush:true, failOnError:true)
-        projectService.configureBasis(project)
-        if (project.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'project.label', default: 'Project'), project.id])}"
-            redirect(action: "show", id: project.id)
-        }
-        else {
-            render(view: "create", model: [project: project])
-            flash.error = null // got to clear flash so it doesn't show up later when the dialog is dismissed!
+        project.validate()
+
+        if (project.hasErrors()) {
+            flash.error = "Please provide all required values."
+            render status: 400, template: "create", model: [project: project]
+            flash.error = null // got to clear flash so it doesn't show up on page refresh!
+
+        } else if (project.save(failOnError: true, flush: true)) {
+            projectService.configureBasis(project)
+            project.save(failOnError: true, flush: true)
+            render text: g.createLink(controller: "project", action: "show", id: project.id)
+            flash.message = null // got to clear flash so it doesn't show up on page refresh!
+
+        } else {
+            render status: 400, template: "create", model: [project: project]
+            flash.error = null // got to clear flash so it doesn't show up on page refresh!
         }
     }
 
@@ -333,13 +340,21 @@ class ProjectController {
                 project.highlightDimension = null
             }
 
-            if (!project.hasErrors() && project.save(flush: true)) {
-                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'project.label', default: 'Project'), project.id])}"
-                render text: flash.message
-            } else {
+            project.validate()
+            if (project.hasErrors()) {
                 flash.error = "Please provide all required values."
                 render status: 400, template: "edit", model: [project: project]
-                flash.error = null // got to clear flash so it doesn't show up later when the dialog is dismissed!
+                flash.error = null // got to clear flash so it doesn't show up on page refresh!
+
+            } else if (project.save(failOnError: true, flush: true)) {
+                projectService.configureBasis(project)
+                project.save(failOnError: true, flush: true)
+                render text: g.createLink(controller: "project", action: "show", id: project.id)
+                flash.message = null // got to clear flash so it doesn't show up on page refresh!
+
+            } else {
+                render status: 400, template: "edit", model: [project: project]
+                flash.error = null // got to clear flash so it doesn't show up on page refresh!
             }
         }
     }

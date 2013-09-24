@@ -49,7 +49,6 @@
       </g:each>
     </div>
   </div>
-  <hr class="non-printing" />
   <div class="buttonset non-printing">
     <simplemodal:link controller="element" action="create" id="${dimension.id}" title="New ${dimension}"><button>New <em>"${dimension}"</em></button></simplemodal:link>
   </div>

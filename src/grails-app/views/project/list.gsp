@@ -53,8 +53,8 @@
 </div>
 
 <div>
-  <simplemodal:link action="create" title="New Project"><button>New Project</button></simplemodal:link>
-  <simplemodal:link action="projectFile" title="Import Project"><button>Import Project</button></simplemodal:link>
+  <simplemodal:link action="create" title="New Project" width="narrow"><button>New Project</button></simplemodal:link>
+  <simplemodal:link action="projectFile" title="Import Project" width="narrow"><button>Import Project</button></simplemodal:link>
 </div>
 
 </body>

@@ -1,28 +1,20 @@
-<g:if test="${flash.message}"><div class="message">${flash.message}</div></g:if>
-<g:if test="${flash.error}"><div class="error">${flash.error}</div></g:if>
-
-<g:hasErrors bean="${project}">
-  <div class="error">
-    <ul class="errors">
-      <g:eachError bean="${project}" var="error">
-        <li><g:message error="${error}" /></li>
-      </g:eachError>
-    </ul>
+<g:formRemote name="createProject" url="${[controller: 'project', action: 'save']}"
+      update="[success:'nextUrl',failure:'simplemodal-data']"
+      onSuccess="window.location.href = \$('#nextUrl').html()"
+      onFailure="refreshSimpleModal()"
+      asynchronous="false"
+      >
+  <g:hiddenField name="id" value="${project?.id}" />
+  <div class="simplemodal-content">
+    <g:render contextPath="/layouts" template="messages" model="[instance: project]" />
+    <fieldset>
+      <g:render template="properties" />
+    </fieldset>
   </div>
-</g:hasErrors>
-
-<%-- TODO: should be formRemote --%>
-<g:form name="create-project" action="save">
- <%-- onSuccess="closeMtmModal('mtm-modal-content')" --%>
- <%-- TODO: forcing the page to reload is too big a hammer.  onSuccess should simply refresh the card and if necessary move it to the new location. --%>
-
-  <fieldset>
-    <g:render template="properties" />
-  </fieldset>
-
   <div class="buttonset">
-    <button id="create">Create</button>
+    <button id="save">Save</button>
     <simplemodal:closeButton>Cancel</simplemodal:closeButton>
   </div>
+</g:formRemote>
 
-</g:form>
+<div id="nextUrl" class="hidden"></div>

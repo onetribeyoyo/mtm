@@ -2,8 +2,10 @@
 
   <g:if test="${flash.error || flash.errors || instance?.hasErrors()}">
     <div class="error">
-      <a class="close" onClick="$('.error').close();">�</a>
-      <a class="close">×</a>
+      <%--
+        <a class="close" onClick="$('.error').close();">�</a>
+        <a class="close">×</a>
+      --%>
       ${flash.error}
       <g:if test="${flash.errors}">
         <ul>
@@ -20,8 +22,10 @@
 
   <g:if test="${flash.message}">
     <div class="message">
-      <a class="close" onClick="$('.message').close();">�</a>
-      <a class="close">×</a>
+      <%--
+        <a class="close" onClick="$('.message').close();">�</a>
+        <a class="close">×</a>
+      --%>
       ${flash.message}
     </div>
   </g:if>

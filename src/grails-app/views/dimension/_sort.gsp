@@ -50,6 +50,7 @@
     </div>
   </div>
   <div class="buttonset non-printing">
-    <simplemodal:link controller="element" action="create" id="${dimension.id}" title="New ${dimension}"><button>New <em>"${dimension}"</em></button></simplemodal:link>
+    <simplemodal:link controller="element" action="create" id="${dimension.id}"
+          title="New ${dimension} value" width="narrow"><button>New <em>"${dimension}"</em> value</button></simplemodal:link>
   </div>
 </div>

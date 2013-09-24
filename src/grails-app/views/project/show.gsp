@@ -62,7 +62,8 @@
   <h3>Additional Dimensions...</h3>
   <hr />
   <p>
-    <simplemodal:link controller="dimension" action="create" id="${project.id}" title="New Dimension"><button>Add A Custom Dimension</button></simplemodal:link>
+    <simplemodal:link controller="dimension" action="create" id="${project.id}"
+          title="New Dimension" width="narrow"><button>Add A Custom Dimension</button></simplemodal:link>
   </p>
   <g:if test="${!project.dimensionFor('assigned to') || !project.dimensionFor('bugs') || !project.dimensionFor('feature') || !project.dimensionFor('release') || !project.dimensionFor('status') || !project.dimensionFor('strategy')}">
     <hr />

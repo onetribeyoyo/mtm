@@ -1,43 +1,55 @@
 <g:hiddenField name="project.id" value="${dimension?.project?.id}" />
 
-<dl>
+<table width="100%">
 
-  <dt> <label for="name" class="required">Dimension</label> </dt>
-  <dd> <g:field name="name" type="text" value="${dimension?.name}" class="${hasErrors(bean: dimension, field: 'name', 'error')}" /> </dd>
+  <tr>
+    <th class="nowrap"> <label for="name" class="required">Dimension</label> </th>
+    <td>
+      <g:field name="name" type="text" value="${dimension?.name}" class="${hasErrors(bean: dimension, field: 'name', 'error')}" />
+    </td>
+  </tr>
 
-  <dt> <label for="description">Description</label> </dt>
-  <dd> <g:textArea name="description" cols="50" rows="5" maxlength="4095" value="${dimension?.description}" class="${hasErrors(bean: dimension, field: 'description', 'error')}" /> </dd>
+  <tr>
+    <th class="nowrap"> <label for="description">Description</label> </th>
+    <td>
+      <g:textArea name="description" cols="50" rows="5" maxlength="4095" value="${dimension?.description}" class="${hasErrors(bean: dimension, field: 'description', 'error')}" />
+    </td>
+  </tr>
 
-  <dt> <label for="colour">Card</label> </dt>
-  <dd>
-    <g:checkBox name="colour" checked="${dimension?.isColourDimension()}" value="true" class="${hasErrors(bean: dimension, field: 'colourDimension', 'error')}" />
-    <span class="hint">The <em>card colour</em> dimension is used to set background colours on the cards.</span>
-  </dd>
+  <tr>
+    <th class="nowrap"> <label for="colour">Card</label> </th>
+    <td>
+      <g:checkBox name="colour" checked="${dimension?.isColourDimension()}" value="true" class="${hasErrors(bean: dimension, field: 'colourDimension', 'error')}" />
+      <span class="hint">use this dimension to set card background colours</span>
+    </td>
+  </tr>
 
-  <dt> <label for="highlight">Highlight</label> </dt>
-  <dd>
-    <g:checkBox name="highlight" checked="${dimension?.isHighlightDimension()}" value="true" class="${hasErrors(bean: dimension, field: 'highlightDimension', 'error')}" />
-    <span class="hint">The <em>card highlight</em> dimension is used to show detail in each card's upper right corner.</span>
-  </dd>
+  <tr>
+    <th class="nowrap"> <label for="highlight">Highlight</label> </th>
+    <td>
+      <g:checkBox name="highlight" checked="${dimension?.isHighlightDimension()}" value="true" class="${hasErrors(bean: dimension, field: 'highlightDimension', 'error')}" />
+      <span class="hint">use this dimension for highlighting card detail</span>
+    </td>
+  </tr>
 
-  <dt> <label for="primaryX">Primary X</label> </dt>
-  <dd>
-    <g:if test="${dimension?.isPrimaryXAxis()}">
-      <span class="hint">This is the project's <em>primary X</em> dimension (the one used by the default story maps use for the X axis.)</span>
-    </g:if><g:else>
-      <g:checkBox name="primaryX" checked="${dimension?.isPrimaryXAxis()}" value="true" class="${hasErrors(bean: dimension, field: 'primaryXAxis', 'error')}" />
-      <span class="hint">The project's <em>primary X</em> dimension is used as the default for story maps.</span>
-    </g:else>
-  </dd>
+  <tr>
+    <th class="nowrap"> <label for="primaryX">Primary X</label> </th>
+    <td>
+      <g:checkBox name="primaryX" checked="${dimension?.isPrimaryXAxis()}" value="true"
+            disabled="${dimension?.isPrimaryXAxis() ? 'disablesd' : 'false'}"
+            class="${hasErrors(bean: dimension, field: 'primaryXAxis', 'error')}" />
+      <span class="hint">this is the project's primary X axis</span>
+    </td>
+  </tr>
 
-  <dt> <label for="primaryY">Primary Y</label> </dt>
-  <dd>
-    <g:if test="${dimension?.isPrimaryYAxis()}">
-      <span class="hint">This is the project's <em>primary Y</em> dimension (the one used by the default story maps use for the Y axis.)</span>
-    </g:if><g:else>
-      <g:checkBox name="primaryY" checked="${dimension?.isPrimaryYAxis()}" value="true" class="${hasErrors(bean: dimension, field: 'primaryYAxis', 'error')}" />
-      <span class="hint">The project's <em>primary Y</em> dimension is used as the default for story maps.</span>
-    </g:else>
-  </dd>
+  <tr>
+    <th class="nowrap"> <label for="primaryY">Primary Y</label> </th>
+    <td>
+      <g:checkBox name="primaryY" checked="${dimension?.isPrimaryYAxis()}" value="true"
+            disabled="${dimension?.isPrimaryYAxis() ? 'disablesd' : 'false'}"
+            class="${hasErrors(bean: dimension, field: 'primaryYAxis', 'error')}" />
+      <span class="hint">this is the project's primary Y axis</span>
+    </td>
+  </tr>
 
-</dl>
+</table>

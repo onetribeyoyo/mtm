@@ -9,32 +9,40 @@ class DimensionController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    def create =  {
-        def project = Project.get(params.id)
+    def create(Long id) {
+        def project = Project.get(id)
         def dimension = new Dimension(project: project)
         dimension.properties = params
         render template: "create", model: [dimension: dimension]
     }
-    def save = {
+    def save() {
         def project = Project.read(params.project.id)
-        Dimension dimension = projectService.createDimension(project: project, params)
-
+        Dimension dimension = new Dimension(project: project, name: params.name, description: params.description)
+        dimension.validate()
         if (dimension.hasErrors()) {
             flash.error = "Please provide all required values."
             render status: 400, template: "create", model: [dimension: dimension]
-        }
-        else {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'dimension.label', default: 'Dimension'), dimension.id])}"
-            redirect controller: "project", action: "show", id: dimension.project.id
+            flash.error = null // got to clear flash so it doesn't show up on page refresh!
+
+        } else {
+            project.addToDimensions(dimension)
+            if (dimension.save(failOnError: true, flush: true)) {
+                render text: g.createLink(controller: "project", action: "show", id: dimension.project.id)
+                flash.message = null // got to clear flash so it doesn't show up on page refresh!
+
+            } else {
+                render status: 400, template: "create", model: [dimension: dimension]
+                flash.error = null // got to clear flash so it doesn't show up on page refresh!
+            }
         }
     }
 
-    def edit = {
-        def dimension = Dimension.read(params.id)
+    def edit(Long id) {
+        def dimension = Dimension.read(id)
         render template: "edit", model:[dimension: dimension]
     }
-    def update = {
-        def dimension = Dimension.get(params.id)
+    def update(Long id) {
+        def dimension = Dimension.get(id)
         if (!dimension) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'dimension.label', default: 'Dimension'), params.id])}"
             render status: 404, flash.error
@@ -49,7 +57,9 @@ class DimensionController {
                     return
                 }
             }
-            dimension.properties = params
+            dimension.name = params.name
+            dimension.description = params.description
+            dimension.validate()
             if (!dimension.hasErrors() && dimension.save(flush: true)) {
                 if (params.primaryX) {
                     dimension.project.primaryXAxis = dimension
@@ -71,7 +81,9 @@ class DimensionController {
                 }
 
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'dimension.label', default: 'Dimension'), dimension.id])}"
-                render flash.message
+                render text: g.createLink(controller: "project", action: "show", id: dimension.project.id)
+                flash.message = null // got to clear flash so it doesn't show up on page refresh!
+
             } else {
                 flash.error = "Please provide all required values."
                 render status: 400, template: "edit", model: [dimension: dimension]
@@ -79,18 +91,6 @@ class DimensionController {
         }
     }
 
-    def confirmDelete = {
-        def dimension = Dimension.read(params.id)
-        if (dimension.isPrimaryXAxis()) {
-            render status: 400, template: "cantDeletePrimaryDimension", model:[dimension: dimension]
-        } else if (dimension.isPrimaryYAxis()) {
-            render status: 400, template: "cantDeletePrimaryDimension", model:[dimension: dimension]
-        } else if (dimension.project.dimensions.size() <= 2) {
-            render status: 400, template: "cantDelete", model:[dimension: dimension]
-        } else {
-            render template: "confirmDelete", model:[dimension: dimension]
-        }
-   }
     def delete = {
         def dimension = Dimension.get(params.id)
         if (!dimension) {

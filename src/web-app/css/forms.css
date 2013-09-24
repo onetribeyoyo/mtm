@@ -17,6 +17,8 @@ form dd {
 
 fieldset {
    border: none;
+   margin: 0;
+   padding: 0;
 /*
    background: #eeeeee;
    border: 1px solid #777;

@@ -57,7 +57,7 @@
    -moz-border-radius-bottomright: 6px;
    -webkit-border-bottom-right-radius: 6px;
    border-radius: 0 0 6px 6px;
-   padding: 1em 2em;
+   padding: 1em 1.5em;
 }
 #simplemodal-container h2 {
    margin: 0.75em 0 0.5em 0;

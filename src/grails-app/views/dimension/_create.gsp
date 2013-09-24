@@ -1,26 +1,21 @@
-<g:if test="${flash.message}"><div class="message">${flash.message}</div></g:if>
-<g:if test="${flash.error}"><div class="error">${flash.error}</div></g:if>
-
-<g:hasErrors bean="${dimension}">
-  <div class="error">
-    <ul class="errors">
-      <g:eachError bean="${dimension}" var="error">
-        <li><g:message error="${error}" /></li>
-      </g:eachError>
-    </ul>
+<g:formRemote name="createDimension" url="${[controller: 'dimension', action: 'save']}"
+      update="[success:'nextUrl',failure:'simplemodal-data']"
+      onSuccess="window.location.href = \$('#nextUrl').html()"
+      onFailure="refreshSimpleModal()"
+      asynchronous="false"
+      >
+  <g:hiddenField name="id" value="${dimension?.id}" />
+  <div class="simplemodal-content">
+    <g:render contextPath="/layouts" template="messages" model="[instance: dimension]" />
+    <fieldset>
+      <g:render template="properties" />
+    </fieldset>
   </div>
-</g:hasErrors>
-
-<%-- TODO: should be formRemote --%>
-<g:form name="create-dimension" action="save">
-
-  <fieldset>
-    <g:render contextPath="/dimension" template="properties" />
-  </fieldset>
-
   <div class="buttonset">
-    <button id="create">Create</button>
+    <button id="save">Save</button>
     <simplemodal:closeButton>Cancel</simplemodal:closeButton>
   </div>
+</g:formRemote>
 
-</g:form>
+<div id="nextUrl" class="hidden"></div>
+    

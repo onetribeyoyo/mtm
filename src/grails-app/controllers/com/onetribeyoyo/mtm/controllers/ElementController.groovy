@@ -11,6 +11,7 @@ class ElementController {
         def dimension = Dimension.read(params.id)
         def element = new Element(dimension: dimension)
         element.properties = params
+        flash.error = null // got to clear flash so it doesn't show up!
         render template: "create", model:[element: element]
     }
     def save() {
@@ -67,34 +68,27 @@ class ElementController {
         }
     }
 
-    def confirmDelete = {
-        def element = Element.read(params.id)
-        if (element.dimension.elements.size() == 1) {
-            render template: "cantDelete", model:[element: element]
-        } else {
-            render template: "confirmDelete", model:[element: element]
-        }
-    }
-    def delete = {
-        def element = Element.get(params.id)
+    def delete(Long id) {
+        def element = Element.get(id)
         if (element) {
+            def projectId = element.dimension.project.id
+
             if (element.dimension.elements.size() == 1) {
-                render status: "400", template: "cantDelete", model: [element: element]
+                flash.error = "You can't delete this.  It's the last ${element.dimension} value and there's got to be at least one."
+
             } else {
                 try {
                     dimensionService.deleteElement(element.dimension, element)
                     flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'element.label', default: 'Element'), params.id])}"
-                    render flash.message
-                }
-                catch (org.springframework.dao.DataIntegrityViolationException e) {
-                    flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'element.label', default: 'Element'), params.id])}"
-                    render status: "400", template: "confirmDelete", model: [element: element]
+                } catch (org.springframework.dao.DataIntegrityViolationException e) {
+                    flash.error = "${message(code: 'default.not.deleted.message', args: [message(code: 'element.label', default: 'Element'), params.id])}"
                 }
             }
-        }
-        else {
-            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'element.label', default: 'Element'), params.id])}"
-            render status: "404", template: "confirmDelete", model: [element: element]
+            redirect controller: "project", action: "show", id: projectId
+
+        } else {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'element.label', default: 'Element'), params.id])}"
+            redirect controller: "project", action: "list"
         }
     }
 

@@ -78,7 +78,7 @@ class ElementController {
 
             } else {
                 try {
-                    dimensionService.deleteElement(element.dimension, element)
+                    projectService.delete(element)
                     flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'element.label', default: 'Element'), params.id])}"
                 } catch (org.springframework.dao.DataIntegrityViolationException e) {
                     flash.error = "${message(code: 'default.not.deleted.message', args: [message(code: 'element.label', default: 'Element'), params.id])}"

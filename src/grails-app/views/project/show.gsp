@@ -22,6 +22,10 @@
     <div class="card-actions float-right non-printing">
       <g:link action="export" id="${project.id}"><img src="${fam.icon(name: 'disk')}" title="export project as json" /></g:link>
       <simplemodal:link action="edit" id="${project.id}" title="Edit ${project}" width="narrow"><img src="${fam.icon(name: 'page_edit')}" title="edit project" /></simplemodal:link>
+      <simplemodal:confirm controller="project" action="delete" id="${project.id}"
+            confirmLabel="Delete" confirmClass="delete"
+            message="Are you sure you want to delete this project?  You will delete all of the projecy's stories and this action cannot be reversed."
+            title="Delete '${project.name}'"><img src="${fam.icon(name: 'delete')}" title="delete project" /></simplemodal:confirm>
     </div>
     <h2>Project Data</h2>
   </div>

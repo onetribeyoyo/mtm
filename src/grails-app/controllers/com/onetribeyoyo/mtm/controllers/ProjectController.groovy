@@ -9,7 +9,7 @@ import com.onetribeyoyo.mtm.domain.*
 
 class ProjectController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "POST"]
 
     def projectService
 

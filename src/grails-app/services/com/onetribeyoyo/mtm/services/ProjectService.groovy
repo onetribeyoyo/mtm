@@ -162,17 +162,16 @@ class ProjectService {
         return story
     }
 
-    void deleteDimension(Project project, Dimension dimension) {
-        log.debug "delete(${project}, ${dimension})"
+    void delete(Dimension dimension) {
+        Project project = dimension.project
+        log.debug "delete(${dimension}) from ${project}"
 
         if (project.dimensions?.size() <= 2) {
             throw new RuntimeException("Project cannot have less than two dimensions.")
         }
 
-        assert dimension.project == project
-
         dimension.elements.collect { it }.each { element ->
-            dimensionService.deleteElement(dimension, element)
+            delete(element)
             dimension.save(flush: true)
         }
 
@@ -192,6 +191,39 @@ class ProjectService {
         project.removeFromDimensions(dimension)
         project.save()
         dimension.delete()
+    }
+
+    def delete(Element element) {
+        Dimension dimension = element.dimension
+        log.debug "delete(${element}) from ${dimension}"
+
+        dimension.project.stories.each { story ->
+            if (element in story.vector) {
+                story.removeFromVector(element)
+            }
+        }
+        dimension.removeFromElements(element)
+        element.delete()
+    }
+
+    void delete(Project project) {
+        log.debug "delete(${project})"
+
+        project.dimensions.each { dimension ->
+            dimension.elements.collect { it }.each { element ->
+                elementService.delete(element)
+                dimension.save(flush: true)
+            }
+            project.removeFromDimensions(dimension)
+            dimension.delete()
+        }
+
+        project.stories.each { story ->
+            project.removeFromStories(story)
+            story.delete()
+        }
+
+        project.delete()
     }
 
     void updateStoryOrder(Project project, Element x, Element y, List<Long> sortedIds) {

@@ -100,7 +100,7 @@ class DimensionController {
                 flash.error = "You can't delete the '${dimension}' dimension.  The project has to have at least two dimensions."
             } else {
                 try {
-                    projectService.deleteDimension(dimension.project, dimension)
+                    projectService.delete(dimension)
                     flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'dimension.label', default: 'Dimension'), params.id])}"
                 } catch (org.springframework.dao.DataIntegrityViolationException e) {
                     flash.error = "${message(code: 'default.not.deleted.message', args: [message(code: 'dimension.label', default: 'Dimension'), params.id])}"

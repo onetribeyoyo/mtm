@@ -19,7 +19,6 @@ class DimensionSpec extends Specification {
     @Unroll("dimension constraints: #field is #error.")
     def "dimension constraints"() {
         when:
-            def project = new Project()
             def obj = new Dimension("$field": value)
 
         then:

@@ -4,7 +4,7 @@ import com.onetribeyoyo.mtm.domain.*
 
 abstract class ImportService {
 
-    private def extractIndexMap(String[] choices, requiredFields, optionalFields) {
+    protected def extractIndexMap(String[] choices, requiredFields, optionalFields) {
 
         def allowedFields = requiredFields + optionalFields
 
@@ -26,13 +26,9 @@ abstract class ImportService {
     }
 
     protected boolean empty(String[] tokens) {
-        boolean empty = true // start by assuming we've got nothing
-        def e = tokens.each { token -> token
-            if (token) {
-                empty = false
-            }
+        return tokens.inject(true) { emptySoFar, token ->
+            emptySoFar && !token
         }
-        return empty
     }
 
     /** trims whitespace as well as pairs of leading and training quotes. */

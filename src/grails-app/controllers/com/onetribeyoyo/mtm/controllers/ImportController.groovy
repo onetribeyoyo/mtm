@@ -8,14 +8,14 @@ class ImportController {
     def storyImportService
     def structureImportService
 
-    def storyFile = {
-        render template: "chooseStoryFile", model: [ id: params.id, filename: params.filename ]
+    def storyFile(Long id, String filename) {
+        render template: "chooseStoryFile", model: [ id: id, filename: filename ]
     }
 
     def importStories(Long id) {
-        Project project = Project.get(params.id)
+        Project project = Project.get(id)
         if (!project) {
-            flash.error = "Cannot locate project for id:${params.id}."
+            flash.error = "Cannot locate project for id:${id}."
             redirect controller: "project", action: "list"
             return
 
@@ -55,14 +55,14 @@ class ImportController {
         }
     }
 
-    def structureFile = {
-        render template: "chooseStructureFile", model: [ id: params.id, filename: params.filename ]
+    def structureFile(Long id, String filename) {
+        render template: "chooseStructureFile", model: [ id: id, filename: filename ]
     }
 
     def importStructure(Long id) {
-        Project project = Project.get(params.id)
+        Project project = Project.get(id)
         if (!project) {
-            flash.error = "Cannot locate project for id:${params.id}."
+            flash.error = "Cannot locate project for id:${id}."
             redirect controller: "project", action: "list"
             return
 
@@ -102,14 +102,14 @@ class ImportController {
         }
     }
 
-    def orderFile = {
-        render template: "chooseOrderFile", model: [ id: params.id, filename: params.filename ]
+    def orderFile(Long id, String filename) {
+        render template: "chooseOrderFile", model: [ id: id, filename: filename ]
     }
 
     def importOrder(Long id) {
-        Project project = Project.get(params.id)
+        Project project = Project.get(id)
         if (!project) {
-            flash.error = "Cannot locate project for id:${params.id}."
+            flash.error = "Cannot locate project for id:${id}."
             redirect controller: "project", action: "list"
             return
 

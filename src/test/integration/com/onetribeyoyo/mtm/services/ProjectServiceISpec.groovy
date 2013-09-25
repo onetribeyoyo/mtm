@@ -39,7 +39,6 @@ class ProjectServiceISpec extends IntegrationSpec {
 
         then:
             project.dimensions.size() == 2
-            Dimension dimension = project.dimensionFor(dimensionName)
             (project.primaryXAxis?.name == dimensionName) == primaryXAxis
             (project.primaryYAxis?.name == dimensionName) == primaryYAxis
 

@@ -33,9 +33,9 @@ class StorymapService {
         // first initialize the story map structure...
         def storymap = [:]
         yAxis?.elements?.each { row ->
-            storymap[row] = rowMapFor(project, row, xAxis)
+            storymap[row] = rowMapFor(row, xAxis)
         }
-        storymap[null] = rowMapFor(project, null, xAxis)
+        storymap[null] = rowMapFor(null, xAxis)
 
         // then walk through all the stories and place them in the approriate list...
         project.stories.each { story ->
@@ -54,10 +54,9 @@ class StorymapService {
         return storymap
     }
 
-    private def rowMapFor(Project project, Element row, Dimension columns) {
+    private def rowMapFor(Element row, Dimension columns) {
         def map = [:]
         def estimate = 0
-        def complete = true
         map.columns = [:]
         columns.elements.each { x ->
             map.columns[x] = new TreeSet()

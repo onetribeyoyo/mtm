@@ -42,7 +42,7 @@ class Element implements Comparable {
 
         // return true iff they're vectors also contain the "last" status element.
         def lastStatus = this.dimension.project.lastStatus()
-        boolean complete = stories.inject(true) { completeSoFar, story ->
+        return stories.inject(true) { completeSoFar, story ->
             completeSoFar && (lastStatus in story.vector)
         }
     }

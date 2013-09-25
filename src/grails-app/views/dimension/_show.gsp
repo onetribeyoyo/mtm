@@ -30,7 +30,7 @@
   <hr />
   <p class="hint narrow">Drag these up/down to adjust the order.</p>
   <div class="grid">
-    <div class="dimension-list" projectId="${dimension.project.id}" dimension="${dimension.name}">
+    <div class="dimension-list" data-projectId="${dimension.project.id}" data-dimension="${dimension.name}">
       <g:each var="element" in="${dimension.elements}">
         <div id="element-${element.id}" style="min-width: 18.5em;">
           <g:render contextPath="/element" template="show" model="[element: element]" />

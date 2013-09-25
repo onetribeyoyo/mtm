@@ -48,7 +48,7 @@ $(function() {
         .each(function() {
             $(this)
                 .click(function() {
-                    var rowId = $(this).attr("yId");
+                    var rowId = $(this).attr("data-yId");
                     $(".row-" + rowId).toggle();
                     $(".row-" + rowId).parent().parent().find(".story, .story-abbrev").toggle();
                 })
@@ -64,10 +64,10 @@ $(function() {
         stop: function(event, ui) {
             var storyId = ui.item.closest(".card").attr("id");
             var cell = ui.item.closest(".grid-cell");
-            var xAxisId = cell.attr("xAxisId");
-            var xId = cell.attr("xId");
-            var yAxisId = cell.attr("yAxisId");
-            var yId = cell.attr("yId");
+            var xAxisId = cell.attr("data-xAxisId");
+            var xId = cell.attr("data-xId");
+            var yAxisId = cell.attr("data-yAxisId");
+            var yId = cell.attr("data-yId");
             var sortOrder = cell.sortable("toArray").toString();
             moveCallback(storyId, xAxisId, xId, yAxisId, yId, sortOrder);
         }

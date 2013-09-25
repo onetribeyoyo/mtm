@@ -17,8 +17,8 @@ $(function() {
             opacity: 0.4,
             stop: function(event, ui) {
                 var list = ui.item.closest(".dimension-list");
-                var projectId = list.attr("projectId");
-                var dimensionName = list.attr("dimension");
+                var projectId = list.attr("data-projectId");
+                var dimensionName = list.attr("data-dimension");
                 var sortOrder = list.sortable("toArray").toString();
                 moveCallback(projectId, dimensionName, sortOrder);
             }

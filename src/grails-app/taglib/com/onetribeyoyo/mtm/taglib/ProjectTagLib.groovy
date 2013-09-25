@@ -70,7 +70,7 @@ class ProjectTagLib {
             out << "    </li>\n"
 
             // a cell for cards where (x == null)
-            out << "    <li class='grid-cell ${rowStyle}' xAxisId='${xAxis.id}' xId='' yAxisId='${yAxis.id}' yId='${y.id}'>\n"
+            out << "    <li class='grid-cell ${rowStyle}' data-xAxisId='${xAxis.id}' data-xId='' data-yAxisId='${yAxis.id}' data-yId='${y.id}'>\n"
             storymap[y].columns[null].each { orderedStory ->
                 out << g.render(template: '/project/card', model: [story:orderedStory.story, layoutStyle: layoutStyle, complete: complete, xAxis: xAxis, yAxis: yAxis])
             }
@@ -78,7 +78,7 @@ class ProjectTagLib {
 
             // a cell for element on the x axis
             xAxis?.elements.each { x ->
-                out << "    <li class='grid-cell ${rowStyle}' xAxisId='${xAxis.id}' xId='${x.id}' yAxisId='${yAxis.id}' yId='${y.id}'>\n"
+                out << "    <li class='grid-cell ${rowStyle}' data-xAxisId='${xAxis.id}' data-xId='${x.id}' data-yAxisId='${yAxis.id}' data-yId='${y.id}'>\n"
                 storymap[y].columns[x].each { orderedStory ->
                     out << g.render(template: '/project/card', model: [story:orderedStory.story, layoutStyle: layoutStyle, complete: complete, xAxis: xAxis, yAxis: yAxis])
                 }
@@ -105,7 +105,7 @@ class ProjectTagLib {
         out << "    </li>\n"
 
         // a cell for cards where both (x == null) and  (y == null)
-        out << "    <li class='grid-cell ${rowStyle}' xAxisId='${xAxis.id}' xId='' yAxisId='${yAxis.id}' yId=''>\n"
+        out << "    <li class='grid-cell ${rowStyle}' data-xAxisId='${xAxis.id}' data-xId='' data-yAxisId='${yAxis.id}' data-yId=''>\n"
         storymap[null].columns[null].each { orderedStory ->
             out << g.render(template: '/project/card', model: [story:orderedStory.story, layoutStyle: layoutStyle])
         }
@@ -113,7 +113,7 @@ class ProjectTagLib {
 
         // a cell for element on the x axis
         xAxis?.elements.each { x ->
-            out << "    <li class='grid-cell ${rowStyle}' xAxisId='${xAxis.id}' xId='${x.id}' yAxisId='${yAxis.id}' yId=''>\n"
+            out << "    <li class='grid-cell ${rowStyle}' data-xAxisId='${xAxis.id}' data-xId='${x.id}' data-yAxisId='${yAxis.id}' data-yId=''>\n"
             storymap[null].columns[x].each { orderedStory ->
                 out << g.render(template: '/project/card', model: [story:orderedStory.story, layoutStyle: layoutStyle])
             }

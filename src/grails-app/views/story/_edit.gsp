@@ -1,33 +1,23 @@
-<g:if test="${flash.message}"><div class="message">${flash.message}</div></g:if>
-<g:if test="${flash.error}"><div class="error">${flash.error}</div></g:if>
-
-<g:hasErrors bean="${story}">
-  <div class="error">
-    <ul class="errors">
-      <g:eachError bean="${story}" var="error">
-        <li><g:message error="${error}" /></li>
-      </g:eachError>
-    </ul>
-  </div>
-</g:hasErrors>
-
-<g:set var="updateDiv" value="story-${story.id}" />
-<g:formRemote name="edit-story" url="[action:'update']"
-      update="[success:updateDiv,failure:'mtm-modal-data']"
-      onSuccess="location.reload(true);"
+<g:formRemote name="editStory" url="${[controller: 'story', action: 'update']}"
+      update="[success:'nextUrl',failure:'simplemodal-data']"
+      onSuccess="window.location.href = \$('#nextUrl').html()"
+      onFailure="refreshSimpleModal()"
       asynchronous="false"
       >
- <%-- onSuccess="closeMtmModal('mtm-modal-content')" --%>
- <%-- TODO: forcing the page to reload is too big a hammer.  onSuccess should simply refresh the card and if necessary move it to the new location. --%>
 
-  <fieldset>
-    <g:hiddenField name="id" value="${story?.id}" />
-    <g:render template="properties" />
-  </fieldset>
+  <%-- TODO: forcing the page to reload is too big a hammer.  onSuccess should simply refresh the card and if necessary move it to the new location. --%>
 
-  <div>
-    <button type="submit" id="edit" value="Update">Update</button>
+  <g:hiddenField name="id" value="${story?.id}" />
+  <div class="simplemodal-content">
+    <g:render contextPath="/layouts" template="messages" model="[instance: story]" />
+    <fieldset>
+      <g:render template="properties" />
+    </fieldset>
+  </div>
+  <div class="buttonset">
+    <button id="update">Update</button>
     <simplemodal:closeButton>Cancel</simplemodal:closeButton>
   </div>
-
 </g:formRemote>
+
+<div id="nextUrl" class="hidden"></div>

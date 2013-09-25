@@ -7,92 +7,95 @@ class StoryController {
     def projectService
     def storyService
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "POST"]
 
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [storyInstanceList: Story.list(params), storyInstanceTotal: Story.count()]
+        [stories: Story.list(params), storyTotal: Story.count()]
     }
 
-    def create() {
-        def project = Project.read(params.id)
+    def create(Long id) {
+        def project = Project.read(id)
         def story = new Story(project: project)
         story.properties = params
         flash.error = null // got to clear flash so it doesn't show up!
         render template: "create", model:[story: story]
     }
-    def save = {
+    def save() {
         def project = Project.read(params.project.id)
         Story story = new Story(project: project, summary: params.summary, detail: params.detail, estimate: params.estimate as Long)
         storyService.setVector(story, params)
         story.validate()
-
         if (story.hasErrors()) {
             flash.error = "Please provide all required values."
-            render status: "400", template: "create", model: [story: story]
+            render status: 400, template: "create", model: [story: story]
             flash.error = null // got to clear flash so it doesn't show up on page refresh!
+
         } else {
             project.addToStories(story)
-            story.save(failOnError: true)
-            flash.message = "Created story: \"${story.summary}\"."
-            render text: flash.message
+            if (story.save(failOnError: true, flush: true)) {
+                render text: g.createLink(controller: "project", action: "map", id: story.project.id)
+
+            } else {
+                render status: 400, template: "create", model: [story: story]
+                flash.error = null // got to clear flash so it doesn't show up on page refresh!
+            }
         }
     }
+
+
+
+
 
     def edit = {
         def story = Story.read(params.id)
         render template: "edit", model:[story: story]
     }
-    def update = {
-        def story = Story.get(params.id)
+    def update(Long id) {
+        def story = Story.get(id)
         if (!story) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'story.label', default: 'Story'), params.id])}"
-            render status: "404", flash.error
+            render status: 404, flash.error
         } else {
             if (params.version) {
                 def version = params.version.toLong()
                 if (story.version > version) {
                     story.errors.rejectValue("version", "default.optimistic.locking.failure",
-                                             [message(code: 'story.label', default: 'Story')] as Object[],
-                                             "Another user has updated this Story while you were editing")
-                    render status: "404", template: "edit", model: [story: story]
+                                                 [message(code: 'story.label', default: 'Story')] as Object[],
+                                                 "Another user has updated this Story while you were editing")
+                    render status: 404, template: "edit", model: [story: story]
                     return
                 }
             }
             story.properties = params
             storyService.setVector(story, params)
-
+            story.validate()
             if (!story.hasErrors() && story.save(flush: true)) {
-                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'story.label', default: 'Story'), story.id])}"
-                render template: "/project/card", model: [story: story]
+                render text: g.createLink(controller: "project", action: "map", id: story.project.id)
+                flash.message = null // got to clear flash so it doesn't show up on page refresh!
+
             } else {
                 flash.error = "Please provide all required values."
-                render status: "400", template: "edit", model: [story: story]
+                render status: 400, template: "edit", model: [dimension: dimension]
             }
         }
     }
 
-    def confirmDelete = {
-        def story = Story.read(params.id)
-        render template: "confirmDelete", model:[story: story]
-    }
-    def delete = {
-        def story = Story.get(params.id)
+    def delete(Long id) {
+        def story = Story.get(id)
+        def projectId = story.project.id
         if (story) {
             try {
                 story.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'story.label', default: 'Story'), params.id])}"
-                render flash.message
+            } catch (org.springframework.dao.DataIntegrityViolationException e) {
+                flash.error = "${message(code: 'default.not.deleted.message', args: [message(code: 'story.label', default: 'Story'), params.id])}"
             }
-            catch (org.springframework.dao.DataIntegrityViolationException e) {
-                flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'story.label', default: 'Story'), params.id])}"
-                render status: "400", template: "confirmDelete", model: [story: story]
-            }
+        } else {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'story.label', default: 'Story'), params.id])}"
         }
-        else {
-            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'story.label', default: 'Story'), params.id])}"
-            render status: "404", template: "confirmDelete", model: [story: story]
-        }
+
+        redirect controller: "project", action: "map", id: projectId
     }
 
     def move(Long storyId, Long xAxisId, Long xId, Long yAxisId, Long yId, String sortOrder) {

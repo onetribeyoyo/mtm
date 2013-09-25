@@ -25,9 +25,14 @@ class ProjectController {
         }
     }
 
-    def list = {
+    def list() {
+        Project project = params.id ? Project.read(params.id) : null
         params.max = Math.min(params.max ? params.int('max') : 20, 100)
-        [projectList: Project.list(params), projectTotal: Project.count()]
+        [
+            project: project, 
+            projectList: Project.list(params), 
+            projectTotal: Project.count()
+        ]
     }
 
     def map(Long id, String x, String y) {

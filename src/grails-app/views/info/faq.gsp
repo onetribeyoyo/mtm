@@ -10,7 +10,8 @@
 <body>
 
 <h1>MTM FAQ</h1>
-<info:tabs selectedTab="faq" />
+
+<tabs:render project="${project}" selectedTab="faq" includeFaqDetails="true" />
 
 <div class="section float-left">
 

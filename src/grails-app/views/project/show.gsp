@@ -15,7 +15,7 @@
 
 <h1>${project.name}</h1>
 
-<project:tabs project="${project}" selectedTab="config___" />
+<tabs:render project="${project}" selectedTab="config___" />
 
 <div id="project-${project.id}" class="section float-left">
   <div>
@@ -49,7 +49,7 @@
   </p>
 </div>
 
-<project:maps project="${project}" />
+<storymap:mapList project="${project}" />
 
 <hr class="clear" />
 

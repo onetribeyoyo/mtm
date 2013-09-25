@@ -1,5 +1,7 @@
 package com.onetribeyoyo.mtm.controllers
 
+import com.onetribeyoyo.mtm.domain.Project
+
 class InfoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -8,8 +10,19 @@ class InfoController {
         redirect action: "faq"
     }
 
-    def estimation = { }
-    def faq = { }
-    def process = { }
+    def estimation = {
+        Project project = params.id ? Project.read(params.id) : null
+        [ project: project ]
+    }
+
+    def faq = {
+        Project project = params.id ? Project.read(params.id) : null
+        [ project: project ]
+    }
+
+    def process = {
+        Project project = params.id ? Project.read(params.id) : null
+        [ project: project ]
+    }
 
 }

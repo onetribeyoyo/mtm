@@ -4,13 +4,13 @@ import com.onetribeyoyo.mtm.domain.*
 
 import com.onetribeyoyo.mtm.util.LayoutStyle
 
-class ProjectTagLib {
+class StoryMapTagLib {
 
-    static namespace = "project"
+    static namespace = "storymap"
 
     def storymapService
 
-    def cardGrid = { attrs, body ->
+    def grid = { attrs, body ->
         Project project = attrs.project
         Dimension xAxis = attrs.xAxis
         Dimension yAxis = attrs.yAxis
@@ -32,7 +32,7 @@ class ProjectTagLib {
 
         // the dimension selector controls...
         out << "    <li class='grid-blank'>"
-        out << mapMenu(attrs)
+        out << menu(attrs)
         out << "</li>\n"
 
         // the column headings...
@@ -128,7 +128,7 @@ class ProjectTagLib {
      *  Note: Pairs of dimensions are only listed once (if x/y is listed, no need to list y/x.)
      *  You can always flip axes on the map grid to find what you need.
      */
-    def mapMenu = { attrs, body ->
+    def menu = { attrs, body ->
         Project project = attrs.project
         Dimension xAxis = attrs.xAxis
         Dimension yAxis = attrs.yAxis
@@ -159,34 +159,10 @@ class ProjectTagLib {
         out << "  </div>\n"
     }
 
-    def tabs = { attrs, body ->
-        Project project = attrs.project
-        String selectedTab = attrs.selectedTab
-
-        out << "<ul class='tabrow non-printing'>\n"
-
-        [
-            "map___":      [ controller: "project", label: "Story Map",      action: "map", id: project?.id ],
-            "config___":   [ controller: "project", label: "Project Config", action: "show", id: project?.id ],
-            "projects___": [ controller: "project", label: "<em>(other projects)</em>", action: "list" ],
-            "info___":     [ controller: "info",    label: "<em>FAQ</em>" ]
-        ].each { key, params ->
-            if (selectedTab == key) {
-                out << "  <li class='selected'><strong>${params.label}</strong></li>\n"
-            } else {
-                out << "  <li>"
-                out << g.link(controller: params.controller, action: params.action, id: params.id, params.label)
-                out << "</li>\n"
-            }
-        }
-
-        out << "</ul>\n"
-    }
-
     /**
      *  Renders a div with links to all possible maps.
      */
-    def maps = { attrs, body ->
+    def mapList = { attrs, body ->
         Project project = attrs.project
         Dimension xAxis = attrs.xAxis
         Dimension yAxis = attrs.yAxis

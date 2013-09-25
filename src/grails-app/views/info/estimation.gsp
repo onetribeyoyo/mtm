@@ -10,7 +10,8 @@
 <body>
 
 <h1>Estimation with the MTM</h1>
-<info:tabs selectedTab="estimation" />
+
+<tabs:render project="${project}" selectedTab="estimation" includeFaqDetails="true" />
 
 ...?
 

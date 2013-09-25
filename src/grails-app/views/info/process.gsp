@@ -34,7 +34,8 @@
 <body>
 
 <h1>The Story Mapping Process</h1>
-<info:tabs selectedTab="process" />
+
+<tabs:render project="${project}" selectedTab="process" includeFaqDetails="true" />
 
 <div class="section left">
 

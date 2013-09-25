@@ -1,6 +1,7 @@
+<g:set var="successDivId" value="dimension-${dimension.id}" />
 <g:formRemote name="editDimension" url="${[controller: 'dimension', action: 'update']}"
-      update="[success:'nextUrl',failure:'simplemodal-data']"
-      onSuccess="window.location.href = \$('#nextUrl').html()"
+      update="[success:successDivId,failure:'simplemodal-data']"
+      onSuccess="closeSimpleModal()"
       onFailure="refreshSimpleModal()"
       asynchronous="false"
       >
@@ -16,5 +17,3 @@
     <simplemodal:closeButton>Cancel</simplemodal:closeButton>
   </div>
 </g:formRemote>
-
-<div id="nextUrl" class="hidden"></div>

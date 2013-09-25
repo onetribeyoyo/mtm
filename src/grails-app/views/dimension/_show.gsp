@@ -10,7 +10,7 @@
               title="Delete '${dimension.name}' dimension"><img src="${fam.icon(name: 'delete')}" title="delete dimension" /></simplemodal:confirm>
       </g:if>
     </div>
-    <h2>${dimension.name.capitalize()} Dimension</h2>
+    <h2>&quot;${dimension.name.capitalize()}&quot;</h2>
   </div>
   <g:if test="${dimension.isPrimaryXAxis() || dimension.isPrimaryYAxis()}">
     <hr />
@@ -31,19 +31,9 @@
   <p class="hint narrow">Drag these up/down to adjust the order.</p>
   <div class="grid">
     <div class="dimension-list" projectId="${dimension.project.id}" dimension="${dimension.name}">
-      <g:each var="element" in="${dimension.elements}" status="rowNumber">
-        <g:set var="rowStyle" value="${((rowNumber % 2) == 0) ? 'odd' : 'even'}" />
-        <div id="element-${element.id}" style="width: 12em;" class="card ${rowStyle} ${element.colour ?: dimension.colour} light-margin heavy-padding">
-          <div class="card-actions non-printing">
-            <simplemodal:link controller="element" action="edit" id="${element.id}"
-                  title="Edit '${element}' element" width="narrow"><img src="${fam.icon(name: 'page_edit')}" title="edit element" /></simplemodal:link>
-
-
-            <simplemodal:link controller="element" action="confirmDelete" id="${element.id}"
-                  title="Delete ${element}" width="narrow"><img src="${fam.icon(name: 'delete')}" title="delete element" /></simplemodal:link>
-          </div>
-          <%-- TODO: how many stories? --%>
-          ${element.value}
+      <g:each var="element" in="${dimension.elements}">
+        <div id="element-${element.id}" style="min-width: 18.5em;">
+          <g:render contextPath="/element" template="show" model="[element: element]" />
         </div>
       </g:each>
     </div>

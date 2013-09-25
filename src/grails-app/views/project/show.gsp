@@ -13,9 +13,8 @@
 
 <body>
 
-<h1>
-  ${project.name}
-</h1>
+<h1>${project.name}</h1>
+
 <project:tabs project="${project}" selectedTab="config___" />
 
 <div id="project-${project.id}" class="section float-left">
@@ -50,9 +49,11 @@
 
 <hr class="clear" />
 
+<h1>Dimensions</h1>
+
 <g:each var="dimension" in="${project.dimensions}">
   <div id="dimension-${dimension.id}" class="float-left">
-    <g:render contextPath="/dimension" template="sort" model="[dimension:dimension]" />
+    <g:render contextPath="/dimension" template="show" model="[dimension:dimension]" />
   </div>
 </g:each>
 

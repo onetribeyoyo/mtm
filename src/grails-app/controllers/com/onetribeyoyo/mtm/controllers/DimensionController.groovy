@@ -79,10 +79,8 @@ class DimensionController {
                 } else if (dimension.project.highlightDimension == dimension) {
                     dimension.project.highlightDimension = null
                 }
-
-                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'dimension.label', default: 'Dimension'), dimension.id])}"
-                render text: g.createLink(controller: "project", action: "show", id: dimension.project.id)
-                flash.message = null // got to clear flash so it doesn't show up on page refresh!
+                
+                render template: "show", model: [dimension: dimension]
 
             } else {
                 flash.error = "Please provide all required values."

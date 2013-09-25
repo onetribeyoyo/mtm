@@ -59,8 +59,7 @@ class ElementController {
             element.description = params.description
             element.validate()
             if (!element.hasErrors() && element.save(flush: true)) {
-                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'element.label', default: 'Element'), element.id])}"
-                render text: g.createLink(controller: "project", action: "show", id: element.dimension.project.id)
+                render template: "show", model: [element: element]
             } else {
                 flash.error = "Please provide all required values."
                 render status: "400", template: "edit", model: [element: element]

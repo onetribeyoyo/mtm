@@ -7,12 +7,13 @@ class DimensionController {
     def dimensionService
     def projectService
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "POST"]
 
     def create(Long id) {
         def project = Project.get(id)
         def dimension = new Dimension(project: project)
         dimension.properties = params
+        flash.error = null // got to clear flash so it doesn't show up!
         render template: "create", model: [dimension: dimension]
     }
     def save() {
@@ -79,7 +80,7 @@ class DimensionController {
                 } else if (dimension.project.highlightDimension == dimension) {
                     dimension.project.highlightDimension = null
                 }
-                
+
                 render template: "show", model: [dimension: dimension]
 
             } else {
@@ -89,31 +90,27 @@ class DimensionController {
         }
     }
 
-    def delete = {
-        def dimension = Dimension.get(params.id)
-        if (!dimension) {
-            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'dimension.label', default: 'Dimension'), params.id])}"
-            render status: 404, template: "confirmDelete", model: [dimension: dimension]
-
-        } else {
-            if (dimension.isPrimaryXAxis()) {
-                render status: 400, template: "cantDeletePrimaryDimension", model: [dimension: dimension]
-            } else if (dimension.isPrimaryYAxis()) {
-                render status: 400, template: "cantDeletePrimaryDimension", model: [dimension: dimension]
+    def delete(Long id) {
+        def dimension = Dimension.get(id)
+        def projectId = dimension.project.id
+        if (dimension) {
+            if (dimension.isPrimaryXAxis() ||dimension.isPrimaryYAxis()) {
+                flash.error = "You can't delete the '${dimension}' dimension.  It's a primary dimension for the project (the ones all the default story maps use for the X/Y axes.)  If you really want to delete it you'll first have to assign another dimension as the primary."
             } else if (dimension.project.dimensions.size() <= 2) {
-                render status: 400, template: "cantDelete", model: [dimension: dimension]
+                flash.error = "You can't delete the '${dimension}' dimension.  The project has to have at least two dimensions."
             } else {
                 try {
                     projectService.deleteDimension(dimension.project, dimension)
                     flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'dimension.label', default: 'Dimension'), params.id])}"
-                    render flash.message
-                }
-                catch (org.springframework.dao.DataIntegrityViolationException e) {
-                    flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'dimension.label', default: 'Dimension'), params.id])}"
-                    render status: 400, template: "confirmDelete", model: [dimension: dimension]
+                } catch (org.springframework.dao.DataIntegrityViolationException e) {
+                    flash.error = "${message(code: 'default.not.deleted.message', args: [message(code: 'dimension.label', default: 'Dimension'), params.id])}"
                 }
             }
+        } else {
+            flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'dimension.label', default: 'Dimension'), params.id])}"
         }
+
+        redirect controller: "project", action: "show", id: projectId
     }
 
     def updateElementOrder(Long projectId, String dimensionName, String sortOrder) {

@@ -7,7 +7,7 @@
         <simplemodal:confirm controller="dimension" action="delete" id="${dimension.id}"
               confirmLabel="Delete" confirmClass="delete"
               message="Are you sure you want to delete the &quot;&lt;em&gt;${dimension.name}&lt;/em&gt;&quot; dimension?  This action cannot be reversed."
-              title="Delete '${dimension.name}' dimension"><img src="${fam.icon(name: 'delete')}" title="delete dimension" /></simplemodal:confirm>
+              title="Delete '${dimension.name}'"><img src="${fam.icon(name: 'delete')}" title="delete dimension" /></simplemodal:confirm>
       </g:if>
     </div>
     <h2>&quot;${dimension.name.capitalize()}&quot;</h2>

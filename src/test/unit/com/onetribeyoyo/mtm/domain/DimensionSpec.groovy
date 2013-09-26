@@ -1,7 +1,6 @@
 package com.onetribeyoyo.mtm.domain
 
 import grails.test.mixin.TestFor
-import spock.lang.Ignore
 import spock.lang.Unroll
 import spock.lang.Specification
 
@@ -78,24 +77,6 @@ class DimensionSpec extends Specification {
             def dimension3 = new Dimension(project: project2, name: "1")
         then: "a second project can have dimensions that have the same names as those in other projects"
             dimension3.validate()
-    }
-
-    @Ignore
-    def "inProgress"() {
-        when:
-            def dimension = new Dimension(name: "foo")
-        then:
-            !dimension
-            // TODO: implement this test!
-    }
-
-    @Ignore
-    def "complete"() {
-        when:
-            def dimension = new Dimension(name: "foo")
-        then:
-            !dimension
-            // TODO: implement this test!
     }
 
 }

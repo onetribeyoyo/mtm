@@ -30,7 +30,7 @@ a.menu {
    cursor: pointer;
    z-index: 110;
    padding-right: 10px;
-   background-image: url("/mtm/images/menu-arrow.png");
+   background-image: url("../images/menu-arrow.png");
    background-position: right center;
    background-repeat: no-repeat;
 }

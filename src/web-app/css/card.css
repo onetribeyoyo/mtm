@@ -11,7 +11,7 @@
    border: 1px solid #777;
 }
 .selected-card {
-   background-image: url("/mtm/images/card-texture.png");
+   background-image: url("../images/card-texture.png");
    border: 1px solid #999;
    -webkit-box-shadow: 0 0 7px Maroon;
    -moz-box-shadow: 0 0 7px Maroon;
@@ -122,7 +122,7 @@
 
 .with-questions {
    background-repeat: no-repeat;
-   background-image: url("/mtm/images/question-mark.png");
+   background-image: url("../images/question-mark.png");
    background-position: right bottom;
 }
 

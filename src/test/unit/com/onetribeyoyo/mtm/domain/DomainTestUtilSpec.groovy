@@ -9,11 +9,11 @@ class DomainTestUtilSpec extends Specification {
             def testUtil = new DomainTestUtil()
 
         then:
-            testUtil.stringWithLength(0).size()== 0
-            testUtil.stringWithLength(1).size()== 1
-            testUtil.stringWithLength(2).size()== 2
-            testUtil.stringWithLength(10).size()== 10
-            testUtil.stringWithLength(100).size()== 100
+            testUtil.stringWithLength(0).size() == 0
+            testUtil.stringWithLength(1).size() == 1
+            testUtil.stringWithLength(2).size() == 2
+            testUtil.stringWithLength(10).size() == 10
+            testUtil.stringWithLength(100).size() == 100
     }
 
 }

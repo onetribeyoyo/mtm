@@ -80,7 +80,7 @@ class StoryImportService extends ImportService {
                 if (story.validate()) {
                     project.save()
                 } else {
-                    println story.errors
+                    log.warn story.errors
                     throw new RuntimeException("invalid story data.")
                 }
             }

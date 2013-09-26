@@ -2,9 +2,9 @@ package com.onetribeyoyo.mtm.services
 
 import com.onetribeyoyo.mtm.domain.*
 
-import grails.plugin.spock.IntegrationSpec
+import spock.lang.Specification
 
-class ImportServiceISpec extends IntegrationSpec {
+class ImportServiceISpec extends Specification {
 
     def storyImportService
     def projectService

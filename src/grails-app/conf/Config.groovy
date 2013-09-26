@@ -1,5 +1,3 @@
-import org.apache.log4j.PatternLayout
-
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -13,43 +11,67 @@ import org.apache.log4j.PatternLayout
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
+grails.databinding.convertEmptyStringsToNull = false
+
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
-grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
-grails.mime.use.accept.header = false
+
+// The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
+grails.mime.disable.accept.header.userAgents = ['Gecko', 'WebKit', 'Presto', 'Trident']
 grails.mime.types = [
-    all:            "*/*",
-    atom:           "application/atom+xml",
-    css:            "text/css",
-    csv:            "text/csv",
-    excel:          "application/vnd.ms-excel",
-    form:           "application/x-www-form-urlencoded",
-    html:           ["text/html","application/xhtml+xml"],
-    js:             "text/javascript",
-    json:           ["application/json","text/json"],
-    multipartForm:  "multipart/form-data",
-    ods:            "application/vnd.oasis.opendocument.spreadsheet",
-    pdf:            "application/pdf",
-    rss:            "application/rss+xml",
-    rtf:            "application/rtf",
-    text:           "text-plain",
-    xml:            ["text/xml", "application/xml"],
+    all:           '*/*',
+    atom:          'application/atom+xml',
+    css:           'text/css',
+    csv:           'text/csv',
+    form:          'application/x-www-form-urlencoded',
+    html:          ['text/html','application/xhtml+xml'],
+    js:            'text/javascript',
+    json:          ['application/json', 'text/json'],
+    multipartForm: 'multipart/form-data',
+    rss:           'application/rss+xml',
+    text:          'text/plain',
+    hal:           ['application/hal+json','application/hal+xml'],
+    xml:           ['text/xml', 'application/xml']
 ]
 
 // URL Mapping Cache Max Size, defaults to 5000
 //grails.urlmapping.cache.maxsize = 1000
 
 // What URL patterns should be processed by the resources plugin
-grails.resources.adhoc.patterns = ["/images/*", "/css/*", "/js/*", "/plugins/*"]
+grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
 
-// The default codec used to encode data with ${}
-grails.views.default.codec = "none" // none, html, base64
-grails.views.gsp.encoding = "UTF-8"
+// Legacy setting for codec used to encode data with ${}
+grails.views.default.codec = "html"
+
+// The default scope for controllers. May be prototype, session or singleton.
+// If unspecified, controllers are prototype scoped.
+grails.controllers.defaultScope = 'singleton'
+
+// GSP settings
+grails {
+    views {
+        gsp {
+            encoding = 'UTF-8'
+            htmlcodec = 'xml' // use xml escaping instead of HTML4 escaping
+            codecs {
+                expression = 'html' // escapes values inside ${}
+                scriptlet = 'html' // escapes output from scriptlets in GSPs
+                taglib = 'none' // escapes output from taglibs
+                staticparts = 'none' // escapes output from static template parts
+            }
+        }
+        // escapes all not-encoded output at final stage of outputting
+        filteringCodecForContentType {
+            //'text/html' = 'html'
+        }
+    }
+}
+
 grails.converters.encoding = "UTF-8"
 grails.converters.default.pretty.print = true
 // enable Sitemesh preprocessing of GSP pages
 grails.views.gsp.sitemesh.preprocess = true
 // scaffolding templates configuration
-grails.scaffolding.templates.domainSuffix = "Instance"
+grails.scaffolding.templates.domainSuffix = 'Instance'
 
 // Set to false to use the new Grails 1.2 JSONBuilder in the render method
 grails.json.legacy.builder = false
@@ -61,7 +83,7 @@ grails.spring.bean.packages = []
 grails.web.disable.multipart=false
 
 // request parameters to mask when logging exceptions
-grails.exceptionresolver.params.exclude = ["password"]
+grails.exceptionresolver.params.exclude = ['password']
 
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
@@ -85,9 +107,7 @@ log4j = {
         String datePattern = "%d{HH:mm:ss}" // "%d"
         String userActivityPattern = "%X{user_rid},%X{user_name},%X{user_action}"
         String classNamePattern = "%c{2}"
-        String pattern = "${datePattern} [${userActivityPattern}] %-5p ${classNamePattern} %x - %m%n"
-        PatternLayout layout = new PatternLayout(conversionPattern: pattern)
-        console name: 'stdout', layout: layout
+        console name: 'stdout', layout: pattern(conversionPattern: "${datePattern} [${userActivityPattern}] %-5p ${classNamePattern} %x - %m%n")
     }
 
     debug "grails.app"

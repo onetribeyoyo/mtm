@@ -1,8 +1,8 @@
 package com.onetribeyoyo.mtm.domain
 
-import grails.plugin.spock.IntegrationSpec
+import spock.lang.Specification
 
-class ProjectISpec extends IntegrationSpec {
+class ProjectISpec extends Specification {
 
     def projectService
 

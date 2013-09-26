@@ -30,7 +30,7 @@ class ProjectSpec extends Specification {
             field  | error      | value
 
             "name" | "nullable" | null
-            "name" | "blank"    | ""
+            "name" | "nullable" | "" // grails-2.3 binds empty strings to null.
             "name" | "unique"   | "project-1"
             "name" | "valid"    | "project-2"
             "name" | "valid"    | testUtil.stringWithLength(255)

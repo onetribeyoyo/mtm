@@ -26,7 +26,7 @@ class StorySpec extends Specification {
             field     | error      | value
 
             "summary" | "nullable" | null
-            "summary" | "blank"    | ""
+            "summary" | "nullable" | "" // grails-2.3 binds empty strings to null.
             "summary" | "valid"    | "a summary"
             "summary" | "valid"    | testUtil.stringWithLength(255)
             "summary" | "maxSize"  | testUtil.stringWithLength(256)

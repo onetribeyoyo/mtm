@@ -28,7 +28,7 @@ class DimensionSpec extends Specification {
             field  | error      | value
 
             "name" | "nullable" | null
-            "name" | "blank"    | ""
+            "name" | "nullable" | "" // grails-2.3 binds empty strings to null.
 
             // TODO: name constraints will fail in unit tests, 'cause they call withNewSession!
             //"name" | "valid"    | "a name"

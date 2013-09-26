@@ -10,7 +10,6 @@ class StorySpec extends Specification {
     static DomainTestUtil testUtil = new DomainTestUtil()
 
     def setup() {
-        // mock a form with some proprties set for checking unique constraints
         mockForConstraintsTests(Story, [new Story()])
     }
 

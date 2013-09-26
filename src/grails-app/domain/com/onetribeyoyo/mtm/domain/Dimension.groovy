@@ -19,21 +19,10 @@ class Dimension implements Comparable {
     ]
 
     static constraints = {
-        name nullable: false, blank: false, maxSize: 255, validator: validateNameUniqueWithinProject
+        name nullable: false, blank: false, maxSize: 255, unique:"project"
         description nullable: true, blank: true, maxSize: 4095
         colour nullable: true, blank: true, maxSize: 63
         //layoutStyle inList: LayoutStyle.values()
-    }
-
-    protected static validateNameUniqueWithinProject = { val, obj ->
-        def result = true
-        Dimension.withNewSession {
-            def existingDimension = obj.project.dimensionFor(val)
-            if (existingDimension && (existingDimension != obj)) {
-                result = "com.onetribeyoyo.mtm.domain.Dimension.name.unique"
-            }
-        }
-        return result
     }
 
     Element elementFor(String value) {

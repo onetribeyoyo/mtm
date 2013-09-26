@@ -131,28 +131,3 @@ codenarc.ruleSetFiles = [
     //"size",
     //"unnecessary",
 ].collect { "file:codenarc/${it}.groovy" }
-/*
-codenarc.ruleSetFiles = [
-    "rulesets/basic.xml", // one of grails plugin default rulesets
-    "rulesets/braces.xml",
-    "rulesets/concurrency.xml",
-    "rulesets/convention.xml",
-    "rulesets/design.xml",
-    "rulesets/dry.xml",
-    "rulesets/exceptions.xml", // one of grails plugin default rulesets
-    "rulesets/formatting.xml",
-    "rulesets/generic.xml",
-    "rulesets/grails.xml",  // one of grails plugin default rulesets
-    "rulesets/groovyism.xml",
-    "rulesets/imports.xml", // one of grails plugin default rulesets
-    "rulesets/jdbc.xml",
-    "rulesets/junit.xml",
-    "rulesets/logging.xml",
-    "rulesets/naming.xml",
-    "rulesets/security.xml",
-    "rulesets/serialization.xml",
-    "rulesets/size.xml",
-    "rulesets/unnecessary.xml",
-    "rulesets/unused.xml", // one of grails plugin default rulesets
-]
-*/

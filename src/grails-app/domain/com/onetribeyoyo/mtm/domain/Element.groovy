@@ -17,21 +17,10 @@ class Element implements Comparable {
 
     static constraints = {
         dimension nullable: false
-        value nullable: false, blank: false, maxSize: 255, validator: validateValueUniqueWithinDimension
+        value nullable: false, blank: false, maxSize: 255, unique:"dimension"
         colour nullable: true, blank: true, maxSize: 63
         description nullable: true, blank: true, maxSize: 4095
         order nullable: false
-    }
-
-    protected static validateValueUniqueWithinDimension = { val, obj ->
-        def result = true
-        Element.withNewSession {
-            def existingElement = obj.dimension.elementFor(val)
-            if (existingElement && (existingElement != obj)) {
-                result = "com.onetribeyoyo.mtm.domain.Element.value.unique"
-            }
-        }
-        return result
     }
 
     boolean complete() {

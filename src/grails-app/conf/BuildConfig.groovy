@@ -60,7 +60,7 @@ grails.project.dependency.resolution = {
         runtime ":database-migration:1.3.6"
 
         //~ user interface -----------------------------------------------------------
-        runtime ":jquery:1.10.2" // ":jquery:1.8.3"
+        runtime ":jquery:1.8.3"
         compile ":jquery-ui:1.8.24"
         compile ":famfamfam:1.0.1"
 

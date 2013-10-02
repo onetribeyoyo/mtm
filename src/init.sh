@@ -2,8 +2,8 @@
 # mtm specific init
 #
 
-use jdk -a 1.6
-rehome jdk alternate
+#use jdk -a 1.6
+#rehome jdk alternate
 
 use grails -a 2.3.0
 rehome grails alternate

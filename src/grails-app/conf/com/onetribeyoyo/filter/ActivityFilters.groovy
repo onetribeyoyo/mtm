@@ -12,7 +12,7 @@ import org.apache.log4j.MDC
  *  Enable trace level logging for this class to see incoming params and
  *  the outgoing model.
  */
-class UserActivityFilters {
+class ActivityFilters {
 
     def springSecurityService
 
@@ -36,7 +36,7 @@ class UserActivityFilters {
             before = {
                 MDC.put MDC_USER_NAME_KEY, getUsername()
                 MDC.put MDC_USER_RID_KEY, getNextRid()
-                MDC.put MDC_USER_ACTION_KEY, getUserAction(controllerName, actionName, params)
+                MDC.put MDC_USER_ACTION_KEY, getAction(controllerName, actionName, params)
 
                 if (log.isInfoEnabled()) {
                     log.info ">>"
@@ -89,17 +89,17 @@ class UserActivityFilters {
         }
     }
 
-    private def getUserAction(controllerName, actionName, params) {
-        def userAction = "${controllerName ?: (params.controllerName ?: '')}"
+    private def getAction(controllerName, actionName, params) {
+        def action = "${controllerName ?: (params.controllerName ?: '')}"
         if (actionName) {
-            userAction += "/${actionName}"
+            action += "/${actionName}"
         } else if (params.action) {
-            userAction += "/${params.action}"
+            action += "/${params.action}"
         }
         if (params.id) {
-            userAction += "/${params.id}"
+            action += "/${params.id}"
         }
-        return (userAction ?: "-")
+        return (action ?: "-")
     }
 
     private def getNextRid() {

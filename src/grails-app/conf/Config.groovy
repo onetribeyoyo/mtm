@@ -114,8 +114,6 @@ log4j = {
     debug "com.onetribeyoyo.mtm"
     info  "grails.app.filters.com.onetribeyoyo.mtm.filter.LoggingFilters"
 
-    //info  "org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin" // Set the DefaultGrailsPlugin to INFO so we can see in the log when modified classes are reloaded.
-
     error "org.codehaus.groovy.grails.web.servlet",        //  controllers
           "org.codehaus.groovy.grails.web.pages",          //  GSP
           "org.codehaus.groovy.grails.web.sitemesh",       //  layouts

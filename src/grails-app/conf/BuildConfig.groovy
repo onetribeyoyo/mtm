@@ -17,6 +17,8 @@ grails.project.fork = [
     console: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256],
 ]
 
+grails.reload.enabled = true // TODO: can we set grails.reload.enabled per environment in BuildConfig?
+
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -66,7 +68,7 @@ grails.project.dependency.resolution = {
 
         //~ resources ----------------------------------------------------------------
         runtime ":resources:1.2.1"
-        runtime ":gsp-resources:0.4.1" // NOTE: gsp-resources plugin requires groovy be available on the path at server startup time!
+        runtime ":gsp-resources:0.4.4" // NOTE: gsp-resources plugin requires groovy be available on the path at server startup time!
         //runtime ":zipped-resources:1.0.1"
         //runtime ":cached-resources:1.1"
         //runtime ":yui-minify-resources:0.1.5"
@@ -78,7 +80,7 @@ grails.project.dependency.resolution = {
         compile ":remote-pagination:0.4.5"
 
         //~ testing ------------------------------------------------------------------
-        compile ":build-test-data:2.0.5"
+        compile ":build-test-data:2.0.6"
 
         //~ code quality -------------------------------------------------------------
         compile ":codenarc:0.19"     // generate report with `grails codenarc`

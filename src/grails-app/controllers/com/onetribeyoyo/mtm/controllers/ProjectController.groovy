@@ -29,8 +29,8 @@ class ProjectController {
         Project project = params.id ? Project.read(params.id) : null
         params.max = Math.min(params.max ? params.int('max') : 20, 100)
         [
-            project: project, 
-            projectList: Project.list(params), 
+            project: project,
+            projectList: Project.list(params),
             projectTotal: Project.count()
         ]
     }
@@ -74,6 +74,7 @@ class ProjectController {
             redirect action: "list"
 
         } else {
+            // TODO: move this to Map ProjectService.export(Project project) and then write some tests for it.
             def data = [
                 name: project.name,
                 estimateUnits: project.estimateUnits,
@@ -123,6 +124,7 @@ class ProjectController {
                 },
             ]
 
+            // TODO: how should this be rewritten for grails 2.3?
             String filename = "project.${project.id}.mtm"
             response.setHeader("Content-disposition", "attachment; filename=${filename}")
             response.contentType = grailsApplication.config.grails.mime.types.text

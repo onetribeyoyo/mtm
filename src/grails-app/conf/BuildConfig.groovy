@@ -90,46 +90,50 @@ grails.project.dependency.resolution = {
 
 }
 
+
+//~ cobertura config ---------------------------------------------------------
 coverage = {
     enabledByDefault = false
     exclusions = [
     ]
 }
 
-codenarc.reports = {
-    xmlReport("xml") {
-        outputFile = "target/test-reports/CodeNarc-Report.xml"
+//~ codenarc config ----------------------------------------------------------
+codenarc {
+    reports = {
+        xmlReport("xml") {
+            outputFile = "target/test-reports/CodeNarc-Report.xml"
+        }
+        htmlReport("html") {
+            outputFile = "target/test-reports/CodeNarc-Report.html"
+        }
     }
-    htmlReport("html") {
-        outputFile = "target/test-reports/CodeNarc-Report.html"
-    }
-}
+    ruleSetFiles = [
+        //"all",
 
-codenarc.ruleSetFiles = [
-    //"all",
-
-    // grails plugin default rulesets...
+        // grails plugin default rulesets...
     "basic",
     "exceptions",
     "grails",
-    "imports",
+        "imports",
     "unused",
 
-    // additional rulesets...
-    //"braces",
-    //"concurrency",
-    //"convention",
-    //"design",
-    //"dry",
-    //"formatting",
-    //"generic",
-    //"groovyism",
-    //"jdbc",
-    //"junit",
-    //"logging",
-    //"naming",
-    //"security",
-    //"serialization",
-    //"size",
-    //"unnecessary",
-].collect { "file:codenarc/${it}.groovy" }
+        // additional rulesets...
+        //"braces",
+        //"concurrency",
+        //"convention",
+        //"design",
+        //"dry",
+        //"formatting",
+        //"generic",
+        //"groovyism",
+        //"jdbc",
+        //"junit",
+        //"logging",
+        //"naming",
+        //"security",
+        //"serialization",
+        //"size",
+        //"unnecessary",
+    ].collect { "file:codenarc/${it}.groovy" }
+}

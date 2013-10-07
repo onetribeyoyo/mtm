@@ -65,8 +65,8 @@ class StoryMapTagLib {
             def collapseStyle = complete ? "hidden" : ""
             def expandStyle = complete ? "" : "hidden"
 
-            out << "      <a href='#' class='y toggle-row row-${y.id} ${collapseStyle} non-printing' yId='${y.id}'><img src='../../images/arrow_collapse.png' /></a>\n"
-            out << "      <a href='#' class='y toggle-row row-${y.id} ${expandStyle} non-printing' yId='${y.id}'><img src='../../images/arrow_expand.png' /></a>\n"
+            out << "      <a href='#' class='y toggle-row row-${y.id} ${collapseStyle} non-printing' data-yId='${y.id}'><img src='../../images/arrow_collapse.png' /></a>\n"
+            out << "      <a href='#' class='y toggle-row row-${y.id} ${expandStyle} non-printing' data-yId='${y.id}'><img src='../../images/arrow_expand.png' /></a>\n"
             out << "    </li>\n"
 
             // a cell for cards where (x == null)
@@ -100,8 +100,8 @@ class StoryMapTagLib {
             }
             out << "</div>\n"
         }
-        out << "      <a href='#' class='y toggle-row row-null' yId='null'><img src='../../images/arrow_collapse.png' /></a>\n"
-        out << "      <a href='#' class='y toggle-row row-null hidden' yId='null'><img src='../../images/arrow_expand.png' /></a>\n"
+        out << "      <a href='#' class='y toggle-row row-null' data-yId='null'><img src='../../images/arrow_collapse.png' /></a>\n"
+        out << "      <a href='#' class='y toggle-row row-null hidden' data-yId='null'><img src='../../images/arrow_expand.png' /></a>\n"
         out << "    </li>\n"
 
         // a cell for cards where both (x == null) and  (y == null)

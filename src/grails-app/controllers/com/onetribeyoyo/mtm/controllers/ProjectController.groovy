@@ -125,7 +125,7 @@ class ProjectController {
             ]
 
             // TODO: how should this be rewritten for grails 2.3?
-            String filename = "project.${project.id}.mtm"
+            String filename = "${project.name.toLowerCase().replace(" ", "-")}.mtm" //"project.${project.id}.mtm"
             response.setHeader("Content-disposition", "attachment; filename=${filename}")
             response.contentType = grailsApplication.config.grails.mime.types.text
             render data as JSON

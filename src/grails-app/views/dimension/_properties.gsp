@@ -5,7 +5,7 @@
   <tr>
     <th class="nowrap"> <label for="name" class="required">Dimension</label> </th>
     <td>
-      <g:field name="name" type="text" value="${dimension?.name}" class="${hasErrors(bean: dimension, field: 'name', 'error')}" />
+      <g:field name="name" type="text" size="52" maxlength="255" value="${dimension?.name}" class="${hasErrors(bean: dimension, field: 'name', 'error')}" />
     </td>
   </tr>
 

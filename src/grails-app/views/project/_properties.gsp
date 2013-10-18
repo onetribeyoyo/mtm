@@ -2,12 +2,12 @@
 
   <tr>
     <th class="nowrap"> <label for="name" class="required">Project Name</label> </th>
-    <td valign="middle"> <g:field name="name" type="text" value="${project?.name}" class="${hasErrors(bean: project, field: 'name', 'error')}" /> </td>
+    <td valign="middle"> <g:field name="name" type="text" size="52" maxlength="255" value="${project?.name}" class="${hasErrors(bean: project, field: 'name', 'error')}" /> </td>
   </tr>
 
   <tr>
     <th class="nowrap"> <label for="estimateUnits" class="required">Estimate Units</label> </th>
-    <td valign="middle"> <g:field name="estimateUnits" type="text" value="${project?.estimateUnits}" class="${hasErrors(bean: project, field: 'estimateUnits', 'error')}" /> </td>
+    <td valign="middle"> <g:field name="estimateUnits" type="text" size="52" maxlength="15" value="${project?.estimateUnits}" class="${hasErrors(bean: project, field: 'estimateUnits', 'error')}" /> </td>
   </tr>
 
   <tr>

@@ -5,12 +5,12 @@
 
   <tr>
     <th> <label for="value" class="required">Value</label> </th>
-    <td> <g:field name="value" type="text" value="${element?.value}" class="${hasErrors(bean: element, field: 'value', 'error')}" /> </td>
+    <td> <g:field name="value" type="text" size="52" maxlength="255" value="${element?.value}" class="${hasErrors(bean: element, field: 'value', 'error')}" /> </td>
   </tr>
 
   <tr>
     <th> <label for="colour" class="required">Colour</label> </th>
-    <td> <g:field name="colour" type="text" value="${element?.colour}" class="${hasErrors(bean: element, field: 'colour', 'error')}" /> </td>
+    <td> <g:field name="colour" type="text" size="52" maxlength="63" value="${element?.colour}" class="${hasErrors(bean: element, field: 'colour', 'error')}" /> </td>
   </tr>
 
   <tr>

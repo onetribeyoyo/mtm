@@ -72,8 +72,9 @@
 
    background-color: #EEDD82;
    font-size: 90%;
-   font-weight: bold;
-   padding: 0.5em 0.5em;
+   font-style: oblique;
+   /* font-weight: bold; */
+   padding: 0 0.5em;
    text-align: center;
 }
 .card .story .vector {

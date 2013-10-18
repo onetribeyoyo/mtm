@@ -32,12 +32,11 @@
   <hr />
   <table>
     <tr> <th> Project Name </th>   <td> ${project?.name} </td> </tr>
-    <tr> <th> Estimate Units </th> <td> ${project?.estimateUnits ?: "<span class='hint'>not specified</span>" } </td> </tr>
-    <tr> <th> Show Estimates </th> <td> ${project.showEstimates ? 'Yes' : 'No'} </td> </tr>
-    <tr> <th> Card Colour </th>    <td> ${project.colourDimension?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
-    <tr> <th> Highlight </th>      <td> ${project.highlightDimension?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
-    <tr> <th> Primary X Axis </th>   <td> ${project.primaryXAxis?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
-    <tr> <th> Primary Y Axis </th>   <td> ${project.primaryYAxis?.name?.capitalize() ?: "<span class='hint'>not specified</span>" } </td> </tr>
+    <tr> <th> Estimate Units </th> <td> <mtm:format value="${project?.estimateUnits}" /> </td> </tr>
+    <tr> <th> Card Colour </th>    <td> <mtm:format value="${project.colourDimension?.name?.capitalize()}" /> </td> </tr>
+    <tr> <th> Highlight </th>      <td> <mtm:format value="${project.highlightDimension?.name?.capitalize()}" /> </td> </tr>
+    <tr> <th> Primary X Axis </th> <td> <mtm:format value="${project.primaryXAxis?.name?.capitalize()}" /> </td> </tr>
+    <tr> <th> Primary Y Axis </th> <td> <mtm:format value="${project.primaryYAxis?.name?.capitalize()}" /> </td> </tr>
   </table>
   <hr class="non-printing" />
   <p class="narrow hint non-printing">

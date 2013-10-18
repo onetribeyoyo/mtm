@@ -1,0 +1,2915 @@
+{
+  "name": "Starting a New Project",
+  "estimateUnits": "",
+  "showEstimates": true,
+  "colourDimension": "status",
+  "highlightDimension": "artifact",
+  "primaryXAxis": "status",
+  "primaryYAxis": "release",
+  "dimensions": 
+  [
+    {
+      "name": "artifact",
+      "description": "",
+      "colour": "SteelBlue",
+      "layoutStyle": "FLOW",
+      "elements": 
+      [
+        {
+          "value": "model",
+          "order": 0,
+          "colour": "",
+          "description": ""
+        },
+        {
+          "value": "method",
+          "order": 1,
+          "colour": "",
+          "description": ""
+        },
+        {
+          "value": "arch",
+          "order": 2,
+          "colour": "",
+          "description": ""
+        },
+        {
+          "value": "team",
+          "order": 3,
+          "colour": "",
+          "description": ""
+        },
+        {
+          "value": "tool",
+          "order": 4,
+          "colour": "",
+          "description": ""
+        },
+        {
+          "value": "env",
+          "order": 5,
+          "colour": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "release",
+      "description": null,
+      "colour": null,
+      "layoutStyle": "FLOW",
+      "elements": 
+      [
+        {
+          "value": "§ 0. Establish pattern languange(s)",
+          "order": 9999,
+          "colour": "",
+          "description": ""
+        },
+        {
+          "value": "§ 1. Up front discuss....",
+          "order": 9999,
+          "colour": "",
+          "description": null
+        },
+        {
+          "value": "§ 2. Early on team agrees on....",
+          "order": 9999,
+          "colour": "",
+          "description": null
+        },
+        {
+          "value": "§ 3. During 1st release (architecture POC)....",
+          "order": 9999,
+          "colour": "",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "description": "",
+      "colour": null,
+      "layoutStyle": "FLOW",
+      "elements": 
+      [
+        {
+          "value": "on deck",
+          "order": 0,
+          "colour": "Gainsboro",
+          "description": null
+        },
+        {
+          "value": "blocked",
+          "order": 1,
+          "colour": "Tomato",
+          "description": null
+        },
+        {
+          "value": "in progress",
+          "order": 2,
+          "colour": "LightGoldenrod3",
+          "description": null
+        },
+        {
+          "value": "proposed",
+          "order": 3,
+          "colour": "PaleTurquoise",
+          "description": ""
+        },
+        {
+          "value": "accepted",
+          "order": 4,
+          "colour": "DarkSeaGreen1",
+          "description": ""
+        }
+      ]
+    }
+  ],
+  "stories": 
+  [
+    {
+      "summary": "formulate and implement coding/naming conventions",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "arch"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "arch",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 5
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "other contributors (outside the core team)",
+      "detail": "",
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "team"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "team",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 3
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "release cadence",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 0. Establish pattern languange(s)"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "environments: development workstations, servers",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "artifact",
+          "value": "env"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "env",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "summary": "methods for tracking progress",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "summary": "quality measures",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 0. Establish pattern languange(s)"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "testing expectations for integration tests",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 1
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "prioritization games",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 0. Establish pattern languange(s)"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "testing expectations for managing test data sets",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 4
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "formulate and implement usability/HCI guidelines",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "arch"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "arch",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 3
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "Business and technical priorities",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "model"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "model",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "summary": "methods for user feedback planning",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "summary": "formulate and implement code and design reviews expectations",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 5
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "formulate and implement security framework",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "arch"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "arch",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 6
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "accountability (RACI model?)",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "team"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "team",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "summary": "start a deployment checklist so it's not a surprise at the end",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "env"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "env",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 1
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "construction patterns",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "arch"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 0. Establish pattern languange(s)"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "arch",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "environments: pre-production servers",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "env"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "env",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "summary": "Initial estimate",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "model"
+        },
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "model",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 7
+        }
+      ]
+    },
+    {
+      "summary": "build automation and dependency resolution",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "arch"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "arch",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "summary": "environments: testing servers",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "artifact",
+          "value": "env"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "env",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 2
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "testing expectations for regression tests",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "summary": "formulate and implement application patterns",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "arch"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "arch",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "summary": "domain model",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "model"
+        },
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 0. Establish pattern languange(s)"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "model",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "interoperability/integration guidelines",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "arch"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "arch",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "summary": "methods for iteration/task planning",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 1
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "Interoperability/integration requirements",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "arch"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "arch",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "summary": "Budget constraints",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "model"
+        },
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "model",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "summary": "team agrees with everything from § 1.",
+      "detail": "",
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "team"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "team",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 2
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "user feedback mechanisms",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 0. Establish pattern languange(s)"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "environments: user session servers",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "env"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "env",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "summary": "Space planning",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "team"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "team",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 1
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "Intangible expectations (knowledge sharing, mentoring, ....)",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "team"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "team",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "summary": "methods for requirements management",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 6
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "test harnesses (including containers, DBs, ....)",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "arch"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "arch",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 4
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "tool selection: requirements management tools",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "artifact",
+          "value": "tool"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "tool",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 4
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "Final acceptance criteria",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "model"
+        },
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "model",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "summary": "methods for bug tracking",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 0
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "tool selection: bug tracking tools",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "artifact",
+          "value": "tool"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "tool",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 1
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "tool selection: collaboration/communication tools",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "tool"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "tool",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 5
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "Vision of solution",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "model"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "model",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 2
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "refactoring guidelines",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 0. Establish pattern languange(s)"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "testing expectations for functional (black box) tests",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "summary": "tools and environments",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "artifact",
+          "value": "tool"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 0. Establish pattern languange(s)"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "tool",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "tool selection: run-time tools",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "artifact",
+          "value": "tool"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "tool",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 3
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "testing expectations for  unit tests",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "summary": "server infrastructure (db, build, app, ....)",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "artifact",
+          "value": "env"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "env",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 0
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "Tool constraints",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "arch"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "arch",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "summary": "methods for estimation and release planning",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 2
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "release and iteration approach",
+      "detail": "",
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "model"
+        },
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "model",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "summary": "requirements management",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 0. Establish pattern languange(s)"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "issue tracking",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 0. Establish pattern languange(s)"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "methods for configuration and build management",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "artifact",
+          "value": "tool"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "tool",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 2
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "Quality(/qualitative) measures and priorities",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "arch"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "arch",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "core team and roles",
+      "detail": "",
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "artifact",
+          "value": "team"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "team",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 0
+        },
+        {
+          "xAxis": "artifact",
+          "x": "tool",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 1
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "tool selection: development tools",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "artifact",
+          "value": "tool"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "env",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 0
+        },
+        {
+          "xAxis": "artifact",
+          "x": "tool",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 0
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "Staffing",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "team"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "team",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 0
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "Initial release plan",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "model"
+        },
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "model",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 3
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "Requirements & scope",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "model"
+        },
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "model",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 5
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "methods for risk management",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 7
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "environments: production servers",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "artifact",
+          "value": "env"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 3. During 1st release (architecture POC)...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "env",
+          "yAxis": "release",
+          "y": "§ 3. During 1st release (architecture POC)....",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "summary": "Problem statement",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "artifact",
+          "value": "model"
+        },
+        {
+          "dimension": "status",
+          "value": "in progress"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "model",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 0
+        },
+        {
+          "xAxis": "status",
+          "x": "in progress",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "communication patterns",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 0. Establish pattern languange(s)"
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        },
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 0. Establish pattern languange(s)",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "Calendar constraints and delivery dates",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "team"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 1. Up front discuss...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "team",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": 2
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 1. Up front discuss....",
+          "order": null
+        }
+      ]
+    },
+    {
+      "summary": "methods for deployment planning",
+      "detail": null,
+      "estimate": 0,
+      "vector": 
+      [
+        {
+          "dimension": "status",
+          "value": "on deck"
+        },
+        {
+          "dimension": "artifact",
+          "value": "method"
+        },
+        {
+          "dimension": "release",
+          "value": "§ 2. Early on team agrees on...."
+        }
+      ],
+      "ordering": 
+      [
+        {
+          "xAxis": "artifact",
+          "x": "method",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": 3
+        },
+        {
+          "xAxis": "status",
+          "x": "on deck",
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        },
+        {
+          "xAxis": null,
+          "x": null,
+          "yAxis": "release",
+          "y": "§ 2. Early on team agrees on....",
+          "order": null
+        }
+      ]
+    }
+  ]
+}

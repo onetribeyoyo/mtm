@@ -6,6 +6,18 @@ class StorymapService {
 
     static transactional = true
 
+    Dimension findXAxis(Project project, String dimensionName) {
+        project.dimensionFor(dimensionName) ?:
+        project.primaryXAxis ?:
+        project.dimensions.find { d -> d != project.primaryYAxis }
+    }
+
+    Dimension findYAxis(Project project, String dimensionName) {
+        project.dimensionFor(dimensionName) ?:
+        project.primaryYAxis ?:
+        project.dimensions.find { d -> d != project.primaryXAxis }
+    }
+
     /**
      *  Returns a map of maps of lists, one element for each row in the storymap.
      *  For example: the storymap for xAxis=[1,2,3] and yAxis={a,b,c] looks like

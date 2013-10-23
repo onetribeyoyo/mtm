@@ -11,9 +11,10 @@ class ProjectController {
 
     static allowedMethods = [save: "POST", update: "POST"]
 
-    def projectService
-
     def grailsApplication
+
+    def projectService
+    def storymapService
 
     def index = {
         if (Project.count() == 1) {
@@ -41,15 +42,15 @@ class ProjectController {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
             redirect action: "list"
         } else {
-            Dimension xAxis = project.dimensionFor(x) ?: project.dimensionFor(session.x) ?: project.primaryXAxis ?: project.dimensions.find { d -> d != project.primaryYAxis }
-            Dimension yAxis = project.dimensionFor(y) ?: project.dimensionFor(session.y) ?: project.primaryYAxis ?: project.dimensions.find { d -> d != project.primaryXAxis }
+            Dimension xAxis = storymapService.findXAxis(project, (x ?: session.x))
+            Dimension yAxis = storymapService.findYAxis(project, (y ?: session.y))
             if (!xAxis || ! yAxis) {
                 flash.error = "Cannot map unknown dimensions."
                 redirect action: "show", params: params
             } else {
                 session.x = xAxis.name
                 session.y = yAxis.name
-                [project: project, xAxis: xAxis, yAxis: yAxis]
+                [ project: project, xAxis: xAxis, yAxis: yAxis ]
             }
         }
     }
@@ -60,8 +61,22 @@ class ProjectController {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
             redirect action: "list"
         } else {
-            [ project: project ]
+            Dimension xAxis = storymapService.findXAxis(project, session.x)
+            Dimension yAxis = storymapService.findYAxis(project, session.y)
+            [ project: project, xAxis: xAxis, yAxis: yAxis ]
         }
+    }
+
+    private Dimension findXAxis(Project project, String dimensionName) {
+        project.dimensionFor(dimensionName) ?:
+        project.primaryXAxis ?:
+        project.dimensions.find { d -> d != project.primaryYAxis }
+    }
+
+    private Dimension findYAxis(Project project, String dimensionName) {
+        project.dimensionFor(dimensionName) ?:
+        project.primaryYAxis ?:
+        project.dimensions.find { d -> d != project.primaryXAxis }
     }
 
 

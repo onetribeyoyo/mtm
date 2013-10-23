@@ -4,7 +4,7 @@ import com.onetribeyoyo.mtm.domain.*
 
 import com.onetribeyoyo.mtm.util.LayoutStyle
 
-class StoryMapTagLib {
+class StorymapTagLib {
 
     static namespace = "storymap"
 

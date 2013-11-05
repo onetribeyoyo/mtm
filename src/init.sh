@@ -5,7 +5,7 @@
 #use jdk -a 1.6
 #rehome jdk alternate
 
-use grails -a 2.3.0
+use grails -a 2.3.1
 rehome grails alternate
 
 use groovy -a 2.0.6

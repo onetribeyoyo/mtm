@@ -48,7 +48,7 @@
   </p>
 </div>
 
-<storymap:mapList project="${project}" />
+<storymap:mapList project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
 
 <hr class="clear" />
 

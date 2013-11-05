@@ -18,6 +18,7 @@
 
      dt { font-weight: bold; }
 
+     .a, .b, .c, .d { margin: 4px; }
      .a { color: #555555; background-color: lightgreen; padding: 0 2em 0 0.5em; }
      .b { color: #555555; background-color: lightblue; padding: 0 0.5em; }
      .c { color: black; background-color: lightgray; }
@@ -108,7 +109,7 @@
   <h2>5. Note logical breaks in workflow(s)</h2>
 
   <ul>
-    <li>These may indicate possibilities for refactoring goals>
+    <li>These may indicate possibilities for refactoring goals.
   </ul>
 
   <hr />

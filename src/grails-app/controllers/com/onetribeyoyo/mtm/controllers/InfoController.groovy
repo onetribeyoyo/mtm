@@ -10,19 +10,16 @@ class InfoController {
         redirect action: "faq"
     }
 
-    def estimation = {
-        Project project = params.id ? Project.read(params.id) : null
-        [ project: project ]
+    def estimation(Long id) {
+        id ? [ project : Project.read(params.id) ] : [:]
     }
 
-    def faq = {
-        Project project = params.id ? Project.read(params.id) : null
-        [ project: project ]
+    def faq(Long id) {
+        id ? [ project : Project.read(params.id) ] : [:]
     }
 
-    def process = {
-        Project project = params.id ? Project.read(params.id) : null
-        [ project: project ]
+    def process(Long id) {
+        id ? [ project : Project.read(params.id) ] : [:]
     }
 
 }

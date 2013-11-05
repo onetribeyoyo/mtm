@@ -22,43 +22,56 @@
   <h2> Why Story Mapping? </h2>
 
   <div class="light-padding float-right">
-    <p class="narrow hint light-padding float-right">Using story maps doesn't get us all the way there either.  To
-    truely capture the context it ussually takes some sort of drawing of the system.  Maybe a sketch of the domain
-    model; a diagram or two showing how the application will be required to interact with other parts of the ecosystem;
-    and so on.</p>
+    <p class="narrow hint float-right">To be fair, using story maps doesn't get us all the way there
+    either.  To truely capture the context it ussually takes some sort of drawing of the system.  Maybe a sketch of the
+    domain model; a diagram or two showing how the application will be required to interact with other parts of the
+    ecosystem; and so on.</p>
   </div>
 
-  <p class="article">Long lists of stories and backlog items don't cut it.  I want to see at a glance the context of the
-  entire project: story maps (and the <g:link action="process">story mapping process</g:link>) are one solution to this
-  problem.</p>
+  <p class="article">When prioritizing features and planning releases it is really useful to be able to see at a glance
+  the entire context.  Long lists of stories and backlog items just don't cut it, but story maps (and the
+  <g:link action="process" id="${project?.id}">story mapping process</g:link>) are one solution to this problem.</p>
 
   <p class="article">In addition to showing the context, story maps provide a glimpse into the "completeness" of the
   project.  They let us see and share with sponsors what's done, where the problems are, and what's in need of further
-  definition.</p>
-
-  <p class="article">And, perhaps most importantly, story maps help us look ahead.  When we're doing iteration planning
-  the maps help us see what's coming later so we can make judgement calls on what's best to tackle first &mdash; and we
-  can easily do this both from a user's perspective and from a technical complexity/risk perspective.</p>
-
-  <p class="article">In other words, story maps simplify sticking to the S.M.A.R.T. principle...</p>
-
-  <ul>
-    <li> <strong>S</strong>pecific,
-    <li> <strong>M</strong>eaningful,
-    <li> <strong>A</strong>greed to,
-    <li> <strong>R</strong>ealistic, and
-    <li> <strong>T</strong>ime phased.
-  </ul>
-
+  definition.  And, perhaps most importantly, story maps help us look ahead.  When we're doing release planning the maps
+  help us see what's coming later so we can make judgement calls on what's best to tackle first &mdash; and we can
+  easily do this both from a user's perspective and from a technical complexity/risk perspective.</p>
 
   <h2> Multi-dimensional Mapping </h2>
 
   <p class="article">Many development teams use Kanban boards to track work-in-progress, work-on-deck, etc.  This is a
   great approach and many tools are available that automate the low tech "post-its on the wall" technique.  With any
-  project the complexity soon passes the point of being able to see it all at a glance.  AND kanban boards are most
-  often used to
+  project the complexity soon passes the point of being able to see it all at a glance.  While kanban boards are most
+  often used to track what's going on NOW, story mappings are intended to help track what's happening (or going to
+  happen) over a longer period of time.</p>
 
-  </p>
+  <p class="article">Let's consider this scenario...</p>
+  <ol>
+    <li>You've started with a healthy list of possibilities and worked through your initial release plan.</li>
+    <li>You've got a good start at what you think are some useful second and third releases.</li>
+    <li>Suddenly your competition announces a new product.</li>
+    <li>You'd love to drop everything for the second release and nail them to the wall with an awesome come back.</li>
+    <li>But...</li>
+    <li>It doesn't make business (or technical sense) to leave what you've been working on half done.</li>
+  </ol>
+
+  <p class="article">What should you do?</p>
+
+  <p class="article">You could craw under a rock and fail.  You could run screaming into the
+  land-of-complete-chaotic-releases.  Or you could step back, calmly and clearly consider your options and plan your
+  next release or two based on your business' strategy.  I bet that's what we all really want to do every time something
+  like this happens but it's not always so easy to do.</p>
+
+  <p class="article">That's where the <em>multi-dimensional</em> part of MTM gets good.  You're not limited to release
+  &amp; status.  You can add a dimension at any time and compare your stories by any way you need to.  Maybe it makes
+  sense to consider product features by</p>
+  <ol>
+    <li>market focus (competative, inovative, refreshing, ...)</li>
+    <li>SWOT analysis (Strengths, Weaknesses, Opportunities, and Threats)</li>
+    <li>user persona (beginners, experts, executives, ...)</li>
+    <li>...</li>
+  </ol>
 
   <p class="article">
   ...
@@ -68,6 +81,9 @@
   ...
   </p>
 
+  <p class="article">
+  ...
+  </p>
 
   <h2> Accuracy and Precision </h2>
 
@@ -143,6 +159,23 @@
   <p class="article">Ipse ego cana legam tenera lanugine mala, castaneasque nuces, mea quas Amaryllis amabat; addam
   cerea pruna: honos erit huic quoque pomo; et vos, O lauri, carpam, et te, proxima myrte, sic positae quoniam suavis
   miscetis odores. </p>
+
+
+
+
+
+
+  <p class="article">In other words, story maps simplify sticking to the S.M.A.R.T. principle...</p>
+
+  <ul>
+    <li> <strong>S</strong>pecific,
+    <li> <strong>M</strong>eaningful,
+    <li> <strong>A</strong>greed to,
+    <li> <strong>R</strong>ealistic, and
+    <li> <strong>T</strong>ime phased.
+  </ul>
+
+
 
 
 </div>

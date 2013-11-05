@@ -170,10 +170,9 @@ class StorymapTagLib {
         out << "<div class='section float-left non-printing'>\n"
         out << "  <h2><img src='${fam.icon(name: 'map')}' title='map' /> All Maps</h2>\n"
         out << "  <hr />\n"
-        out << " x/y = ${xAxis} / ${yAxis}"
+        //out << "  x/y = ${xAxis} / ${yAxis}"
         out << "  <ul>\n"
-        // only list the pair of dimensions once: if x/y is listed, no need to list y/x
-        def done = []
+        def done = [] // only list the pair of dimensions once (if x/y is listed, no need to list y/x)
         project.dimensions.each { x ->
             done << x
             project.dimensions.each { y ->
@@ -195,8 +194,8 @@ class StorymapTagLib {
         out << "  </ul>\n"
         out << "  <hr />\n"
         out << "  <p class='narrow hint'>Note: Pairs of dimensions are only listed once (if x/y is listed, no need to list y/x.)"
-        out << "  You can always flip axes <img src='${fam.icon(name: 'arrow_refresh')}' title='flip axes' /> on the map grid to"
-        out << "  find what you need.</p>\n"
+        out << "  You can always flip axes <img src='${fam.icon(name: 'arrow_refresh')}' title='flip axes' height='12' /> here or"
+        out << "  on the map grid to find what you need.</p>\n"
         out << "</div>\n"
     }
 

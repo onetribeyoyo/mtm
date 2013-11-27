@@ -17,6 +17,11 @@ function openSimpleModal(dialogId, minWidth) {
         overlayClose: false,
         onOpen: _openSimpleModal,
         onClose: _closeSimpleModal,
+        onShow: function (dialog) {
+            // set focus on first field.
+            // (got to set a delay to account for animation time)
+            setTimeout(function() { dialog.data.find("input:visible:enabled:first").focus().select(); }, 1000);
+        },
     });
 };
 
@@ -29,7 +34,7 @@ function refreshSimpleModal() {
 };
 
 var modalContainer;
-function _openSimpleModal(dlg) {
+function _openSimpleModal(dialog) {
 
     var containerSlideDuration = 100;         // how long it will take to show the container (the title bar and the dialog border)
     var delayBetweenContainerAndContent = 0;  // a pause between showing the container and the content
@@ -38,21 +43,21 @@ function _openSimpleModal(dlg) {
     // make sure any drop menus get closed...
     $(".submenu").hide();
 
-    modalContainer = dlg.container[0];
+    modalContainer = dialog.container[0];
 
-    dlg.overlay.fadeIn("fast", function () {
+    dialog.overlay.fadeIn("fast", function () {
         $("#simplemodal-dialog", modalContainer).show();
         var title = $("#simplemodal-title", modalContainer);
         title.show();
 
         _resizeSimpleModalContent();
 
-        dlg.container.slideDown(contentSlideDuration, function () {
+        dialog.container.slideDown(contentSlideDuration, function () {
             setTimeout(function () {
                 var h = $("#simplemodal-data", modalContainer).height()
                     + title.height()
                     + 20; // padding
-                dlg.container.animate(
+                dialog.container.animate(
                     {height: h},
                     contentSlideDuration,
                     function () {
@@ -65,10 +70,10 @@ function _openSimpleModal(dlg) {
     });
 };
 
-function _closeSimpleModal(dlg) {
+function _closeSimpleModal(dialog) {
     //var self = this; // this = SimpleModal object
-    dlg.container.animate(
-        { top: "-" + (dlg.container.height() + 20) },
+    dialog.container.animate(
+        { top: "-" + (dialog.container.height() + 20) },
         500,
         function () {
             $.modal.close();

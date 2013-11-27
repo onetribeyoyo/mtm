@@ -13,9 +13,11 @@
     <div class="summary">
       <g:render template="/project/cardActions" />
 
-      <g:set var="highlight" value="${story.valueFor(story.project.highlightDimension)}" />
-      <g:if test="${highlight}">
-        <span class="highlight float-right">${highlight}</span>
+      <g:if test="${story.project.highlightDimension}">
+        <g:set var="highlight" value="${story.valueFor(story.project.highlightDimension)}" />
+        <g:if test="${highlight}">
+          <span class="highlight float-right">${highlight}</span>
+        </g:if>
       </g:if>
 
       <div class="summary">${story.summary}</div>

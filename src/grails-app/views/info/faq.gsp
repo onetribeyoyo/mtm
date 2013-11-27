@@ -29,8 +29,8 @@
   </div>
 
   <p class="article">When prioritizing features and planning releases it is really useful to be able to see at a glance
-  the entire context.  Long lists of stories and backlog items just don't cut it, but story maps (and the
-  <g:link action="process" id="${project?.id}">story mapping process</g:link>) are one solution to this problem.</p>
+  the entire context.  Long lists of stories and backlog items just don't cut it, but story maps (and the <g:link
+  action="process">story mapping process</g:link>) are one solution to this problem.</p>
 
   <p class="article">In addition to showing the context, story maps provide a glimpse into the "completeness" of the
   project.  They let us see and share with sponsors what's done, where the problems are, and what's in need of further

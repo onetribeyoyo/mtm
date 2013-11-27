@@ -136,6 +136,7 @@ class StorymapTagLib {
         out << "  <div class='dropdown non-printing'>\n"
         out << g.link(action: "map", id: project.id, params: [x: yAxis?.name, y: xAxis?.name], class: "non-printing",
                       "<img src='${fam.icon(name: 'arrow_refresh')}' title='flip axes' />")
+
         if (project.dimensions.size() > 2) {
             out << "    <a class='menu nowrap'><img src='${fam.icon(name: 'cog')}' title='change axes' /></a>"
             out << "    <div class='submenu' style='display: none;'>\n"
@@ -146,10 +147,9 @@ class StorymapTagLib {
                 done << x
                 project.dimensions.each { y ->
                     if ((x != y) && !(y in done)) {
-                        out << "        <li><span class='nowrap'>"
-                        out << g.link(controller: "project", action: "map", id: project.id, params: [x: x?.name, y: y?.name],
-                                      "${x.name.capitalize()} by ${y.name.capitalize()}")
-                        out << "</span></li>\n"
+                        out << "        <li class='nowrap'>"
+                        out << g.link(controller: "project", action: "map", id: project.id, params: [x: x?.name, y: y?.name], "${x.name.capitalize()} by ${y.name.capitalize()}")
+                        out << "</li>\n"
                     }
                 }
             }
@@ -170,32 +170,29 @@ class StorymapTagLib {
         out << "<div class='section float-left non-printing'>\n"
         out << "  <h2><img src='${fam.icon(name: 'map')}' title='map' /> All Maps</h2>\n"
         out << "  <hr />\n"
-        //out << "  x/y = ${xAxis} / ${yAxis}"
+        out << " x/y = ${xAxis} / ${yAxis}"
         out << "  <ul>\n"
-        def done = [] // only list the pair of dimensions once (if x/y is listed, no need to list y/x)
+        // only list the pair of dimensions once: if x/y is listed, no need to list y/x
+        def done = []
         project.dimensions.each { x ->
             done << x
             project.dimensions.each { y ->
                 if ((x != y) && !(y in done)) {
                     def label = "${x.name.capitalize()} by ${y.name.capitalize()}"
-                    out << "    <li>"
                     if ((x == xAxis) && (y == yAxis)) {
-                        out << "${label.encodeAsHTML()}"
+                        out << "    <li>${label.encodeAsHTML()}</li>\n"
                     } else {
+                        out << "    <li>"
                         out << g.link(controller: "project", action: "map", id: project.id, params: [x: x?.name, y: y?.name], label)
+                        out << "</li>\n"
                     }
-                    out << " "
-                    out << g.link(controller: "project", action: "map", id: project.id, params: [x: y?.name, y: x?.name],
-                                  "<img src='${fam.icon(name: 'arrow_refresh')}' title='flip axes' height='12' />")
-                    out << "</li>\n"
                 }
             }
         }
         out << "  </ul>\n"
         out << "  <hr />\n"
-        out << "  <p class='narrow hint'>Note: Pairs of dimensions are only listed once (if x/y is listed, no need to list y/x.)"
-        out << "  You can always flip axes <img src='${fam.icon(name: 'arrow_refresh')}' title='flip axes' height='12' /> here or"
-        out << "  on the map grid to find what you need.</p>\n"
+        out << "  <p class='narrow hint'>Note: Pairs of dimensions are only listed once (if x/y is listed, no need to list y/x.)  You can always flip axes"
+        out << " <img src='${fam.icon(name: 'arrow_refresh')}' title='flip axes' /> on the map grid to find what you need.</p>\n"
         out << "</div>\n"
     }
 

@@ -36,7 +36,7 @@
 
 <h1>The Story Mapping Process</h1>
 
-<tabs:render project="${project}" selectedTab="process" includeFaqDetails="true" />
+<mtm:tabs project="${project}" selectedTab="process" includeFaqDetails="true" />
 
 <div class="section left">
 

@@ -11,7 +11,7 @@
 
 <h1>MTM FAQ</h1>
 
-<tabs:render project="${project}" selectedTab="faq" includeFaqDetails="true" />
+<mtm:tabs project="${project}" selectedTab="faq" includeFaqDetails="true" />
 
 <div class="section float-left">
 

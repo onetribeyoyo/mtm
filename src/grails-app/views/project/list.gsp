@@ -11,7 +11,7 @@
 
 <h1> Project List </h1>
 
-<tabs:render project="${project}" selectedTab="projects___" />
+<mtm:tabs project="${project}" selectedTab="projects___" />
 
 <div class="section">
 

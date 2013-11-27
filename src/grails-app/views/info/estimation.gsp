@@ -11,7 +11,7 @@
 
 <h1>Estimation with the MTM</h1>
 
-<tabs:render project="${project}" selectedTab="estimation" includeFaqDetails="true" />
+<mtm:tabs project="${project}" selectedTab="estimation" includeFaqDetails="true" />
 
 ...?
 

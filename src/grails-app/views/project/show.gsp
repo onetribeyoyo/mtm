@@ -15,7 +15,7 @@
 
 <h1>${project.name}</h1>
 
-<tabs:render project="${project}" selectedTab="config___" />
+<mtm:tabs project="${project}" selectedTab="config___" />
 
 <div id="project-${project.id}" class="section float-left">
   <div>
@@ -48,7 +48,7 @@
   </p>
 </div>
 
-<storymap:mapList project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
+<mtm:mapList project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
 
 <hr class="clear" />
 

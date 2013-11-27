@@ -13,13 +13,13 @@
 
 <h1>${project.name}</h1>
 
-<tabs:render project="${project}" selectedTab="map___" />
+<mtm:tabs project="${project}" selectedTab="map___" />
 
 <div class="non-printing">
   <g:render template="storyActions" />
 </div>
 
-<storymap:grid project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
+<mtm:grid project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
 
 </body>
 

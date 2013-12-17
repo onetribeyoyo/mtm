@@ -11,7 +11,7 @@
 #use groovy -a 2.2.0
 #rehome groovy alternate
 
-use grails 2.3.3
+use grails 2.3.4
 use groovy 2.2.0
 
 use # to echo the settings

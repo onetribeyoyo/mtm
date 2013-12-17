@@ -58,11 +58,11 @@ grails.project.dependency.resolution = {
         compile ':cache:1.1.1'
 
         //~ persistence --------------------------------------------------------------
-        runtime ":hibernate:3.6.10.4" // or ":hibernate4:4.1.11.4"
+        runtime ":hibernate:3.6.10.6" // or ":hibernate4:4.1.11.6"
         runtime ":database-migration:1.3.8"
 
         //~ user interface -----------------------------------------------------------
-        runtime ":jquery:1.8.3"
+        runtime ":jquery:1.8.3" // for grails 2.3.4 ":jquery:1.10.2.2"
         compile ":jquery-ui:1.8.24"
         compile ":famfamfam:1.0.1"
 

@@ -34,7 +34,7 @@ environments {
         //}
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:file:~/h2db/mtm-prod;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+            url = "jdbc:h2:file:~/data/h2db/mtm-prod;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
         }
     }
 }

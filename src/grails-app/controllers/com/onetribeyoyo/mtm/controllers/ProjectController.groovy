@@ -67,18 +67,6 @@ class ProjectController {
         }
     }
 
-    private Dimension findXAxis(Project project, String dimensionName) {
-        project.dimensionFor(dimensionName) ?:
-        project.primaryXAxis ?:
-        project.dimensions.find { d -> d != project.primaryYAxis }
-    }
-
-    private Dimension findYAxis(Project project, String dimensionName) {
-        project.dimensionFor(dimensionName) ?:
-        project.primaryYAxis ?:
-        project.dimensions.find { d -> d != project.primaryXAxis }
-    }
-
 
     //~ json export/import -------------------------------------------------------------------------
 

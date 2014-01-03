@@ -29,9 +29,9 @@ class SimpleModalTagLib {
      */
     def link = { attrs, body ->
 
-        def dialogContentId = attrs.dialogContentId ?: "simplemodal-dialog"
-        def dialogTitleId = attrs.dialogTitleId ?: "simplemodal-title"
-        def title = attrs.title.encodeAsHTML() ?: DEFAULT_TITLE
+        def dialogContentId  = attrs.dialogContentId       ?:  "simplemodal-dialog"
+        def dialogTitleId    = attrs.dialogTitleId         ?:  "simplemodal-title"
+        def title            = attrs.title.encodeAsHTML()  ?:  DEFAULT_TITLE
 
         def width = attrs.width ?: "normal"
         switch (width) {
@@ -68,7 +68,7 @@ class SimpleModalTagLib {
      *    remote (optional)        -  when true, uses a remote link to process the confirmed action (dialog will be dismissed on success.)
      *
      *    confirmLabel (optional)  -  label for the confirm button defaults to "Confirm"
-     *    confirmClass (optional)  -  used to decorate the confirm button
+     *    confirmClass (optional)  -  used to decorate the confirm button, defaults to ""
      *
      *    cancelLabel (optional)   -  defaults to "Cancel"
      *
@@ -76,33 +76,34 @@ class SimpleModalTagLib {
     def confirm = { attrs, body ->
 
         def linkAttrs = [
-            controller: "simpleModal",
-            action: attrs.remote ? "confirmRemote" : "confirm",
-            title: attrs.title ?: "Please Confirm",
-            width: attrs.width ?: "narrow",
-            params: attrs.params ?: [:]
+            controller:  "simpleModal",
+            action:      attrs.remote  ?  "confirmRemote" : "confirm",
+            title:       attrs.title   ?: "Please Confirm",
+            width:       attrs.width   ?: "narrow",
+            params:      attrs.params  ?: [:]
         ]
         def confirmAttrs = [
-            confirm_confirmLabel: attrs.confirmLabel ?: "Confirm",
-            confirm_confirmClass: attrs.confirmClass,
-            confirm_cancelLabel: attrs.cancelLabel ?: "Cancel",
-            confirm_message: attrs.message ?: "Are you sure?",
+            confirm_confirmLabel:  attrs.confirmLabel  ?: "Confirm",
+            confirm_confirmClass:  attrs.confirmClass  ?: "",
+            confirm_cancelLabel:   attrs.cancelLabel   ?: "Cancel",
+            confirm_message:       attrs.message       ?: "Are you sure?",
         ]
+
+        if (attrs.controller)  confirmAttrs.confirm_controller  = attrs.controller
+        if (attrs.action)      confirmAttrs.confirm_action      = attrs.action
+        if (attrs.id)          confirmAttrs.confirm_id          = attrs.id
 
         if (attrs.remote) {
             // g.remoteLink atributes...
-            if (attrs.action)     confirmAttrs.confirm_action     = attrs.action
-            if (attrs.after)      confirmAttrs.confirm_after      = attrs.after
-            if (attrs.before)     confirmAttrs.confirm_before     = attrs.before
-            if (attrs.controller) confirmAttrs.confirm_controller = attrs.controller
-            if (attrs.id)         confirmAttrs.confirm_id         = attrs.id
+            if (attrs.after)   confirmAttrs.confirm_after   = attrs.after
+            if (attrs.before)  confirmAttrs.confirm_before  = attrs.before
 
             // g.remoteLink events...
-            if (attrs.on_ERROR_CODE)   confirmAttrs.confirm_on_ERROR_CODE   = attrs.on_ERROR_CODE
-            if (attrs.onUninitialized) confirmAttrs.confirm_onUninitialized = attrs.onUninitialized
-            if (attrs.onLoading)       confirmAttrs.confirm_onLoading       = attrs.onLoading
-            if (attrs.onLoaded)        confirmAttrs.confirm_onLoaded        = attrs.onLoaded
-            if (attrs.onComplete)      confirmAttrs.confirm_onComplete      = attrs.onComplete
+            if (attrs.on_ERROR_CODE)    confirmAttrs.confirm_on_ERROR_CODE    = attrs.on_ERROR_CODE
+            if (attrs.onUninitialized)  confirmAttrs.confirm_onUninitialized  = attrs.onUninitialized
+            if (attrs.onLoading)        confirmAttrs.confirm_onLoading        = attrs.onLoading
+            if (attrs.onLoaded)         confirmAttrs.confirm_onLoaded         = attrs.onLoaded
+            if (attrs.onComplete)       confirmAttrs.confirm_onComplete       = attrs.onComplete
 
             confirmAttrs.confirm_asynchronous = "true"
             confirmAttrs.confirm_onSuccess    = attrs.onSuccess ? "${attrs.onSuccess};closeSimpleModal()" : "closeSimpleModal()"
@@ -112,13 +113,10 @@ class SimpleModalTagLib {
         } else {
             // g.link atributes...
             if (attrs.absolute)   confirmAttrs.confirm_absolute   = attrs.absolute
-            if (attrs.action)     confirmAttrs.confirm_action     = attrs.action
             if (attrs.base)       confirmAttrs.confirm_base       = attrs.base
-            if (attrs.controller) confirmAttrs.confirm_controller = attrs.controller
             if (attrs.elementId)  confirmAttrs.confirm_elementId  = attrs.elementId
             if (attrs.event)      confirmAttrs.confirm_event      = attrs.event
             if (attrs.fragment)   confirmAttrs.confirm_fragment   = attrs.fragment
-            if (attrs.id)         confirmAttrs.confirm_id         = attrs.id
             if (attrs.mapping)    confirmAttrs.confirm_mapping    = attrs.mapping
             if (attrs.params)     confirmAttrs.confirm_params     = attrs.params
             if (attrs.plugin)     confirmAttrs.confirm_plugin     = attrs.plugin
@@ -136,9 +134,9 @@ class SimpleModalTagLib {
         def dialogContentId = attrs.dialogContentId ?: "simplemodal-dialog"
         def onClick = "closeSimpleModal('${dialogContentId}');"
         out << "<a class=\"close-dialog button\" onClick=\"${onClick}\">"
-//        out << "<button type='button'>"
+        //out << "<button type='button'>"
         out << body()
-//        out << "</button>"
+        //out << "</button>"
         out << "</a>"
     }
     /**

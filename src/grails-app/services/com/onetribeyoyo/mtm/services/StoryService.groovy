@@ -19,15 +19,12 @@ class StoryService {
         assert !to || (to.dimension == axis)
 
         Element from = story.valueFor(axis)
-
-        String msg = "slide(..) story:${story.id}"
         if (from != to) {
-            msg << " from ${from?.dimension}.${from}"
             if (from) story.removeFromVector(from)
             if (to)   story.addToVector(to)
-            log.debug "${msg} to ${story.valueFor(axis)}"
+            log.debug "slide(..) story:${story.id} from ${from?.dimension}.${from} to ${story.valueFor(axis)}"
         } else {
-            log.debug "${msg}: no change"
+            log.debug "slide(..) story:${story.id} - no change"
         }
     }
 

@@ -8,6 +8,7 @@ class Element implements Comparable {
 
     String value
     String description
+
     String colour = ""
     Long order = 9999 // new elements start at the end of the list.
 

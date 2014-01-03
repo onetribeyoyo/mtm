@@ -3,15 +3,15 @@ package com.onetribeyoyo.mtm.domain
 class Project {
 
     String name
-    String estimateUnits = ""
-    Boolean showEstimates = true
 
     SortedSet dimensions
-
     static hasMany = [
         stories : Story,
         dimensions: Dimension
     ]
+
+    String estimateUnits = ""
+    Boolean showEstimates = true
 
     Dimension primaryXAxis       // used to configure default storymaps
     Dimension primaryYAxis       // used to configure default storymaps

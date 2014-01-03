@@ -9,14 +9,13 @@ class Story implements Comparable {
     String summary
     String detail
     Long estimate = 0
+    Boolean blocked = false
 
     SortedSet vector
     static hasMany = [
         vector : Element,
         ordering : OrderedStory
     ]
-
-    Boolean blocked = false
 
     static constraints = {
         summary nullable: false, blank: false, maxSize: 255

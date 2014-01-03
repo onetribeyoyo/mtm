@@ -2,6 +2,8 @@ package com.onetribeyoyo.mtm.controllers
 
 import com.onetribeyoyo.mtm.domain.*
 
+import org.springframework.dao.DataIntegrityViolationException
+
 class StoryController {
 
     def projectService
@@ -83,19 +85,19 @@ class StoryController {
 
     def delete(Long id) {
         def story = Story.get(id)
-        def projectId = story.project.id
         if (story) {
             try {
                 story.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'story.label', default: 'Story'), params.id])}"
-            } catch (org.springframework.dao.DataIntegrityViolationException e) {
+            } catch (DataIntegrityViolationException e) {
                 flash.error = "${message(code: 'default.not.deleted.message', args: [message(code: 'story.label', default: 'Story'), params.id])}"
             }
+            redirect controller: "project", action: "map", id: story.project.id
+
         } else {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'story.label', default: 'Story'), params.id])}"
+            redirect controller: "project", action: "list"
         }
-
-        redirect controller: "project", action: "map", id: projectId
     }
 
     def move(Long storyId, Long xAxisId, Long xId, Long yAxisId, Long yId, String sortOrder) {
@@ -112,10 +114,10 @@ class StoryController {
             log.error "${messagePrefix} attempt to move story into dimensions outside of project."
 
         } else if (x && (x.dimension != xAxis)) {
-            log.error "${messagePrefix} movement must be along the x axis."
+            log.error "${messagePrefix} attempt to move story off of the X axis."
 
         } else if (y && (y.dimension != yAxis)) {
-            log.error "${messagePrefix} movement must be along the y axis."
+            log.error "${messagePrefix} attempt to move story off of the Y axis."
 
         } else { // everything's ok...
             storyService.move(story, xAxis, x, yAxis, y)

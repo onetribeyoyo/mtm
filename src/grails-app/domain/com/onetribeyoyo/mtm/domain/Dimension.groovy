@@ -10,13 +10,14 @@ class Dimension implements Comparable {
 
     String name
     String description
-    String colour = ""
-    LayoutStyle layoutStyle = LayoutStyle.FLOW
 
     SortedSet elements
     static hasMany = [
         elements: Element
     ]
+
+    String colour = ""
+    LayoutStyle layoutStyle = LayoutStyle.FLOW
 
     static constraints = {
         name nullable: false, blank: false, maxSize: 255, unique:"project"

@@ -57,6 +57,13 @@ grails.project.dependency.resolution = {
         compile ":scaffolding:2.0.1"
         compile ':cache:1.1.1'
 
+        //~ resources ----------------------------------------------------------------
+        runtime ":resources:1.2.1"
+        runtime ":gsp-resources:0.4.4" // NOTE: gsp-resources plugin requires groovy be available on the path at server startup time!
+        //runtime ":zipped-resources:1.0.1"
+        //runtime ":cached-resources:1.1"
+        //runtime ":yui-minify-resources:0.1.5"
+
         //~ persistence --------------------------------------------------------------
         runtime ":hibernate:3.6.10.6" // or ":hibernate4:4.1.11.6"
         runtime ":database-migration:1.3.8"
@@ -66,26 +73,19 @@ grails.project.dependency.resolution = {
         compile ":jquery-ui:1.8.24"
         compile ":famfamfam:1.0.1"
 
-        //~ resources ----------------------------------------------------------------
-        runtime ":resources:1.2.1"
-        runtime ":gsp-resources:0.4.4" // NOTE: gsp-resources plugin requires groovy be available on the path at server startup time!
-        //runtime ":zipped-resources:1.0.1"
-        //runtime ":cached-resources:1.1"
-        //runtime ":yui-minify-resources:0.1.5"
-
         //~ misc ---------------------------------------------------------------------
         compile ":csv:0.3.1"
         compile ":export:1.5"
         //compile ":joda-time:1.4"
-        compile ":remote-pagination:0.4.5"
+        compile ":remote-pagination:0.4.6"
 
         //~ testing ------------------------------------------------------------------
-        compile ":build-test-data:2.0.6"
+        compile ":build-test-data:2.0.9"
 
         //~ code quality -------------------------------------------------------------
-        compile ":codenarc:0.19"     // generate report with `grails codenarc`
+        compile ":codenarc:0.20"     // generate report with `grails codenarc`
         compile ":gmetrics:0.3.1"    // generate report with `grails gmetrics`
-        test ":code-coverage:1.2.6"  // generate report with `grails test-app -coverage`
+        test ":code-coverage:1.2.7"  // generate report with `grails test-app -coverage`
     }
 
 }

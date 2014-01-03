@@ -22,7 +22,7 @@
         <tr>
           <g:sortableColumn property="name" title="Project Name" />
           <th>&nbsp;</th>
-          <th>&nbsp;</th>
+          <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
         </tr>
       </thead>
       <tbody>

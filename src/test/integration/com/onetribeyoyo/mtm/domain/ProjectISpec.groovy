@@ -2,6 +2,8 @@ package com.onetribeyoyo.mtm.domain
 
 import spock.lang.Specification
 
+import com.onetribeyoyo.mtm.util.DimensionData
+
 class ProjectISpec extends Specification {
 
     def projectService
@@ -27,7 +29,7 @@ class ProjectISpec extends Specification {
     def "no lastStatus when elements have not been configured"() {
         when:
             Project project = Project.build()
-            projectService.configureDimension(project, projectService.STATUS_DIMENSION_DATA)
+            projectService.configureDimension(project, DimensionData.STATUS)
 
         then:
             !project.lastStatus()

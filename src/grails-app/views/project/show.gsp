@@ -1,4 +1,4 @@
-<%@ page import="com.onetribeyoyo.mtm.services.ProjectService" %>
+<%@ page import="com.onetribeyoyo.mtm.util.DimensionData" %>
 
 <!doctype html>
 <html lang="en" class="no-js">
@@ -77,37 +77,37 @@
     <g:if test="${!project.dimensionFor('assigned to')}">
       <p>
         <g:link action="addAssignedToDimension" id="${project.id}"><button>Add <em>assigned to</em> Dimension</button></g:link>
-        <span class="narrow hint">for mapping ${ProjectService.ASSIGNED_TO_DIMENSION_DATA.elements.join(", ")},&nbsp...</span>
+        <span class="narrow hint">for mapping ${DimensionData.ASSIGNED_TO.elements.join(", ")},&nbsp...</span>
       </p>
     </g:if>
     <g:if test="${!project.dimensionFor('bugs')}">
       <p>
         <g:link action="addBugDimension" id="${project.id}"><button>Add <em>bug</em> Dimension</button></g:link>
-        <span class="narrow hint">for mapping ${ProjectService.BUG_DIMENSION_DATA.elements.join(", ")},&nbsp...</span>
+        <span class="narrow hint">for mapping ${DimensionData.BUG.elements.join(", ")},&nbsp...</span>
       </p>
     </g:if>
     <g:if test="${!project.dimensionFor('feature')}">
       <p>
         <g:link action="addFeatureDimension" id="${project.id}"><button>Add <em>feature</em> Dimension</button></g:link>
-        <span class="narrow hint">for mapping ${ProjectService.FEATURE_DIMENSION_DATA.elements.join(", ")},&nbsp...</span>
+        <span class="narrow hint">for mapping ${DimensionData.FEATURE.elements.join(", ")},&nbsp...</span>
       </p>
     </g:if>
     <g:if test="${!project.dimensionFor('release')}">
       <p>
         <g:link action="addReleaseDimension" id="${project.id}"><button>Add <em>release</em> Dimension</button></g:link>
-        <span class="narrow hint">for mapping ${ProjectService.RELEASE_DIMENSION_DATA.elements.join(", ")},&nbsp...</span>
+        <span class="narrow hint">for mapping ${DimensionData.RELEASE.elements.join(", ")},&nbsp...</span>
       </p>
     </g:if>
     <g:if test="${!project.dimensionFor('status')}">
       <p>
         <g:link action="addStatusDimension" id="${project.id}"><button>Add <em>status</em> Dimension</button></g:link>
-        <span class="narrow hint">for mapping ${ProjectService.STATUS_DIMENSION_DATA.elements.collect { key, value -> key }.join(", ")},&nbsp...</span>
+        <span class="narrow hint">for mapping ${DimensionData.STATUS.elements.collect { key, value -> key }.join(", ")},&nbsp...</span>
       </p>
     </g:if>
     <g:if test="${!project.dimensionFor('strategy')}">
       <p>
         <g:link action="addStrategyDimension" id="${project.id}"><button>Add <em>strategy</em> Dimension</button></g:link>
-        <span class="narrow hint">for mapping ${ProjectService.STRATEGY_DIMENSION_DATA.elements.join(", ")},&nbsp...</span>
+        <span class="narrow hint">for mapping ${DimensionData.STRATEGY.elements.join(", ")},&nbsp...</span>
       </p>
     </g:if>
   </g:if>

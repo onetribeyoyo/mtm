@@ -1,4 +1,5 @@
 import com.onetribeyoyo.mtm.domain.*
+import com.onetribeyoyo.mtm.util.DimensionData
 
 import grails.util.GrailsUtil
 import groovy.json.JsonSlurper
@@ -147,7 +148,7 @@ class BootStrap {
                 if (release) {
                     release.save(flush:true, failOnError:true)
                 } else {
-                    release = projectService.configureDimensionAndElements(project, projectService.RELEASE_DIMENSION_DATA)
+                    release = projectService.configureDimensionAndElements(project, DimensionData.RELEASE)
                 }
                 project.primaryYAxis = release // TODO: should we always set primaryYAxis?  or just when not included in import data?
                 project.save(flush:true, failOnError:true)
@@ -156,7 +157,7 @@ class BootStrap {
                 if (status) {
                     status.save(flush:true, failOnError:true)
                 } else {
-                    projectService.configureDimensionAndElements(project, projectService.STATUS_DIMENSION_DATA)
+                    projectService.configureDimensionAndElements(project, DimensionData.STATUS)
                 }
                 project.primaryXAxis = status // TODO: should we always set primaryXAxis?  or just when not included in import data?
                 project.save(flush:true, failOnError:true)

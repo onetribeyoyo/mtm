@@ -5,7 +5,10 @@ import grails.converters.XML
 
 import groovy.json.JsonSlurper
 
+import org.springframework.dao.DataIntegrityViolationException
+
 import com.onetribeyoyo.mtm.domain.*
+import com.onetribeyoyo.mtm.util.DimensionData
 
 class ProjectController {
 
@@ -208,7 +211,7 @@ class ProjectController {
     }
 
 
-    //~ dimensions ---------------------------------------------------------------------------------
+    //~ pre-defined dimensions ---------------------------------------------------------------------
 
     def addAssignedToDimension(Long id) {
         def project = Project.get(id)
@@ -216,7 +219,7 @@ class ProjectController {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
             redirect action: "list"
         } else {
-            projectService.configureDimensionAndElements(project, projectService.ASSIGNED_TO_DIMENSION_DATA)
+            projectService.configureDimensionAndElements(project, DimensionData.ASSIGNED_TO)
             redirect action: "show", id: project.id
         }
     }
@@ -227,7 +230,7 @@ class ProjectController {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
             redirect action: "list"
         } else {
-            projectService.configureDimensionAndElements(project, projectService.BUG_DIMENSION_DATA)
+            projectService.configureDimensionAndElements(project, DimensionData.BUG)
             redirect action: "show", id: project.id
         }
     }
@@ -238,7 +241,7 @@ class ProjectController {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
             redirect action: "list"
         } else {
-            projectService.configureDimensionAndElements(project, projectService.FEATURE_DIMENSION_DATA)
+            projectService.configureDimensionAndElements(project, DimensionData.FEATURE)
             redirect action: "show", id: project.id
         }
     }
@@ -249,7 +252,7 @@ class ProjectController {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
             redirect action: "list"
         } else {
-            projectService.configureDimensionAndElements(project, projectService.RELEASE_DIMENSION_DATA)
+            projectService.configureDimensionAndElements(project, DimensionData.RELEASE)
             redirect action: "show", id: project.id
         }
     }
@@ -260,7 +263,7 @@ class ProjectController {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
             redirect action: "list"
         } else {
-            projectService.configureDimensionAndElements(project, projectService.STATUS_DIMENSION_DATA)
+            projectService.configureDimensionAndElements(project, DimensionData.STATUS)
             redirect action: "show", id: project.id
         }
     }
@@ -271,7 +274,7 @@ class ProjectController {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
             redirect action: "list"
         } else {
-            projectService.configureDimensionAndElements(project, projectService.STRATEGY_DIMENSION_DATA)
+            projectService.configureDimensionAndElements(project, DimensionData.STRATEGY)
             redirect action: "show", id: project.id
         }
     }
@@ -377,7 +380,7 @@ class ProjectController {
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
                 redirect(action: "list")
             }
-            catch (org.springframework.dao.DataIntegrityViolationException e) {
+            catch (DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
                 redirect(action: "show", id: params.id)
             }

@@ -1,6 +1,7 @@
 package com.onetribeyoyo.mtm.services
 
 import com.onetribeyoyo.mtm.domain.*
+import com.onetribeyoyo.mtm.util.DimensionData
 import com.onetribeyoyo.mtm.util.LayoutStyle
 
 class ProjectService {
@@ -10,67 +11,18 @@ class ProjectService {
     def dimensionService
     def storyService
 
-    // TODO: rework this so dimension data can be edited at runtime.
-
-    static final Map RELEASE_DIMENSION_DATA = [
-        name: "release",
-        elements: ["r0.1", "r0.2", "r0.3"],
-        colour: null, // no colour means the odd/even stripping will be used
-        layoutStyle: LayoutStyle.FLOW,
-        primaryYAxis: true
-    ]
-    static final Map STATUS_DIMENSION_DATA = [
-        name: "status",
-        elements: ["on deck":       "Gainsboro",
-                   "blocked":       "Tomato",
-                   "in progress":   "LightGoldenrod3",
-                   "ready to test": "PaleTurquoise",
-                   "done":          "DarkSeaGreen1"],
-        colour: null, // no colour means the odd/even stripping will be used
-        layoutStyle: LayoutStyle.FLOW,
-        colourDimension: true,
-        primaryXAxis: true
-    ]
-
-    static final Map ASSIGNED_TO_DIMENSION_DATA = [
-        name: "assigned to",
-        elements: ["you", "me", "them", "everybody"],
-        colour: "goldenrod",
-        layoutStyle: LayoutStyle.FLOW,
-        highlightDimension: true
-    ]
-    static final Map BUG_DIMENSION_DATA = [
-        name: "bugs",
-        elements: ["fatal", "critical", "important", "low", "trivial"],
-        colour: "goldenrod",
-        layoutStyle: LayoutStyle.FLOW
-    ]
-    static final Map FEATURE_DIMENSION_DATA = [
-        name: "feature",
-        elements: ["feature 1", "feature 2", "feature 3"],
-        colour: "SteelBlue",
-        layoutStyle: LayoutStyle.FLOW
-    ]
-    static final Map STRATEGY_DIMENSION_DATA = [
-        name: "strategy",
-        elements: ["strengths", "weaknesses", "opportunities", "threats"],
-        colour: "SteelBlue",
-        layoutStyle: LayoutStyle.FLOW
-    ]
-
-
     void configureBasis(Project project) {
         log.debug "configureBasis(${project})"
-        configureDimensionAndElements(project, RELEASE_DIMENSION_DATA)
-        configureDimensionAndElements(project, STATUS_DIMENSION_DATA)
+        configureDimensionAndElements(project, DimensionData.RELEASE)
+        configureDimensionAndElements(project, DimensionData.STATUS)
     }
 
     void configureDefaults(Project project) {
         log.debug "configureDefaults(${project})"
         configureBasis(project)
-        configureDimensionAndElements(project, ASSIGNED_TO_DIMENSION_DATA)
-        configureDimensionAndElements(project, FEATURE_DIMENSION_DATA)
-        configureDimensionAndElements(project, STRATEGY_DIMENSION_DATA)
+        configureDimensionAndElements(project, DimensionData.ASSIGNED_TO)
+        configureDimensionAndElements(project, DimensionData.FEATURE)
+        configureDimensionAndElements(project, DimensionData.STRATEGY)
     }
 
     Dimension configureDimensionAndElements(Project project, Map params) {

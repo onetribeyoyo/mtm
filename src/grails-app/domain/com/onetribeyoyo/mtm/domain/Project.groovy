@@ -13,8 +13,8 @@ class Project {
         dimensions: Dimension
     ]
 
-    Dimension primaryXAxis        // used to configure default storymaps.
-    Dimension primaryYAxis        // used to configure default storymaps.
+    Dimension primaryXAxis       // used to configure default storymaps
+    Dimension primaryYAxis       // used to configure default storymaps
     Dimension colourDimension    // used to determine card display colour
     Dimension highlightDimension // used to determine card highlight content
 

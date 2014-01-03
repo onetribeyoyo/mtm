@@ -201,6 +201,10 @@ class ProjectService {
             if (element in story.vector) {
                 story.removeFromVector(element)
             }
+            OrderedStory.findAllByStory(story).each { order ->
+                story.removeFromOrdering(order)
+                order.delete()
+            }
         }
         dimension.removeFromElements(element)
         element.delete()

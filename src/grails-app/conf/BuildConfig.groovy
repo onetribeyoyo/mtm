@@ -17,7 +17,8 @@ grails.project.fork = [
     console: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256],
 ]
 
-grails.reload.enabled = true // TODO: can we set grails.reload.enabled per environment in BuildConfig?
+// TODO: can we set grails.reload.enabled per environment in BuildConfig?
+grails.reload.enabled = true // TODO: is this still necessary with 2.3.4?
 
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
@@ -45,11 +46,11 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-        // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
-        //runtime 'mysql:mysql-connector-java:5.1.24'
+        runtime 'mysql:mysql-connector-java:5.1.28'
     }
 
     plugins {
+        //~ core plugins -------------------------------------------------------------
         // plugins for the build system only
         build ":tomcat:7.0.47"
 
@@ -57,32 +58,32 @@ grails.project.dependency.resolution = {
         compile ":scaffolding:2.0.1"
         compile ':cache:1.1.1'
 
-        //~ resources ----------------------------------------------------------------
+        //~ resources plugins --------------------------------------------------------
         runtime ":resources:1.2.1"
         runtime ":gsp-resources:0.4.4" // NOTE: gsp-resources plugin requires groovy be available on the path at server startup time!
         //runtime ":zipped-resources:1.0.1"
         //runtime ":cached-resources:1.1"
         //runtime ":yui-minify-resources:0.1.5"
 
-        //~ persistence --------------------------------------------------------------
+        //~ persistence plugins ------------------------------------------------------
         runtime ":hibernate:3.6.10.6" // or ":hibernate4:4.1.11.6"
         runtime ":database-migration:1.3.8"
 
-        //~ user interface -----------------------------------------------------------
+        //~ user interface plugins ---------------------------------------------------
         runtime ":jquery:1.10.2.2"
         compile ":jquery-ui:1.10.3"
         compile ":famfamfam:1.0.1"
 
-        //~ misc ---------------------------------------------------------------------
+        //~ misc plugins -------------------------------------------------------------
         compile ":csv:0.3.1"
         compile ":export:1.5"
         //compile ":joda-time:1.4"
         compile ":remote-pagination:0.4.6"
 
-        //~ testing ------------------------------------------------------------------
+        //~ testing plugins ----------------------------------------------------------
         compile ":build-test-data:2.0.9"
 
-        //~ code quality -------------------------------------------------------------
+        //~ code quality plugins -----------------------------------------------------
         compile ":codenarc:0.20"     // generate report with `grails codenarc`
         compile ":gmetrics:0.3.1"    // generate report with `grails gmetrics`
         test ":code-coverage:1.2.7"  // generate report with `grails test-app -coverage`
@@ -112,11 +113,11 @@ codenarc {
         //"all",
 
         // grails plugin default rulesets...
-    "basic",
-    "exceptions",
-    "grails",
+        "basic",
+        "exceptions",
+        "grails",
         "imports",
-    "unused",
+        "unused",
 
         // additional rulesets...
         //"braces",

@@ -223,13 +223,13 @@ class MtmTagLib {
             project.dimensions.each { y ->
                 if ((x != y) && !(y in done)) {
                     def label = "${x.name.capitalize()} by ${y.name.capitalize()}"
-                    if ((x == xAxis) && (y == yAxis)) {
-                        out << "    <li>${label.encodeAsHTML()}</li>\n"
-                    } else {
+                    //if ((x == xAxis) && (y == yAxis)) {
+                    //    out << "    <li>${label.encodeAsHTML()}</li>\n"
+                    //} else {
                         out << "    <li>"
                         out << g.link(controller: "project", action: "map", id: project.id, params: [x: x?.name, y: y?.name], label)
                         out << "</li>\n"
-                    }
+                    //}
                 }
             }
         }

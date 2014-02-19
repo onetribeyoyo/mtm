@@ -112,7 +112,7 @@ log4j = {
 
     debug "grails.app"
     debug "com.onetribeyoyo.mtm"
-    info  "grails.app.filters.com.onetribeyoyo.mtm.filter.LoggingFilters"
+    info  "grails.app.filters.com.onetribeyoyo.mtm.filter.ActivityFilters"
 
     error "org.codehaus.groovy.grails.web.servlet",        //  controllers
           "org.codehaus.groovy.grails.web.pages",          //  GSP

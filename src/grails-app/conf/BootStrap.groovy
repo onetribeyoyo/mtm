@@ -1,5 +1,4 @@
-import com.onetribeyoyo.mtm.domain.*
-import com.onetribeyoyo.mtm.util.DimensionData
+import com.onetribeyoyo.mtm.project.*
 
 import grails.util.GrailsUtil
 import groovy.json.JsonSlurper

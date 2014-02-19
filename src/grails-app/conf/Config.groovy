@@ -1,4 +1,4 @@
-// locations to search for config files that get merged into the main config;
+// locationsfilters to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
 
@@ -112,7 +112,8 @@ log4j = {
 
     debug "grails.app"
     debug "com.onetribeyoyo.mtm"
-    info  "grails.app.filters.com.onetribeyoyo.mtm.filter.ActivityFilters"
+    debug "com.onetribeyoyo.simplemodal"
+    info  "grails.app.filters.com.onetribeyoyo.util.ActivityFilters"
 
     error "org.codehaus.groovy.grails.web.servlet",        //  controllers
           "org.codehaus.groovy.grails.web.pages",          //  GSP

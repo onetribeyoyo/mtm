@@ -1,8 +1,6 @@
-package com.onetribeyoyo.mtm.taglib
+package com.onetribeyoyo.mtm
 
-import com.onetribeyoyo.mtm.domain.*
-
-import com.onetribeyoyo.mtm.util.LayoutStyle
+import com.onetribeyoyo.mtm.project.*
 
 class MtmTagLib {
 

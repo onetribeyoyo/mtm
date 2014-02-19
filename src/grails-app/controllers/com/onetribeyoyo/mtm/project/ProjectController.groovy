@@ -1,4 +1,4 @@
-package com.onetribeyoyo.mtm.controllers
+package com.onetribeyoyo.mtm.project
 
 import grails.converters.JSON
 import grails.converters.XML
@@ -6,9 +6,6 @@ import grails.converters.XML
 import groovy.json.JsonSlurper
 
 import org.springframework.dao.DataIntegrityViolationException
-
-import com.onetribeyoyo.mtm.domain.*
-import com.onetribeyoyo.mtm.util.DimensionData
 
 class ProjectController {
 

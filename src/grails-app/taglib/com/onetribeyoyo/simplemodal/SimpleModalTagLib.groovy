@@ -1,4 +1,4 @@
-package com.onetribeyoyo.simplemodal.taglib
+package com.onetribeyoyo.simplemodal
 
 /**
  *  Modal dialogs are based on SimpleModal http://www.ericmmartin.com/projects/simplemodal/

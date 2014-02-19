@@ -1,4 +1,4 @@
-package com.onetribeyoyo.mtm.util
+package com.onetribeyoyo.mtm.project
 
 class DimensionData {
 

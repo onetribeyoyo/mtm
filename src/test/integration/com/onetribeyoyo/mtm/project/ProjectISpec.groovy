@@ -1,8 +1,6 @@
-package com.onetribeyoyo.mtm.domain
+package com.onetribeyoyo.mtm.project
 
 import spock.lang.Specification
-
-import com.onetribeyoyo.mtm.util.DimensionData
 
 class ProjectISpec extends Specification {
 

@@ -1,4 +1,4 @@
-package com.onetribeyoyo.mtm.services
+package com.onetribeyoyo.mtm.project
 
 import spock.lang.Specification
 

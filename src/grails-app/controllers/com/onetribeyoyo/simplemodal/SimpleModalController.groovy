@@ -1,4 +1,4 @@
-package com.onetribeyoyo.simplemodal.controllers
+package com.onetribeyoyo.simplemodal
 
 class SimpleModalController {
 

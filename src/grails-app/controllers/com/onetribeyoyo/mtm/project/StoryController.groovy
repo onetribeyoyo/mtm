@@ -1,6 +1,4 @@
-package com.onetribeyoyo.mtm.controllers
-
-import com.onetribeyoyo.mtm.domain.*
+package com.onetribeyoyo.mtm.project
 
 import org.springframework.dao.DataIntegrityViolationException
 

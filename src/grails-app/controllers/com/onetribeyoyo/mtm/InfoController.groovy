@@ -1,6 +1,6 @@
-package com.onetribeyoyo.mtm.controllers
+package com.onetribeyoyo.mtm
 
-import com.onetribeyoyo.mtm.domain.Project
+import com.onetribeyoyo.mtm.project.Project
 
 class InfoController {
 

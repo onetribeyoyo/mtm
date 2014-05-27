@@ -9,6 +9,10 @@ class StoryController {
 
     static allowedMethods = [save: "POST", update: "POST"]
 
+    def show(Story story) {
+        [ story: story ]
+    }
+
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [stories: Story.list(params), storyTotal: Story.count()]
@@ -42,10 +46,6 @@ class StoryController {
             }
         }
     }
-
-
-
-
 
     def edit = {
         def story = Story.read(params.id)

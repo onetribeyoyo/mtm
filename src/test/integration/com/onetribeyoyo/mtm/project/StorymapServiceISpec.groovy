@@ -1,9 +1,11 @@
 package com.onetribeyoyo.mtm.project
 
+import grails.test.spock.IntegrationSpec
+
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class StorymapServiceISpec extends Specification {
+class StorymapServiceISpec extends IntegrationSpec {
 
     def projectService
     def storymapService

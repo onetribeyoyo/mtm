@@ -22,7 +22,7 @@ class ActivityFilters {
     def MDC_USER_ACTION_KEY = "user_action"
     def ALL_MDC_KEYS = [MDC_USER_NAME_KEY, MDC_USER_RID_KEY, MDC_USER_ACTION_KEY]
 
-    // Used to "wrap" requst IDs so they don't get so large as to be useless in log files.
+    // Used to "wrap" request IDs so they don't get so large as to be useless in log files.
     def nextRid = 0
     def MAX_RID = 1000 // make this as large or as small as you like.
 

@@ -1,4 +1,4 @@
-<%@ page import="com.onetribeyoyo.mtm.util.DimensionData" %>
+<%@ page import="com.onetribeyoyo.mtm.project.DimensionData" %>
 
 <!doctype html>
 <html lang="en" class="no-js">

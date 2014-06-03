@@ -55,7 +55,7 @@ grails.project.dependency.resolution = {
     plugins {
         //~ core plugins -------------------------------------------------------------
         // plugins for the build system only
-        build ":tomcat:7.0.52.1"
+        build ":tomcat:7.0.53"
 
         // plugins for the compile step
         compile ":scaffolding:2.0.3"
@@ -82,7 +82,7 @@ grails.project.dependency.resolution = {
         runtime ":database-migration:1.4.0"
 
         //~ user interface plugins ---------------------------------------------------
-        runtime ":jquery:1.10.2.2"
+        runtime ":jquery:1.10.2.2" // TODO: card d&d fails if we upgrade this plugin!
         compile ":jquery-ui:1.10.3"
         compile ":famfamfam:1.0.1"
 
@@ -90,13 +90,13 @@ grails.project.dependency.resolution = {
         compile ":csv:0.3.1"
         compile ":export:1.5"
         //compile ":joda-time:1.4"
-        compile ":remote-pagination:0.4.6"
+        compile ":remote-pagination:0.4.7"
 
         //~ testing plugins ----------------------------------------------------------
-        compile ":build-test-data:2.0.9"
+        compile ":build-test-data:2.1.2"
 
         //~ code quality plugins -----------------------------------------------------
-        compile ":codenarc:0.20"     // generate report with `grails codenarc`
+        compile ":codenarc:0.21"     // generate report with `grails codenarc`
         compile ":gmetrics:0.3.1"    // generate report with `grails gmetrics`
         test ":code-coverage:1.2.7"  // generate report with `grails test-app -coverage`
     }

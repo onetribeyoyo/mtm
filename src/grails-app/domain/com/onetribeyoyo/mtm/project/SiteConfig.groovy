@@ -2,6 +2,8 @@ package com.onetribeyoyo.mtm.project
 
 class SiteConfig implements Serializable {
 
+    String id
+
     Date dateCreated
     Date lastUpdated
 

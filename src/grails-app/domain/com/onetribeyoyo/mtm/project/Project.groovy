@@ -2,6 +2,8 @@ package com.onetribeyoyo.mtm.project
 
 class Project {
 
+    String id
+
     String name
 
     SortedSet dimensions
@@ -17,6 +19,14 @@ class Project {
     Dimension primaryYAxis       // used to configure default storymaps
     Dimension colourDimension    // used to determine card display colour
     Dimension highlightDimension // used to determine card highlight content
+
+    static embedded = [
+        //"dimensions",
+        //"primaryXAxis",
+        //"primaryYAxis",
+        //"colourDimension",
+        //"highlightDimension",
+    ]
 
     static constraints = {
         name unique: true, nullable:false, blank:false, maxSize:255

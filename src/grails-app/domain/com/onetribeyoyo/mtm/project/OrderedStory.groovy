@@ -2,6 +2,8 @@ package com.onetribeyoyo.mtm.project
 
 class OrderedStory implements Comparable {
 
+    String id
+
     static belongsTo = [
         story: Story
     ]

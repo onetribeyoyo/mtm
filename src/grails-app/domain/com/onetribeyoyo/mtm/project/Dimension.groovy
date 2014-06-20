@@ -2,21 +2,25 @@ package com.onetribeyoyo.mtm.project
 
 class Dimension implements Comparable {
 
+    String id
+
     static belongsTo = [
         project: Project
     ]
 
     String name
     String description
+    String colour = ""
+    LayoutStyle layoutStyle = LayoutStyle.FLOW
 
     SortedSet elements
     static hasMany = [
         elements: Element
     ]
 
-    String colour = ""
-    LayoutStyle layoutStyle = LayoutStyle.FLOW
-
+    static embedded = [
+        //"elements",
+    ]
     static constraints = {
         name nullable: false, blank: false, maxSize: 255, unique:"project"
         description nullable: true, blank: true, maxSize: 4095

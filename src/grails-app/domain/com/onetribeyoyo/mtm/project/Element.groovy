@@ -2,6 +2,8 @@ package com.onetribeyoyo.mtm.project
 
 class Element implements Comparable {
 
+    String id
+
     static belongsTo = [
         dimension: Dimension
     ]

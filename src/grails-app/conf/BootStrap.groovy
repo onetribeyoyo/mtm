@@ -13,6 +13,8 @@ class BootStrap {
     def storyImportService
     def projectService
 
+    def mongoUtil
+
     def initDev = {
         def start = System.currentTimeMillis()
         log.info "initDev..."
@@ -35,14 +37,10 @@ class BootStrap {
     def initTest = {
         def start = System.currentTimeMillis()
         log.info "initTest..."
-
-        // Don't re-load the data - it's already been done once!
-        if (SiteConfig.count() == 0) {
-            initCoreData()
-            initSecurity()
-            log.info "...database initialized."
-        }
-
+        mongoUtil.dropDatabase()
+        initCoreData()
+        initSecurity()
+        log.info "...database initialized."
         def finish = System.currentTimeMillis()
         log.debug "initTest() completed in ${(finish - start) / 1000} seconds"
     }
@@ -104,7 +102,7 @@ class BootStrap {
             loadBootstrapProject("project ${it}")
         }
 
-        13.times {
+        2.times {
             def p = new Project(name: "Project ${it}")
             p.save(flush:true, failOnError:true)
             if (it % 3) {

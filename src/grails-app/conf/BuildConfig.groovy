@@ -11,13 +11,9 @@ grails.project.fork = [
     // configure settings for compilation JVM, note that if you alter the Groovy version forked compilation is required
     //  compile: [maxMemory: 256, minMemory: 64, debug: false, maxPerm: 256, daemon:true],
 
-    // configure settings for the test-app JVM, uses the daemon by default
-    test: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256, daemon:true],
-    // configure settings for the run-app JVM
+    //test: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256, daemon:true],
     run: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256, forkReserve:false],
-    // configure settings for the run-war JVM
     war: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256, forkReserve:false],
-    // configure settings for the Console UI JVM
     console: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256]
 ]
 
@@ -48,8 +44,12 @@ grails.project.dependency.resolution = {
 
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
-        runtime 'mysql:mysql-connector-java:5.1.28'
-        // runtime 'org.postgresql:postgresql:9.3-1100-jdbc41'
+        //runtime 'mysql:mysql-connector-java:5.1.27'
+        //runtime 'org.postgresql:postgresql:9.3-1100-jdbc41'
+
+        compile "org.grails:grails-datastore-gorm:3.0.4.RELEASE" // required for mongodb:2.0.1
+        compile "org.grails:grails-datastore-core:3.0.4.RELEASE" // required for mongodb:2.0.1
+        test "org.grails:grails-datastore-simple:3.0.4.RELEASE"  // required for mongodb:2.0.1
     }
 
     plugins {
@@ -59,10 +59,9 @@ grails.project.dependency.resolution = {
 
         // plugins for the compile step
         compile ":scaffolding:2.0.3"
-        compile ':cache:1.1.2'
 
         //~ resources plugins --------------------------------------------------------
-        runtime ":resources:1.2.1"
+        runtime ":resources:1.2.7"
         runtime ":gsp-resources:0.4.4" // NOTE: gsp-resources plugin requires groovy be available on the path at server startup time!
         //runtime ":zipped-resources:1.0.1"
         //runtime ":cached-resources:1.1"
@@ -77,25 +76,25 @@ grails.project.dependency.resolution = {
         //compile ":coffee-asset-pipeline:1.5.0"
         //compile ":handlebars-asset-pipeline:1.3.0.1"
 
-        //~ persistence plugins ------------------------------------------------------
-        runtime ":hibernate:3.6.10.13" // or ":hibernate4:4.3.5.1"
-        runtime ":database-migration:1.4.0"
+        //~ persistence --------------------------------------------------------------
+        runtime ":mongodb:2.0.1"
+        compile ":mongeez:0.2.2"
 
         //~ user interface plugins ---------------------------------------------------
         runtime ":jquery:1.10.2.2" // TODO: card d&d fails if we upgrade this plugin!
         compile ":jquery-ui:1.10.3"
         compile ":famfamfam:1.0.1"
 
-        //~ misc plugins -------------------------------------------------------------
+        //~ misc -----------------------------------------------------------------------
         compile ":csv:0.3.1"
         compile ":export:1.5"
         //compile ":joda-time:1.4"
         compile ":remote-pagination:0.4.7"
 
-        //~ testing plugins ----------------------------------------------------------
+        //~ testing ------------------------------------------------------------------
         compile ":build-test-data:2.1.2"
 
-        //~ code quality plugins -----------------------------------------------------
+        //~ code quality -------------------------------------------------------------
         compile ":codenarc:0.21"     // generate report with `grails codenarc`
         compile ":gmetrics:0.3.1"    // generate report with `grails gmetrics`
         test ":code-coverage:1.2.7"  // generate report with `grails test-app -coverage`

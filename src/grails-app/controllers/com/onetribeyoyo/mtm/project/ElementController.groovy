@@ -33,11 +33,11 @@ class ElementController {
         }
     }
 
-    def edit(Long id) {
+    def edit(String id) {
         def element = Element.read(id)
         render template: "edit", model:[element: element]
     }
-    def update(Long id) {
+    def update(String id) {
         def element = Element.get(id)
         if (!element) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'element.label', default: 'Element'), params.id])}"
@@ -66,7 +66,7 @@ class ElementController {
         }
     }
 
-    def delete(Long id) {
+    def delete(String id) {
         def element = Element.get(id)
         if (element) {
             def projectId = element.dimension.project.id

@@ -6,11 +6,11 @@ class ImportController {
     def storyImportService
     def structureImportService
 
-    def storyFile(Long id, String filename) {
+    def storyFile(String id, String filename) {
         render template: "chooseStoryFile", model: [ id: id, filename: filename ]
     }
 
-    def importStories(Long id) {
+    def importStories(String id) {
         Project project = Project.get(id)
         if (!project) {
             flash.error = "Cannot locate project for id:${id}."
@@ -53,11 +53,11 @@ class ImportController {
         }
     }
 
-    def structureFile(Long id, String filename) {
+    def structureFile(String id, String filename) {
         render template: "chooseStructureFile", model: [ id: id, filename: filename ]
     }
 
-    def importStructure(Long id) {
+    def importStructure(String id) {
         Project project = Project.get(id)
         if (!project) {
             flash.error = "Cannot locate project for id:${id}."
@@ -100,11 +100,11 @@ class ImportController {
         }
     }
 
-    def orderFile(Long id, String filename) {
+    def orderFile(String id, String filename) {
         render template: "chooseOrderFile", model: [ id: id, filename: filename ]
     }
 
-    def importOrder(Long id) {
+    def importOrder(String id) {
         Project project = Project.get(id)
         if (!project) {
             flash.error = "Cannot locate project for id:${id}."

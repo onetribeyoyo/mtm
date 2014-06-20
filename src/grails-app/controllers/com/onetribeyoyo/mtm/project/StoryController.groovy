@@ -18,7 +18,7 @@ class StoryController {
         [stories: Story.list(params), storyTotal: Story.count()]
     }
 
-    def create(Long id) {
+    def create(String id) {
         def project = Project.read(id)
         def story = new Story(project: project)
         story.properties = params
@@ -27,7 +27,7 @@ class StoryController {
     }
     def save() {
         def project = Project.read(params.project.id)
-        Story story = new Story(project: project, summary: params.summary, detail: params.detail, estimate: params.estimate as Long)
+        Story story = new Story(project: project, summary: params.summary, detail: params.detail, estimate: params.estimate as String)
         storyService.setVector(story, params)
         story.validate()
         if (story.hasErrors()) {
@@ -51,7 +51,7 @@ class StoryController {
         def story = Story.read(params.id)
         render template: "edit", model:[story: story]
     }
-    def update(Long id) {
+    def update(String id) {
         def story = Story.get(id)
         if (!story) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'story.label', default: 'Story'), params.id])}"
@@ -81,7 +81,7 @@ class StoryController {
         }
     }
 
-    def delete(Long id) {
+    def delete(String id) {
         def story = Story.get(id)
         if (story) {
             try {
@@ -98,7 +98,7 @@ class StoryController {
         }
     }
 
-    def move(Long storyId, Long xAxisId, Long xId, Long yAxisId, Long yId, String sortOrder) {
+    def move(String storyId, String xAxisId, String xId, String yAxisId, String yId, String sortOrder) {
         def messagePrefix = "move(story:${storyId}, x:${xAxisId}:${xId}, y:${yAxisId}:${yId}, sort:${sortOrder})"
         log.debug messagePrefix
 
@@ -119,7 +119,7 @@ class StoryController {
 
         } else { // everything's ok...
             storyService.move(story, xAxis, x, yAxis, y)
-            List<Long> sortedIds = sortOrder.split(",").collect { idStr -> idStr as Long }
+            List<Long> sortedIds = sortOrder.split(",")
             projectService.updateStoryOrder(story.project, x, y, sortedIds)
             render "moved"
         }

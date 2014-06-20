@@ -178,7 +178,7 @@ class ProjectService {
         project.delete()
     }
 
-    void updateStoryOrder(Project project, Element x, Element y, List<Long> sortedIds) {
+    void updateStoryOrder(Project project, Element x, Element y, List<String> sortedIds) {
         log.debug "updateSortOrder(project:${project.id}, x:${x}, y:${y}, ${sortedIds})"
         sortedIds.eachWithIndex { id, order ->
             Story story = Story.get(id)

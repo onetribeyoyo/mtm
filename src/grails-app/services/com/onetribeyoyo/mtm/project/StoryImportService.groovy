@@ -50,7 +50,7 @@ class StoryImportService extends ImportService {
 
             } else if (!empty(fields)) { // skip blank lines
                 // must be a data line...
-                Long storyId = extractLong(fields, indexMap.id)
+                String storyId = extractString(fields, indexMap.id)
                 String storySummary = extractString(fields, indexMap.summary)
                 Story story = findOrCreateStory(project, storyId, storySummary)
 
@@ -95,7 +95,7 @@ class StoryImportService extends ImportService {
         project
     }
 
-    private Story findOrCreateStory(Project project, Long id, String summary) {
+    private Story findOrCreateStory(Project project, String id, String summary) {
         log.trace "    findOrCreateStory(.., id:${id}, summary:${summary})"
         assert summary
         Story story = null

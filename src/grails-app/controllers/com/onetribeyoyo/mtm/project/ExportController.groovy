@@ -8,7 +8,7 @@ class ExportController {
 
     def grailsApplication
 
-    def stories(Long id, String format, String extension) {
+    def stories(String id, String format, String extension) {
         format = format ?: "csv"
         extension = extension ?: "csv"
 
@@ -42,7 +42,7 @@ class ExportController {
         }
     }
 
-    def order(Long id, String format, String extension) {
+    def order(String id, String format, String extension) {
         format = format ?: "csv"
         extension = extension ?: "csv"
 
@@ -77,7 +77,7 @@ class ExportController {
         }
     }
 
-    def structure(Long id, String format, String extension) {
+    def structure(String id, String format, String extension) {
         format = format ?: "csv"
         extension = extension ?: "csv"
 

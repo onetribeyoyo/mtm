@@ -10,15 +10,15 @@ class InfoController {
         redirect action: "faq"
     }
 
-    def estimation(Long id) {
+    def estimation(String id) {
         id ? [ project : Project.read(params.id) ] : [:]
     }
 
-    def faq(Long id) {
+    def faq(String id) {
         id ? [ project : Project.read(params.id) ] : [:]
     }
 
-    def process(Long id) {
+    def process(String id) {
         id ? [ project : Project.read(params.id) ] : [:]
     }
 

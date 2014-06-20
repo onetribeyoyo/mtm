@@ -36,7 +36,7 @@ class ProjectController {
         ]
     }
 
-    def map(Long id, String x, String y) {
+    def map(String id, String x, String y) {
         Project project = Project.get(id)
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
@@ -55,7 +55,7 @@ class ProjectController {
         }
     }
 
-    def show(Long id) {
+    def show(String id) {
         Project project = Project.read(id)
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
@@ -70,7 +70,7 @@ class ProjectController {
 
     //~ json export/import -------------------------------------------------------------------------
 
-    def export(Long id) {
+    def export(String id) {
         Project project = Project.read(id)
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
@@ -185,7 +185,7 @@ class ProjectController {
         }
     }
 
-    def json(Long id) {
+    def json(String id) {
         Project project = Project.read(id)
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
@@ -196,7 +196,7 @@ class ProjectController {
         }
     }
 
-    def xml(Long id) {
+    def xml(String id) {
         Project project = Project.read(id)
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
@@ -210,7 +210,7 @@ class ProjectController {
 
     //~ pre-defined dimensions ---------------------------------------------------------------------
 
-    def addAssignedToDimension(Long id) {
+    def addAssignedToDimension(String id) {
         def project = Project.get(id)
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
@@ -221,7 +221,7 @@ class ProjectController {
         }
     }
 
-    def addBugDimension(Long id) {
+    def addBugDimension(String id) {
         def project = Project.get(id)
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
@@ -232,7 +232,7 @@ class ProjectController {
         }
     }
 
-    def addFeatureDimension(Long id) {
+    def addFeatureDimension(String id) {
         def project = Project.get(id)
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
@@ -243,7 +243,7 @@ class ProjectController {
         }
     }
 
-    def addReleaseDimension(Long id) {
+    def addReleaseDimension(String id) {
         def project = Project.get(id)
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
@@ -254,7 +254,7 @@ class ProjectController {
         }
     }
 
-    def addStatusDimension(Long id) {
+    def addStatusDimension(String id) {
         def project = Project.get(id)
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
@@ -265,7 +265,7 @@ class ProjectController {
         }
     }
 
-    def addStrategyDimension(Long id) {
+    def addStrategyDimension(String id) {
         def project = Project.get(id)
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"
@@ -306,11 +306,11 @@ class ProjectController {
         }
     }
 
-    def edit(Long id) {
+    def edit(String id) {
         def project = Project.read(id)
         render template: "edit", model: [project: project]
     }
-    def update(Long id) {
+    def update(String id) {
         def project = Project.get(id)
         if (!project) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])}"

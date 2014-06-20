@@ -4,7 +4,7 @@ class DimensionService {
 
     static transactional = true
 
-    def updateElementOrder(Dimension dimension, List<Long> sortedIds) {
+    def updateElementOrder(Dimension dimension, List<String> sortedIds) {
         log.debug "updateSortOrder(${dimension}, ${sortedIds})"
 
         def sortMap = [:] // a map from ID to sort order.

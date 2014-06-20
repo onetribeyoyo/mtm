@@ -7,7 +7,7 @@ class DimensionController {
 
     static allowedMethods = [save: "POST", update: "POST"]
 
-    def create(Long id) {
+    def create(String id) {
         def project = Project.get(id)
         def dimension = new Dimension(project: project)
         dimension.properties = params
@@ -36,11 +36,11 @@ class DimensionController {
         }
     }
 
-    def edit(Long id) {
+    def edit(String id) {
         def dimension = Dimension.read(id)
         render template: "edit", model:[dimension: dimension]
     }
-    def update(Long id) {
+    def update(String id) {
         def dimension = Dimension.get(id)
         if (!dimension) {
             flash.error = "${message(code: 'default.not.found.message', args: [message(code: 'dimension.label', default: 'Dimension'), params.id])}"
@@ -88,7 +88,7 @@ class DimensionController {
         }
     }
 
-    def delete(Long id) {
+    def delete(String id) {
         def dimension = Dimension.get(id)
         def projectId = dimension.project.id
         if (dimension) {
@@ -111,7 +111,7 @@ class DimensionController {
         redirect controller: "project", action: "show", id: projectId
     }
 
-    def updateElementOrder(Long projectId, String dimensionName, String sortOrder) {
+    def updateElementOrder(String projectId, String dimensionName, String sortOrder) {
         log.debug "updateSortOrder(${projectId}, ${dimensionName}, sortOrder:${sortOrder})"
         Project project = Project.read(projectId)
         if (!project) {
@@ -123,7 +123,7 @@ class DimensionController {
             } else if (dimension.project != project) {
                 render status: 404, text: "unknown dimension: ${dimensionName} for project ID:${projectId}"
             } else {
-                List<Long> sortedIdList = sortOrder.split(",").collect { (it.replace("element-", "")) as Long }
+                List<String> sortedIdList = sortOrder.split(",").collect { it.replace("element-", "") }
                 dimensionService.updateElementOrder(dimension, sortedIdList)
                 render status: 400, text: "sorted"
             }

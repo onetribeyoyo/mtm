@@ -6,7 +6,7 @@
 
   <div id="story-abbrev-${id}" class="story-abbrev ${abbrevStyle}">
     <%-- <g:render template="/project/cardActions" /> --%>
-    <span class="name">${story.id}</span>
+    <span class="name">...${story.id.substring(story.id.length() - 4, story.id.length())}</span>
   </div>
 
   <div id="story-${story.id}" class="story ${detailStyle}">

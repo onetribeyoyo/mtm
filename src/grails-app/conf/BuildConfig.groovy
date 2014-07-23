@@ -40,6 +40,8 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
+
+        mavenRepo 'http://repo.spring.io/milestone' // required to resolve "RC" plugins
     }
 
     dependencies {
@@ -84,6 +86,9 @@ grails.project.dependency.resolution = {
         runtime ":jquery:1.10.2.2" // TODO: card d&d fails if we upgrade this plugin!
         compile ":jquery-ui:1.10.3"
         compile ":famfamfam:1.0.1"
+
+        //~ Security ----------------------------------------------------------------
+        compile ":spring-security-core:2.0-RC2"
 
         //~ misc -----------------------------------------------------------------------
         compile ":csv:0.3.1"

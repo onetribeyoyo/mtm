@@ -140,3 +140,14 @@ log4j = {
         error "stdout"
     }
 }
+
+
+//~ spring security configuration --------------------------------------------
+
+grails.plugin.springsecurity.userLookup.userDomainClassName = "com.onetribeyoyo.security.User"
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = "com.onetribeyoyo.security.UserRole"
+grails.plugin.springsecurity.authority.className = "com.onetribeyoyo.security.Role"
+
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+    "/favicon.ico": ["IS_AUTHENTICATED_ANONYMOUSLY"],
+]

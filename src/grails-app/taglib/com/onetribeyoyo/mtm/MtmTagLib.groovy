@@ -6,6 +6,7 @@ class MtmTagLib {
 
     static namespace = "mtm"
 
+    def springSecurityService
     def storymapService
 
     def format = { attrs ->
@@ -37,6 +38,11 @@ class MtmTagLib {
             renderTab((selectedTab == "estimation"), [ controller: "info", action: "estimation", id: project?.id ], "Estimation")
         } else {
             renderTab((selectedTab == "info___"),    [ controller: "info", action: "faq",        id: project?.id ], "<em>FAQ</em>")
+        }
+
+        def user = springSecurityService.currentUser
+        if (user) {
+            renderTab((selectedTab == "user___"),    [ controller: "logout" ], "<em>${user} <small>(logout)</small></em>")
         }
 
         out << "</ul>\n"

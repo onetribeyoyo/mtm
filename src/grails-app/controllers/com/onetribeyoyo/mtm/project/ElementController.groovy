@@ -1,5 +1,8 @@
 package com.onetribeyoyo.mtm.project
 
+import grails.plugin.springsecurity.annotation.Secured
+
+@Secured(["isAuthenticated()"])
 class ElementController {
 
     def dimensionService

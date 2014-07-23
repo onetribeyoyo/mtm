@@ -1,5 +1,8 @@
 package com.onetribeyoyo.simplemodal
 
+import grails.plugin.springsecurity.annotation.Secured
+
+@Secured(["isAuthenticated()"])
 class SimpleModalController {
 
     def confirm = {

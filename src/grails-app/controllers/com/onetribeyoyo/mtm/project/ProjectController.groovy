@@ -7,6 +7,9 @@ import groovy.json.JsonSlurper
 
 import org.springframework.dao.DataIntegrityViolationException
 
+import grails.plugin.springsecurity.annotation.Secured
+
+@Secured(["isAuthenticated()"])
 class ProjectController {
 
     static allowedMethods = [save: "POST", update: "POST"]

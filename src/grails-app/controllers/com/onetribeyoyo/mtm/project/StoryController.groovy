@@ -2,6 +2,9 @@ package com.onetribeyoyo.mtm.project
 
 import org.springframework.dao.DataIntegrityViolationException
 
+import grails.plugin.springsecurity.annotation.Secured
+
+@Secured(["isAuthenticated()"])
 class StoryController {
 
     def projectService

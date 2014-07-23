@@ -1,5 +1,8 @@
 package com.onetribeyoyo.mtm.project
 
+import grails.plugin.springsecurity.annotation.Secured
+
+@Secured(["isAuthenticated()"])
 class ExportController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]

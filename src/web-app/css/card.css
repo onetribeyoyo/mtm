@@ -120,12 +120,13 @@
    text-align: center;
 }
 
-
+/*
 .with-questions {
    background-repeat: no-repeat;
    background-image: url("../images/question-mark.png");
    background-position: right bottom;
 }
+*/
 
 .status {
    padding: 0 0 0 2em;

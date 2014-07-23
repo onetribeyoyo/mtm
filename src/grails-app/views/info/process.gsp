@@ -3,7 +3,7 @@
 
 <head>
   <meta name="layout" content="main" />
-  <title>Story Mapping Process</title>
+  <title>Story Mapping</title>
   <r:require module="tabs" />
 
   <style type="text/css">
@@ -34,7 +34,7 @@
 
 <body>
 
-<h1>The Story Mapping Process</h1>
+<h1>Story Mapping</h1>
 
 <mtm:tabs project="${project}" selectedTab="process" includeFaqDetails="true" />
 

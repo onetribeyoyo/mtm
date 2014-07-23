@@ -123,14 +123,15 @@
 
   <p class="article">First use of the MTM was to plan a fireplace renovation project.  The project turned out to be
   bigger and more difficult than I envisioned so I decided to spend my time futzing with MTM instead.  Since then I've
-  used MTM personally and professionaly on a large number of projects.</p>
-
-  <p class="article">MTM was open sourced in 2013.</p>
+  used MTM personally and professionaly on a large number of projects (and I keep telling myself I'm <em>almost
+  done</em> with the fireplace.)</p>
 
 
   <h2> Copyright and Licensing </h2>
 
-  <p class="article"> Copyright 2003-2013 Andrew R. Miller. </p>
+  <p class="article"> Copyright 2003-2014 Andrew R. Miller. </p>
+
+  <p class="article">MTM was open sourced in 2013.</p>
 
   <p class="article"> The MTM is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3:
   <a href="http://www.gnu.org/licenses/gpl.html">http://www.gnu.org/licenses/gpl.html</a>.</p>

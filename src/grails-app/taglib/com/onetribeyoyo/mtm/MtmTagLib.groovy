@@ -33,9 +33,9 @@ class MtmTagLib {
         renderTab((selectedTab == "projects___"), [ controller: "project", action: "list", id: project?.id ], "<em>(projects)</em>")
 
         if (includeFaqDetails) {
-            renderTab((selectedTab == "faq"),        [ controller: "info", action: "faq",        id: project?.id ], "FAQ")
-            renderTab((selectedTab == "process"),    [ controller: "info", action: "process",    id: project?.id ], "Mapping Process")
+            renderTab((selectedTab == "process"),    [ controller: "info", action: "process",    id: project?.id ], "Story Mapping")
             renderTab((selectedTab == "estimation"), [ controller: "info", action: "estimation", id: project?.id ], "Estimation")
+            renderTab((selectedTab == "faq"),        [ controller: "info", action: "faq",        id: project?.id ], "FAQ")
         } else {
             renderTab((selectedTab == "info___"),    [ controller: "info", action: "faq",        id: project?.id ], "<em>FAQ</em>")
         }

@@ -1,4 +1,5 @@
 import com.onetribeyoyo.mtm.project.*
+import com.onetribeyoyo.security.*
 
 import grails.util.GrailsUtil
 import groovy.json.JsonSlurper
@@ -19,16 +20,11 @@ class BootStrap {
         def start = System.currentTimeMillis()
         log.info "initDev..."
 
-        // Don't re-load the data - it's already been done once!
-        if (SiteConfig.count() == 0) {
-            initCoreData()
-            initSecurity()
-            initDevUsers()
-            initDevData()
-            log.info "...database initialized."
-        } else {
-            log.warn "...database already initialized."
-        }
+        initCoreData()
+        initSecurity()
+        initDevUsers()
+        initDevData()
+        log.info "...database initialized."
 
         def finish = System.currentTimeMillis()
         log.debug "initDev() completed in ${(finish - start) / 1000} seconds"
@@ -51,11 +47,8 @@ class BootStrap {
         log.info "initProd..."
 
         // Don't re-load the data - it's already been done once!
-        if (SiteConfig.count() == 0) {
-            initCoreData()
-            initSecurity()
-            log.info "...database initialized."
-        }
+        initCoreData()
+        initSecurity()
 
         def finish = System.currentTimeMillis()
         log.debug "initProd() completed in ${(finish - start) / 1000} seconds"
@@ -83,35 +76,46 @@ class BootStrap {
 
     void initCoreData() {
         log.info "initCoreData..."
-
-        SiteConfig config = new SiteConfig(name:"Site Configuration")
-        config.save(flush:true, failOnError:true)
     }
 
     void initSecurity() {
         log.info "initSecurity..."
+
+        // add all necessary roles, etc...
     }
 
     void initDevUsers() {
         log.info "initDevUsers..."
+
+        ["you", "me", "them", "everybody"].each { username ->
+            User user = User.findByUsername(username)
+            if (!user) {
+                user = new User()
+                user.username = username
+                user.password = "password"
+                user.enabled = true
+                user.save(flush: true, failOnError: true)
+            }
+        }
     }
 
     void initDevData() {
         log.info "initDevData..."
-        1.times {
-            loadBootstrapProject("project ${it}")
-        }
 
-        2.times {
-            def p = new Project(name: "Project ${it}")
-            p.save(flush:true, failOnError:true)
-            if (it % 3) {
-                projectService.configureBasis(p)
-            } else {
-                projectService.configureDefaults(p)
-            }
-            p.save(flush:true, failOnError:true)
-        }
+        //1.times {
+        //    loadBootstrapProject("project ${it}")
+        //}
+
+        //2.times {
+        //    def p = new Project(name: "Project ${it}")
+        //    p.save(flush:true, failOnError:true)
+        //    if (it % 3) {
+        //        projectService.configureBasis(p)
+        //    } else {
+        //        projectService.configureDefaults(p)
+        //    }
+        //    p.save(flush:true, failOnError:true)
+        //}
     }
 
     void loadBootstrapProject(String projectName) {

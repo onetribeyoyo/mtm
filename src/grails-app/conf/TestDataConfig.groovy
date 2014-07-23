@@ -19,7 +19,7 @@ testDataConfig {
         }
         */
 
-        "com.onetribeyoyo.mtm.domain.Project" {
+        "com.onetribeyoyo.mtm.project.Project" {
             def i = 1
             name = {-> "name-${i++}" }
         }

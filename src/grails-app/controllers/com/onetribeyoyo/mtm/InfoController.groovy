@@ -10,7 +10,7 @@ class InfoController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index = {
-        redirect action: "faq"
+        redirect action: "process"
     }
 
     def estimation(String id) {

@@ -1,6 +1,9 @@
 # build artifacts...
 target/
 
+# ignore local mongodb files...
+local-mongodb/
+
 # cobertura files...
 *.ser
 

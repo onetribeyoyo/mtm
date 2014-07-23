@@ -1,0 +1,14 @@
+#!/bin/sh
+
+MONGO_DATA_DIR=data/local-mongodb
+
+if [ $1 = "--prune" -o $1 = "-p" ] ; then
+    echo
+    echo "removing files from MONGO_DATA_DIR=$MONGO_DATA_DIR"
+    echo
+    rm -rfv $MONGO_DATA_DIR
+    echo
+fi
+
+mkdir -p $MONGO_DATA_DIR
+mongod --dbpath $MONGO_DATA_DIR

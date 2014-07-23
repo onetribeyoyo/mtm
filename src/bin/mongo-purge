@@ -1,0 +1,8 @@
+#!/bin/sh
+
+MONGO_DATA_DIR=data/local-mongodb
+
+echo
+echo "removing files from MONGO_DATA_DIR=$MONGO_DATA_DIR"
+echo
+rm -rfv $MONGO_DATA_DIR

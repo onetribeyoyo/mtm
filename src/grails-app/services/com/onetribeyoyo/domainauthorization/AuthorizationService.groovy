@@ -115,6 +115,17 @@ class AuthorizationService {
 
     //~ lists of authorized IDs, instances, permissions, ... ---------------------------------------
 
+
+    /** Returns the total count of all instances of clazz the uid is authorized to access with any permission. */
+    Long authorizedInstanceCount(String uid, Class clazz) {
+        authorizedIds(uid, clazz).size()
+    }
+
+    /** Returns the total count of all instances of clazz the uid is authorized to access with the specified permission. */
+    Long authorizedInstanceCount(String uid, Class clazz, String permission) {
+        authorizedIds(uid, clazz, permission).size()
+    }
+
     /** Returns a list of all IDs the uid is authorized to access with any permission. */
     List<String> authorizedIds(String uid, Class clazz) {
         Authorization.withCriteria {

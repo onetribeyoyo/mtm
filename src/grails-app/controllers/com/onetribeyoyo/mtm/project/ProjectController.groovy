@@ -16,13 +16,16 @@ class ProjectController {
 
     def grailsApplication
 
+    def authorizationService
     def projectService
+    def springSecurityService
     def storymapService
 
     def index = {
-        if (Project.count() == 1) {
-            def project = Project.findAll()[0]
-            params.id = project.id
+        def user = springSecurityService.currentUser
+        def projectIds = authorizationService.authorizedIds(user, Project)
+        if (projectIds.size() == 1) {
+            params.id = projectIds[0]
             redirect(action: "show", params: params)
         } else {
             redirect(action: "list", params: params)
@@ -32,11 +35,12 @@ class ProjectController {
     def list() {
         Project project = params.id ? Project.read(params.id) : null
         params.max = Math.min(params.max ? params.int('max') : 20, 100)
-        [
-            project: project,
-            projectList: Project.list(params),
-            projectTotal: Project.count()
-        ]
+
+        def user = springSecurityService.currentUser
+        def projectList = authorizationService.authorizedInstances(user?.id, Project, params)
+        def projectTotal = authorizationService.authorizedInstanceCount(user?.id, Project)
+
+        [ project: project, projectList: projectList, projectTotal: projectTotal, ]
     }
 
     def map(String id, String x, String y) {
@@ -142,7 +146,10 @@ class ProjectController {
         render template: "chooseFile", model: [ filename: params.filename ]
     }
 
-    def importProject(String projectName) {
+    def importProject() {
+
+        def projectName = params.projectName
+
         if (!projectName?.trim()) {
             flash.error = "Project name is required."
             redirect action: "list", model: params
@@ -176,6 +183,9 @@ class ProjectController {
                     multipartFile.transferTo(savedFile)
                     def json = new JsonSlurper().parse(new FileReader(new File(pathname)))
                     Project project = projectService.createFromJson(projectName, json)
+
+                    def uid = springSecurityService.principal?.id
+                    authorizationService.authorize(uid, project, "OWNER")
 
                     redirect controller: "project", action: "show", id: project.id
                     //redirect action: "list"

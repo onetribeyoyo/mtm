@@ -47,11 +47,11 @@ class AuthorizationFilters {
 
                     if (authorized) {
                         if (log.debugEnabled) {
-                            log.debug composemessage(controllerName, actionName, clazz, idParam, idProperty, id, permission, authorized)
+                            log.debug composeMessage(controllerName, actionName, clazz, idParam, idProperty, id, permission, authorized)
                         }
                         return true
                     } else {
-                        def message = composemessage(controllerName, actionName, clazz, idParam, idProperty, id, permission, authorized)
+                        def message = composeMessage(controllerName, actionName, clazz, idParam, idProperty, id, permission, authorized)
                         log.warn message
                         render status: 403, text: message
                         return false
@@ -71,7 +71,7 @@ class AuthorizationFilters {
      *  or, when log.debugEnabled the message will have more detail...
      *    "foo/bar not authorized, permission:VIEWER on my.favorite.class[id(altId):xyzzy]
      */
-    private String composeMessage(controllerName, actionName, clazz, idParam, idProperty, id, permission, authorized) {
+    private String composeMessage(controllerName, actionName, clazz, idParam, idProperty, id, permission, Boolean authorized) {
         def message = "${controllerName}/${actionName}"
         message += (authorized ? "" : " not")
         message += " authorized"

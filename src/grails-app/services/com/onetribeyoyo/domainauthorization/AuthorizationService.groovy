@@ -132,7 +132,8 @@ class AuthorizationService {
             eq("uid", uid)
             eq("classname", clazz.name)
             isNotNull("instanceId")
-        }.collect { it.instanceId }.unique()
+            projections { distinct("instanceId") }
+        }
     }
 
     /** Returns a list of all IDs the uid is authorized to access with the specified permission. */
@@ -142,7 +143,8 @@ class AuthorizationService {
             eq("classname", clazz.name)
             isNotNull("instanceId")
             eq("permission", permission)
-        }.collect { it.instanceId }.unique()
+            projections { distinct("instanceId") }
+        }
     }
 
     /** Returns a (paginated with params) list of all instances of clazz the uid is authorized to access with any permission. */

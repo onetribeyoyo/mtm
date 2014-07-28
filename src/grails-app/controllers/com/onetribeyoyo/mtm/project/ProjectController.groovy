@@ -21,7 +21,7 @@ class ProjectController {
     def springSecurityService
     def storymapService
 
-    def index = {
+    def index() {
         def user = springSecurityService.currentUser
         def projectIds = authorizationService.authorizedIds(user, Project)
         if (projectIds.size() == 1) {
@@ -142,7 +142,7 @@ class ProjectController {
         }
     }
 
-    def projectFile = {
+    def projectFile() {
         render template: "chooseFile", model: [ filename: params.filename ]
     }
 
@@ -292,8 +292,20 @@ class ProjectController {
 
     //~ project crud -------------------------------------------------------------------------------
 
-    def create = {
-        def project = new Project(name: "New Project")
+    def create() {
+
+        def nextSuffix = Project.withCriteria() {
+            ilike("name", "New Project%")
+            projections { property("name") }
+        }*.replace("New Project", "")*.trim().collect { suffix ->
+            try {
+                suffix.toInteger()
+            } catch (NumberFormatException nfex) {
+                0
+            }
+        }.max() + 1
+
+        def project = new Project(name: "New Project ${nextSuffix}")
         render template: "create", model: [
             project: project
         ]
@@ -308,6 +320,10 @@ class ProjectController {
             flash.error = null // got to clear flash so it doesn't show up on page refresh!
 
         } else if (project.save(failOnError: true, flush: true)) {
+
+            def uid = springSecurityService.principal?.id
+            authorizationService.authorize(uid, project, "OWNER")
+
             projectService.configureBasis(project)
             project.save(failOnError: true, flush: true)
             render text: g.createLink(controller: "project", action: "show", id: project.id)
@@ -382,7 +398,7 @@ class ProjectController {
         }
     }
 
-    def delete = {
+    def delete() {
         def project = Project.get(params.id)
         if (project) {
             try {

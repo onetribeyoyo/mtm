@@ -11,13 +11,12 @@ class UrlMappings {
         "500"(view:'/error')
 
 
-        //"/projectss"(resources:"project")
-        "/projects"(resources:"project") {
-            "/story"(resources:"story")
-            "/dimension"(resources:"dimension") {
-                "/element"(resources:"element")
-            }
-        }
+        //"/projects"(resources:"project") {
+        //    "/story"(resources:"story")
+        //    "/dimension"(resources:"dimension") {
+        //        "/element"(resources:"element")
+        //    }
+        //}
 
     }
 

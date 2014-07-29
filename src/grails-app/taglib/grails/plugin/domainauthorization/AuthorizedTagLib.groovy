@@ -1,4 +1,4 @@
-package com.onetribeyoyo.domainauthorization
+package grails.plugin.domainauthorization
 
 import org.springframework.security.access.AccessDeniedException
 

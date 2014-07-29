@@ -1,15 +1,14 @@
 package com.onetribeyoyo.mtm.project
 
-import com.onetribeyoyo.domainauthorization.Authorized
-
 import grails.converters.JSON
 import grails.converters.XML
 
 import groovy.json.JsonSlurper
 
-import org.springframework.dao.DataIntegrityViolationException
-
+import grails.plugin.domainauthorization.Authorized
 import grails.plugin.springsecurity.annotation.Secured
+
+import org.springframework.dao.DataIntegrityViolationException
 
 @Secured(["isAuthenticated()"])
 class ProjectController {

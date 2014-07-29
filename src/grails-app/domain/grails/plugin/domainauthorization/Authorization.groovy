@@ -1,4 +1,4 @@
-package com.onetribeyoyo.domainauthorization
+package grails.plugin.domainauthorization
 
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString

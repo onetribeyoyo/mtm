@@ -1,4 +1,4 @@
-package com.onetribeyoyo.domainauthorization
+package grails.plugin.domainauthorization
 
 import com.onetribeyoyo.mtm.project.Project
 import com.onetribeyoyo.mtm.project.Story

@@ -1,4 +1,4 @@
-package com.onetribeyoyo.domainauthorization
+package grails.plugin.domainauthorization
 
 /**
  *  Used by the @Authorized/AuthorizationFilters and AuthorizationTagLib to check permissions/authorization on

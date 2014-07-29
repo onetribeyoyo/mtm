@@ -353,12 +353,12 @@ class ProjectController {
         }
     }
 
-    @Authorized( clazz = Project, permission="OWNER" )
+    @Authorized( clazz = Project, idParam = "id", permission="OWNER" )
     def edit(String id) {
         def project = Project.read(id)
         render template: "edit", model: [project: project]
     }
-    @Authorized( clazz = Project, permission="OWNER" )
+    @Authorized( clazz = Project, idParam = "id", permission="OWNER" )
     def update(String id) {
         def project = Project.get(id)
         if (!project) {
@@ -418,7 +418,7 @@ class ProjectController {
         }
     }
 
-    @Authorized( clazz = Project, permission="OWNER" )
+    @Authorized( clazz = Project, idParam = "id", permission="OWNER" )
     def delete() {
         def project = Project.get(params.id)
         if (project) {

@@ -11,6 +11,7 @@ import org.springframework.core.io.ClassPathResource
 
 class BootStrap {
 
+    def authorizationService
     def storyImportService
     def projectService
 
@@ -95,6 +96,9 @@ class BootStrap {
                 user.password = "password"
                 user.enabled = true
                 user.save(flush: true, failOnError: true)
+
+                authorizationService.authorize(user.id, Project) // so they can create new projects
+
             }
         }
     }
@@ -124,6 +128,12 @@ class BootStrap {
             if (new File(filename).exists()) {
                 def json = new JsonSlurper().parse(new FileReader(new File(filename)))
                 Project project = projectService.createFromJson("Bootstrap Project", json)
+
+                User.list().each { user ->
+                    authorizationService.authorize(user.id, project, "OWNER")
+                    authorizationService.authorize(user.id, project, "VIEWER")
+                }
+
             } else {
                 log.error "Cannot find mtm.bootstrap.filename: '${filename}'."
             }

@@ -22,10 +22,10 @@
   <h2> Why Story Mapping? </h2>
 
   <div class="light-padding float-right">
-    <p class="narrow hint float-right">To be fair, using story maps doesn't get us all the way there
-    either.  To truely capture the context it ussually takes some sort of drawing of the system.  Maybe a sketch of the
-    domain model; a diagram or two showing how the application will be required to interact with other parts of the
-    ecosystem; and so on.</p>
+    <p class="narrow hint float-right">To be fair, using story maps doesn't get us all the way there either. To truly
+    capture the context it usually takes some sort of drawing of the system. Maybe a sketch of the domain model; a
+    diagram or two showing how the application will be required to interact with other parts of the ecosystem; and so
+    on.</p>
   </div>
 
   <p class="article">When prioritizing features and planning releases it is really useful to be able to see at a glance
@@ -67,7 +67,7 @@
   &amp; status.  You can add a dimension at any time and compare your stories by any way you need to.  Maybe it makes
   sense to consider product features by</p>
   <ol>
-    <li>market focus (competative, inovative, refreshing, ...)</li>
+    <li>market focus (competitive, innovative, refreshing, ...)</li>
     <li>SWOT analysis (Strengths, Weaknesses, Opportunities, and Threats)</li>
     <li>user persona (beginners, experts, executives, ...)</li>
     <li>...</li>
@@ -123,8 +123,8 @@
 
   <p class="article">First use of the MTM was to plan a fireplace renovation project.  The project turned out to be
   bigger and more difficult than I envisioned so I decided to spend my time futzing with MTM instead.  Since then I've
-  used MTM personally and professionaly on a large number of projects (and I keep telling myself I'm <em>almost
-  done</em> with the fireplace.)</p>
+  used MTM personally and professionally on a large number of projects (fireplace was finally completed in the summer of
+  2014.)</p>
 
 
   <h2> Copyright and Licensing </h2>

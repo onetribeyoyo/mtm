@@ -2,7 +2,7 @@
 
 MONGO_DATA_DIR=data/local-mongodb
 
-if [ $1 = "--prune" -o $1 = "-p" ] ; then
+if [ "$1" = "--prune" -o "$1" = "-p" ] ; then
     echo
     echo "removing files from MONGO_DATA_DIR=$MONGO_DATA_DIR"
     echo

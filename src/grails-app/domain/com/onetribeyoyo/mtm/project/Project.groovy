@@ -14,6 +14,7 @@ class Project {
 
     String estimateUnits = ""
     Boolean showEstimates = true
+    Boolean showExtraDimensions = true
 
     Dimension primaryXAxis       // used to configure default storymaps
     Dimension primaryYAxis       // used to configure default storymaps
@@ -36,6 +37,7 @@ class Project {
         colourDimension nullable: true
         highlightDimension nullable: true
         showEstimates nullable: true
+        showExtraDimensions nullable: true
     }
 
     Dimension dimensionFor(String name) {

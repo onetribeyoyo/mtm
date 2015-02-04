@@ -32,7 +32,9 @@
   <hr />
   <table>
     <tr> <th> Project Name </th>   <td> ${project?.name} </td> </tr>
+    <tr> <th colspan="2"> ${project?.showEstimates ? "Show" : "Hide"} Estimates </th> </tr>
     <tr> <th> Estimate Units </th> <td> <mtm:format value="${project?.estimateUnits}" /> </td> </tr>
+    <tr> <th colspan="2"> ${project?.showExtraDimensions ? "Show" : "Hide"} Extra Dimensions </th> </tr>
     <tr> <th> Card Colour </th>    <td> <mtm:format value="${project.colourDimension?.name?.capitalize()}" /> </td> </tr>
     <tr> <th> Highlight </th>      <td> <mtm:format value="${project.highlightDimension?.name?.capitalize()}" /> </td> </tr>
     <tr> <th> Primary X Axis </th> <td> <mtm:format value="${project.primaryXAxis?.name?.capitalize()}" /> </td> </tr>

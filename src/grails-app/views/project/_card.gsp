@@ -26,16 +26,18 @@
         <span class="estimate float-right">${story.estimate}<g:if test="${story.project.estimateUnits}">${story.project.estimateUnits[0].toLowerCase()}</g:if></span>
       </g:if>
 
-      <div class="vector">
-        <g:each var="dimension" in="${story.project.dimensions}">
-          <g:if test="${!(dimension in [xAxis, yAxis]) && !dimension.isColourDimension() && !dimension.isHighlightDimension()}">
-            <g:set var="point" value="${story.valueFor(dimension)}" />
-            <g:if test="${point}">
-              <span class="tag">${point}</span>
+      <g:if test="${story.project.showExtraDimensions}">
+        <div class="vector">
+          <g:each var="dimension" in="${story.project.dimensions}">
+            <g:if test="${!(dimension in [xAxis, yAxis]) && !dimension.isColourDimension() && !dimension.isHighlightDimension()}">
+              <g:set var="point" value="${story.valueFor(dimension)}" />
+              <g:if test="${point}">
+                <span class="tag">${point}</span>
+              </g:if>
             </g:if>
-          </g:if>
-        </g:each>
-      </div>
+          </g:each>
+        </div>
+      </g:if>
     </div>
   </div>
 

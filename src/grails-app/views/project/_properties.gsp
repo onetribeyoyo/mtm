@@ -18,6 +18,14 @@
     </td>
   </tr>
 
+  <tr>
+    <th class="nowrap"> <label for="colour">Extra Dimensions</label> </th>
+    <td valign="middle">
+      <g:checkBox name="showExtraDimensions" checked="${project.showExtraDimensions}" value="true" class="${hasErrors(bean: project, field: 'showExtraDimensions', 'error')}" />
+      <span class="hint">show extra dimensions on storymap cards</span>
+    </td>
+  </tr>
+
   <g:if test="${project.dimensions}">
 
     <tr>

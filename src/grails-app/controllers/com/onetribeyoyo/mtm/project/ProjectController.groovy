@@ -44,7 +44,7 @@ class ProjectController {
         [ project: project, projectList: projectList, projectTotal: projectTotal, ]
     }
 
-    @Authorized( clazz = Project, idParam = "id", permission="VIEWER" )
+    //@Authorized( clazz = Project, idParam = "id", permission="VIEWER" )
     def map(String id, String x, String y) {
         Project project = Project.get(id)
         if (!project) {
@@ -64,7 +64,7 @@ class ProjectController {
         }
     }
 
-    @Authorized( clazz = Project, idParam = "id", permission="VIEWER" )
+    //@Authorized( clazz = Project, idParam = "id", permission="VIEWER" )
     def show(String id) {
         Project project = Project.read(id)
         if (!project) {
@@ -80,7 +80,7 @@ class ProjectController {
 
     //~ json export/import -------------------------------------------------------------------------
 
-    @Authorized( clazz = Project, idParam = "id", permission="VIEWER" )
+    //@Authorized( clazz = Project, idParam = "id", permission="VIEWER" )
     def export(String id) {
         Project project = Project.read(id)
         if (!project) {
@@ -146,12 +146,12 @@ class ProjectController {
         }
     }
 
-    @Authorized( clazz = Project, permission="OWNER" )
+    //@Authorized( clazz = Project, permission="OWNER" )
     def projectFile() {
         render template: "chooseFile", model: [ filename: params.filename ]
     }
 
-    @Authorized( clazz = Project, permission="OWNER" )
+    //@Authorized( clazz = Project, permission="OWNER" )
     def importProject() {
 
         def projectName = params.projectName
@@ -205,7 +205,7 @@ class ProjectController {
         }
     }
 
-    @Authorized( clazz = Project, idParam = "id", permission="VIEWER" )
+    //@Authorized( clazz = Project, idParam = "id", permission="VIEWER" )
     def json(String id) {
         Project project = Project.read(id)
         if (!project) {
@@ -217,7 +217,7 @@ class ProjectController {
         }
     }
 
-    @Authorized( clazz = Project, idParam = "id", permission="VIEWER" )
+    //@Authorized( clazz = Project, idParam = "id", permission="VIEWER" )
     def xml(String id) {
         Project project = Project.read(id)
         if (!project) {
@@ -232,7 +232,7 @@ class ProjectController {
 
     //~ pre-defined dimensions ---------------------------------------------------------------------
 
-    @Authorized( clazz = Project, idParam = "id", permission="OWNER" )
+    //@Authorized( clazz = Project, idParam = "id", permission="OWNER" )
     def addAssignedToDimension(String id) {
         def project = Project.get(id)
         if (!project) {
@@ -244,7 +244,7 @@ class ProjectController {
         }
     }
 
-    @Authorized( clazz = Project, idParam = "id", permission="OWNER" )
+    //@Authorized( clazz = Project, idParam = "id", permission="OWNER" )
     def addBugDimension(String id) {
         def project = Project.get(id)
         if (!project) {
@@ -256,7 +256,7 @@ class ProjectController {
         }
     }
 
-    @Authorized( clazz = Project, idParam = "id", permission="OWNER" )
+    //@Authorized( clazz = Project, idParam = "id", permission="OWNER" )
     def addFeatureDimension(String id) {
         def project = Project.get(id)
         if (!project) {
@@ -268,7 +268,7 @@ class ProjectController {
         }
     }
 
-    @Authorized( clazz = Project, idParam = "id", permission="OWNER" )
+    //@Authorized( clazz = Project, idParam = "id", permission="OWNER" )
     def addReleaseDimension(String id) {
         def project = Project.get(id)
         if (!project) {
@@ -280,7 +280,7 @@ class ProjectController {
         }
     }
 
-    @Authorized( clazz = Project, idParam = "id", permission="OWNER" )
+    //@Authorized( clazz = Project, idParam = "id", permission="OWNER" )
     def addStatusDimension(String id) {
         def project = Project.get(id)
         if (!project) {
@@ -292,7 +292,7 @@ class ProjectController {
         }
     }
 
-    @Authorized( clazz = Project, idParam = "id", permission="OWNER" )
+    //@Authorized( clazz = Project, idParam = "id", permission="OWNER" )
     def addStrategyDimension(String id) {
         def project = Project.get(id)
         if (!project) {
@@ -307,26 +307,29 @@ class ProjectController {
 
     //~ project crud -------------------------------------------------------------------------------
 
-    @Authorized( clazz = Project, permission="OWNER" )
+    //@Authorized( clazz = Project, permission="OWNER" )
     def create() {
 
-        def nextSuffix = Project.withCriteria() {
-            ilike("name", "New Project%")
-            projections { property("name") }
-        }*.replace("New Project", "")*.trim().collect { suffix ->
-            try {
-                suffix.toInteger()
-            } catch (NumberFormatException nfex) {
-                0
-            }
-        }.max() + 1
+        def nextSuffix = 1
+        if (Project.count() > 0) {
+            nextSuffix = Project.withCriteria() {
+                ilike("name", "New Project%")
+                projections { property("name") }
+            }*.replace("New Project", "")*.trim().collect { suffix ->
+                try {
+                    suffix.toInteger()
+                } catch (NumberFormatException nfex) {
+                    0
+                }
+            }.max() + 1
+        }
 
         def project = new Project(name: "New Project ${nextSuffix}")
         render template: "create", model: [
             project: project
         ]
     }
-    @Authorized( clazz = Project, permission="OWNER" )
+    //@Authorized( clazz = Project, permission="OWNER" )
     def save(String name, Long estimateUnits, Boolean showEstimates) {
         def project = new Project(name: name, estimateUnits: estimateUnits, showEstimates: showEstimates)
         project.validate()
@@ -353,12 +356,12 @@ class ProjectController {
         }
     }
 
-    @Authorized( clazz = Project, idParam = "id", permission="OWNER" )
+    //@Authorized( clazz = Project, idParam = "id", permission="OWNER" )
     def edit(String id) {
         def project = Project.read(id)
         render template: "edit", model: [project: project]
     }
-    @Authorized( clazz = Project, idParam = "id", permission="OWNER" )
+    //@Authorized( clazz = Project, idParam = "id", permission="OWNER" )
     def update(String id) {
         def project = Project.get(id)
         if (!project) {
@@ -418,7 +421,7 @@ class ProjectController {
         }
     }
 
-    @Authorized( clazz = Project, idParam = "id", permission="OWNER" )
+    //@Authorized( clazz = Project, idParam = "id", permission="OWNER" )
     def delete() {
         def project = Project.get(params.id)
         if (project) {

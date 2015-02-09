@@ -17,60 +17,40 @@ class BootStrap {
 
     def mongoUtil
 
-    def initDev = {
-        def start = System.currentTimeMillis()
-        log.info "initDev..."
-
-        initCoreData()
-        initSecurity()
-        initDevUsers()
-        initDevData()
-        log.info "...database initialized."
-
-        def finish = System.currentTimeMillis()
-        log.debug "initDev() completed in ${(finish - start) / 1000} seconds"
-    }
-
-    def initTest = {
-        def start = System.currentTimeMillis()
-        log.info "initTest..."
-        mongoUtil.dropDatabase()
-        initCoreData()
-        initSecurity()
-        log.info "...database initialized."
-        def finish = System.currentTimeMillis()
-        log.debug "initTest() completed in ${(finish - start) / 1000} seconds"
-    }
-
-    def initProd = {
-        def start = System.currentTimeMillis()
-
-        log.info "initProd..."
-
-        // Don't re-load the data - it's already been done once!
-        initCoreData()
-        initSecurity()
-
-        def finish = System.currentTimeMillis()
-        log.debug "initProd() completed in ${(finish - start) / 1000} seconds"
-    }
-
     def init = { servletContext ->
-        if (!envMapping[GrailsUtil.environment]) {
-            return
-        } else {
+        def start = System.currentTimeMillis()
+        log.info "init ${GrailsUtil.environment} environment..."
+
+        // build a map from the grails environment to the closure
+        // that should be used to initialize that environment.
+        def envMapping = [
+            (GrailsApplication.ENV_DEVELOPMENT): {
+                initCoreData()
+                initSecurity()
+                initDevUsers()
+                initDevData()
+            },
+            (GrailsApplication.ENV_TEST): {
+                mongoUtil.dropDatabase()
+                initCoreData()
+                initSecurity()
+            },
+            (GrailsApplication.ENV_PRODUCTION): {
+                initCoreData()
+                initSecurity()
+            },
+        ]
+        if (envMapping[GrailsUtil.environment]) {
+            // if there is one, run the initialization closure for the environment...
             envMapping[GrailsUtil.environment]()
         }
-    }
+
+        def finish = System.currentTimeMillis()
+        log.debug "init ${GrailsUtil.environment} environment completed in ${(finish - start) / 1000} seconds"
+   }
 
     def destroy = {
     }
-
-    def envMapping = [
-        (GrailsApplication.ENV_TEST):initTest,
-        (GrailsApplication.ENV_DEVELOPMENT):initDev,
-        (GrailsApplication.ENV_PRODUCTION):initProd
-    ]
 
 
     //~ Data initializers --------------------------------------------------------------------------
@@ -97,8 +77,7 @@ class BootStrap {
                 user.enabled = true
                 user.save(flush: true, failOnError: true)
 
-                authorizationService.authorize(user.id, Project) // so they can create new projects
-
+                authorizationService.authorize(user.id, Project, "OWNER") // so they can create new projects
             }
         }
     }

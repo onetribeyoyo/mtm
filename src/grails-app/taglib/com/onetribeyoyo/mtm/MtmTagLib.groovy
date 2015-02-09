@@ -42,7 +42,7 @@ class MtmTagLib {
 
         def user = springSecurityService.currentUser
         if (user) {
-            renderTab((selectedTab == "user___"),    [ controller: "logout" ], "<em>${user} <small>(logout)</small></em>")
+            renderTab((selectedTab == "user___"),    [ controller: "logout" ], "<em><small>logout - ${user}</small></em>")
         }
 
         out << "</ul>\n"

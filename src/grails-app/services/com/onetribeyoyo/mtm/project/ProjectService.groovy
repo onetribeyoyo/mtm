@@ -7,6 +7,30 @@ class ProjectService {
     def dimensionService
     def storyService
 
+    String nextProjectName() {
+
+        def prefix = "New Project"
+        def number = 1
+
+        if (Project.count() > 0) {
+            number = Project.withCriteria() {
+                ilike("name", "${prefix}%")
+                projections { property("name") }
+            }*.replace(prefix, "")*.trim().collect { suffix ->
+                try {
+                    suffix.toInteger()
+                } catch (NumberFormatException nfex) {
+                    0
+                }
+            }.max()
+            if (number < 0) {
+                number = 0
+            }
+            number += 1
+        }
+        "${prefix} ${number}"
+    }
+
     void configureBasis(Project project) {
         log.debug "configureBasis(${project})"
         configureDimensionAndElements(project, DimensionData.RELEASE)
@@ -22,8 +46,11 @@ class ProjectService {
     }
 
     Dimension configureDimensionAndElements(Project project, Map params) {
+println 1
         Dimension dimension = configureDimension(project, params)
+println 2
         configureElements(dimension, params.elements)
+println 3
         return dimension
     }
 
@@ -36,23 +63,32 @@ class ProjectService {
      */
     Dimension configureDimension(Project project, Map params) {
         log.trace "configureDimension(${project}, ${params})"
-
+println 10
         Dimension dimension = project.dimensionFor(params.name)
         if (!dimension) {
+println 11
             dimension = new Dimension(name: params.name)
             project.addToDimensions(dimension)
+            dimension.save(failOnError:true)
         }
 
+println 12
         dimension.colour = params.colour
+println 13
 
         if (params.layoutStyle) dimension.layoutStyle = params.layoutStyle
+println 14
 
         if (params.primaryXAxis && !project.primaryXAxis) project.primaryXAxis = dimension
+println 15
         if (params.primaryYAxis && !project.primaryYAxis) project.primaryYAxis = dimension
+println 16
 
         if (params.colourDimension && !project.colourDimension) project.colourDimension = dimension
+println 17
 
         if (params.highlightDimension && !project.highlightDimension) project.highlightDimension = dimension
+println 18
 
         return dimension
     }

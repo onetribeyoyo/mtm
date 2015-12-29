@@ -309,22 +309,8 @@ class ProjectController {
 
     //@Authorized( clazz = Project, permission="OWNER" )
     def create() {
-
-        def nextSuffix = 1
-        if (Project.count() > 0) {
-            nextSuffix = Project.withCriteria() {
-                ilike("name", "New Project%")
-                projections { property("name") }
-            }*.replace("New Project", "")*.trim().collect { suffix ->
-                try {
-                    suffix.toInteger()
-                } catch (NumberFormatException nfex) {
-                    0
-                }
-            }.max() + 1
-        }
-
-        def project = new Project(name: "New Project ${nextSuffix}")
+        def name = projectService.nextProjectName()
+        def project = new Project(name: name)
         render template: "create", model: [
             project: project
         ]

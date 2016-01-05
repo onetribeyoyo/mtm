@@ -34,12 +34,12 @@
    padding: 0 20px;
 }
 .tabrow a {
-   color: #555;
+   color: DarkOrange;
    text-decoration: none;
 }
 .tabrow li.selected {
    background: #FFF;
-   color: #333;
+   color: chocolate;
    z-index: 2;
    border-bottom-color: #FFF;
 }

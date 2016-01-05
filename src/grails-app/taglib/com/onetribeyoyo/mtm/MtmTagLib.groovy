@@ -215,10 +215,6 @@ class MtmTagLib {
         Dimension xAxis = attrs.xAxis
         Dimension yAxis = attrs.yAxis
 
-        out << "<div class='section float-left non-printing'>\n"
-        out << "  <h2><img src='${fam.icon(name: 'map')}' title='map' /> All Maps</h2>\n"
-        out << "  <hr />\n"
-        //out << " x/y = ${xAxis} / ${yAxis}"
         out << "  <ul>\n"
         // only list the pair of dimensions once: if x/y is listed, no need to list y/x
         def done = []
@@ -238,10 +234,6 @@ class MtmTagLib {
             }
         }
         out << "  </ul>\n"
-        out << "  <hr />\n"
-        out << "  <p class='narrow hint'>Note: Pairs of dimensions are only listed once (if x/y is listed, no need to list y/x.)  You can always flip axes"
-        out << " <img src='${fam.icon(name: 'arrow_refresh')}' title='flip axes' /> on the map grid to find what you need.</p>\n"
-        out << "</div>\n"
     }
 
 }

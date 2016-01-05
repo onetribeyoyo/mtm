@@ -12,7 +12,7 @@ h1, h2, h3, h4 {
    padding: 0;
 }
 h1 {
-   color: #eeeeee;
+   color: DarkOrange;
 }
 
 table {
@@ -37,7 +37,7 @@ table.list tbody .actions {
 }
 
 hr {
-   background-color: orange;
+   background-color: DarkOrange;
    border: none;
    height: 1px;
 }
@@ -57,7 +57,7 @@ hr {
    padding: 1em;
 }
 .section hr {
-   background-color: orange;
+   background-color: DarkOrange;
 }
 
 

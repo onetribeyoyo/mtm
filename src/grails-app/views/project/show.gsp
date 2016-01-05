@@ -50,7 +50,19 @@
   </p>
 </div>
 
-<mtm:mapList project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
+<div class="section float-left non-printing">
+  <h2>
+    <img src="${fam.icon(name: 'map')}" title="map" />
+    Story Map Layouts
+  </h2>
+  <hr />
+  <mtm:mapList project="${project}" xAxis="${xAxis}" yAxis="${yAxis}" />
+  <hr />
+  <p class="narrow hint">
+    Note: Pairs of dimensions are only listed once (if x/y is listed, no need to list y/x.)  You can always flip axes
+    <img src="${fam.icon(name: 'arrow_refresh')}" title="flip axes" /> on the map grid to find what you need.
+  </p>
+</div>
 
 <hr class="clear" />
 

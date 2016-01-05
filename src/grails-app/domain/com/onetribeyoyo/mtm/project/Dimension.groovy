@@ -37,6 +37,7 @@ class Dimension implements Comparable {
     }
 
     Boolean isHighlightDimension() {
+        // TODO: BUG: this is not working!
         this.project.highlightDimension == this
     }
 

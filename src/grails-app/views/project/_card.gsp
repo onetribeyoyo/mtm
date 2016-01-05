@@ -27,16 +27,7 @@
       </g:if>
 
       <g:if test="${story.project.showExtraDimensions}">
-        <div class="vector">
-          <g:each var="dimension" in="${story.project.dimensions}">
-            <g:if test="${!(dimension in [xAxis, yAxis]) && !dimension.isColourDimension() && !dimension.isHighlightDimension()}">
-              <g:set var="point" value="${story.valueFor(dimension)}" />
-              <g:if test="${point}">
-                <span class="tag">${point}</span>
-              </g:if>
-            </g:if>
-          </g:each>
-        </div>
+        <g:render template="/project/cardDimensions" />
       </g:if>
     </div>
   </div>

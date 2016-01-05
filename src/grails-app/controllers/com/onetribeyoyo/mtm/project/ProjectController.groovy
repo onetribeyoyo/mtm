@@ -378,13 +378,13 @@ class ProjectController {
 
             if (params.colour) {
                 project.colourDimension = project.dimensionFor(params.colour)
-            } else {
+            } else if (project.colourDimension) {
                 project.colourDimension = null
             }
 
             if (params.highlight) {
                 project.highlightDimension = project.dimensionFor(params.highlight)
-            } else {
+            } else if (project.highlightDimension) {
                 project.highlightDimension = null
             }
 

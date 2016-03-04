@@ -15,6 +15,7 @@ class DimensionService {
             log.trace "updateSortOrder(..) ${dimension}:${element} -- from ${element.order} to ${newOrder}"
             element.order = newOrder
         }
+        dimension.save()
     }
 
 }

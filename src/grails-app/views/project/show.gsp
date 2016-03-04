@@ -48,6 +48,15 @@
     <simplemodal:link controller="import" action="storyFile" id="${project.id}" title="Import Stories">Import</simplemodal:link>
     story lists in CSV format.
   </p>
+  <g:if test="${project.stories}">
+    <hr class="non-printing" />
+    <p class="narrow hint non-printing">
+      <simplemodal:confirm controller="project" action="purgeStories" id="${project.id}"
+                           confirmLabel="Purge" confirmClass="delete"
+                           message="Are you sure you want to purge all stories?  This action cannot be reversed."
+                           title="Purge All Stories">Purge all ${project.stories.size()} stories</simplemodal:confirm>
+    </p>
+  </g:if>
 </div>
 
 <div class="section float-left non-printing">

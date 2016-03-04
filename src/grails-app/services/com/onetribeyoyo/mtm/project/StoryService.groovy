@@ -9,7 +9,6 @@ class StoryService {
         assert yAxis
         slide(story, xAxis, x)
         slide(story, yAxis, y)
-        story.save()
     }
 
     void slide(Story story, Dimension axis, Element to) {
@@ -24,6 +23,7 @@ class StoryService {
         } else {
             log.debug "slide(..) story:${story.id} - no change"
         }
+        story.save()
     }
 
     void setVector(Story story, params) {

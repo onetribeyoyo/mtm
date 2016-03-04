@@ -427,4 +427,10 @@ class ProjectController {
         }
     }
 
+    //@Authorized( clazz = Project, idParam = "id", permission="OWNER" )
+    def purgeStories(Project project) {
+        projectService.purgeStories(project)
+        redirect(action: "show", id: project.id)
+    }
+
 }

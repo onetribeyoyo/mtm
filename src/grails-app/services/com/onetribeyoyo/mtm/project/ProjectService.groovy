@@ -286,4 +286,13 @@ class ProjectService {
         return project
     }
 
+    void purgeStories(Project project) {
+        def stories = project.stories.collect { Story story -> story }
+        stories.each { Story story ->
+            project.removeFromStories(story)
+            story.delete()
+            project.save()
+        }
+    }
+
 }

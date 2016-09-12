@@ -52,7 +52,7 @@ hr {
 .section {
    background: #eeeeee;
    border: 1px solid #bbb;
-   border-radius: 1em;
+   border-radius: 0.5em;
    margin: 0.25em 0.25em 0.75em 0.25em;
    padding: 1em;
 }

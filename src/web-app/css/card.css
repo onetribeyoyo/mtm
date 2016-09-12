@@ -2,13 +2,13 @@
 
 .card, .selected-card {
    background: #ebebeb;
-   border-radius: 5px;
+   border-radius: 1px;
    cursor: move;
-   margin: 0.25em;
+   margin: 0.05em;
    /* float: left; */
 }
 .card {
-   border: 1px solid #777;
+   border: 1px outset #777;
 }
 .selected-card {
    background-image: url("../images/card-texture.png");
@@ -84,7 +84,7 @@
 
    border-radius: 3px;
    /* border: 1px inset #eee; */
-   border: 1px solid #eee;
+   border: 1px inset #eee;
 
    background-color: AntiqueWhite;
    color: #555;

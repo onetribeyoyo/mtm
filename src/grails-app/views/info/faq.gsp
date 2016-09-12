@@ -107,8 +107,8 @@
 
   <h2> Why is it called &ldquo;MTM&rdquo;? </h2>
 
-  <p class="article">MTM &equiv; Magic Task Machine.  It's called the magic task machine 'cause I like the way it sounds
-  and it reminds me of the <a href="http://www.musanim.com/">music animation machine</a>.</p>
+  <p class="article">MTM &equiv; Magic Task Machine.  It's called the magic task machine 'cause I like the way it
+  sounds.</p>
 
 
   <h2> How did this all start? </h2>
@@ -129,7 +129,7 @@
 
   <h2> Copyright and Licensing </h2>
 
-  <p class="article"> Copyright 2003-2014 Andrew R. Miller. </p>
+  <p class="article"> Copyright 2003-2016 Andrew R. Miller. </p>
 
   <p class="article">MTM was open sourced in 2013.</p>
 
@@ -137,35 +137,7 @@
   <a href="http://www.gnu.org/licenses/gpl.html">http://www.gnu.org/licenses/gpl.html</a>.</p>
 
 
-  <h2> Customization </h2>
-
-  <p class="article">mille meae Siculis errant in montibus agnae; lac mihi non aestate novum, non frigore defit; canto
-  quae solitus, si quando armenta vocabat, Amphion Dircaeus in Actaeo Aracimtho. Nec sum adeo informis: nuper me in
-  litore vidi, cum placidum ventis staret mare; non ego Daphnim iudice te metuam, si numquam fallit imago.</p>
-
-  <p class="article">O tantum libeat mecum tibi sordida rura atque humilis habitare casas, et figere cervos, haedorumque
-  gregem viridi compellere hibisco! Mecum una in silvis imitabere Pana canendo. Pan primus calamos cera coniungere
-  pluris instituit; Pan curat ovis oviumque magistros.</p>
-
-  <p class="article">Nec te paeniteat calamo trivisse labellum: haec eadem ut sciret, quid non faciebat Amyntas? est
-  mihi disparibus septem compacta cicutis fistula, Damoetas dono mihi quam dedit olim, et dixit moriens: `Te nunc habet
-  ista secundum.' dixit Damoetas, invidit stultus Amyntas.</p>
-
-  <p class="article">Praeterea duo, nec tuta mihi valle reperti, capreoli, sparsis etiam nunc pellibus albo, bina die
-  siccant ovis ubera; quos tibi servo: iam pridem a me illos abducere Thestylis orat; et faciet, quoniam sordent tibi
-  munera nostra. Huc ades, O formose puer: tibi lilia plenis ecce ferunt Nymphae calathis; tibi candida Nais, pallelltis
-  violas et summa papavera carpens, narcissum et florem iungit bene olentis anethi; tum casia atque aliis intexens
-  suavibus herbis, mollia luteola pingit vaccinia calta.</p>
-
-  <p class="article">Ipse ego cana legam tenera lanugine mala, castaneasque nuces, mea quas Amaryllis amabat; addam
-  cerea pruna: honos erit huic quoque pomo; et vos, O lauri, carpam, et te, proxima myrte, sic positae quoniam suavis
-  miscetis odores. </p>
-
-
-
-
-
-
+<!--
   <p class="article">In other words, story maps simplify sticking to the S.M.A.R.T. principle...</p>
 
   <ul>
@@ -175,9 +147,7 @@
     <li> <strong>R</strong>ealistic, and
     <li> <strong>T</strong>ime phased.
   </ul>
-
-
-
+-->
 
 </div>
 

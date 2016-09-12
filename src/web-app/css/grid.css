@@ -46,7 +46,7 @@
 .grid-cell, .grid-column-head, .grid-column-head {
 }
 .grid-column-head {
-   border: 3px double lightgray;
+   border: 1px double lightgray;
    min-width: 5em;
 }
 .grid-blank + .grid-column-head { /* the first column heading */
@@ -56,7 +56,7 @@
    padding: 1em 0.25em;
 }
 .grid-cell {
-   border: 3px double lightgray;
+   border: 1px double lightgray;
 }
 .grid-row-head + .grid-cell { /* the first cell in a row */
 }

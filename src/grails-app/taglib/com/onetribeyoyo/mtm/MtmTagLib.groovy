@@ -84,7 +84,7 @@ class MtmTagLib {
         out << "</li>\n"
 
         // the column headings...
-        out << "    <li class='grid-column-head ${xAxis?.colour}'>???</li>\n" // column for cards where (x == null)
+        out << "    <li class='grid-column-head ${xAxis?.colour}'>(${xAxis}?)</li>\n" // column for cards where (x == null)
         xAxis?.elements.each { x -> // one column for each element on the x axis
             out << "    <li class='grid-column-head ${x.colour ?: xAxis?.colour}'>${x.value.encodeAsHTML()}</li>\n"
         }
@@ -139,7 +139,7 @@ class MtmTagLib {
         // one more row for cards where (y == null)...
         out << "  <ul class='grid-row'>\n"
         def rowStyle = ((++lastRowNumber % 2) == 0) ? "odd" : "even\n"
-        out << "    <li class='grid-row-head ${yAxis?.colour} ${rowStyle}'>???\n"
+        out << "    <li class='grid-row-head ${yAxis?.colour} ${rowStyle}'>(${yAxis}?)\n"
         if (project.showEstimates && storymap[null].estimate) {
             out << "      <div class='estimate'>"
             out << storymap[null].estimate

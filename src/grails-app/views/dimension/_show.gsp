@@ -1,13 +1,13 @@
-<div class="section">
+s<div class="section">
   <div>
     <div class="card-actions float-right non-printing">
       <simplemodal:link controller="dimension" action="edit" id="${dimension.id}"
-            title="Edit ${dimension}" width="narrow"><img src="${fam.icon(name: 'page_edit')}" title="edit dimension" /></simplemodal:link>
+            title="Edit '${dimension}' dimension" width="narrow"><img src="${fam.icon(name: 'page_edit')}" title="edit" /></simplemodal:link>
       <g:if test="${!dimension.isPrimaryXAxis() && !dimension.isPrimaryYAxis() && (dimension.project.dimensions.size() != 2)}">
         <simplemodal:confirm controller="dimension" action="delete" id="${dimension.id}"
               confirmLabel="Delete" confirmClass="delete"
               message="Are you sure you want to delete the &quot;&lt;em&gt;${dimension.name}&lt;/em&gt;&quot; dimension?  This action cannot be reversed."
-              title="Delete '${dimension.name}'"><img src="${fam.icon(name: 'delete')}" title="delete dimension" /></simplemodal:confirm>
+              title="Delete '${dimension.name}' dimension"><img src="${fam.icon(name: 'delete')}" title="delete" /></simplemodal:confirm>
       </g:if>
     </div>
     <h2>&quot;${dimension.name.capitalize()}&quot;</h2>
